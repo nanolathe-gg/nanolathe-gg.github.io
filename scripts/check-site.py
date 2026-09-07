@@ -5,7 +5,7 @@ from urllib.parse import unquote, urlsplit
 import sys
 
 root = Path(__file__).resolve().parents[1] / "public"
-required = ["index.html", "get-started/index.html", "docs/index.html", "features/index.html", "resources/index.html", "404.html"]
+required = ["index.html", "get-started/index.html", "docs/index.html", "features/index.html", "resources/index.html", "brand/index.html", "404.html"]
 errors = []
 
 class Page(HTMLParser):

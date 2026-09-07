@@ -3,3 +3,9 @@
 /.hugo_build.lock
 /.cache/
 /.DS_Store
+/static/brand/nanolathe-brand-kit.zip
+/static/brand/tokens.css
+/static/brand/tokens.json
+/static/brand/GUIDE.md
+/static/brand/ARTWORK_PROMPTS.md
+/static/brand/PAGE_PATTERNS.md

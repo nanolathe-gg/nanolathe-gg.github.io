@@ -1,0 +1,9 @@
+/* Shared with the downloadable brand kit through data/brand.json. */
+:root {
+  {{ range hugo.Data.brand.colors }}--{{ .token }}: {{ .hex }};
+  {{ end }}
+  --display: {{ hugo.Data.brand.fonts.display.stack | safeCSS }};
+  --body: {{ hugo.Data.brand.fonts.body.stack | safeCSS }};
+  --mono: {{ hugo.Data.brand.fonts.mono.stack | safeCSS }};
+  color-scheme: dark;
+}

@@ -5,24 +5,6 @@
   font-weight:600;
   font-display:swap
 }
-:root{
-  --bg:#121516;
-  --surface:#1b2021;
-  --surface-raised:#22292a;
-  --line:#343d3d;
-  --text:#edf0e7;
-  --muted:#a8b09e;
-  --dim:#78836e;
-  --green:#b6ef63;
-  --green-dark:#27381b;
-  --amber:#e7b66f;
-  --amber-dark:#33281c;
-  --amber-line:#715637;
-  --display:Chakra,'Arial Narrow',Arial,sans-serif;
-  --body:Arial,Helvetica,sans-serif;
-  --mono:'SFMono-Regular',Consolas,'Liberation Mono',monospace;
-  color-scheme:dark
-}
 *{
   box-sizing:border-box
 }

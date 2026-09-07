@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ if .IsHome }}{{ .Title }}{{ else }}{{ .Title }} — Nanolathe{{ end }}</title>
   <meta name="description" content="{{ .Description | default site.Params.description }}">
-  <meta name="theme-color" content="#10130f">
+  <meta name="theme-color" content="#121516">
   <link rel="canonical" href="{{ .Permalink }}">
   <meta property="og:title" content="{{ .Title }}">
   <meta property="og:description" content="{{ .Description | default site.Params.description }}">
@@ -16,7 +16,8 @@
   <link rel="icon" type="image/png" sizes="32x32" href="{{ "brand/favicon-32.png" | relURL }}">
   <link rel="apple-touch-icon" href="{{ "brand/apple-touch-icon.png" | relURL }}">
   <link rel="preload" href="{{ "fonts/chakra-petch-semibold.ttf" | relURL }}" as="font" type="font/ttf" crossorigin>
-  {{ $css := resources.Get "css/site.css" | minify | fingerprint }}
+  {{ $tokens := resources.Get "css/tokens.css" | resources.ExecuteAsTemplate "css/tokens.css" . }}
+  {{ $css := slice $tokens (resources.Get "css/site.css") (resources.Get "css/brand.css") | resources.Concat "css/site.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
   {{ $js := resources.Get "js/site.js" | minify | fingerprint }}
   <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
@@ -38,7 +39,7 @@
   </header>
   <main id="main">{{ block "main" . }}{{ end }}</main>
   <footer class="site-footer wrap">
-    <div class="footer-top"><a class="brand" href="{{ "/" | relURL }}">{{ partial "mark.html" . }}<span>nanolathe</span></a><p>Built with curiosity. Shared in the open.</p><a href="{{ site.Params.websiteRepo }}">Website source <span aria-hidden="true">↗</span></a></div>
+    <div class="footer-top"><a class="brand" href="{{ "/" | relURL }}">{{ partial "mark.html" . }}<span>nanolathe</span></a><p>Built with curiosity. Shared in the open.</p><div class="footer-links"><a href="{{ "brand/" | relURL }}">Brand kit</a><a href="{{ site.Params.websiteRepo }}">Website source <span aria-hidden="true">↗</span></a></div></div>
     <div class="footer-bottom"><span>An independent, MIT-licensed engine project.</span><span>Total Annihilation belongs to its respective owners.<br>Nanolathe is not affiliated with or endorsed by them.</span></div>
   </footer>
 </body>

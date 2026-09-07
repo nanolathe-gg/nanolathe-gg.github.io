@@ -1,0 +1,175 @@
+{
+  "name": "Nanolathe",
+  "version": "1.0",
+  "colors": [
+    {
+      "token": "bg",
+      "name": "Charcoal",
+      "hex": "#121516",
+      "role": "Page backgrounds",
+      "featured": true
+    },
+    {
+      "token": "surface",
+      "name": "Steel",
+      "hex": "#1b2021",
+      "role": "Raised sections",
+      "featured": true
+    },
+    {
+      "token": "surface-raised",
+      "name": "Raised steel",
+      "hex": "#22292a",
+      "role": "Inset panels",
+      "featured": false
+    },
+    {
+      "token": "line",
+      "name": "Steel edge",
+      "hex": "#343d3d",
+      "role": "Neutral borders",
+      "featured": false
+    },
+    {
+      "token": "text",
+      "name": "Ivory",
+      "hex": "#edf0e7",
+      "role": "Headings and body text",
+      "featured": true
+    },
+    {
+      "token": "muted",
+      "name": "Sage gray",
+      "hex": "#a8b09e",
+      "role": "Secondary copy",
+      "featured": false
+    },
+    {
+      "token": "dim",
+      "name": "Muted gray",
+      "hex": "#78836e",
+      "role": "Nonessential metadata",
+      "featured": false
+    },
+    {
+      "token": "green",
+      "name": "Nano green",
+      "hex": "#b6ef63",
+      "role": "Identity, construction, primary actions",
+      "featured": true
+    },
+    {
+      "token": "green-dark",
+      "name": "Nano shadow",
+      "hex": "#27381b",
+      "role": "Green panels",
+      "featured": false
+    },
+    {
+      "token": "amber",
+      "name": "Foundry amber",
+      "hex": "#e7b66f",
+      "role": "Section labels, secondary actions, feature accents",
+      "featured": true
+    },
+    {
+      "token": "amber-dark",
+      "name": "Amber shadow",
+      "hex": "#33281c",
+      "role": "Warm panels",
+      "featured": false
+    },
+    {
+      "token": "amber-line",
+      "name": "Amber edge",
+      "hex": "#715637",
+      "role": "Warm borders",
+      "featured": false
+    }
+  ],
+  "fonts": {
+    "display": {
+      "name": "Chakra Petch SemiBold",
+      "stack": "Chakra,'Arial Narrow',Arial,sans-serif",
+      "weight": 600,
+      "use": "Wordmark, headings, prominent numbers",
+      "file": "fonts/chakra-petch-semibold.ttf"
+    },
+    "body": {
+      "name": "Arial / Helvetica",
+      "stack": "Arial,Helvetica,sans-serif",
+      "weight": "400 / 600",
+      "use": "Paragraphs, navigation, controls"
+    },
+    "mono": {
+      "name": "System monospace",
+      "stack": "'SFMono-Regular',Consolas,'Liberation Mono',monospace",
+      "weight": 400,
+      "use": "Code, labels, technical metadata"
+    }
+  },
+  "assets": [
+    {
+      "name": "Primary wordmark",
+      "file": "wordmark",
+      "description": "Green and ivory. Use on dark backgrounds."
+    },
+    {
+      "name": "Light-background wordmark",
+      "file": "wordmark-light",
+      "description": "Dark lettering and a deeper green for light surfaces."
+    },
+    {
+      "name": "White wordmark",
+      "file": "wordmark-white",
+      "description": "One-color applications on a dark surface."
+    },
+    {
+      "name": "Dark wordmark",
+      "file": "wordmark-dark",
+      "description": "One-color applications on a light surface."
+    },
+    {
+      "name": "Nano green mark",
+      "file": "mark",
+      "description": "The standalone N for compact spaces."
+    },
+    {
+      "name": "White mark",
+      "file": "mark-white",
+      "description": "A single-color version for dark backgrounds."
+    },
+    {
+      "name": "Dark mark",
+      "file": "mark-dark",
+      "description": "A single-color version for light backgrounds."
+    },
+    {
+      "name": "Construction outline",
+      "file": "mark-outline",
+      "description": "A secondary outline treatment. Use at larger sizes."
+    },
+    {
+      "name": "GitHub avatar",
+      "file": "avatar",
+      "description": "A 512 \u00d7 512 square with generous clear space."
+    },
+    {
+      "name": "Light avatar",
+      "file": "avatar-light",
+      "description": "The square identity on an ivory background."
+    }
+  ],
+  "icons": [
+    "arrow-right",
+    "external-link",
+    "download",
+    "code",
+    "layers",
+    "book",
+    "archive",
+    "pause",
+    "play",
+    "copy"
+  ]
+}

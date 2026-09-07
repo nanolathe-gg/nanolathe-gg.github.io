@@ -127,7 +127,7 @@ Example command panel for a website build:
     From the website checkout
     <button class="copy-button" data-copy="website-build">Copy command</button>
   </div>
-  <pre><code id="website-build">hugo --gc --minify --panicOnWarning</code></pre>
+  <pre><code id="website-build">make build</code></pre>
 </div>
 ```
 
@@ -216,13 +216,12 @@ tasks remain reachable when enhancing the layout.
 From the website checkout, use the version of Hugo named in `README.md` and run:
 
 ```sh
-hugo --gc --minify --panicOnWarning
-python3 scripts/check-site.py
-hugo server
+make check
+make serve
 ```
 
-The first two commands build and validate pages, links, anchors, and assets.
-The final command serves the site for visual inspection. Do not commit generated
+The first command packages the brand kit, builds the site, and validates pages,
+links, anchors, and assets. The second serves the site for visual inspection. Do not commit generated
 `public/` output. A successful build does not establish that a page looks right.
 
 | Viewport width | Inspect |

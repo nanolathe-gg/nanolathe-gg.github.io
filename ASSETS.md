@@ -2,8 +2,13 @@
 
 ## Brand geometry
 
-The segmented N, assembly squares, avatar frame, and layout geometry were authored
+The segmented N, assembly squares, avatar frame, ten utility icons, and layout geometry were authored
 for Nanolathe. They are distributed under this repository's MIT license.
+
+Palette and font metadata live in `data/brand.json`. The reusable design language,
+artwork prompts, and page patterns live in `brand/`. SVG source geometry is in
+`scripts/brand.py`; `scripts/export-brand.cjs` exports the raster variants.
+The same assets and guides are available in the site's downloadable brand kit.
 
 The wordmark is set in Chakra Petch SemiBold and exported to outlined SVG paths.
 The source font is from the [Google Fonts Chakra Petch directory](https://github.com/google/fonts/tree/main/ofl/chakrapetch).
