@@ -9,6 +9,7 @@
 .brand-section-nav{display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;padding-block:22px;border-block:1px solid var(--line);font-size:.875rem;color:var(--amber)}
 .brand-section-nav a:hover{text-decoration:underline;text-underline-offset:5px}
 .brand-section{padding-top:65px}
+.brand-banner{display:block;width:100%;height:auto;border:1px solid var(--line)}
 .brand-section+.brand-section{margin-top:60px;border-top:1px solid var(--line)}
 .brand-section>.section-heading{align-items:flex-start}
 .brand-section>.section-heading p{max-width:430px;font-size:.95rem;margin-bottom:0}

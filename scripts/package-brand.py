@@ -9,7 +9,7 @@ root = Path(__file__).resolve().parents[1]
 output = root / 'static/brand'
 brand = json.loads((root / 'data/brand.json').read_text())
 colors = {color['token']: color['hex'] for color in brand['colors']}
-guides = ['GUIDE.md', 'ARTWORK_PROMPTS.md', 'PAGE_PATTERNS.md']
+guides = ['GUIDE.md', 'ARTWORK_PROMPTS.md', 'PAGE_PATTERNS.md', 'README_HEADER.md']
 for name in guides:
     shutil.copyfile(root / 'brand' / name, output / name)
 (output / 'tokens.json').write_text(json.dumps(brand, indent=2) + '\n')
@@ -21,11 +21,12 @@ files = [root/'ASSETS.md', root/'LICENSE', root/'data/brand.json']
 files += list((root/'assets/css').glob('*.css'))
 files += list((root/'assets/js').glob('*.js'))
 files += list((root/'layouts').rglob('*.html'))
-files += [root/'scripts/brand.py', root/'scripts/export-brand.cjs']
+files += [root/'scripts/brand.py', root/'scripts/export-brand.cjs', root/'scripts/readme-banner.py']
 files += [root/'brand'/name for name in guides]
 files += list((root/'static/fonts').glob('*'))
-files += [root/'static/images/construction.webp']
-files += [p for p in output.rglob('*') if p.is_file() and p.suffix in ('.svg','.png','.ico','.css','.json')]
+files += [root/'static/images/construction.webp', root/'static/images/readme-construction.webp']
+files += list((root/'brand/sources').glob('*.png'))
+files += [p for p in output.rglob('*') if p.is_file() and p.suffix in ('.svg','.png','.webp','.ico','.css','.json')]
 
 cards = []
 for asset in brand['assets']:
@@ -38,6 +39,7 @@ catalog = f'''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="v
 <style>@font-face{{font-family:Chakra;src:url(static/fonts/chakra-petch-semibold.ttf);font-weight:600}}*{{box-sizing:border-box}}body{{margin:0 auto;padding:40px 24px;max-width:1100px;background:{colors['bg']};color:{colors['text']};font:16px/1.6 Arial,sans-serif}}h1,h2{{font-family:Chakra,Arial,sans-serif;font-weight:600;line-height:1.2}}h1{{font-size:44px}}a{{color:{colors['amber']}}}p{{color:{colors['muted']}}}.grid{{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}}article{{border:1px solid {colors['line']};padding:20px}}article h2{{font-size:22px}}.preview{{height:140px;display:flex;align-items:center;justify-content:center;padding:18px}}.preview img{{max-width:100%;max-height:120px}}.light{{background:#f1f0e8}}ul{{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}}li span{{display:block;height:50px;margin-bottom:12px;border:1px solid {colors['line']}}}code{{color:{colors['green']}}}.links svg{{vertical-align:middle;margin-right:6px}}.links a{{display:inline-block;margin:8px 15px 8px 0}}</style>
 <h1>Nanolathe brand kit</h1><p>Version {brand['version']}. Everything here works offline. Open an SVG for scalable artwork, or use a PNG where vectors are not supported. The wordmarks have outlined lettering.</p>
 <div class="links"><a href="brand/GUIDE.md">Design guide</a><a href="brand/ARTWORK_PROMPTS.md">Artwork prompts</a><a href="brand/PAGE_PATTERNS.md">Page patterns</a><a href="static/brand/tokens.css">CSS tokens</a><a href="static/brand/tokens.json">JSON tokens</a></div>
+<h2>README header</h2><img src="static/brand/readme-header.png" alt="Nanolathe wordmark and original reactor construction illustration" style="width:100%;height:auto"><p><a href="static/brand/readme-header.png">PNG</a> · <a href="static/brand/readme-header.webp">WebP</a> · <a href="static/brand/readme-header.svg">Editable SVG</a> · <a href="brand/README_HEADER.md">README snippet and source details</a></p>
 <h2>Logo assets</h2><div class="grid">{''.join(cards)}</div><h2>Colors</h2><ul>{swatches}</ul>
 <h2>Typography</h2><p><a href="static/fonts/chakra-petch-semibold.ttf">Chakra Petch SemiBold</a> for headings and wordmarks. Arial / Helvetica for body copy; system monospace for code. <a href="static/fonts/OFL.txt">Bundled font license</a>.</p>
 <h2>Icons</h2><div class="links">{icon_links}</div><h2>Reference artwork</h2><p><a href="static/images/construction.webp">Construction illustration</a> · <a href="ASSETS.md">Provenance and original prompt</a></p><h2>Favicons and profiles</h2><div class="links"><a href="static/brand/favicon.ico">ICO</a><a href="static/brand/favicon.svg">SVG favicon</a><a href="static/brand/apple-touch-icon.png">Apple touch icon</a><a href="static/brand/avatar-1024.png">1024 px avatar</a></div>
@@ -49,9 +51,11 @@ Open START-HERE.html in your browser for the offline asset catalog.
 - brand/GUIDE.md: colors, fonts, logo usage, layout, motion, and voice.
 - brand/ARTWORK_PROMPTS.md: reusable style and scene prompts.
 - brand/PAGE_PATTERNS.md: Hugo layouts and component examples.
+- brand/README_HEADER.md: README banner, embedding snippet, source, and prompt.
 - static/brand/: SVG and PNG logos, icons, profile images, favicons, CSS/JSON tokens.
 - static/fonts/: Chakra Petch SemiBold and the SIL Open Font License.
 - static/images/construction.webp: original concept-art reference.
+- brand/sources/readme-construction.png: original README illustration master.
 - ASSETS.md: artwork provenance and the original generation prompt.
 - assets/, layouts/, scripts/: editable source examples referenced by the guides.
 

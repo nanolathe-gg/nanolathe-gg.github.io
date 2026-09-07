@@ -27,6 +27,19 @@ Prompt:
 
 > Use case: stylized-concept. Asset type: wide landscape editorial hero image for an open-source real-time strategy engine website, 1536x1024 or larger. Primary request: Original conceptual artwork of a large dark steel robotic construction gantry on a rugged charcoal basalt planetary surface, assembling a compact angular tracked combat machine from a pale green luminous lattice. Scene/backdrop: Dusty rocky basalt ground fading into a moody near-black background. Far left is dark open smoky terrain with generous clean negative space for website copy. Edge areas softly disappear into black. Subject: Dramatic angular industrial gantry, with an arm directing tiny crisp square green nano particles into the unfinished tracked machine. Restrained square particles in seven shades of green; no rounded sparks. Fresh original machine silhouettes and original scene. Style/medium: Elevated isometric-like three-quarter view, evocative of late-1990s pre-rendered real-time strategy art, tactile rendered game aesthetic, highly legible geometry with intricate miniature detail. Sophisticated technical open-source meets vintage RTS, not glossy blockbuster concept art. Composition/framing: Wide landscape. Main machinery occupies the right half and center; keep the left third open and dark. All machinery and the construction process clearly visible in a cohesive scene. Lighting/mood: Restrained lime-green construction light as the sole saturated hue, subtle directional light to clarify angular massing. Color palette: Weathered dark olive and gray metal, charcoal ground, small ivory identification stripes, pale green luminous construction lattice. Materials/textures: Tactile weathered steel, rugged dusty rocks, intricate miniature machine details. Text: None. Constraints: This is original conceptual art, not a game screenshot. No existing Total Annihilation or Cavedog models, logos, or copyrighted artwork. No text, letters, watermark, logos, orange glow, planets in sky, human figures, modern neon sci-fi city, or rounded sparks.
 
+## README illustration and banner
+
+`brand/sources/readme-construction.png` is a new 2048 × 768 original fabrication
+scene generated with the built-in image generation tool on 2026-09-07. No retail
+image inputs were supplied. It depicts a concept reactor core and fabrication
+cradle; it is not an engine screenshot or evidence of an implemented feature.
+
+`static/brand/readme-header.svg` combines that image layer with the existing
+outlined wordmark and outlined Chakra Petch lettering. PNG and WebP exports
+are provided for embedding. The original master, composition script, and
+exports are included in the downloadable kit. The complete prompt and usage
+instructions are in [brand/README_HEADER.md](brand/README_HEADER.md).
+
 ## Technical content
 
 Engine commands and status were checked against `cmd/nanolathe/flags.go`,

@@ -71,6 +71,8 @@ Wordmark PNGs are 1000 px wide; avatars are 512 px, with a 1024 px dark export.
 - [Artwork prompts](brand/ARTWORK_PROMPTS.md): copyable style and scene briefs.
 - [Page patterns](brand/PAGE_PATTERNS.md): Hugo components and layout examples.
 - [Asset provenance](ASSETS.md): authorship, font license, and original hero prompt.
+- [README header](brand/README_HEADER.md): new illustration with the exact
+  wordmark, ready-to-paste Markdown, and editable source.
 
 For a new design, give a designer or agent the kit and this brief:
 
@@ -89,6 +91,7 @@ export colors, the optional authoring tools need FontTools and Sharp:
 python3 -m venv /tmp/nanolathe-brand-tools
 /tmp/nanolathe-brand-tools/bin/pip install fonttools
 /tmp/nanolathe-brand-tools/bin/python scripts/brand.py
+/tmp/nanolathe-brand-tools/bin/python scripts/readme-banner.py
 npm install --prefix /tmp/nanolathe-brand-tools sharp
 NODE_PATH=/tmp/nanolathe-brand-tools/node_modules node scripts/export-brand.cjs
 make check

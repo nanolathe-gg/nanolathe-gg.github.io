@@ -12,6 +12,10 @@ async function main() {
     await sharp(path.join(output, `${asset.file}.svg`), { density: 192 })
       .resize({ width }).png().toFile(path.join(output, `${asset.file}.png`));
   }
+  await sharp(path.join(output, 'readme-header.svg')).png()
+    .toFile(path.join(output, 'readme-header.png'));
+  await sharp(path.join(output, 'readme-header.svg')).webp({ quality: 92 })
+    .toFile(path.join(output, 'readme-header.webp'));
   const favicons = [];
   for (const size of [16, 32, 48]) {
     const png = await sharp(path.join(output, 'favicon.svg'), { density: 192 })
