@@ -18,7 +18,7 @@ jobs:
     env:
       HUGO_VERSION: '0.160.0'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Install Hugo
         run: |
           curl --fail --location --output /tmp/hugo.tar.gz "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
@@ -32,7 +32,7 @@ jobs:
         run: hugo --gc --minify --panicOnWarning
       - name: Check generated pages and links
         run: python3 scripts/check-site.py
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         if: github.event_name != 'pull_request'
         with:
           path: public
@@ -50,4 +50,4 @@ jobs:
     steps:
       - name: Deploy
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
