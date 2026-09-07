@@ -1,0 +1,24 @@
+formats:
+  - { slug: hpi, label: HPI, title: Archives, description: 'HPI, UFO, CCX, and GP3 archive containers.' }
+  - { slug: 3do, label: 3DO, title: 3D models, description: 'Geometry for units, features, and projectiles.' }
+  - { slug: cob, label: COB, title: Unit scripts, description: 'Compiled animation scripts and the COB virtual machine.' }
+  - { slug: gaf, label: GAF, title: Images & animations, description: 'Indexed sprites, textures, interface art, and effects.' }
+  - { slug: gui, label: GUI, title: Interface layouts, description: 'Screens, menus, and gadget definitions.' }
+  - { slug: pal, label: PAL, title: Palettes & lookup tables, description: 'The game palette, shading, light, and transparency tables.' }
+  - { slug: tdf, label: TDF, title: Text definitions, description: 'Shared syntax and schemas for game data.' }
+  - { slug: fbi, label: FBI, title: Unit definitions, description: 'Properties and configuration for individual units.' }
+  - { slug: ota, label: OTA, title: Maps & missions, description: 'Map metadata, mission setup, and scripting.' }
+  - { slug: tnt, label: TNT, title: Terrain, description: 'Tiles, height grids, features, minimaps, and SCT sections.' }
+  - { slug: fnt, label: FNT, title: Bitmap fonts, description: 'The original interface’s one-bit glyph format.' }
+  - { slug: pcx, label: PCX, title: Still images, description: 'Unit portraits and screen images.' }
+  - { slug: wav, label: WAV, title: Audio, description: 'Sound effects, voices, and legacy audio containers.' }
+  - { slug: tad, label: TAD, title: Community recordings, description: 'The community TA Demo Recorder format.' }
+behavior:
+  - { number: '01', slug: 01-core-runtime-platform-and-determinism, title: 'Runtime, platform & determinism' }
+  - { number: '02', slug: 02-content-vfs-formats-and-data-loading, title: 'Content, virtual filesystem & loading' }
+  - { number: '03', slug: 03-world-visibility-rendering-audio-and-video, title: 'World, visibility, rendering & audio' }
+  - { number: '04', slug: 04-units-orders-scripts-and-movement, title: 'Units, orders, scripts & movement' }
+  - { number: '05', slug: 05-economy-construction-players-and-features, title: 'Economy, construction, players & features' }
+  - { number: '06', slug: 06-weapons-projectiles-damage-and-effects, title: 'Weapons, projectiles, damage & effects' }
+  - { number: '07', slug: 07-interface-input-camera-and-front-end, title: 'Interface, input, camera & front end' }
+  - { number: '08', slug: 08-sessions-campaign-ai-network-save-and-replay, title: 'Sessions, campaign, AI, saves & replay' }

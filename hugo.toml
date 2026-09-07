@@ -1,0 +1,21 @@
+baseURL = 'https://nanolathe.gg/'
+languageCode = 'en-us'
+title = 'Nanolathe'
+enableRobotsTXT = true
+disableKinds = ['taxonomy', 'term', 'RSS']
+
+[params]
+description = 'A clean-room, open-source reimplementation of the Total Annihilation engine, written in Go. Explore the research and build from source.'
+engineRepo = 'https://github.com/nanolathe-gg/nanolathe'
+engineBranch = 'main'
+sourcePending = true
+websiteRepo = 'https://github.com/nanolathe-gg/nanolathe-gg.github.io'
+
+[markup.goldmark.renderer]
+unsafe = false
+
+[markup.highlight]
+noClasses = false
+
+[caches.images]
+dir = ':cacheDir/images'
