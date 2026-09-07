@@ -49,6 +49,9 @@ if (canvas) {
   const motionButton = document.querySelector('.motion-toggle');
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const greens = ['#67882e', '#769934', '#8aaa40', '#9bbb50', '#accb62', '#bad779', '#a2bd53'];
+  // Tool-tip position measured in the original 1536 × 1024 illustration.
+  // All trajectories share this anchor before responsive image placement.
+  const source = { x: 964, y: 519 };
   let particles = [], running = false, paused = false, visible = true, frame = 0;
   let previous = 0, accumulator = 0, tick = 0;
   let scale = 1, offsetX = 0, offsetY = 0, width = 0, height = 0;
@@ -71,8 +74,8 @@ if (canvas) {
     for (let i = 0; i < 10; i++) {
       const targetX = 957 + (Math.random() - .5) * 95;
       const targetY = 680 + (Math.random() - .5) * 48;
-      const life = Math.max(1, Math.trunc(Math.hypot(targetX - 1002, targetY - 480) / 4));
-      particles.push({ x: 1002, y: 480, dx: (targetX - 1002) / life, dy: (targetY - 480) / life, life, color: i % 7 });
+      const life = Math.max(1, Math.trunc(Math.hypot(targetX - source.x, targetY - source.y) / 4));
+      particles.push({ x: source.x, y: source.y, dx: (targetX - source.x) / life, dy: (targetY - source.y) / life, life, color: i % 7 });
     }
     particles = particles.filter(p => --p.life >= 0);
     for (const p of particles) { p.x += p.dx; p.y += p.dy; }

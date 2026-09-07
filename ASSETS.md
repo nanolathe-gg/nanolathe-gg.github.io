@@ -27,7 +27,7 @@ Prompt:
 Engine commands and status were checked against `cmd/nanolathe/flags.go`,
 `go.mod`, `README.md`, and `docs/DESIGN_GPU_RENDERER.md` in the engine checkout
 on 2026-09-07. These describe Nanolathe's implementation, not independent retail
-evidence. The current renderer is experimental; public source publication is pending.
+evidence. The current renderer is experimental.
 
 Format and behavior entries are a directory of the owning references, not copies
 of the research. The directory preserves the split between file-format layouts,

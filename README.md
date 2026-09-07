@@ -32,7 +32,7 @@ Actions; generated `public/` output is not committed.
 
 ## Content and maintenance
 
-- `hugo.toml`: engine repository, branch, source availability, site metadata.
+- `hugo.toml`: engine repository, branch, and site metadata.
 - `content/`: page titles, descriptions, and route selection.
 - `layouts/`: the homepage and page content for this first release.
 - `data/references.yaml`: the complete v0 directory of format and behavior docs.
@@ -40,10 +40,7 @@ Actions; generated `public/` output is not committed.
 - `static/brand/`: reusable marks and wordmarks, including PNG exports.
 - `static/CNAME`: `nanolathe.gg`.
 
-The engine is moving to `https://github.com/nanolathe-gg/nanolathe`. Links and
-clone commands already target that destination. **Set `sourcePending = false`
-in `hugo.toml` once the engine repository is public** to remove the temporary
-publication notices. Website work does not change the engine repository's origin.
+Engine links and clone commands target `https://github.com/nanolathe-gg/nanolathe`.
 
 ### Documentation rollout
 
