@@ -4,12 +4,16 @@ An original fabrication scene for the engine project's README. The existing
 outlined wordmark is placed over a new illustration; no logo lettering is
 generated or redrawn.
 
+The tagline is **An open-source 2.5D RTS engine.** Keep the Total Annihilation
+relationship in the README's explanatory prose, where the independent engine
+and original-data requirement can be stated clearly.
+
 ## Use it
 
 Paste this at the top of the engine README:
 
 ```markdown
-[![Nanolathe — Total Annihilation. Reconstructed.](https://nanolathe.gg/brand/readme-header.png)](https://nanolathe.gg/)
+[![Nanolathe — Open-source 2.5D RTS engine](https://nanolathe.gg/brand/readme-header.png)](https://nanolathe.gg/)
 ```
 
 Or copy `static/brand/readme-header.png` into the engine repository and use a

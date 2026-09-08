@@ -5,11 +5,11 @@
   <div class="hero-grid" aria-hidden="true"></div>
   <div class="hero-inner wrap">
     <div class="hero-copy">
-      <div class="eyebrow"><span class="status-dot"></span> Open-source engine / Development preview</div>
-      <h1>Total Annihilation.<br><em>Reconstructed.</em></h1>
-      <p class="hero-description">A new foundation for a classic RTS. Written in Go, built from clean-room research, and powered by your original game data.</p>
+      <div class="eyebrow"><span class="status-dot"></span> Written in Go / Development preview</div>
+      <h1>An open-source<br><em>2.5D RTS engine.</em></h1>
+      <p class="hero-description">Nanolathe is an independent real-time strategy engine written in Go, reimplementing Total Annihilation through clean-room research.</p>
       <div class="actions"><a class="button primary" href="{{ "get-started/" | relURL }}">Build &amp; run {{ partial "arrow.html" . }}</a><a class="button secondary" href="{{ "docs/" | relURL }}">Explore the research <span aria-hidden="true">↗</span></a></div>
-      <p class="hero-note">Bring your copy of Total Annihilation. We’ll bring the engine.</p>
+      <p class="hero-note">Requires original Total Annihilation game data, supplied separately.</p>
     </div>
     <div class="art-caption"><button class="motion-toggle" hidden aria-pressed="false">Pause animation</button><span class="crosshair" aria-hidden="true">＋</span> Original concept artwork</div>
   </div>
@@ -17,13 +17,13 @@
 <div class="identity-strip"><div class="wrap"><span><b>01</b> Original game data</span><span><b>02</b> Clean-room research</span><span><b>03</b> Written in Go</span><span><b>04</b> MIT licensed</span></div></div>
 <section class="section wrap intro-section">
   <div><span class="eyebrow">The project</span><h2>Keep the game.<br>Rebuild the engine.</h2></div>
-  <div class="intro-copy"><p>Total Annihilation gave us sprawling battlefields, mechanical armies, and a very particular shade of green. Nanolathe is rebuilding the engine that makes it all move.</p><p>Original file formats. Documented behavior. A modern codebase you can read, run, and help improve. Single-player skirmish and campaign are the focus; development is ongoing.</p><a class="text-link" href="{{ "features/" | relURL }}">What we’re building {{ partial "arrow.html" . }}</a></div>
+  <div class="intro-copy"><p>Nanolathe’s current focus is Total Annihilation: reading its original game formats and reproducing the behavior described by our clean-room research.</p><p>Original file formats. Documented behavior. A modern codebase you can read, run, and help improve. Single-player skirmish and campaign are the focus; development is ongoing.</p><a class="text-link" href="{{ "features/" | relURL }}">What we’re building {{ partial "arrow.html" . }}</a></div>
 </section>
 <section class="section start-section">
   <div class="wrap">
     <div class="section-heading"><div><span class="eyebrow">Start building</span><h2>Your next battlefield starts here.</h2></div><span class="small-label">Developer preview</span></div>
     <div class="steps-grid">
-      <article class="step"><span class="step-number">01<span>/</span></span><h3>Bring Total Annihilation</h3><p>Get the game from GOG or Steam, or use an installation from your original CDs.</p><div class="step-links"><a href="https://www.gog.com/en/game/total_annihilation_commander_pack">GOG <span aria-hidden="true">↗</span></a><a href="https://store.steampowered.com/app/298030/Total_Annihilation/">Steam <span aria-hidden="true">↗</span></a></div></article>
+      <article class="step"><span class="step-number">01<span>/</span></span><h3>Bring your game data</h3><p>Get Total Annihilation from GOG or Steam, or use an installation from your original CDs.</p><div class="step-links"><a href="https://www.gog.com/en/game/total_annihilation_commander_pack">GOG <span aria-hidden="true">↗</span></a><a href="https://store.steampowered.com/app/298030/Total_Annihilation/">Steam <span aria-hidden="true">↗</span></a></div></article>
       <article class="step"><span class="step-number">02<span>/</span></span><h3>Get the source</h3><p>Install Go and your platform’s build tools, then clone the Nanolathe repository.</p><a href="{{ site.Params.engineRepo }}">Nanolathe on GitHub <span aria-hidden="true">↗</span></a></article>
       <article class="step"><span class="step-number">03<span>/</span></span><h3>Build. Run. Explore.</h3><p>Point the engine at your game installation and launch directly with <code>go run</code>.</p><a href="{{ "get-started/" | relURL }}">Follow the setup guide {{ partial "arrow.html" . }}</a></article>
     </div>

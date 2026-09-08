@@ -61,6 +61,19 @@ Keep the selected link's `aria-current="page"` behavior. Hugo's raw Markdown
 HTML rendering is disabled in `hugo.toml`; use templates for structural HTML
 instead of disabling that setting to make an isolated page work.
 
+Use optional `seoTitle` front matter for a specific browser/search title when
+the visible heading is more editorial. For example, the documentation page uses
+“Total Annihilation file formats and engine research.” Keep it accurate to the
+visible content. Describe Nanolathe as an independent open-source 2.5D RTS
+engine; use the game name naturally when discussing compatibility or research.
+
+The homepage includes standard `SoftwareSourceCode` structured data for the
+engine's name, description, Go implementation, repository, and license. Keep it
+aligned with visible facts. Content is rendered as HTML by Hugo, and normal
+links, canonical URLs, `robots.txt`, and the sitemap support discovery. Rankings
+and inclusion in AI answers are not guaranteed. See Google's guidance on
+[AI search features](https://developers.google.com/search/docs/appearance/ai-features).
+
 ## Long reference or guide page
 
 Use `docs-layout wrap` for an anchor index beside an `article`. Match every

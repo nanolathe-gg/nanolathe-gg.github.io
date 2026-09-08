@@ -37,7 +37,8 @@ Actions; generated `public/` output is not committed.
 - `content/`: page titles, descriptions, and route selection.
 - `layouts/`: the homepage and page content for this first release.
 - `data/references.yaml`: the complete v0 directory of format and behavior docs.
-- `data/brand.json`: shared palette, typography, and brand asset inventory.
+- `data/brand.json`: shared palette, typography, asset inventory, and project
+  positioning (engine description and README banner tagline).
 - `assets/css/tokens.css`: Hugo template that turns the brand data into site CSS.
 - `assets/css/site.css`, `assets/css/brand.css`, `assets/js/site.js`: layout and interactions.
 - `brand/`: design guide, artwork prompts, and page patterns.

@@ -171,5 +171,9 @@
     "pause",
     "play",
     "copy"
-  ]
+  ],
+  "positioning": {
+    "tagline": "An open-source 2.5D RTS engine.",
+    "description": "Nanolathe is an independent, open-source 2.5D RTS engine written in Go. It reimplements Total Annihilation through clean-room research and uses original game data."
+  }
 }

@@ -1,4 +1,4 @@
 +++
-title = 'Nanolathe — Total Annihilation, reconstructed'
-description = 'A new foundation for Total Annihilation. A clean-room engine in Go, original game data, and research you can build on.'
+title = 'Nanolathe — Open-source 2.5D RTS engine for Total Annihilation'
+description = 'An independent, open-source 2.5D RTS engine in Go, reimplementing Total Annihilation. Build from source and explore game formats and clean-room research.'
 +++

@@ -15,6 +15,25 @@ Start with [artwork prompts](ARTWORK_PROMPTS.md) for illustrations or
 [page patterns](PAGE_PATTERNS.md) for Hugo pages. Paths in this guide are relative
 to the website repository root unless they are clickable relative links.
 
+## Positioning and naming
+
+Lead with **Nanolathe — an open-source 2.5D RTS engine**. Describe it as an
+independent engine written in Go, with Total Annihilation as its current
+compatibility focus. The shared tagline and short description live in
+`data/brand.json` under `positioning`.
+
+Use the Nanolathe wordmark on banners, avatars, and other identity assets.
+The banner tagline is **An open-source 2.5D RTS engine.** Use Total Annihilation
+in factual prose about the reimplementation, research, file formats, and
+required original game data. Keep that relationship clear; avoid titles or
+slogans that suggest an official game release, remake, or endorsement. Do not
+promise support for other games or imply a finished general-purpose toolkit.
+
+For discovery, write specific page titles and visible explanations that use the
+game name naturally. Keep search metadata consistent with the page. Preserve
+the independent-project statement and the separate game-data requirement.
+These are editorial guidelines, not a legal clearance opinion.
+
 ## Color
 
 **Current implementation:**

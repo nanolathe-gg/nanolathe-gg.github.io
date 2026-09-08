@@ -1,0 +1,11 @@
+{{- $engine := dict
+  "@context" "https://schema.org"
+  "@type" "SoftwareSourceCode"
+  "name" "Nanolathe"
+  "url" site.Home.Permalink
+  "description" hugo.Data.brand.positioning.description
+  "codeRepository" site.Params.engineRepo
+  "programmingLanguage" "Go"
+  "license" (printf "%s/blob/%s/LICENSE" site.Params.engineRepo site.Params.engineBranch)
+-}}
+<script type="application/ld+json">{{ $engine | jsonify | safeJS }}</script>
