@@ -43,9 +43,10 @@ instructions are in [brand/README_HEADER.md](brand/README_HEADER.md).
 ## Technical content
 
 Engine commands and status were checked against `cmd/nanolathe/flags.go`,
-`go.mod`, `README.md`, and `docs/DESIGN_GPU_RENDERER.md` in the engine checkout
-on 2026-09-07. These describe Nanolathe's implementation, not independent retail
-evidence. The current renderer is experimental.
+`go.mod`, `README.md`, `docs/DESIGN_SESSIONS_AI_SAVE.md`, and
+`docs/DESIGN_GPU_RENDERER.md` in the public engine repository at commit
+`dd9cd05` on 2026-09-09. These describe Nanolathe's implementation, not independent
+retail evidence. The modern renderer is experimental.
 
 Format and behavior entries are a directory of the owning references, not copies
 of the research. The directory preserves the split between file-format layouts,
