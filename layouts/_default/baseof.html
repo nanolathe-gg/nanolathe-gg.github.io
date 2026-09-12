@@ -44,7 +44,7 @@
       <button class="menu-toggle" aria-expanded="false" aria-controls="navigation">Menu <span aria-hidden="true">＋</span></button>
       <nav id="navigation" aria-label="Main navigation">
         {{ $current := .RelPermalink }}
-        {{ range slice (dict "url" "/get-started/" "title" "Get started") (dict "url" "/docs/" "title" "Documentation") (dict "url" "/features/" "title" "Features") (dict "url" "/resources/" "title" "Resources") }}
+        {{ range slice (dict "url" "/get-started/" "title" "Get started") (dict "url" "/docs/" "title" "Documentation") (dict "url" "/features/" "title" "Features") (dict "url" "/about/" "title" "About") }}
         <a href="{{ .url | relURL }}"{{ if eq $current (.url | relURL) }} aria-current="page"{{ else if and (eq .url "/docs/") (hasPrefix $current ("docs/" | relURL)) }} aria-current="true"{{ end }}>{{ .title }}</a>
         {{ end }}
         <a class="nav-github" href="{{ site.Params.engineRepo }}">GitHub <span aria-hidden="true">↗</span></a>
@@ -53,7 +53,7 @@
   </header>
   <main id="main">{{ block "main" . }}{{ end }}</main>
   <footer class="site-footer wrap">
-    <div class="footer-top"><a class="brand" href="{{ "/" | relURL }}">{{ partial "mark.html" . }}<span>nanolathe</span></a><p>Built with curiosity. Shared in the open.</p><div class="footer-links"><a href="{{ "brand/" | relURL }}">Brand kit</a><a href="{{ site.Params.websiteRepo }}">Website source <span aria-hidden="true">↗</span></a></div></div>
+    <div class="footer-top"><a class="brand" href="{{ "/" | relURL }}">{{ partial "mark.html" . }}<span>nanolathe</span></a><p>Built with curiosity. Shared in the open.</p><div class="footer-links"><a href="{{ "about/" | relURL }}">About</a><a href="{{ "brand/" | relURL }}">Brand kit</a><a href="{{ "resources/" | relURL }}">Resources</a><a href="{{ site.Params.websiteRepo }}">Website source <span aria-hidden="true">↗</span></a></div></div>
     <div class="footer-bottom"><span>An independent, MIT-licensed engine project.</span><span>Total Annihilation belongs to its respective owners.<br>Nanolathe is not affiliated with or endorsed by them.</span></div>
   </footer>
 </body>

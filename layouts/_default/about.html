@@ -1,0 +1,79 @@
+{{ define "main" }}
+{{ partial "page-heading.html" . }}
+<div class="docs-layout wrap">
+  <aside class="side-nav">
+    <span class="eyebrow">The project</span>
+    <nav aria-label="About sections">
+      <a href="#why">Why Nanolathe exists</a>
+      <a href="#fidelity">Faithful at its core</a>
+      <a href="#research">Months of research</a>
+      <a href="#tools">Human direction, AI tools</a>
+      <a href="#go">Why Go?</a>
+      <a href="#future">Today and tomorrow</a>
+      <a href="#contribute">Make it your own</a>
+    </nav>
+  </aside>
+  <article class="article about-article">
+    <section id="why">
+      <h2>A classic worth keeping alive.</h2>
+      <p>Total Annihilation has a particular kind of magic: huge robot battles, a battlefield full of activity, and systems that still invite experimentation decades later. Nanolathe began with the simple pleasure of returning to that game.</p>
+      <p>Its creator, <a href="https://github.com/danielgtaylor">Daniel Taylor</a>, started playing as a teenager when TA first came out, and soon tried making mods and 3D models with others. Life, work, and kids eventually took priority. Dusting it off years later—and getting it running on a MacBook Pro—sparked a side project: recreate the engine, then see what else it could become.</p>
+      <p>Reusing the original game’s assets made that ambition approachable. The artwork, animations, and interface were already there, leaving the engine as the challenge. Nanolathe is a contribution to preserving an amazing game and a piece of gaming history, built for the fun of it and shared in the open.</p>
+    </section>
+    <section id="fidelity">
+      <h2>Faithful at its core. Open to more.</h2>
+      <p>The goal is to reproduce exact retail Total Annihilation behavior as closely as possible. The details matter, including the less obvious rules that make the game behave and feel the way it does.</p>
+      <p>A modern GPU renderer, new effects, and convenience features build on that foundation. Those enhancements are optional: the classic CPU rendering experience is available with a button press in-game. Fidelity provides a baseline for experiments, and a way to return to the familiar battlefield.</p>
+      <p>Explore the <a href="{{ "features/" | relURL }}">renderer and its optional enhancements</a>, or take a closer look at the <a href="{{ "gameplay/" | relURL }}">gameplay systems</a>.</p>
+    </section>
+    <section id="research">
+      <span class="eyebrow">Observe · Measure · Recreate</span>
+      <h2>Months of getting the details right.</h2>
+      <p>The work started with video captures, decoded TA Demo Recorder game recordings, and generated test data loaded into the original game to reveal its algorithms. Clean-room reverse engineering of the original executable helped answer questions that observation alone left open.</p>
+      <p>These captures show some of that experimental work: deliberately simple geometry and colors placed in the game to make rendering behavior easier to study. Stripping a test down to a few controlled shapes makes small differences visible.</p>
+      <div class="about-research-images">
+        <figure>
+          <a href="{{ "images/about/retail-geometry-tests.png" | relURL }}" aria-label="View full-size retail geometry research capture">
+            <img src="{{ "images/about/retail-geometry-tests.png" | relURL }}" width="1332" height="958" loading="lazy" alt="Rows of generated white, blue, and purple test shapes at different angles, with shadows, on Total Annihilation terrain.">
+          </a>
+          <figcaption>Generated geometry in retail TA, arranged to compare how the original engine draws different orientations.</figcaption>
+        </figure>
+        <figure>
+          <a href="{{ "images/about/retail-shading-tests.png" | relURL }}" aria-label="View full-size retail shading research capture">
+            <img src="{{ "images/about/retail-shading-tests.png" | relURL }}" width="714" height="990" loading="lazy" alt="White, blue, and purple test surfaces in Total Annihilation, showing flat colors and stepped shading across curved forms.">
+          </a>
+          <figcaption>Controlled colors and surfaces expose differences in shading. Original-game research captures supplied by the project’s creator.</figcaption>
+        </figure>
+      </div>
+      <p>Getting close to parity has taken months of investigation, implementation, and comparison. Abandoned approaches and failed earlier projects are part of that history. Each unanswered question adds another piece of research; the <a href="{{ "docs/" | relURL }}">documentation</a> shares the resulting understanding of TA’s formats and behavior.</p>
+    </section>
+    <section id="tools">
+      <h2>Human direction, AI tools.</h2>
+      <p>AI was vital to making this solo project practical. It helped analyze captures, investigate the executable, and develop clean-room designs together with a human engineer. AI coding tools wrote most of the implementation from those designs, with Daniel guiding features, correctness, performance improvements, and the direction of the project.</p>
+      <p>Playable results came from sustained human and AI effort over months: testing ideas, comparing behavior, revising designs, and working through failures. The tools made more of that work possible within the time available for a side project.</p>
+    </section>
+    <section id="go">
+      <h2>Why Go?</h2>
+      <p>Go’s simplicity, speed, and quick compilation make it a good fit for a project built in spare time. Being able to change code and use <code>go run</code> to try it keeps iteration short and leaves more time for experimenting and testing.</p>
+      <p>Garbage collection is a tradeoff to manage. Doing allocations during loading and reusing memory through pools can reduce allocation pressure during play. The aim is to keep the development benefits while paying attention to the work happening in each frame.</p>
+      <p>Ebitengine provides the window, graphics, and audio foundation, keeping GPU work accessible from Go and simplifying development. Platform prerequisites are covered in the <a href="{{ "get-started/#environment" | relURL }}">build guide</a>.</p>
+    </section>
+    <section id="future">
+      <h2>Single player first. More to come.</h2>
+      <p>The single-player engine is broadly complete, with retail behavior as the primary focus. Expect bugs and smaller missing features that still need investigation. TA was an exceptionally complex engine for its time, and matching its many systems takes care.</p>
+      <p>Multiplayer is still missing and is the next major priority. Further possibilities include optional pathfinding improvements, new AI systems, and deeper engine support for ambitious mods. Projects such as TA Escalation suggest how much room there is to grow when the engine itself can be changed directly.</p>
+      <p>See the <a href="{{ site.Params.engineRepo }}/blob/{{ site.Params.engineBranch }}/README.md">current engine status</a> for the latest development details.</p>
+    </section>
+    <section id="contribute">
+      <h2>Make it your own.</h2>
+      <p>Nanolathe uses the permissive MIT license because freedom to build on the engine is part of the point. Make mods, experiment with a new RTS, or use it as the foundation for a commercial project. The hope is that others adopt it, play with it, and find their own uses for its features and retro feel.</p>
+      <p>The engine’s <a href="{{ site.Params.engineRepo }}/blob/{{ site.Params.engineBranch }}/LICENSE">MIT license</a> applies to the engine code; original Total Annihilation game assets are separate and are required to play TA. They are not included with Nanolathe.</p>
+      <p>For now, this is one software engineer’s spare-time project. Contributions are welcome: research a behavior, report a reproducible bug, improve the engine, or help with documentation. Bring your curiosity and a love of classic RTS.</p>
+      <div class="actions">
+        <a class="button primary" href="{{ "get-started/" | relURL }}">Build &amp; run {{ partial "arrow.html" . }}</a>
+        <a class="button secondary" href="{{ site.Params.engineRepo }}">Contribute on GitHub <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </article>
+</div>
+{{ end }}

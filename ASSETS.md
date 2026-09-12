@@ -170,3 +170,22 @@ Renderer explanations in `data/renderer.json` link to the owning sources at each
 capture revision. The gameplay guide in `data/gameplay.json` retains its pinned
 `9e61946` sources and is server-rendered both in the features popup and at
 `/gameplay/`, providing direct links and a no-JavaScript fallback.
+
+
+## About page research captures
+
+`static/images/about/retail-geometry-tests.png` and `retail-shading-tests.png`
+are unmodified screenshots supplied by Daniel Taylor for the About page on
+2026-09-12. Their original filenames are `Screenshot 2026-08-19 at 00.02.56.png`
+and `Screenshot 2026-08-19 at 09.21.39.png`.
+
+The creator identifies these as generated test data loaded into retail Total
+Annihilation during research into the original engine’s algorithms. They show
+controlled geometry, orientations, colors, and shading. No exact executable
+revision or fixture source was supplied; they illustrate the research process
+and are not Nanolathe renderer captures or proof of a particular parity result.
+Underlying Total Annihilation artwork remains the property of its respective
+owners and is not covered by this repository’s MIT license.
+
+The About narrative, project history, AI involvement, and development priorities
+are based on the creator’s interview on 2026-09-12.

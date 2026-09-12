@@ -92,6 +92,13 @@ The Resources page intentionally has no entries. Future curated metadata and
 release-hosted downloads can be added when the collection is ready. Signed
 engine downloads are also deferred; current guidance is for source builds.
 
+## About page
+
+`content/about.md` supplies metadata and `layouts/_default/about.html` tells the
+project’s story, research process, technology choices, and current priorities.
+Creator-supplied retail research captures live in `static/images/about/`; their
+provenance is recorded in `ASSETS.md`. Keep status claims aligned with the engine.
+
 ## Renderer features page
 
 `data/renderer.json` supplies the visual feature explanations and capture metadata.
