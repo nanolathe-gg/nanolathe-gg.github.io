@@ -48,6 +48,18 @@ Engine commands and status were checked against `cmd/nanolathe/flags.go`,
 `dd9cd05` on 2026-09-09. These describe Nanolathe's implementation, not independent
 retail evidence. The modern renderer is experimental.
 
+Desktop build prerequisites were rechecked on 2026-09-12 against published
+engine commit `ae25af2e2a0d2f557ed0b4862e3907c16f034bb0`, whose `go.mod` requires
+Go 1.25.0 and Ebitengine 2.10.1, and the
+[Ebitengine 2.10 release notes](https://ebitengine.org/en/documents/2.10.html).
+`CGO_ENABLED=0 go build -mod=readonly ./cmd/nanolathe` succeeded for
+`darwin/arm64`, `linux/amd64`, and `windows/amd64` with outputs written outside
+the checkout. These are compile checks, not gameplay or Linux runtime checks.
+Linux still requires the window-system, graphics, and audio runtime libraries.
+The engine README and Linux CI dependency installer still describe older C
+compiler/development-header requirements; the website no longer presents that
+installer as a prerequisite for source builds.
+
 The GAF format page adapts `research/formats/gaf.md` at engine commit
 `11ae6adaf16d446f0b4292fb045267a5b784ffb2`. Its complete plain-text source snapshot
 is included beside the page; all research links use that pinned revision.
