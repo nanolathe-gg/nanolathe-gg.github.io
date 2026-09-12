@@ -1,0 +1,1989 @@
+{
+  "source_commit": "774f79c69288d1fe706d3a4bb2769e5814045331",
+  "files": {
+    "README.md": {
+      "bytes": 6066,
+      "sha256": "b7ded5b2c52c712a285d5bd13d4ba092e8d5bf4bfc8661399b15957d422daa07"
+    },
+    "aa-cpu.png": {
+      "bytes": 65734,
+      "sha256": "03c60451082eec3cd4c34879a097805dd5a7590403c0720521125d9d9786f636"
+    },
+    "aa-gpu.png": {
+      "bytes": 79669,
+      "sha256": "ad0cff020f050019ae6b90c0f94cacf9402d0108521aa99222591bc78d8cfadb"
+    },
+    "aa.log": {
+      "bytes": 88,
+      "sha256": "897df68a6cdbe155824c05236902863c0a12f81ac6c40c0c610bb3a1ee6210f4"
+    },
+    "capture": {
+      "bytes": 19088818,
+      "sha256": "b74cd922f8aa898ae299f88b12d58bf3c7f127699ee9ff89d77cdb9650ef3c84"
+    },
+    "lighting-cpu.mp4": {
+      "bytes": 541156,
+      "sha256": "c7fcdcc72a5a7670f12fc1f7869bcf900bba4165b058663686fae6d505bc14cb"
+    },
+    "lighting-cpu.png": {
+      "bytes": 76163,
+      "sha256": "78debf4f71053d2ca4a9d1460d520320fdfdb4589e6389efb19a18387fa530b0"
+    },
+    "lighting-glow.mp4": {
+      "bytes": 612437,
+      "sha256": "0463f2ba6681f82a45f6774941707c03ae529fc20bd2a281a073a55c8c034d50"
+    },
+    "lighting-glow.png": {
+      "bytes": 119114,
+      "sha256": "a51cb493fa7207e3be48771d47b773d7a9f71221276e573794c24e2fe7791d02"
+    },
+    "lighting-gpu.mp4": {
+      "bytes": 587019,
+      "sha256": "aa6e70db5e6317e02ae5e7a28bc79444dc05b5b3d80d8006959cbe67440a7ac0"
+    },
+    "lighting-gpu.png": {
+      "bytes": 114880,
+      "sha256": "4c350013e72eef0e3d47b5a5b5253cb1be7daf04eef837b1df1211639548c7c6"
+    },
+    "lighting.log": {
+      "bytes": 369,
+      "sha256": "aa49ebb8a56d7b06008d1cacf6d06943574054c022930d92871a78543380f63c"
+    },
+    "media.json": {
+      "bytes": 7689,
+      "sha256": "a15602779a8d14501ac846bae967623406c991765ff6b14ce9fb79f4d4738d00"
+    },
+    "qa-lighting-cpu.png": {
+      "bytes": 193551,
+      "sha256": "cce5d1de78b01e18b4949938f7a4313ff001bf24f9007e4f5f30394d9f7cb2fe"
+    },
+    "qa-lighting-glow.png": {
+      "bytes": 355540,
+      "sha256": "5784fcc14c43eafac2c9a5b15e74ac2f3fbc0e870106589beb5934493428d778"
+    },
+    "qa-lighting-gpu.png": {
+      "bytes": 295586,
+      "sha256": "7e85622f1cbafd01f893766c00d01d66cb3feb4b6630c2868292f09a53e273e3"
+    },
+    "raw-aa/cpu-0000.png": {
+      "bytes": 210559,
+      "sha256": "552a87d2c86a8057c295c38db1bea080be7911b9b1b82fb07ec630c6914742cd"
+    },
+    "raw-aa/events.jsonl": {
+      "bytes": 21663,
+      "sha256": "041db7678f4030deb77b8c36aff9924b53b3142a7da57e92092ba868e728bc08"
+    },
+    "raw-aa/gpu-0000.png": {
+      "bytes": 219964,
+      "sha256": "77d284c0f1b682134f3e24de31fd9f11f23b6f1d1d3a189d2b4193087d01a6d7"
+    },
+    "raw-lighting/cpu-0000.png": {
+      "bytes": 205116,
+      "sha256": "707108841e5e2d41e17c5c8b26f7e363c86dd10e05ef1b790afbd9099ad8c3de"
+    },
+    "raw-lighting/cpu-0001.png": {
+      "bytes": 205116,
+      "sha256": "707108841e5e2d41e17c5c8b26f7e363c86dd10e05ef1b790afbd9099ad8c3de"
+    },
+    "raw-lighting/cpu-0002.png": {
+      "bytes": 205116,
+      "sha256": "707108841e5e2d41e17c5c8b26f7e363c86dd10e05ef1b790afbd9099ad8c3de"
+    },
+    "raw-lighting/cpu-0003.png": {
+      "bytes": 205116,
+      "sha256": "707108841e5e2d41e17c5c8b26f7e363c86dd10e05ef1b790afbd9099ad8c3de"
+    },
+    "raw-lighting/cpu-0004.png": {
+      "bytes": 205116,
+      "sha256": "707108841e5e2d41e17c5c8b26f7e363c86dd10e05ef1b790afbd9099ad8c3de"
+    },
+    "raw-lighting/cpu-0005.png": {
+      "bytes": 205116,
+      "sha256": "707108841e5e2d41e17c5c8b26f7e363c86dd10e05ef1b790afbd9099ad8c3de"
+    },
+    "raw-lighting/cpu-0006.png": {
+      "bytes": 205116,
+      "sha256": "707108841e5e2d41e17c5c8b26f7e363c86dd10e05ef1b790afbd9099ad8c3de"
+    },
+    "raw-lighting/cpu-0007.png": {
+      "bytes": 205116,
+      "sha256": "707108841e5e2d41e17c5c8b26f7e363c86dd10e05ef1b790afbd9099ad8c3de"
+    },
+    "raw-lighting/cpu-0008.png": {
+      "bytes": 205116,
+      "sha256": "707108841e5e2d41e17c5c8b26f7e363c86dd10e05ef1b790afbd9099ad8c3de"
+    },
+    "raw-lighting/cpu-0009.png": {
+      "bytes": 205116,
+      "sha256": "707108841e5e2d41e17c5c8b26f7e363c86dd10e05ef1b790afbd9099ad8c3de"
+    },
+    "raw-lighting/cpu-0010.png": {
+      "bytes": 205116,
+      "sha256": "707108841e5e2d41e17c5c8b26f7e363c86dd10e05ef1b790afbd9099ad8c3de"
+    },
+    "raw-lighting/cpu-0011.png": {
+      "bytes": 205116,
+      "sha256": "707108841e5e2d41e17c5c8b26f7e363c86dd10e05ef1b790afbd9099ad8c3de"
+    },
+    "raw-lighting/cpu-0012.png": {
+      "bytes": 205116,
+      "sha256": "707108841e5e2d41e17c5c8b26f7e363c86dd10e05ef1b790afbd9099ad8c3de"
+    },
+    "raw-lighting/cpu-0013.png": {
+      "bytes": 205116,
+      "sha256": "707108841e5e2d41e17c5c8b26f7e363c86dd10e05ef1b790afbd9099ad8c3de"
+    },
+    "raw-lighting/cpu-0014.png": {
+      "bytes": 205116,
+      "sha256": "707108841e5e2d41e17c5c8b26f7e363c86dd10e05ef1b790afbd9099ad8c3de"
+    },
+    "raw-lighting/cpu-0015.png": {
+      "bytes": 205116,
+      "sha256": "707108841e5e2d41e17c5c8b26f7e363c86dd10e05ef1b790afbd9099ad8c3de"
+    },
+    "raw-lighting/cpu-0016.png": {
+      "bytes": 205116,
+      "sha256": "707108841e5e2d41e17c5c8b26f7e363c86dd10e05ef1b790afbd9099ad8c3de"
+    },
+    "raw-lighting/cpu-0017.png": {
+      "bytes": 205116,
+      "sha256": "707108841e5e2d41e17c5c8b26f7e363c86dd10e05ef1b790afbd9099ad8c3de"
+    },
+    "raw-lighting/cpu-0018.png": {
+      "bytes": 205116,
+      "sha256": "707108841e5e2d41e17c5c8b26f7e363c86dd10e05ef1b790afbd9099ad8c3de"
+    },
+    "raw-lighting/cpu-0019.png": {
+      "bytes": 205116,
+      "sha256": "707108841e5e2d41e17c5c8b26f7e363c86dd10e05ef1b790afbd9099ad8c3de"
+    },
+    "raw-lighting/cpu-0020.png": {
+      "bytes": 205116,
+      "sha256": "707108841e5e2d41e17c5c8b26f7e363c86dd10e05ef1b790afbd9099ad8c3de"
+    },
+    "raw-lighting/cpu-0021.png": {
+      "bytes": 205116,
+      "sha256": "707108841e5e2d41e17c5c8b26f7e363c86dd10e05ef1b790afbd9099ad8c3de"
+    },
+    "raw-lighting/cpu-0022.png": {
+      "bytes": 205116,
+      "sha256": "707108841e5e2d41e17c5c8b26f7e363c86dd10e05ef1b790afbd9099ad8c3de"
+    },
+    "raw-lighting/cpu-0023.png": {
+      "bytes": 205116,
+      "sha256": "707108841e5e2d41e17c5c8b26f7e363c86dd10e05ef1b790afbd9099ad8c3de"
+    },
+    "raw-lighting/cpu-0024.png": {
+      "bytes": 205116,
+      "sha256": "707108841e5e2d41e17c5c8b26f7e363c86dd10e05ef1b790afbd9099ad8c3de"
+    },
+    "raw-lighting/cpu-0025.png": {
+      "bytes": 205116,
+      "sha256": "707108841e5e2d41e17c5c8b26f7e363c86dd10e05ef1b790afbd9099ad8c3de"
+    },
+    "raw-lighting/cpu-0026.png": {
+      "bytes": 205116,
+      "sha256": "707108841e5e2d41e17c5c8b26f7e363c86dd10e05ef1b790afbd9099ad8c3de"
+    },
+    "raw-lighting/cpu-0027.png": {
+      "bytes": 205116,
+      "sha256": "707108841e5e2d41e17c5c8b26f7e363c86dd10e05ef1b790afbd9099ad8c3de"
+    },
+    "raw-lighting/cpu-0028.png": {
+      "bytes": 205116,
+      "sha256": "707108841e5e2d41e17c5c8b26f7e363c86dd10e05ef1b790afbd9099ad8c3de"
+    },
+    "raw-lighting/cpu-0029.png": {
+      "bytes": 205116,
+      "sha256": "707108841e5e2d41e17c5c8b26f7e363c86dd10e05ef1b790afbd9099ad8c3de"
+    },
+    "raw-lighting/cpu-0030.png": {
+      "bytes": 229242,
+      "sha256": "b6464f09ec6819c9bc7587c7e5cd28e624d0d38f025e66d828d2f26310590b08"
+    },
+    "raw-lighting/cpu-0031.png": {
+      "bytes": 228997,
+      "sha256": "687fc9eb57bc9cd06e1571b2365ed95d50e28e86a673b8aaafe95a1f0ff66804"
+    },
+    "raw-lighting/cpu-0032.png": {
+      "bytes": 229099,
+      "sha256": "5a107235b479fcae2eecde9745fc7632ec84d24eb0902fafd4e8c973bfec635d"
+    },
+    "raw-lighting/cpu-0033.png": {
+      "bytes": 229226,
+      "sha256": "27a5ca68d41f7c560b3ce622ee7bce128747a203dbd7110fc3865c5849734ed8"
+    },
+    "raw-lighting/cpu-0034.png": {
+      "bytes": 228503,
+      "sha256": "8d1820ba59a74150488e96163530d60c46dc05ffb82c85456f41a4c0b49777ed"
+    },
+    "raw-lighting/cpu-0035.png": {
+      "bytes": 227509,
+      "sha256": "f2f9c9985f1a9f95ce088730da497b22b79db4aca49ce059b4e3e7a88a1adcd0"
+    },
+    "raw-lighting/cpu-0036.png": {
+      "bytes": 227858,
+      "sha256": "e19344ca64b2f439cfa46b72394f1c1d1b152f585b3fa608d39790f44bbeafe4"
+    },
+    "raw-lighting/cpu-0037.png": {
+      "bytes": 226269,
+      "sha256": "655246dab5cb60b1bd68b6edeeee43a4d54451827806e3fd909b657e8053dd0c"
+    },
+    "raw-lighting/cpu-0038.png": {
+      "bytes": 226875,
+      "sha256": "818f7354696fba5dff934bb77e59db7eb024efaeb5793b54128268df1a4e74e2"
+    },
+    "raw-lighting/cpu-0039.png": {
+      "bytes": 225728,
+      "sha256": "7386093eee67671ba6a2f0c96e6bad54efcef66bc108ff439ec037f759cc11a9"
+    },
+    "raw-lighting/cpu-0040.png": {
+      "bytes": 225560,
+      "sha256": "464a1b0f82541f9568ab12d6b0b16f1f165339a9dda7066441e951fef37cd101"
+    },
+    "raw-lighting/cpu-0041.png": {
+      "bytes": 223996,
+      "sha256": "cf5790625fdf0f0714b2bce3029a9de1228c3fa49c2aba879bc60ced68af6f87"
+    },
+    "raw-lighting/cpu-0042.png": {
+      "bytes": 223777,
+      "sha256": "02481f7d6d31696712bba9b719f7bbecdd97f002c9e3565408926a1e6c55a4f0"
+    },
+    "raw-lighting/cpu-0043.png": {
+      "bytes": 221700,
+      "sha256": "dae455f41b6e6667b0e73b2eb9f8f238e17dc3d325e9125a20f51748f485a1fa"
+    },
+    "raw-lighting/cpu-0044.png": {
+      "bytes": 221169,
+      "sha256": "4984f5d091e12c12036ade8eb0fd060608add831aa790b0fa01546bf0b21d457"
+    },
+    "raw-lighting/cpu-0045.png": {
+      "bytes": 219535,
+      "sha256": "12e7d2218dfc572a73828eb5000c104ff772446e62b54d2716b8165ae0afc146"
+    },
+    "raw-lighting/cpu-0046.png": {
+      "bytes": 219023,
+      "sha256": "b0d46073f0bf75af8340cdcc331b96529a1d35a84a263f5e72670707d5f33f4c"
+    },
+    "raw-lighting/cpu-0047.png": {
+      "bytes": 217080,
+      "sha256": "b7cb478520007118b0d3c88068fd0f126b02f3476219949ef571dfec2ac2c216"
+    },
+    "raw-lighting/cpu-0048.png": {
+      "bytes": 216757,
+      "sha256": "8b8f4c3b66b3304002a0a60efef7b1d6e9a3bd4eaedb23677be8812b8105c1ff"
+    },
+    "raw-lighting/cpu-0049.png": {
+      "bytes": 215174,
+      "sha256": "87370f842f3caf37aefbcf0577883e70b443bef0dfb7592dcaf8857b0637e741"
+    },
+    "raw-lighting/cpu-0050.png": {
+      "bytes": 214526,
+      "sha256": "837499e9a7aeed2834340fdf83d65dec1a8952540d27b0c537f15868d6f4a7e1"
+    },
+    "raw-lighting/cpu-0051.png": {
+      "bytes": 213108,
+      "sha256": "c913352a58f2a2ea7dceb06949f55550bd941ea115749f0d2b2fd74f500e885f"
+    },
+    "raw-lighting/cpu-0052.png": {
+      "bytes": 212405,
+      "sha256": "c710da7aca347b5a7c5fdd69e519bb726c13daefcd7e05f5f2cdd89c4719e128"
+    },
+    "raw-lighting/cpu-0053.png": {
+      "bytes": 211500,
+      "sha256": "829e6ec0f93995cf36176121b922e66ec8e22d289d2a81c7112558d40631c1c3"
+    },
+    "raw-lighting/cpu-0054.png": {
+      "bytes": 210935,
+      "sha256": "4eab01ff8b39ba07c4a99d79e1091b596eef9dc56f3ed06309599ce9cb7085ef"
+    },
+    "raw-lighting/cpu-0055.png": {
+      "bytes": 210888,
+      "sha256": "dd4180cbf8e574356de0738ec434842bb70e88191684e926429ea5f4316775d0"
+    },
+    "raw-lighting/cpu-0056.png": {
+      "bytes": 210473,
+      "sha256": "ed43f379f0f28494f8c0c8bc7b43b261c11a56a19fdc1eb9e9e733ec68dd062f"
+    },
+    "raw-lighting/cpu-0057.png": {
+      "bytes": 211168,
+      "sha256": "52953c2fbc7a02ff34c0c83520d01a3115de1a8f3c32cfb6b7fe77fb9fefddd0"
+    },
+    "raw-lighting/cpu-0058.png": {
+      "bytes": 210139,
+      "sha256": "6807a1d066a061b855112817f9340d5712b4520d595196bbc7ee1914cd0a66e5"
+    },
+    "raw-lighting/cpu-0059.png": {
+      "bytes": 210479,
+      "sha256": "62ada17edaaf76d752c0553b9cc9fd66cc772db6ebe89811b05da4667443e535"
+    },
+    "raw-lighting/cpu-0060.png": {
+      "bytes": 209923,
+      "sha256": "318384a5d6b285fa67bf2e61c2a194d197fa3655fb3556c310e3dfd94e2fc43d"
+    },
+    "raw-lighting/cpu-0061.png": {
+      "bytes": 209744,
+      "sha256": "dee5d145b4821e059d0814dcb22e974fc0471bf106be068b1e5940ab9664d7a0"
+    },
+    "raw-lighting/cpu-0062.png": {
+      "bytes": 209842,
+      "sha256": "8c99a8186089def09d3ba27ff117ffaa762176c80edc950825da917a8d6532e5"
+    },
+    "raw-lighting/cpu-0063.png": {
+      "bytes": 209151,
+      "sha256": "4dc297977f37abe513f15f2f2ebb84bc36e9d0493767dbbc5e975e3334936c35"
+    },
+    "raw-lighting/cpu-0064.png": {
+      "bytes": 208726,
+      "sha256": "d480d7c86aa0a1be917082aa161995727f4ad02abc8e557ae4ecae37f6a5389f"
+    },
+    "raw-lighting/cpu-0065.png": {
+      "bytes": 208321,
+      "sha256": "b0ef0df76e5f5e376758a99742fbf9172f4b73403e35d1c9f74eb63272788101"
+    },
+    "raw-lighting/cpu-0066.png": {
+      "bytes": 207931,
+      "sha256": "36dc29c50db5e8055aeda4d9427aa3946f12c746f04ff7d6cfb8395380f8c5fb"
+    },
+    "raw-lighting/cpu-0067.png": {
+      "bytes": 207459,
+      "sha256": "2c6def6e69175b09cd23dcd308672c6712d1ce82b62a801d2b4aefce3048cd72"
+    },
+    "raw-lighting/cpu-0068.png": {
+      "bytes": 207394,
+      "sha256": "f46f670cd1e314b03f63d16c9df1e0e3655b537f391600904b0bc2422466a039"
+    },
+    "raw-lighting/cpu-0069.png": {
+      "bytes": 206748,
+      "sha256": "183266bd73edab9d4b3d4dd0c16399d78866da4544096d92b0b9dd2f123d8ad9"
+    },
+    "raw-lighting/cpu-0070.png": {
+      "bytes": 206825,
+      "sha256": "cb303340363a4cb3ac7be433b1c3655a7ac2b55bfd17739a4abc749d9b713cce"
+    },
+    "raw-lighting/cpu-0071.png": {
+      "bytes": 206453,
+      "sha256": "5b6b3b3ad5e5fad98c531ecd4588200b994f986a7d48d16506f47ec09773e29c"
+    },
+    "raw-lighting/cpu-0072.png": {
+      "bytes": 206514,
+      "sha256": "83b30ffae2f2dbb642c5df7c70e4a53ae853c4d0da4df3b61a5f9258d771844b"
+    },
+    "raw-lighting/cpu-0073.png": {
+      "bytes": 206121,
+      "sha256": "1004ce5f7cde8b947682738089a02f8d0831540875ca1dab2ba3013d8d66ed0e"
+    },
+    "raw-lighting/cpu-0074.png": {
+      "bytes": 205792,
+      "sha256": "d4ae21e98a23e4bd09643b97da5f2bd82e3008fc21e602d2b9d39af22eb5da18"
+    },
+    "raw-lighting/cpu-0075.png": {
+      "bytes": 205770,
+      "sha256": "4c05f2e1b4544afb4d52ee995314e9e5b4667bc10f5c7e5b971de0e2da63c6d9"
+    },
+    "raw-lighting/cpu-0076.png": {
+      "bytes": 205847,
+      "sha256": "3bb7ad6b09e8ef4274ba05183ae0fcde2136114550c18b7d176c6c3043e8411b"
+    },
+    "raw-lighting/cpu-0077.png": {
+      "bytes": 205734,
+      "sha256": "d84a7def40efa8c7b5b59d9ff5b6a7562a7c37f6dbd06ee56d2f4e1905f8aedc"
+    },
+    "raw-lighting/cpu-0078.png": {
+      "bytes": 205809,
+      "sha256": "f82a3aa054c33399f0262930fbae7306c2722c7a683c1dc276aa141485d756fe"
+    },
+    "raw-lighting/cpu-0079.png": {
+      "bytes": 205632,
+      "sha256": "50e168e5555c2ca7aa25e74646d376d4ca4036e2415c1bf75b5febaecb80fbb0"
+    },
+    "raw-lighting/cpu-0080.png": {
+      "bytes": 205506,
+      "sha256": "979b7f231d16fa089e6b927789fb338e7b5ff434f905b16ae9820feff2de6e41"
+    },
+    "raw-lighting/cpu-0081.png": {
+      "bytes": 205064,
+      "sha256": "74e9ad56854ccb597b3aeeadbe073392b5127c6538a8e4be816a2b09bb6745ab"
+    },
+    "raw-lighting/cpu-0082.png": {
+      "bytes": 204377,
+      "sha256": "236203791f557ca535eb3086fb6d89a3ed3f49aa07b528e759413fb67db7b733"
+    },
+    "raw-lighting/cpu-0083.png": {
+      "bytes": 204353,
+      "sha256": "a5e2049e8f5698089676ce9abc9cf7e765b5bce5042d56d96a926aa0dc42f80e"
+    },
+    "raw-lighting/cpu-0084.png": {
+      "bytes": 204330,
+      "sha256": "e92d75746bdb7962cb940a9d299d9a011a32fb9a28fb482da58a1a7578ce088d"
+    },
+    "raw-lighting/cpu-0085.png": {
+      "bytes": 204371,
+      "sha256": "79de4c538c1f5f4cd21dc3df4ca27d4a1f9e08512548385608ec41f78de9d016"
+    },
+    "raw-lighting/cpu-0086.png": {
+      "bytes": 204237,
+      "sha256": "d9dac47ae00d9afe1129b4c3e198ba976ec273491523ee714ca67779e8618069"
+    },
+    "raw-lighting/cpu-0087.png": {
+      "bytes": 204179,
+      "sha256": "ae2fd79962f03ce7c6a710a2b4342d30529521eba898b6cf8c8789a5dbb6dbce"
+    },
+    "raw-lighting/cpu-0088.png": {
+      "bytes": 204294,
+      "sha256": "1777af9afd77f655615cf3d145161f8ef3cfa1d85bc25dc54a38d435ce58af56"
+    },
+    "raw-lighting/cpu-0089.png": {
+      "bytes": 204281,
+      "sha256": "477bd3bef421e18be570975d1b833f5bd32897c0194a11ff70217632ad8691a8"
+    },
+    "raw-lighting/cpu-0090.png": {
+      "bytes": 204162,
+      "sha256": "f16f63f6bc2afe7673b4b9dc70a1ba5612d8914f7c6028c85e1a14e591fecf09"
+    },
+    "raw-lighting/cpu-0091.png": {
+      "bytes": 204179,
+      "sha256": "5d511524281891488b200e19a37bb8bbc7f35d64a7d9a9c054188cd9fdfed38a"
+    },
+    "raw-lighting/cpu-0092.png": {
+      "bytes": 204238,
+      "sha256": "ad8d2de848a59931f76bad1516fa46c723ddcb331f96896197261c84045446be"
+    },
+    "raw-lighting/cpu-0093.png": {
+      "bytes": 204232,
+      "sha256": "5209fdc67e00c965be6cc6db1e61fd836dbe2967300e6e806737bde4c8f2cbcc"
+    },
+    "raw-lighting/cpu-0094.png": {
+      "bytes": 204276,
+      "sha256": "769ec6d49072421f9e9d93f971460dcffaa6fd74f12fd74c76aa5ed62f25e7df"
+    },
+    "raw-lighting/cpu-0095.png": {
+      "bytes": 204179,
+      "sha256": "abf4d973ac5b67b9e7bba9d0ffd6594ac7d0af44dc6d63c1639071e9a18412a1"
+    },
+    "raw-lighting/cpu-0096.png": {
+      "bytes": 204228,
+      "sha256": "8dbd633a6cfa67b06eacec7930166ae10984043d48ae23e061cf37179e170f68"
+    },
+    "raw-lighting/cpu-0097.png": {
+      "bytes": 204235,
+      "sha256": "53e0e430a97066e03d47c41acaad66be819d4d1de25661536388314fffa6b0cf"
+    },
+    "raw-lighting/cpu-0098.png": {
+      "bytes": 204251,
+      "sha256": "204d210c7a147fffbccf47fc6da0a5fcd1f6a406607f66114a494283cf0f3643"
+    },
+    "raw-lighting/cpu-0099.png": {
+      "bytes": 204255,
+      "sha256": "7727362488e043430bc3f3a5f4e1778561d40d3a4edb9f758c8b3c35ec5a3c9f"
+    },
+    "raw-lighting/cpu-0100.png": {
+      "bytes": 204292,
+      "sha256": "0cdd2bb31b1714b11f31813ad1e6e8b573ddf9c38af1b3259d9b4002f0689292"
+    },
+    "raw-lighting/cpu-0101.png": {
+      "bytes": 204232,
+      "sha256": "e1aaa587200950412a6b738782eb60111ec2910f68c8e5f4f87f3ca73ef04154"
+    },
+    "raw-lighting/cpu-0102.png": {
+      "bytes": 204292,
+      "sha256": "7629cc61d49f2c2c2ae2dcac11d73f8b08031ea73553f17c64a4d22938b7d01e"
+    },
+    "raw-lighting/cpu-0103.png": {
+      "bytes": 204308,
+      "sha256": "0e8fda2ade5f083ca46c752dc096332ea56f22a532ce4583acfbafd8d9358718"
+    },
+    "raw-lighting/cpu-0104.png": {
+      "bytes": 204304,
+      "sha256": "9cb841795a3e16e5e548169d1d89c377630dd4701e3e795caead311c2232abac"
+    },
+    "raw-lighting/cpu-0105.png": {
+      "bytes": 204270,
+      "sha256": "747ab57d3da44cef0ae05a2253eeb932d22c8daac64d0a0863ec1e3b64dd6ae8"
+    },
+    "raw-lighting/cpu-0106.png": {
+      "bytes": 204282,
+      "sha256": "2cf7b4c57023de82ebfe95807f3b316884291cf0562ed3e76b3446b50a6c15b2"
+    },
+    "raw-lighting/cpu-0107.png": {
+      "bytes": 204277,
+      "sha256": "9d1247ab36bf97d5066cc253c8238b36bea05b435af3ccdfcd2c643c6fac93d2"
+    },
+    "raw-lighting/cpu-0108.png": {
+      "bytes": 204269,
+      "sha256": "d592bcf50df55e88f81d74e43b693c064643fee3103c3bb803730d16cdabdbd2"
+    },
+    "raw-lighting/cpu-0109.png": {
+      "bytes": 204286,
+      "sha256": "d7ff7b7a082371f17745ea31f3a0fd45f305ee798f222203006490478d2c4cb9"
+    },
+    "raw-lighting/cpu-0110.png": {
+      "bytes": 204267,
+      "sha256": "53de9116f9e43bee0c6147ba029c992288c6ac202372eeca1e0bb836014dd723"
+    },
+    "raw-lighting/cpu-0111.png": {
+      "bytes": 204269,
+      "sha256": "5d810a430efd1bba3934941b0b78975e9a396d3cb19c90002a38ad036621f7e1"
+    },
+    "raw-lighting/cpu-0112.png": {
+      "bytes": 204269,
+      "sha256": "576be3228e83352a455dffc4853b42f804a54c545f8bd3bb7a92fe9cbcb3cd16"
+    },
+    "raw-lighting/cpu-0113.png": {
+      "bytes": 204277,
+      "sha256": "97d70b0f8c1db2a39e79d0d5fdc95e8dcedbde4ac36d7c2e38abc439ad7b0796"
+    },
+    "raw-lighting/cpu-0114.png": {
+      "bytes": 204235,
+      "sha256": "8a9f8095631a04c4f5774a6022cc000ff11f7dd1d08a523daa06d904decf8953"
+    },
+    "raw-lighting/cpu-0115.png": {
+      "bytes": 204240,
+      "sha256": "484b86588b823c94bb536a5915902f313bcf347acad09c5d651e074b5c5bf4d9"
+    },
+    "raw-lighting/cpu-0116.png": {
+      "bytes": 204237,
+      "sha256": "4029b303a921f7ee80c460cc9545cc3521b945d4c23b4c542b73aa027295e287"
+    },
+    "raw-lighting/cpu-0117.png": {
+      "bytes": 204170,
+      "sha256": "a9a104bfc19836f32012491aba58eadce8ce0703fc6e0dc1b710557733a4920f"
+    },
+    "raw-lighting/cpu-0118.png": {
+      "bytes": 204220,
+      "sha256": "922f5d6f5e00f1b236b4430e76fa307bfe134a2c4c0cb0e9ccaf3b9f5b607395"
+    },
+    "raw-lighting/cpu-0119.png": {
+      "bytes": 204223,
+      "sha256": "a43a5705e9bd4a67ae0f3483327bc291a685b0f2d5deae113c2f390a42fc1f04"
+    },
+    "raw-lighting/cpu-0120.png": {
+      "bytes": 204197,
+      "sha256": "4d9c39b2f241a3a519a1745270b490400010fb9094ae79695fcc715d4bceaf0e"
+    },
+    "raw-lighting/cpu-0121.png": {
+      "bytes": 204177,
+      "sha256": "f5f547f31d5ee5d930aaaa3e081080572633bf5b48d31a78d26199853339c808"
+    },
+    "raw-lighting/cpu-0122.png": {
+      "bytes": 204168,
+      "sha256": "9764878f158ff021f11ded5a9517cc23588456a7067fdee02ea8e42bf369134d"
+    },
+    "raw-lighting/cpu-0123.png": {
+      "bytes": 204248,
+      "sha256": "fa06889d05597f53c9664dd857aee6d8c3142c1eb88413247da7771ae01f213f"
+    },
+    "raw-lighting/cpu-0124.png": {
+      "bytes": 204181,
+      "sha256": "d5f260cf86c2309791492073c553b36798380a1659332e22bdde2d886c9ee7dc"
+    },
+    "raw-lighting/cpu-0125.png": {
+      "bytes": 204249,
+      "sha256": "235144e722aee08d92c3e7dc52a1dbac93a70d2253b6288b42523cf8f7379d6c"
+    },
+    "raw-lighting/cpu-0126.png": {
+      "bytes": 204301,
+      "sha256": "ed76d38416bb7a015cee404d584fce5a5c54cdd868e0a71cecbe8e5b49be0979"
+    },
+    "raw-lighting/cpu-0127.png": {
+      "bytes": 204297,
+      "sha256": "68cc08769074ce1a581554cfa97611d2a0306af6d55a8328edcaa1ba65e4a6d4"
+    },
+    "raw-lighting/cpu-0128.png": {
+      "bytes": 204252,
+      "sha256": "590323dbe9dc868e4e0a7a6363c4e5f770313084888083255e571760a21e8b9b"
+    },
+    "raw-lighting/cpu-0129.png": {
+      "bytes": 204245,
+      "sha256": "8c73fdbc409ac022967598d75bf0b87759d99ba813698363aa8f821751f4c499"
+    },
+    "raw-lighting/cpu-0130.png": {
+      "bytes": 204220,
+      "sha256": "4138a9da66d37d332cf0dfc480a9f45edd34d8078fbbb33e1e3feb4f9bc8fc97"
+    },
+    "raw-lighting/cpu-0131.png": {
+      "bytes": 204239,
+      "sha256": "122ae8007b2ab3f0464bc9cc3d65c6341ba80b059cd25d14f09e603ccd9272cc"
+    },
+    "raw-lighting/cpu-0132.png": {
+      "bytes": 204199,
+      "sha256": "2188853403e266ef9a7f870c0b6b2228b202a9b82ddce92465261b8f8c3811c5"
+    },
+    "raw-lighting/cpu-0133.png": {
+      "bytes": 204236,
+      "sha256": "a6afe350ef951d96cfbfd2bb61f135624533d9631726b5ea23409184ce80706d"
+    },
+    "raw-lighting/cpu-0134.png": {
+      "bytes": 204266,
+      "sha256": "97c0ff221b93bea5f76e63bcf66186a556d99d0bfe1cd274da32d353a0870c5a"
+    },
+    "raw-lighting/cpu-0135.png": {
+      "bytes": 204282,
+      "sha256": "2be3b41cadd6ced3d4cfe9a63c29d6b4c7239ef9d802586206902d6494548958"
+    },
+    "raw-lighting/cpu-0136.png": {
+      "bytes": 208321,
+      "sha256": "9d762a99adcedfacd5d9f2f96edfe0ea9222df6038a302c59624dcfcad78725d"
+    },
+    "raw-lighting/cpu-0137.png": {
+      "bytes": 207832,
+      "sha256": "c05bf12eef9099db114e7ba4e48c036c28c30026b851432239fc0ec2790b2e74"
+    },
+    "raw-lighting/cpu-0138.png": {
+      "bytes": 207634,
+      "sha256": "2d4262a4292c92f56b37b7ea263531d0e89fec9a5d8fde32bd845b169ee1ec16"
+    },
+    "raw-lighting/cpu-0139.png": {
+      "bytes": 207060,
+      "sha256": "36c9079a88538a0b0dfcdea4970fba9acb269040b1b3c0f709ee681d11105681"
+    },
+    "raw-lighting/cpu-0140.png": {
+      "bytes": 210243,
+      "sha256": "5dd5f12b7d68d3b740cab65146c96afcb4d63f86279130535c532e9bce5ff3fd"
+    },
+    "raw-lighting/cpu-0141.png": {
+      "bytes": 209000,
+      "sha256": "86c003f16209afbaadcb7d6c58eddb92206696ff547ef4e1d2f6d20b00a3ccca"
+    },
+    "raw-lighting/cpu-0142.png": {
+      "bytes": 209052,
+      "sha256": "1f3a60594b590337151d250b23383dc65aee1b5db24a785e52ecdaa07550fa4e"
+    },
+    "raw-lighting/cpu-0143.png": {
+      "bytes": 207906,
+      "sha256": "f6cc3ae74f1f7307d129895b84275e8875b0f39cf51d1655fd52a102051d530d"
+    },
+    "raw-lighting/cpu-0144.png": {
+      "bytes": 207858,
+      "sha256": "0d01ee40695c2da6def009526d34a26a4c8621deab30cce890e1f298c4b6e9de"
+    },
+    "raw-lighting/cpu-0145.png": {
+      "bytes": 207035,
+      "sha256": "300b264de7c57f3e4a7d9c2dfeba0f68439c9fb7beb2b198f9ef1fcbba9f84e5"
+    },
+    "raw-lighting/cpu-0146.png": {
+      "bytes": 206912,
+      "sha256": "c75cac52ab36e94398cd1974d2bcedf7a26e59214a73cca8e7592c318be4785e"
+    },
+    "raw-lighting/cpu-0147.png": {
+      "bytes": 208837,
+      "sha256": "e438f4c3d586dc5b4680bd1f1b1a26e8140b769e68c853c5531e07062bba2cd1"
+    },
+    "raw-lighting/cpu-0148.png": {
+      "bytes": 208524,
+      "sha256": "ae2e6c87dd99ca013c7183fbaf4f0685a8d3ea8ee5dbce45604c9b85d6b6544c"
+    },
+    "raw-lighting/cpu-0149.png": {
+      "bytes": 208157,
+      "sha256": "46ecb852160b4c2dbd74cc561daf31090e38bcd61c2d5d217bcedf288b147967"
+    },
+    "raw-lighting/events.jsonl": {
+      "bytes": 2676953,
+      "sha256": "8462d8d6508fbcbd4c99c05d51e9ec4bab90f552060bf3fddcad98c571d73a44"
+    },
+    "raw-lighting/glow-0000.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/glow-0001.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/glow-0002.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/glow-0003.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/glow-0004.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/glow-0005.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/glow-0006.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/glow-0007.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/glow-0008.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/glow-0009.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/glow-0010.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/glow-0011.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/glow-0012.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/glow-0013.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/glow-0014.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/glow-0015.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/glow-0016.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/glow-0017.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/glow-0018.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/glow-0019.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/glow-0020.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/glow-0021.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/glow-0022.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/glow-0023.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/glow-0024.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/glow-0025.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/glow-0026.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/glow-0027.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/glow-0028.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/glow-0029.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/glow-0030.png": {
+      "bytes": 264122,
+      "sha256": "0b699cf44344bf43b8668f99e3e687d1ad44b820fed459f0717bfac4f50b2978"
+    },
+    "raw-lighting/glow-0031.png": {
+      "bytes": 260217,
+      "sha256": "12043c662bc3c817ae9b6d1728abc7dbfb25157b361443a1cd51e69ddc68ef2a"
+    },
+    "raw-lighting/glow-0032.png": {
+      "bytes": 259781,
+      "sha256": "05d7998e0d8827efbbeb65d2ff2298820ee9698e8b0fbf88aa30b187e9fc3592"
+    },
+    "raw-lighting/glow-0033.png": {
+      "bytes": 256305,
+      "sha256": "4d5b729b78ec814cbc904d4ab5d68dbec9be855594b975d5e0bd3da518ad321a"
+    },
+    "raw-lighting/glow-0034.png": {
+      "bytes": 255849,
+      "sha256": "165675842f6f37dc99ffcced723b9b6439327c8c5c03ff744adbd22a5ad26f2f"
+    },
+    "raw-lighting/glow-0035.png": {
+      "bytes": 251589,
+      "sha256": "8a59d9496aa3b6728bff09d48aefbd47424bb6d37000cac474abfbadc1ffe461"
+    },
+    "raw-lighting/glow-0036.png": {
+      "bytes": 252639,
+      "sha256": "214fa8128664079edda237089745b20f72bb56c4346fba5fae843d045490542f"
+    },
+    "raw-lighting/glow-0037.png": {
+      "bytes": 249001,
+      "sha256": "d300e62ec4b53399d53434e9b451326e2822ec54d3fceea510b8a78aa846e9d2"
+    },
+    "raw-lighting/glow-0038.png": {
+      "bytes": 250030,
+      "sha256": "056c94855a56a2b02c9f837ef58b55f86c15127f4f3fd7e12b9ea89d4e2200ea"
+    },
+    "raw-lighting/glow-0039.png": {
+      "bytes": 246450,
+      "sha256": "6740639b0237ba844ff3cefe9a0e14cc3def3933d3dfc3134660a5cd710f1bcf"
+    },
+    "raw-lighting/glow-0040.png": {
+      "bytes": 246744,
+      "sha256": "da3597e4f043a678109e1605b4454d208d8edb986ffcf1c1efbd8506732de728"
+    },
+    "raw-lighting/glow-0041.png": {
+      "bytes": 243991,
+      "sha256": "094d2851003bf50021b3704c6d3e18e8b99ba814d87f5b8e5026077f7e080566"
+    },
+    "raw-lighting/glow-0042.png": {
+      "bytes": 244019,
+      "sha256": "f5300ac4dc6270636fc6d359b94c9fe66ea162b2bfa13f21a4490b27406f8f08"
+    },
+    "raw-lighting/glow-0043.png": {
+      "bytes": 240785,
+      "sha256": "dfdd3da7e1e11f0b0f5a5d922bc9db58197d61e21f471adf7a732321426a69b6"
+    },
+    "raw-lighting/glow-0044.png": {
+      "bytes": 240730,
+      "sha256": "03dc96d61c0e567c045d2904d8c55de0b2169f24cc6f3642374615f1070bd3f5"
+    },
+    "raw-lighting/glow-0045.png": {
+      "bytes": 238604,
+      "sha256": "d9a4e80edb75045b9aec8ccf71c6fb1ffb2ac627cc3490063aed20aa24f02fa7"
+    },
+    "raw-lighting/glow-0046.png": {
+      "bytes": 238522,
+      "sha256": "433f65d209cc73a5647701a5d4ed410c3fc86df89249745304130b321834b5be"
+    },
+    "raw-lighting/glow-0047.png": {
+      "bytes": 235401,
+      "sha256": "dc046c2d309e95033fc98ae1bce1cae0d5b5e72d81e6145da2646a1429247bf6"
+    },
+    "raw-lighting/glow-0048.png": {
+      "bytes": 235360,
+      "sha256": "db704f80c29e57f2b657d2d4be1529f1c78417b88147b17b49d75d8dbc209d3b"
+    },
+    "raw-lighting/glow-0049.png": {
+      "bytes": 233563,
+      "sha256": "2b548662123b347224d5948c835ecf57f885e77504876b87c418f259a3faa0f8"
+    },
+    "raw-lighting/glow-0050.png": {
+      "bytes": 233468,
+      "sha256": "fdcbb0aa274529a00e635aaa5dbff263f8f9897ec4a7ff431c9750b0c345c2dc"
+    },
+    "raw-lighting/glow-0051.png": {
+      "bytes": 231782,
+      "sha256": "2bfe50039ce71872151bac19384f8faaf5826b0f81e302b1094996a6f71bff30"
+    },
+    "raw-lighting/glow-0052.png": {
+      "bytes": 231737,
+      "sha256": "f54c0c5b90852a96239994a87477832dde92f051625a7650035f8df519b51c22"
+    },
+    "raw-lighting/glow-0053.png": {
+      "bytes": 231049,
+      "sha256": "24db4b3e2e0cde2582c06b6d95fc0abb2e674fec7ccfd229292c7049d06cda34"
+    },
+    "raw-lighting/glow-0054.png": {
+      "bytes": 231167,
+      "sha256": "858608936400c809fbeddd8b9f4bb62cdba68e3a0f96672895d73940081d7d42"
+    },
+    "raw-lighting/glow-0055.png": {
+      "bytes": 230840,
+      "sha256": "3b89df38f520b28e43f1c65d4c200982b974ef8f7cf359cfbaa2a9c1f6988b62"
+    },
+    "raw-lighting/glow-0056.png": {
+      "bytes": 230883,
+      "sha256": "e26d9d8cbc27bd04d6144ec26378c51848a407584ac539d66d3144d92478451d"
+    },
+    "raw-lighting/glow-0057.png": {
+      "bytes": 230799,
+      "sha256": "eef2903b032b84dd822dfccce36992e7dbb66a32eea76409c6ae60a5ab7b42b0"
+    },
+    "raw-lighting/glow-0058.png": {
+      "bytes": 230866,
+      "sha256": "746b18b98236f0e077e6129bfc4db5987319512ce1b700955ab63b596722bba6"
+    },
+    "raw-lighting/glow-0059.png": {
+      "bytes": 229769,
+      "sha256": "f008ab6b5d50580c79e06ef038ec87aa16fb555c302c392c6f2b5ee992741d08"
+    },
+    "raw-lighting/glow-0060.png": {
+      "bytes": 229111,
+      "sha256": "9a8b45478fe1312a3331c28be83ae7e0a836bc250cb4957e29c4c3897ceb990c"
+    },
+    "raw-lighting/glow-0061.png": {
+      "bytes": 227545,
+      "sha256": "08880c46ab6e758c6c1ab4ee9bc72d28c55ecfe3aa49b4433e40d72b9bd9bfab"
+    },
+    "raw-lighting/glow-0062.png": {
+      "bytes": 226189,
+      "sha256": "6c1578bc72fd245ab00af718a0659f94c7213e35a02d07c516a7cdeab6f62691"
+    },
+    "raw-lighting/glow-0063.png": {
+      "bytes": 224822,
+      "sha256": "1b3aaafd190f391f34be6a708a270bb998677d73bf86d7cc8b6ef4d4e83ba7ef"
+    },
+    "raw-lighting/glow-0064.png": {
+      "bytes": 223707,
+      "sha256": "373a5144637e2bdf297f5c64450eb42fc3470dfba029991086c657b98e4e70dc"
+    },
+    "raw-lighting/glow-0065.png": {
+      "bytes": 221959,
+      "sha256": "4d7af373fa448331932b3055a05c551656a52d5093fe0ff4ad42a736de393ec8"
+    },
+    "raw-lighting/glow-0066.png": {
+      "bytes": 221386,
+      "sha256": "b4166d935608502c8e537624a51a2a1b66dc56844305a7b846141275ccf8002d"
+    },
+    "raw-lighting/glow-0067.png": {
+      "bytes": 219001,
+      "sha256": "853af8d4ade15565e63f1f63944906a2c4590fb5611068f60944eb6edaa8ff41"
+    },
+    "raw-lighting/glow-0068.png": {
+      "bytes": 219337,
+      "sha256": "c7cbdce8117aa70c18e61c06cb25ddbe8aaef0e1222cf0e192e56e32a14fb97d"
+    },
+    "raw-lighting/glow-0069.png": {
+      "bytes": 218262,
+      "sha256": "b09e19fb5d08572e3d3a677f0efa8462984a5222177da93e3e27d60690d8e23b"
+    },
+    "raw-lighting/glow-0070.png": {
+      "bytes": 218156,
+      "sha256": "b11b937c56bddd9c9278a68e5b7ce6d449bb90f66d713f066353cd378cf5339d"
+    },
+    "raw-lighting/glow-0071.png": {
+      "bytes": 218039,
+      "sha256": "3b9ef4c486701607b1b654bba964a6e49d22fef43598a848df2586f76ef3d6bb"
+    },
+    "raw-lighting/glow-0072.png": {
+      "bytes": 218012,
+      "sha256": "59b00e9a886339c44a6686a042ceed136555a74a9a447f45eeba6cce38bbfc04"
+    },
+    "raw-lighting/glow-0073.png": {
+      "bytes": 217584,
+      "sha256": "3b5f725ff60624373f719d12629a55e9abca032b071aedc38e709ed531347ab8"
+    },
+    "raw-lighting/glow-0074.png": {
+      "bytes": 217106,
+      "sha256": "c8e63b38638d107572256c26471a0bad99aa3c8fd90598ee1c19e6e3cfe1e70f"
+    },
+    "raw-lighting/glow-0075.png": {
+      "bytes": 217004,
+      "sha256": "fe10e43f7dbc7da7d335346c26fc6db087252716352b7d1413c1d06fa21a1eee"
+    },
+    "raw-lighting/glow-0076.png": {
+      "bytes": 215392,
+      "sha256": "4a6422e3c278847911b25b85aa2d6ef12c788f9cec590638cf5eea37cd75554f"
+    },
+    "raw-lighting/glow-0077.png": {
+      "bytes": 215348,
+      "sha256": "fe47f98a11e924ae0a4f8963f5fbb8909bc53172bca11ae616e92265002fc4d1"
+    },
+    "raw-lighting/glow-0078.png": {
+      "bytes": 213350,
+      "sha256": "f0dcfa45b72d3ebeae6795467eb38545ffc6b228afab3fcee6bf790cb58c6c8a"
+    },
+    "raw-lighting/glow-0079.png": {
+      "bytes": 213130,
+      "sha256": "79b3d188d7ee566a42fce173f18c46187aad9d806fac93b5d00096212326ad96"
+    },
+    "raw-lighting/glow-0080.png": {
+      "bytes": 212133,
+      "sha256": "d9c658b71f273fb1de3911e4d022a2dfbc7a6b27a165a00fbcba359af9a68777"
+    },
+    "raw-lighting/glow-0081.png": {
+      "bytes": 211308,
+      "sha256": "207b533bfcc98d0deb1d4f8b0f18f12063f5933f0365fda4a09fdcfe86e9fb39"
+    },
+    "raw-lighting/glow-0082.png": {
+      "bytes": 209624,
+      "sha256": "18a7a89631641ee16547f594ca32d352d7a92f9ffb8596ab683207e9debbb0eb"
+    },
+    "raw-lighting/glow-0083.png": {
+      "bytes": 209598,
+      "sha256": "3b69276656d44c735cabffdc33d129afd1914c8ebb510458bf93eafcfbf6307c"
+    },
+    "raw-lighting/glow-0084.png": {
+      "bytes": 209607,
+      "sha256": "79ff98766452e7870dc0829ba131415e839095cff5f02986dcb088b3242f12a8"
+    },
+    "raw-lighting/glow-0085.png": {
+      "bytes": 209657,
+      "sha256": "02c13b87ed57e2804a6565c4fbefc54ccb1f780509f7b8e51845cfb99c838cc7"
+    },
+    "raw-lighting/glow-0086.png": {
+      "bytes": 209550,
+      "sha256": "15fb8c1b7f227d5288fafcf0755a82ba87f6ac57a532541a2525856e18c5b37c"
+    },
+    "raw-lighting/glow-0087.png": {
+      "bytes": 209575,
+      "sha256": "332dbbc3d1fe25ea40a519a13d95880d632f0479db201d0272483f551c803552"
+    },
+    "raw-lighting/glow-0088.png": {
+      "bytes": 209587,
+      "sha256": "240c3a196e8176371a4255b5a461abed7d1a7061e81111edccd9eeab300a4367"
+    },
+    "raw-lighting/glow-0089.png": {
+      "bytes": 209576,
+      "sha256": "e8225b95b6b1b7d46ff14b999a6f90ceca4f4f532741f918790c58825772f1f6"
+    },
+    "raw-lighting/glow-0090.png": {
+      "bytes": 209473,
+      "sha256": "269abcbe371e59eee5a34e4a8aa1547b5f6454932b9cdcfece273626bb9d739b"
+    },
+    "raw-lighting/glow-0091.png": {
+      "bytes": 209525,
+      "sha256": "b6ac65a2554d13e9e1043fb09c2e260da35cbd08ad94c3be33d00b607462ed24"
+    },
+    "raw-lighting/glow-0092.png": {
+      "bytes": 209463,
+      "sha256": "bae687a85af8b8c302b297952f2deb056b6553fb6ca98dd4b1095a74093d0ac5"
+    },
+    "raw-lighting/glow-0093.png": {
+      "bytes": 209534,
+      "sha256": "471ecc32846036939855f5a4b18e6497ac7a4be2dcff3b0a82534ab883b0d1f9"
+    },
+    "raw-lighting/glow-0094.png": {
+      "bytes": 209626,
+      "sha256": "695a82c7e9d2f060f5cfaa95e79d7831b49d83df768aaca657c6c6c8f86ceb82"
+    },
+    "raw-lighting/glow-0095.png": {
+      "bytes": 209552,
+      "sha256": "e00c8aca00cdfab91f849c83a633f27c293d8d5bf6a8a6290ea5ea0d65c07e89"
+    },
+    "raw-lighting/glow-0096.png": {
+      "bytes": 209519,
+      "sha256": "a6a4409c3ada5a42cd7c931483182f48e1d49f9338f6d4192bf10f8ccfb36ab7"
+    },
+    "raw-lighting/glow-0097.png": {
+      "bytes": 209500,
+      "sha256": "0d8249fb2b68db5ff208346b9f53391463eee4a5210be5d98a29827c07e08e3e"
+    },
+    "raw-lighting/glow-0098.png": {
+      "bytes": 209525,
+      "sha256": "3d2142c7ee4a01ba18cb5c2e478fda9520586ec550cfc99fb8ea3f74b303eccd"
+    },
+    "raw-lighting/glow-0099.png": {
+      "bytes": 209537,
+      "sha256": "8c3fa1a8dbf72f03e34939d0b459a76793d06cd1a80ed7cf13c3b2d47e59635e"
+    },
+    "raw-lighting/glow-0100.png": {
+      "bytes": 209605,
+      "sha256": "7168b2911a98ff738d3e57bcad83413170759780b84acd56c4f38f23986c155f"
+    },
+    "raw-lighting/glow-0101.png": {
+      "bytes": 209566,
+      "sha256": "69967b7fe7224ec63de902509c9fb9c9195caf70523cd206c3824fbe782676f7"
+    },
+    "raw-lighting/glow-0102.png": {
+      "bytes": 209609,
+      "sha256": "3f0715f601ae76b60ffd47e0e9c6f02fb4a027f4152a4047bb4e739db3230db7"
+    },
+    "raw-lighting/glow-0103.png": {
+      "bytes": 209624,
+      "sha256": "301b96b0c63069703f5d5160dfe086d5e4d3f76a3f0fa26b79e7bb61660d356a"
+    },
+    "raw-lighting/glow-0104.png": {
+      "bytes": 209585,
+      "sha256": "05f5acf843a9d8dcd95b50bf89124a3d06af37f2be5294a02de84da0ed0692e9"
+    },
+    "raw-lighting/glow-0105.png": {
+      "bytes": 209556,
+      "sha256": "d8b2170f21f5bf598738c98dfe2aa36afe7ea4e75827a1509fa1aa8cca515ae7"
+    },
+    "raw-lighting/glow-0106.png": {
+      "bytes": 209575,
+      "sha256": "9ae8989516eb91c0e979909325c024625cbb514b65caa2b53137fefd5089b270"
+    },
+    "raw-lighting/glow-0107.png": {
+      "bytes": 209577,
+      "sha256": "aef8512b284c178859d7e6bd47bb3fd906501875d30984e42f82cffce6fffe3a"
+    },
+    "raw-lighting/glow-0108.png": {
+      "bytes": 209568,
+      "sha256": "b4ef6c002d7f0c004729e5dd0642ba0f581c1b10b8e7fd93a099ff5d295076ac"
+    },
+    "raw-lighting/glow-0109.png": {
+      "bytes": 209569,
+      "sha256": "25318fa4ebbebae36a86f442b4f3fd4f31597ef152a64e67a35e1d37ea03d337"
+    },
+    "raw-lighting/glow-0110.png": {
+      "bytes": 209595,
+      "sha256": "611937e825d560f2e0ecff2d6e145e57627fad46e6791e377693c9f3976b30ee"
+    },
+    "raw-lighting/glow-0111.png": {
+      "bytes": 209625,
+      "sha256": "e980add29f81fd7af9acf596dfc2d0ddf6fd69e4cb4c7faab3cda3832d30cdb6"
+    },
+    "raw-lighting/glow-0112.png": {
+      "bytes": 209592,
+      "sha256": "ae5b44210153b44e08b8cd6deff79c33f99b9eb8260c7f9fd64370b604b3747b"
+    },
+    "raw-lighting/glow-0113.png": {
+      "bytes": 209642,
+      "sha256": "f00b574a603af1eda55206a1196e7535071e45c3eeeac57cbdb2432c0925c004"
+    },
+    "raw-lighting/glow-0114.png": {
+      "bytes": 209605,
+      "sha256": "e34f6f785d83cc43cece767719b2851154337120200dd84dd5de727505125a7b"
+    },
+    "raw-lighting/glow-0115.png": {
+      "bytes": 209524,
+      "sha256": "a39d5949c71f53374e4a07b8b071582e5edd6d2bc90405d4203110c487596818"
+    },
+    "raw-lighting/glow-0116.png": {
+      "bytes": 209545,
+      "sha256": "b398ae2e9e70169c32f0c7daa5231ab0fdc9df7d228fdce4486488e36bdfa672"
+    },
+    "raw-lighting/glow-0117.png": {
+      "bytes": 209549,
+      "sha256": "70981c793a06dc49f4948a83e4ac4bc465817201efbd0266b9b4e0954340f4e0"
+    },
+    "raw-lighting/glow-0118.png": {
+      "bytes": 209517,
+      "sha256": "30732f64780dae059faa902e3ac30704a3c624bd5bc3534c6c3833921c37606f"
+    },
+    "raw-lighting/glow-0119.png": {
+      "bytes": 209549,
+      "sha256": "b0979faa74cbcdc64628123904144f91a8e3b0a1056ef08c5c1a7f50df9b2399"
+    },
+    "raw-lighting/glow-0120.png": {
+      "bytes": 209533,
+      "sha256": "75c6f5a3358213331077faca164f983625cfeaa684f1e01fb99ce0be477137c4"
+    },
+    "raw-lighting/glow-0121.png": {
+      "bytes": 209541,
+      "sha256": "df51e25b91c18399763893d4f9305023d53b54e444a1aaa3917c0949aa0b8179"
+    },
+    "raw-lighting/glow-0122.png": {
+      "bytes": 209526,
+      "sha256": "93625120346233717ed346a84071e6c5fa6994ce1fb72d276382dd126b6e5a90"
+    },
+    "raw-lighting/glow-0123.png": {
+      "bytes": 209622,
+      "sha256": "0b186220a8df3cd619fa906fe7158f18ab26a081e4b89d7ce90b87a30b1d1621"
+    },
+    "raw-lighting/glow-0124.png": {
+      "bytes": 209608,
+      "sha256": "6593622fa7b2b54d0801be746e5633ace9fac929135fdfe7c13da82e7383e7f8"
+    },
+    "raw-lighting/glow-0125.png": {
+      "bytes": 209646,
+      "sha256": "f916a3ff3c3fd888b530a31315958bfcd750db50950dc012acd97cf63fd0d864"
+    },
+    "raw-lighting/glow-0126.png": {
+      "bytes": 209562,
+      "sha256": "fa4741480100749873a4442c86dfa71d6402e6deaa9f93f6cd92bd80a2892de3"
+    },
+    "raw-lighting/glow-0127.png": {
+      "bytes": 209634,
+      "sha256": "7eb661c3f34c9803c7e17f8611267be82706562b240898ed94c57fc1ca091271"
+    },
+    "raw-lighting/glow-0128.png": {
+      "bytes": 209579,
+      "sha256": "1407776db712d5662691b5c28b5642115d08be2af3698ff04ee414fe170d115d"
+    },
+    "raw-lighting/glow-0129.png": {
+      "bytes": 209557,
+      "sha256": "9f03ab43d18358e103cc68324e8af7b73a78a21af8904662497eacb708c247ad"
+    },
+    "raw-lighting/glow-0130.png": {
+      "bytes": 209504,
+      "sha256": "8bf4c3cbc822fc571be89e0ae4e6c4d02fd2e2e33eb30af33521e4c8d2cd0dad"
+    },
+    "raw-lighting/glow-0131.png": {
+      "bytes": 209532,
+      "sha256": "28f61e999d3f43b0c96518c9aa26c2ca392be999c580cca4a194299263080028"
+    },
+    "raw-lighting/glow-0132.png": {
+      "bytes": 209533,
+      "sha256": "91e1f01c1f6e74e55e28922be23963519c0f14e8af4c566fedecb03a1038e961"
+    },
+    "raw-lighting/glow-0133.png": {
+      "bytes": 209581,
+      "sha256": "8af4a83fba6d3922e8aa112a651ae9a2e635e808fbe774054e4c72a31cff848c"
+    },
+    "raw-lighting/glow-0134.png": {
+      "bytes": 209569,
+      "sha256": "8273b1ce906e1e554ba9f7b55517fa28ac4c1bae2ea58b12596eab2367ccd158"
+    },
+    "raw-lighting/glow-0135.png": {
+      "bytes": 209577,
+      "sha256": "857b808b957ce6d77718b5556d35ad59076cf75d53fd134e8895e4ad409325e6"
+    },
+    "raw-lighting/glow-0136.png": {
+      "bytes": 218952,
+      "sha256": "b7e73f734c7c531bf2e74d43bb620ad9c4db5f856460607138ddaca580ec9031"
+    },
+    "raw-lighting/glow-0137.png": {
+      "bytes": 218935,
+      "sha256": "504e6ee88a832d68153f33c5f197ae0c8d11c436a221aae62cb8bf8d9a013426"
+    },
+    "raw-lighting/glow-0138.png": {
+      "bytes": 218933,
+      "sha256": "2465ab28bf1dec935429502f5136ece9fde439e9cf2db173b38f957fb3e18edf"
+    },
+    "raw-lighting/glow-0139.png": {
+      "bytes": 220035,
+      "sha256": "55dcfe6cd74fdd1512d4e99545ff170327c739161a8f5584daa8027dbf74a54b"
+    },
+    "raw-lighting/glow-0140.png": {
+      "bytes": 228324,
+      "sha256": "036bc9092c5e825748b26e394b0aacb18f43c1798a492202166e41a765094478"
+    },
+    "raw-lighting/glow-0141.png": {
+      "bytes": 228839,
+      "sha256": "89631ba4c8d58fd362880bd80c175755278ad9e6c4cedfb00c2a0ebed2d3ec5d"
+    },
+    "raw-lighting/glow-0142.png": {
+      "bytes": 228814,
+      "sha256": "d8e91110cc825f21bd386bf7b7842ed5b532a80aea67f3c4044799649bbd9d6e"
+    },
+    "raw-lighting/glow-0143.png": {
+      "bytes": 230170,
+      "sha256": "cc94b7b3895ed042af471e64aa0d3a89f399b1b86d6f163ba1305db6b91f6ba2"
+    },
+    "raw-lighting/glow-0144.png": {
+      "bytes": 230175,
+      "sha256": "114cc517d5755c68dc85cf1970efe0ee9ac2bca96d2b186f076d2b87549fc299"
+    },
+    "raw-lighting/glow-0145.png": {
+      "bytes": 231200,
+      "sha256": "32f67a068708d1b705edd5e0285c4036acd7a81251751c27b778a6c26ff04fd3"
+    },
+    "raw-lighting/glow-0146.png": {
+      "bytes": 231177,
+      "sha256": "058d5006db0e84be29e43b0a0ce6b9e5cc0afde93f7595f8d3acc6eea655e0b1"
+    },
+    "raw-lighting/glow-0147.png": {
+      "bytes": 238396,
+      "sha256": "5b4180ba0df43830ef15673bbe1d88df4a5fafd5bf6ac32f6589c76bc8897313"
+    },
+    "raw-lighting/glow-0148.png": {
+      "bytes": 238441,
+      "sha256": "59869c72a5232f1e12dc4d202124368e4af989712215fe528d45c0a78233d264"
+    },
+    "raw-lighting/glow-0149.png": {
+      "bytes": 238685,
+      "sha256": "7556f07dceaad06ecb379511fcb595e91edb58091845b31b60bdd78bbb226770"
+    },
+    "raw-lighting/gpu-0000.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/gpu-0001.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/gpu-0002.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/gpu-0003.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/gpu-0004.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/gpu-0005.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/gpu-0006.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/gpu-0007.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/gpu-0008.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/gpu-0009.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/gpu-0010.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/gpu-0011.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/gpu-0012.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/gpu-0013.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/gpu-0014.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/gpu-0015.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/gpu-0016.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/gpu-0017.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/gpu-0018.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/gpu-0019.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/gpu-0020.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/gpu-0021.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/gpu-0022.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/gpu-0023.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/gpu-0024.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/gpu-0025.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/gpu-0026.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/gpu-0027.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/gpu-0028.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/gpu-0029.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/gpu-0030.png": {
+      "bytes": 258060,
+      "sha256": "9be5d8c8fa00cbc2d9f99aba391b95d2c4851942c12be1eb5e362fbb37e42ce5"
+    },
+    "raw-lighting/gpu-0031.png": {
+      "bytes": 254599,
+      "sha256": "741e8acaddd9b5a21d5927320680183854a582038522972ce90655b77bf5386b"
+    },
+    "raw-lighting/gpu-0032.png": {
+      "bytes": 253832,
+      "sha256": "943569a83d5e7e14257ea7c9493a176ebc34be5bc796d310cabf89f01456ca60"
+    },
+    "raw-lighting/gpu-0033.png": {
+      "bytes": 250354,
+      "sha256": "b2535766c92c504c9b66f9e3e49ac10bd280604c7d46f48f8973031a7bb267c6"
+    },
+    "raw-lighting/gpu-0034.png": {
+      "bytes": 249207,
+      "sha256": "03c54dd62c0cb900f3a215dc6cc99a3a01f81e16a2dd8e162da715f0bec944a6"
+    },
+    "raw-lighting/gpu-0035.png": {
+      "bytes": 245798,
+      "sha256": "b9b1acccf22010b873bf9e69a2ced127fbc734c100b02f2c5cba2af8ac2c5eda"
+    },
+    "raw-lighting/gpu-0036.png": {
+      "bytes": 246344,
+      "sha256": "6659d1faac1340acd455d262d2f0f6acec2a6c1329d2667068f314757774a19b"
+    },
+    "raw-lighting/gpu-0037.png": {
+      "bytes": 243274,
+      "sha256": "d4219b04ad10608cc7197e788b4cb806584f200a35c9994a0076db55d3bd8ddb"
+    },
+    "raw-lighting/gpu-0038.png": {
+      "bytes": 244135,
+      "sha256": "3812df32be5a61cf0f26a7016563e5896d3d9b576afcb64d9c5f922d2394bd3d"
+    },
+    "raw-lighting/gpu-0039.png": {
+      "bytes": 240802,
+      "sha256": "e0e04c4a1491f49f437e65bab21628fd2e476be020dd81803fa3af1c2d2466e9"
+    },
+    "raw-lighting/gpu-0040.png": {
+      "bytes": 241002,
+      "sha256": "31ce347c44486486448d1e021b804bef5b13dcb7be40fc3ceacc8d5ec9083c72"
+    },
+    "raw-lighting/gpu-0041.png": {
+      "bytes": 237962,
+      "sha256": "0c6e6b8b50ef330a09721daefad0447df3e73550232e5fb49c36db818ea72d5e"
+    },
+    "raw-lighting/gpu-0042.png": {
+      "bytes": 237471,
+      "sha256": "4719f0237fd1217ff13e1134e0a908be3e59cd6ca874bcc62446a338d2391b7e"
+    },
+    "raw-lighting/gpu-0043.png": {
+      "bytes": 234004,
+      "sha256": "f56c2b053056f851d813f4e0aadbbfbc68d04c89374e14905cf49e7721cfc5c2"
+    },
+    "raw-lighting/gpu-0044.png": {
+      "bytes": 233531,
+      "sha256": "89f46482ec3b55b788ec90f9722d38d67cf3271043043b3763b782ace2b4895c"
+    },
+    "raw-lighting/gpu-0045.png": {
+      "bytes": 230931,
+      "sha256": "8f006c0e6851c754bacaee734cb0f98c32ce57bae5a3e60dbaf3dac2ca3d4a83"
+    },
+    "raw-lighting/gpu-0046.png": {
+      "bytes": 230295,
+      "sha256": "70787b884799cf4a4fde9e0eac3fe1dcda5eff1669d7a709f1345707e8d8d957"
+    },
+    "raw-lighting/gpu-0047.png": {
+      "bytes": 227002,
+      "sha256": "78ffc00bba3aeb44f31edc2ef62a0111715497282dc7b0e272a70c56fefd192b"
+    },
+    "raw-lighting/gpu-0048.png": {
+      "bytes": 226651,
+      "sha256": "96bd01e24c8927bafb4e6774f203712ec8378e5d2994eddfee5fbf2e18ae82ec"
+    },
+    "raw-lighting/gpu-0049.png": {
+      "bytes": 224097,
+      "sha256": "f3cec82a3d2758dab3d02c15f95d582a0caeb07b324b638416cbaf2b60da814a"
+    },
+    "raw-lighting/gpu-0050.png": {
+      "bytes": 223519,
+      "sha256": "f3f2b61a012ccefd2db4743d37ecaf78f4d220e685d610f8f8ca4fc189761e0e"
+    },
+    "raw-lighting/gpu-0051.png": {
+      "bytes": 220573,
+      "sha256": "edc1cabbfedcf52135b9c69b2a8599f6007c65ff60032029ffc5ba810e137f84"
+    },
+    "raw-lighting/gpu-0052.png": {
+      "bytes": 220278,
+      "sha256": "fc9cfebad9628050a2a88347cb8eece766ec6700f071c057a5ce953dcce42448"
+    },
+    "raw-lighting/gpu-0053.png": {
+      "bytes": 218273,
+      "sha256": "5b1f45c7df3493a18566dd3b9ba7a2e9d18e7dce0949f42fd7ba71402df2fbec"
+    },
+    "raw-lighting/gpu-0054.png": {
+      "bytes": 217722,
+      "sha256": "6b16de47b39e77c556707662627e846e6d57adafc415e7689b30100ed56417af"
+    },
+    "raw-lighting/gpu-0055.png": {
+      "bytes": 216861,
+      "sha256": "155dfd5a35131a28975d818eb774c3f6932038f148bcffb5c9cfd36ace29b563"
+    },
+    "raw-lighting/gpu-0056.png": {
+      "bytes": 216589,
+      "sha256": "bc89905f263b42e657322043f417b8dc82b59376b37188d1fc3e19c18b4d73b3"
+    },
+    "raw-lighting/gpu-0057.png": {
+      "bytes": 216813,
+      "sha256": "8ae366233aa592daded7d0f41015a0ca8344d5f6adc2311714719fa9ef8b5c30"
+    },
+    "raw-lighting/gpu-0058.png": {
+      "bytes": 215786,
+      "sha256": "78a5063ad8b7c1734ae61877643db720e8a19b7eab2d7e53521dea7d7d1a31ff"
+    },
+    "raw-lighting/gpu-0059.png": {
+      "bytes": 215968,
+      "sha256": "6624fbf4644d5c555d06bd9c4164f4c6a43439c167a1b6e3c484213b845990d8"
+    },
+    "raw-lighting/gpu-0060.png": {
+      "bytes": 215430,
+      "sha256": "2d9a2f0dbcaa9b1edc7913c98eed17a0aa2d3287e583c0bec9dca3ccd098cd72"
+    },
+    "raw-lighting/gpu-0061.png": {
+      "bytes": 215218,
+      "sha256": "ce865ca603a726b0b58cec40ce924e2176e3ef1ba2e8f715e33fb97dc485b526"
+    },
+    "raw-lighting/gpu-0062.png": {
+      "bytes": 215287,
+      "sha256": "cace44d3f9f308c00cd7abf3f4adc3e13494b313109656136ff3ca04d218f1f7"
+    },
+    "raw-lighting/gpu-0063.png": {
+      "bytes": 214667,
+      "sha256": "d15ee02e1d6f657b9092be3b4184f0ac92746d6357df19de1fe28ada248fc746"
+    },
+    "raw-lighting/gpu-0064.png": {
+      "bytes": 214352,
+      "sha256": "eb8f74552b05e379e1fe24f8fb245f4990f787594f5e796155386c7f960620dd"
+    },
+    "raw-lighting/gpu-0065.png": {
+      "bytes": 213858,
+      "sha256": "6bd0dea496ecb8c9187434ca86872ff8cd3031d600bb7ebff5bd575dd5495c96"
+    },
+    "raw-lighting/gpu-0066.png": {
+      "bytes": 213361,
+      "sha256": "f285eeb787e6256b92c03615615fb34c9b6309c28afdb3c7a1bab3f2966b7a27"
+    },
+    "raw-lighting/gpu-0067.png": {
+      "bytes": 212999,
+      "sha256": "7d1a3d8af342ad3182bdf14d52663ef63dcc6a2bfcaa11db0cf333dd312a7766"
+    },
+    "raw-lighting/gpu-0068.png": {
+      "bytes": 212987,
+      "sha256": "2049ce098e531a32261214a4686afc8ea884b15952d5e4997b6cd6fdbcf9a7ec"
+    },
+    "raw-lighting/gpu-0069.png": {
+      "bytes": 212437,
+      "sha256": "d271e8a16cc8dba91dbc1f334c803c1e4f1f28373326c3321467a13958cfdc72"
+    },
+    "raw-lighting/gpu-0070.png": {
+      "bytes": 212444,
+      "sha256": "8929a9de42c58c2420890460b00aca4d56a7e0f425eef582222f09a5a74ee1b3"
+    },
+    "raw-lighting/gpu-0071.png": {
+      "bytes": 212040,
+      "sha256": "b2ee1223dba81e20a03ef21ba7183dac1d77f7db75d650388a9c2545038e2242"
+    },
+    "raw-lighting/gpu-0072.png": {
+      "bytes": 212017,
+      "sha256": "950ff0e79b1e520f633b9d0ad150af51308e6a2649edd09189696d855aabf37c"
+    },
+    "raw-lighting/gpu-0073.png": {
+      "bytes": 211569,
+      "sha256": "531a12c178d44c4dbb56450302a5cec1112ed079e289f54bb0fd6350a8c11deb"
+    },
+    "raw-lighting/gpu-0074.png": {
+      "bytes": 211299,
+      "sha256": "3b94c951c896cbbe1541af9a7cd5bf87a074503c6af02a0c1cb419aa62d5a4ae"
+    },
+    "raw-lighting/gpu-0075.png": {
+      "bytes": 211217,
+      "sha256": "61eac86991415fd7f05d00741019ae6c82e57072d2fc588d8da300baebbe7a0f"
+    },
+    "raw-lighting/gpu-0076.png": {
+      "bytes": 211264,
+      "sha256": "617cb67f506a0619b9f685edde61a287d378e9be43e8a3b1cf62c18f9b62e4ac"
+    },
+    "raw-lighting/gpu-0077.png": {
+      "bytes": 211185,
+      "sha256": "70a502db3926d9bdc3b536c10bb48a000a41cb01be6062fa8b78a3e279eda218"
+    },
+    "raw-lighting/gpu-0078.png": {
+      "bytes": 211205,
+      "sha256": "e33792730a2629ffe2a2a348af26f037e0d7a4f5b60d1005295e2723a8e2d35c"
+    },
+    "raw-lighting/gpu-0079.png": {
+      "bytes": 211062,
+      "sha256": "c7339e12cf5af11b81a594343eadf200806145f645a35f3110f908f93f38cc45"
+    },
+    "raw-lighting/gpu-0080.png": {
+      "bytes": 210925,
+      "sha256": "68f62c501dc7277ebba0c682c5c0b51eb84b0dd3bd53ed61770cb12e3609808b"
+    },
+    "raw-lighting/gpu-0081.png": {
+      "bytes": 210460,
+      "sha256": "2905fed8522027070867d0be7de7e27c09786d592f06665296a04995c31abbc2"
+    },
+    "raw-lighting/gpu-0082.png": {
+      "bytes": 209624,
+      "sha256": "18a7a89631641ee16547f594ca32d352d7a92f9ffb8596ab683207e9debbb0eb"
+    },
+    "raw-lighting/gpu-0083.png": {
+      "bytes": 209598,
+      "sha256": "3b69276656d44c735cabffdc33d129afd1914c8ebb510458bf93eafcfbf6307c"
+    },
+    "raw-lighting/gpu-0084.png": {
+      "bytes": 209607,
+      "sha256": "79ff98766452e7870dc0829ba131415e839095cff5f02986dcb088b3242f12a8"
+    },
+    "raw-lighting/gpu-0085.png": {
+      "bytes": 209657,
+      "sha256": "02c13b87ed57e2804a6565c4fbefc54ccb1f780509f7b8e51845cfb99c838cc7"
+    },
+    "raw-lighting/gpu-0086.png": {
+      "bytes": 209550,
+      "sha256": "15fb8c1b7f227d5288fafcf0755a82ba87f6ac57a532541a2525856e18c5b37c"
+    },
+    "raw-lighting/gpu-0087.png": {
+      "bytes": 209575,
+      "sha256": "332dbbc3d1fe25ea40a519a13d95880d632f0479db201d0272483f551c803552"
+    },
+    "raw-lighting/gpu-0088.png": {
+      "bytes": 209587,
+      "sha256": "240c3a196e8176371a4255b5a461abed7d1a7061e81111edccd9eeab300a4367"
+    },
+    "raw-lighting/gpu-0089.png": {
+      "bytes": 209576,
+      "sha256": "e8225b95b6b1b7d46ff14b999a6f90ceca4f4f532741f918790c58825772f1f6"
+    },
+    "raw-lighting/gpu-0090.png": {
+      "bytes": 209473,
+      "sha256": "269abcbe371e59eee5a34e4a8aa1547b5f6454932b9cdcfece273626bb9d739b"
+    },
+    "raw-lighting/gpu-0091.png": {
+      "bytes": 209525,
+      "sha256": "b6ac65a2554d13e9e1043fb09c2e260da35cbd08ad94c3be33d00b607462ed24"
+    },
+    "raw-lighting/gpu-0092.png": {
+      "bytes": 209463,
+      "sha256": "bae687a85af8b8c302b297952f2deb056b6553fb6ca98dd4b1095a74093d0ac5"
+    },
+    "raw-lighting/gpu-0093.png": {
+      "bytes": 209534,
+      "sha256": "471ecc32846036939855f5a4b18e6497ac7a4be2dcff3b0a82534ab883b0d1f9"
+    },
+    "raw-lighting/gpu-0094.png": {
+      "bytes": 209626,
+      "sha256": "695a82c7e9d2f060f5cfaa95e79d7831b49d83df768aaca657c6c6c8f86ceb82"
+    },
+    "raw-lighting/gpu-0095.png": {
+      "bytes": 209552,
+      "sha256": "e00c8aca00cdfab91f849c83a633f27c293d8d5bf6a8a6290ea5ea0d65c07e89"
+    },
+    "raw-lighting/gpu-0096.png": {
+      "bytes": 209519,
+      "sha256": "a6a4409c3ada5a42cd7c931483182f48e1d49f9338f6d4192bf10f8ccfb36ab7"
+    },
+    "raw-lighting/gpu-0097.png": {
+      "bytes": 209500,
+      "sha256": "0d8249fb2b68db5ff208346b9f53391463eee4a5210be5d98a29827c07e08e3e"
+    },
+    "raw-lighting/gpu-0098.png": {
+      "bytes": 209525,
+      "sha256": "3d2142c7ee4a01ba18cb5c2e478fda9520586ec550cfc99fb8ea3f74b303eccd"
+    },
+    "raw-lighting/gpu-0099.png": {
+      "bytes": 209537,
+      "sha256": "8c3fa1a8dbf72f03e34939d0b459a76793d06cd1a80ed7cf13c3b2d47e59635e"
+    },
+    "raw-lighting/gpu-0100.png": {
+      "bytes": 209605,
+      "sha256": "7168b2911a98ff738d3e57bcad83413170759780b84acd56c4f38f23986c155f"
+    },
+    "raw-lighting/gpu-0101.png": {
+      "bytes": 209566,
+      "sha256": "69967b7fe7224ec63de902509c9fb9c9195caf70523cd206c3824fbe782676f7"
+    },
+    "raw-lighting/gpu-0102.png": {
+      "bytes": 209609,
+      "sha256": "3f0715f601ae76b60ffd47e0e9c6f02fb4a027f4152a4047bb4e739db3230db7"
+    },
+    "raw-lighting/gpu-0103.png": {
+      "bytes": 209624,
+      "sha256": "301b96b0c63069703f5d5160dfe086d5e4d3f76a3f0fa26b79e7bb61660d356a"
+    },
+    "raw-lighting/gpu-0104.png": {
+      "bytes": 209585,
+      "sha256": "05f5acf843a9d8dcd95b50bf89124a3d06af37f2be5294a02de84da0ed0692e9"
+    },
+    "raw-lighting/gpu-0105.png": {
+      "bytes": 209556,
+      "sha256": "d8b2170f21f5bf598738c98dfe2aa36afe7ea4e75827a1509fa1aa8cca515ae7"
+    },
+    "raw-lighting/gpu-0106.png": {
+      "bytes": 209575,
+      "sha256": "9ae8989516eb91c0e979909325c024625cbb514b65caa2b53137fefd5089b270"
+    },
+    "raw-lighting/gpu-0107.png": {
+      "bytes": 209577,
+      "sha256": "aef8512b284c178859d7e6bd47bb3fd906501875d30984e42f82cffce6fffe3a"
+    },
+    "raw-lighting/gpu-0108.png": {
+      "bytes": 209568,
+      "sha256": "b4ef6c002d7f0c004729e5dd0642ba0f581c1b10b8e7fd93a099ff5d295076ac"
+    },
+    "raw-lighting/gpu-0109.png": {
+      "bytes": 209569,
+      "sha256": "25318fa4ebbebae36a86f442b4f3fd4f31597ef152a64e67a35e1d37ea03d337"
+    },
+    "raw-lighting/gpu-0110.png": {
+      "bytes": 209595,
+      "sha256": "611937e825d560f2e0ecff2d6e145e57627fad46e6791e377693c9f3976b30ee"
+    },
+    "raw-lighting/gpu-0111.png": {
+      "bytes": 209625,
+      "sha256": "e980add29f81fd7af9acf596dfc2d0ddf6fd69e4cb4c7faab3cda3832d30cdb6"
+    },
+    "raw-lighting/gpu-0112.png": {
+      "bytes": 209592,
+      "sha256": "ae5b44210153b44e08b8cd6deff79c33f99b9eb8260c7f9fd64370b604b3747b"
+    },
+    "raw-lighting/gpu-0113.png": {
+      "bytes": 209642,
+      "sha256": "f00b574a603af1eda55206a1196e7535071e45c3eeeac57cbdb2432c0925c004"
+    },
+    "raw-lighting/gpu-0114.png": {
+      "bytes": 209605,
+      "sha256": "e34f6f785d83cc43cece767719b2851154337120200dd84dd5de727505125a7b"
+    },
+    "raw-lighting/gpu-0115.png": {
+      "bytes": 209524,
+      "sha256": "a39d5949c71f53374e4a07b8b071582e5edd6d2bc90405d4203110c487596818"
+    },
+    "raw-lighting/gpu-0116.png": {
+      "bytes": 209545,
+      "sha256": "b398ae2e9e70169c32f0c7daa5231ab0fdc9df7d228fdce4486488e36bdfa672"
+    },
+    "raw-lighting/gpu-0117.png": {
+      "bytes": 209549,
+      "sha256": "70981c793a06dc49f4948a83e4ac4bc465817201efbd0266b9b4e0954340f4e0"
+    },
+    "raw-lighting/gpu-0118.png": {
+      "bytes": 209517,
+      "sha256": "30732f64780dae059faa902e3ac30704a3c624bd5bc3534c6c3833921c37606f"
+    },
+    "raw-lighting/gpu-0119.png": {
+      "bytes": 209549,
+      "sha256": "b0979faa74cbcdc64628123904144f91a8e3b0a1056ef08c5c1a7f50df9b2399"
+    },
+    "raw-lighting/gpu-0120.png": {
+      "bytes": 209533,
+      "sha256": "75c6f5a3358213331077faca164f983625cfeaa684f1e01fb99ce0be477137c4"
+    },
+    "raw-lighting/gpu-0121.png": {
+      "bytes": 209541,
+      "sha256": "df51e25b91c18399763893d4f9305023d53b54e444a1aaa3917c0949aa0b8179"
+    },
+    "raw-lighting/gpu-0122.png": {
+      "bytes": 209526,
+      "sha256": "93625120346233717ed346a84071e6c5fa6994ce1fb72d276382dd126b6e5a90"
+    },
+    "raw-lighting/gpu-0123.png": {
+      "bytes": 209622,
+      "sha256": "0b186220a8df3cd619fa906fe7158f18ab26a081e4b89d7ce90b87a30b1d1621"
+    },
+    "raw-lighting/gpu-0124.png": {
+      "bytes": 209608,
+      "sha256": "6593622fa7b2b54d0801be746e5633ace9fac929135fdfe7c13da82e7383e7f8"
+    },
+    "raw-lighting/gpu-0125.png": {
+      "bytes": 209646,
+      "sha256": "f916a3ff3c3fd888b530a31315958bfcd750db50950dc012acd97cf63fd0d864"
+    },
+    "raw-lighting/gpu-0126.png": {
+      "bytes": 209562,
+      "sha256": "fa4741480100749873a4442c86dfa71d6402e6deaa9f93f6cd92bd80a2892de3"
+    },
+    "raw-lighting/gpu-0127.png": {
+      "bytes": 209634,
+      "sha256": "7eb661c3f34c9803c7e17f8611267be82706562b240898ed94c57fc1ca091271"
+    },
+    "raw-lighting/gpu-0128.png": {
+      "bytes": 209579,
+      "sha256": "1407776db712d5662691b5c28b5642115d08be2af3698ff04ee414fe170d115d"
+    },
+    "raw-lighting/gpu-0129.png": {
+      "bytes": 209557,
+      "sha256": "9f03ab43d18358e103cc68324e8af7b73a78a21af8904662497eacb708c247ad"
+    },
+    "raw-lighting/gpu-0130.png": {
+      "bytes": 209504,
+      "sha256": "8bf4c3cbc822fc571be89e0ae4e6c4d02fd2e2e33eb30af33521e4c8d2cd0dad"
+    },
+    "raw-lighting/gpu-0131.png": {
+      "bytes": 209532,
+      "sha256": "28f61e999d3f43b0c96518c9aa26c2ca392be999c580cca4a194299263080028"
+    },
+    "raw-lighting/gpu-0132.png": {
+      "bytes": 209533,
+      "sha256": "91e1f01c1f6e74e55e28922be23963519c0f14e8af4c566fedecb03a1038e961"
+    },
+    "raw-lighting/gpu-0133.png": {
+      "bytes": 209581,
+      "sha256": "8af4a83fba6d3922e8aa112a651ae9a2e635e808fbe774054e4c72a31cff848c"
+    },
+    "raw-lighting/gpu-0134.png": {
+      "bytes": 209569,
+      "sha256": "8273b1ce906e1e554ba9f7b55517fa28ac4c1bae2ea58b12596eab2367ccd158"
+    },
+    "raw-lighting/gpu-0135.png": {
+      "bytes": 209577,
+      "sha256": "857b808b957ce6d77718b5556d35ad59076cf75d53fd134e8895e4ad409325e6"
+    },
+    "raw-lighting/gpu-0136.png": {
+      "bytes": 216143,
+      "sha256": "36145b5923e2e8c9914fbe99c3b1661e0f8aac2bbc256e818f41ed48ed597cd5"
+    },
+    "raw-lighting/gpu-0137.png": {
+      "bytes": 215137,
+      "sha256": "6ace4c6d6041ee3a5285beb56c2b31a0f14371bf6f3c911f7a802600abcbe39d"
+    },
+    "raw-lighting/gpu-0138.png": {
+      "bytes": 215116,
+      "sha256": "ce7046a2d44aa6a1b09682c4532e693678e5b035421e7d28a86679247e92f3b5"
+    },
+    "raw-lighting/gpu-0139.png": {
+      "bytes": 213955,
+      "sha256": "8d91cb7ddcb6daae829522c01e4d211b99bff1891b366f6e54e7602465fe0ffc"
+    },
+    "raw-lighting/gpu-0140.png": {
+      "bytes": 219627,
+      "sha256": "10a262d4ecddbe180e0aa54655d994d963e8a2a16778f7b90696a2fac4538d84"
+    },
+    "raw-lighting/gpu-0141.png": {
+      "bytes": 217482,
+      "sha256": "a956893a3f92ae3331b56be80140320f04633393664fda7776025bf6d75295b6"
+    },
+    "raw-lighting/gpu-0142.png": {
+      "bytes": 217468,
+      "sha256": "275869610967de4c34112d0aee0c2e7eb7f9b9692562bb484118e8f253525ca4"
+    },
+    "raw-lighting/gpu-0143.png": {
+      "bytes": 215556,
+      "sha256": "4357fd01271ade1a4192105ed0049af5700094e653f6014a91da822b266241fa"
+    },
+    "raw-lighting/gpu-0144.png": {
+      "bytes": 215566,
+      "sha256": "af4aff92ce8f07796aea26504f3a999ad8f7c3ceeef83d07f805c02d7e9e5987"
+    },
+    "raw-lighting/gpu-0145.png": {
+      "bytes": 213828,
+      "sha256": "d66ca3f5b6ba910021e65c6a1d3c69f0281efb40e5fb01374ea9a518aa849d9d"
+    },
+    "raw-lighting/gpu-0146.png": {
+      "bytes": 213814,
+      "sha256": "f6966bc56963e1b0b7bed09cf709490909b170118257591274789884271972a3"
+    },
+    "raw-lighting/gpu-0147.png": {
+      "bytes": 217894,
+      "sha256": "6d76d212d3a4a086577f9a9b7354fa2b8df875f1072354c48b6925df48c7d602"
+    },
+    "raw-lighting/gpu-0148.png": {
+      "bytes": 217133,
+      "sha256": "1181df766c0918a77d39825a45777871bea302b8206a0eccb61156db4c99501a"
+    },
+    "raw-lighting/gpu-0149.png": {
+      "bytes": 216374,
+      "sha256": "93815a3e730f1a2291dece6fcd480c8c24c123fdbd873e4a5637b3b501297f20"
+    },
+    "raw-lighting/gpu-no-light-0028.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/gpu-no-light-0029.png": {
+      "bytes": 211188,
+      "sha256": "69c1ca78d1f8dcbbe8d9b7738b9d908396a8e03ae3657bd210f2873c3d77f602"
+    },
+    "raw-lighting/gpu-no-light-0030.png": {
+      "bytes": 258073,
+      "sha256": "1c0d189bad91682c4729a96986a151d07b05acf1030a807f8f7eda381c283b9d"
+    },
+    "raw-lighting/gpu-no-light-0031.png": {
+      "bytes": 254522,
+      "sha256": "a7b4c7c6b86ad0a2244a167ed6fac210045562a60a55b33cf3ad9814b9d31b22"
+    },
+    "raw-lighting/gpu-no-light-0032.png": {
+      "bytes": 253840,
+      "sha256": "a71873667d0a2c9c9607ace85a4f2805d1470ee71641551728a7ac70c2b45a42"
+    },
+    "raw-lighting/gpu-no-light-0033.png": {
+      "bytes": 250343,
+      "sha256": "7dc61442c6fee35d112282cf716f7b3d0a9c03f9fe968d750a9f590f3db8eb6e"
+    },
+    "raw-lighting/gpu-no-light-0034.png": {
+      "bytes": 249216,
+      "sha256": "336efbdd22e46c2aefc66ca80ac8645b7da6c19cb38435951ab6b4d3c7174e3e"
+    },
+    "raw-lighting/gpu-no-light-0035.png": {
+      "bytes": 245747,
+      "sha256": "47565dec50be13d305d92e6053504797e50a294562bb6a7bb414e89d6dc8160d"
+    },
+    "raw-lighting/gpu-no-light-0036.png": {
+      "bytes": 246302,
+      "sha256": "f918d639a7cc4c09e8f7645dde005317644ed12f206f74ef7e26a3fa544720ef"
+    },
+    "raw-lighting/gpu-no-light-0037.png": {
+      "bytes": 243335,
+      "sha256": "b09693355d9eebd4c50f6cece76411eef75c19fe7b8953bcfecfc3dffe6693e9"
+    },
+    "raw-lighting/gpu-no-light-0038.png": {
+      "bytes": 244020,
+      "sha256": "79bc20161c445d11cff232369bac521bf76c787718ef488ccafdbd5e46b3d6d2"
+    },
+    "raw-lighting/gpu-no-light-0039.png": {
+      "bytes": 240761,
+      "sha256": "224f14dd1e0c16e86a00bf59fcf70024840681f9425e15c2852bf2fd4c569c0b"
+    },
+    "raw-lighting/gpu-no-light-0040.png": {
+      "bytes": 240924,
+      "sha256": "d224c38f804e3e37e1647da66cf8ce61569ca1b664ab8a3b668cf2d8c1ebdffc"
+    },
+    "raw-lighting/gpu-no-light-0041.png": {
+      "bytes": 237850,
+      "sha256": "7a7c89338da04d1a65648d37501eff79fce43c59f3c37f08edd0161434eb9d15"
+    },
+    "raw-lighting/gpu-no-light-0042.png": {
+      "bytes": 237354,
+      "sha256": "9970dadd460bcb9f23f83e3bf5bd0ab43cc413eb3964cd27273a80338b5870fc"
+    },
+    "raw-lighting/gpu-no-light-0043.png": {
+      "bytes": 233870,
+      "sha256": "ecf8eeab19262344e36a96b95ed243472be3cc55581c26379e50d2a26385f46d"
+    },
+    "raw-lighting/gpu-no-light-0044.png": {
+      "bytes": 233469,
+      "sha256": "f333ee2174af8912c51389c55b24f78e9c3036c8d14c80c0499d5b091adf1aa9"
+    },
+    "raw-lighting/gpu-no-light-0045.png": {
+      "bytes": 230862,
+      "sha256": "ff589bf038a86cceaa8bca7b0ec70d7d3d3d5eb9b2f3e8137d9c40a8504670b5"
+    },
+    "raw-lighting/gpu-no-light-0046.png": {
+      "bytes": 230292,
+      "sha256": "beaec12eda98ae698b20856c4dff3eeecc82c55e8bd86cd707c7f4c31e2741fd"
+    },
+    "raw-lighting/gpu-no-light-0047.png": {
+      "bytes": 227041,
+      "sha256": "aea0a1ce239901e31f0e486856d645b176c4788ada5f2f795ab820aeb7a03dee"
+    },
+    "raw-lighting/gpu-no-light-0048.png": {
+      "bytes": 226577,
+      "sha256": "1d86a65e69833a684ef29fe7ebd151d053b8094e69846f62ee0ff336a1adf188"
+    },
+    "raw-lighting/gpu-no-light-0049.png": {
+      "bytes": 224107,
+      "sha256": "f6c48ae9de173aca55543a24101127c4c8d36a64bbdd7440c2179966eaa960fe"
+    },
+    "raw-lighting/gpu-no-light-0050.png": {
+      "bytes": 223562,
+      "sha256": "3bddc67730b878c76624e883f80cca5dabafce1c4a5a325075e28e7d6c744265"
+    },
+    "source/export.py": {
+      "bytes": 2855,
+      "sha256": "0ca2125ce92e123b0c76181fc459bc5c76a14804b6c4d149831bb5448efc98c8"
+    },
+    "source/main.go": {
+      "bytes": 11125,
+      "sha256": "f9923ee1b47fd55e4bab8e8fcc033a1007151eba3f97c8cfa5e3adaccadeb220"
+    },
+    "verification.json": {
+      "bytes": 388,
+      "sha256": "72daf97ae19c2467a9becb458c0b707bd3225e3521c440addfb75adc5669a541"
+    }
+  }
+}

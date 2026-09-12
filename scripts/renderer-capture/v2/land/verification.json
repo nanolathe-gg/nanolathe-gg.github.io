@@ -1,0 +1,50 @@
+{
+  "ssaa": {
+    "different_pixels": 21213,
+    "difference_bounds": [
+      306,
+      221,
+      773,
+      465
+    ],
+    "packets": [
+      {
+        "name": "ssaa-off.png",
+        "models": 2,
+        "supersample_packets": 0
+      },
+      {
+        "name": "ssaa-on.png",
+        "models": 2,
+        "supersample_packets": 2
+      }
+    ]
+  },
+  "terrain": {
+    "different_pixels": 401552,
+    "difference_bounds": [
+      0,
+      0,
+      960,
+      640
+    ]
+  },
+  "zoom": {
+    "frames": 150,
+    "first_zoom": 1024,
+    "last_zoom": 2048,
+    "distinct_camera_zoom_values": 117,
+    "unit_counts": [
+      12
+    ]
+  },
+  "tactical": {
+    "frames": 150,
+    "first_zoom": 1024,
+    "last_zoom": 256,
+    "distinct_camera_zoom_values": 116,
+    "unit_counts": [
+      38
+    ]
+  }
+}

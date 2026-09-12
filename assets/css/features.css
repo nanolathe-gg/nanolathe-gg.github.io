@@ -1,0 +1,132 @@
+.renderer-page { padding-bottom: 80px; }
+.ta-intro { display: grid; grid-template-columns: 1fr 2.1fr; gap: 48px; border-block: 1px solid var(--line); padding: 36px 0; }
+.ta-intro h2 { font-size: clamp(26px, 3vw, 36px); margin: 12px 0 0; }
+.ta-intro-copy > p { margin-top: 0; max-width: 75ch; }
+.ta-basics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; font-size: 14px; color: var(--muted); }
+.ta-basics p { margin: 8px 0 0; }
+.ta-basics strong { display: block; color: var(--text); margin-bottom: 5px; }
+.renderer-intro { display: grid; grid-template-columns: 1.15fr 1fr; gap: 70px; padding: 76px 0 48px; align-items: center; }
+.renderer-intro h2 { font-size: clamp(35px, 4.7vw, 62px); margin: 20px 0; }
+.renderer-intro h2 em { font-style: normal; color: var(--green); }
+.renderer-intro p { margin-top: 0; }
+.capture-key { font-size: 13px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); }
+.capture-key > span { display: inline-block; width: 7px; height: 7px; margin-right: 8px; background: var(--green); }
+.renderer-nav { display: flex; flex-wrap: wrap; border: 1px solid var(--line); background: var(--surface); }
+.renderer-nav a { padding: 16px 22px; flex: 1; white-space: nowrap; font: 12px/1.5 SFMono-Regular, Consolas, monospace; text-decoration: none; color: var(--muted); }
+.renderer-nav a:hover { color: var(--green); background: var(--surface-raised); }
+.renderer-showcase { display: grid; grid-template-columns: minmax(240px, .8fr) minmax(0, 1.8fr); align-items: start; gap: 44px; padding: 68px 0; border-bottom: 1px solid var(--line); scroll-margin-top: 100px; }
+.showcase-index { font: 13px/1.4 SFMono-Regular, Consolas, monospace; color: var(--green); }
+.showcase-index span { color: var(--muted); padding-left: 12px; }
+.showcase-copy h2 { font-size: clamp(29px, 3vw, 40px); margin: 16px 0; }
+.showcase-deck { font-size: 18px; line-height: 1.5; color: var(--text); }
+.renderer-explanation { margin: 24px 0 16px; font-size: 14px; }
+.renderer-explanation dt { color: var(--text); font-weight: 600; margin-top: 16px; }
+.renderer-explanation dd { color: var(--muted); margin: 5px 0 0; }
+.renderer-state { color: var(--amber); font: 11px/1.5 SFMono-Regular, Consolas, monospace; }
+.look-for { padding-left: 13px; border-left: 2px solid var(--green); color: var(--muted); font-size: 13px; margin: 20px 0; }
+.look-for strong { color: var(--text); }
+.capture-details { font-size: 12px; color: var(--muted); margin-top: 20px; }
+.capture-details summary { cursor: pointer; width: fit-content; }
+.capture-details a { color: var(--green); overflow-wrap: anywhere; }
+.renderer-comparison, .renderer-motion { margin: 0; border: 1px solid var(--line); background: var(--surface); }
+.comparison-stage { position: relative; overflow: hidden; background: #111; isolation: isolate; }
+.comparison-stage img { width: 100%; display: block; height: auto; }
+.comparison-stage > img, .comparison-before img { transform: scale(var(--inspection-scale, 1)); transform-origin: var(--inspection-origin, 50% 50%); }
+.comparison-stage .comparison-before { position: absolute; inset: 0; clip-path: inset(0 calc(100% - var(--split)) 0 0); }
+.comparison-labels { position: absolute; inset: 14px 14px auto; display: flex; justify-content: space-between; gap: 12px; pointer-events: none; }
+.comparison-labels span { color: #edf0e7; background: #121516e8; padding: 5px 9px; font: 11px/1.4 SFMono-Regular, Consolas, monospace; border: 1px solid #596050; max-width: 48%; }
+.comparison-labels span:last-child { border-color: var(--green); }
+.comparison-divider { position: absolute; left: var(--split); top: 0; bottom: 0; width: 2px; background: var(--green); transform: translateX(-1px); pointer-events: none; }
+.comparison-divider span { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 34px; height: 34px; text-align: center; line-height: 32px; background: var(--green); color: #192510; border-radius: 50%; font-size: 23px; box-shadow: 0 1px 10px #0005; }
+.comparison-stage[data-position="0"] .comparison-divider, .comparison-stage[data-position="100"] .comparison-divider { display: none; }
+.comparison-stage[data-position="0"] .comparison-labels span:first-child, .comparison-stage[data-position="100"] .comparison-labels span:last-child { visibility: hidden; }
+.comparison-controls { display: flex; gap: 14px; align-items: center; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+.comparison-controls[hidden] { display: none; }
+.comparison-inspection { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+.comparison-inspection[hidden] { display: none; }
+.comparison-inspection > span { margin-right: auto; color: var(--muted); font-size: 12px; }
+.comparison-inspection button { padding: 8px 10px; min-height: 38px; font: 12px/1.4 Arial, sans-serif; color: var(--muted); border: 1px solid var(--line); background: transparent; cursor: pointer; }
+.comparison-inspection button[aria-pressed="true"], .comparison-inspection button:hover { border-color: var(--green); color: var(--green); }
+.comparison-controls button { background: transparent; border: 1px solid var(--line); color: var(--text); font: 12px/1.4 Arial, sans-serif; padding: 8px 10px; cursor: pointer; min-height: 38px; }
+.comparison-controls button[aria-pressed="true"], .comparison-controls button:hover { border-color: var(--green); color: var(--green); }
+.comparison-controls input { min-width: 40px; flex: 1; width: 100%; height: 32px; accent-color: var(--green); cursor: ew-resize; }
+.renderer-page :focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }
+.renderer-comparison figcaption, .renderer-motion figcaption { color: var(--muted); padding: 12px 16px; font-size: 12px; line-height: 1.6; }
+.comparison-files { display: block; margin-top: 5px; }
+.comparison-files a { color: var(--muted); text-decoration-color: var(--line); }
+.comparison-files a:hover { color: var(--green); }
+.renderer-motion { margin-top: 18px; }
+.renderer-motion video { width: 100%; height: auto; display: block; max-height: 540px; background: #111; }
+.renderer-beyond { padding-top: 65px; scroll-margin-top: 100px; }
+.renderer-beyond > h2 { font-size: clamp(30px, 3vw, 42px); margin: 16px 0 36px; }
+.renderer-extras { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.renderer-extras h3 { font-size: 22px; }
+.renderer-extras p { font-size: 14px; color: var(--muted); }
+.renderer-try { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 45px; padding: 32px; background: var(--surface); border: 1px solid var(--line); }
+.renderer-try h3 { font-size: 26px; margin: 12px 0; }
+.renderer-try p { font-size: 14px; }
+.renderer-try pre { font-size: 12px; overflow-x: auto; }
+@media (max-width: 1000px) { .renderer-showcase { gap: 28px; grid-template-columns: minmax(210px, .8fr) minmax(0, 1.4fr); } .renderer-intro { gap: 35px; } .ta-intro { gap: 30px; } .ta-basics { gap: 16px; } }
+@media (max-width: 760px) { .renderer-intro, .ta-intro, .renderer-showcase, .renderer-try { grid-template-columns: 1fr; } .ta-intro { gap: 20px; } .ta-intro h2 br { display: none; } .renderer-intro { gap: 12px; padding-top: 48px; } .renderer-showcase { gap: 25px; padding: 45px 0; } .showcase-copy h2 { max-width: 22ch; } .renderer-explanation { display: grid; grid-template-columns: 110px 1fr; gap: 10px; } .renderer-explanation dt, .renderer-explanation dd { margin: 0; } .renderer-extras { grid-template-columns: 1fr; gap: 12px; } .renderer-try { gap: 20px; padding: 24px; } .renderer-nav a { padding: 12px 16px; } }
+@media (max-width: 450px) { .ta-basics { grid-template-columns: 1fr; gap: 8px; } .ta-basics p { margin: 0; } .ta-basics strong { margin-bottom: 0; } .renderer-explanation { grid-template-columns: 1fr; gap: 4px; } .renderer-explanation dt:not(:first-child) { margin-top: 12px; } .comparison-controls { gap: 8px; padding: 8px; } .comparison-controls button { max-width: 105px; font-size: 11px; padding: 7px; } .comparison-labels { inset: 8px 8px auto; } .comparison-labels span { font-size: 10px; } }
+.renderer-heading { display: grid; grid-template-columns: .95fr 1.05fr; gap: 50px; align-items: center; padding-top: 48px; padding-bottom: 46px; }
+.renderer-heading h1 { font-size: clamp(36px, 4.3vw, 60px); margin: 18px 0; line-height: 1.08; }
+.renderer-heading p { color: var(--muted); font-size: 17px; }
+.renderer-heading figure { margin: 0; position: relative; border: 1px solid var(--line); }
+.renderer-heading img { width: 100%; height: auto; display: block; }
+.renderer-heading figcaption { position: absolute; bottom: 0; inset-inline: 0; padding: 15px 16px; background: linear-gradient(transparent, #121516e8); font: 10px/1.5 SFMono-Regular, Consolas, monospace; color: #fff; }
+.renderer-intro { padding-top: 45px; gap: 50px; }
+.renderer-intro h2 { font-size: clamp(32px, 3.5vw, 48px); }
+@media (max-width: 760px) { .renderer-heading { grid-template-columns: 1fr; gap: 25px; padding-top: 35px; padding-bottom: 35px; } .renderer-heading h1 { max-width: 16ch; } .renderer-intro { gap: 15px; } }
+[data-comparison] .comparison-stage { cursor: ew-resize; touch-action: pan-y; user-select: none; }
+.renderer-page .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.renderer-showcase { row-gap: 0; grid-template-rows: auto 1fr; }
+.showcase-copy { grid-column: 1; grid-row: 1; }
+.showcase-details { grid-column: 1; grid-row: 2; }
+.showcase-media { grid-column: 2; grid-row: 1 / span 2; }
+@media (max-width: 760px) {
+  .renderer-showcase { grid-template-rows: auto auto auto; row-gap: 18px; }
+  .showcase-copy { grid-column: 1; grid-row: 1; }
+  .showcase-media { grid-column: 1; grid-row: 2; }
+  .showcase-details { grid-column: 1; grid-row: 3; }
+  .showcase-copy .showcase-deck { margin-bottom: 0; }
+  .showcase-details .renderer-explanation { margin-top: 0; }
+}
+.pixel-inspect img { image-rendering: pixelated; }
+/* The full gameplay guide is server-rendered here and at /gameplay/. */
+.gameplay-open { display: inline-flex; gap: 12px; margin-top: 24px; }
+.gameplay-dialog { width: min(1100px, calc(100% - 48px)); max-width: none; max-height: calc(100dvh - 64px); padding: 0 0 28px; color: var(--text); background: var(--bg); border: 1px solid var(--line); overscroll-behavior: contain; }
+.gameplay-dialog::backdrop { background: #000c; backdrop-filter: blur(4px); }
+.gameplay-dialog-header { position: sticky; top: 0; z-index: 2; display: flex; justify-content: space-between; align-items: start; gap: 20px; padding: 25px 30px; background: var(--bg); border-bottom: 1px solid var(--line); }
+.gameplay-dialog-header h2 { font-size: clamp(25px, 3vw, 38px); margin: 10px 0 0; }
+.gameplay-close { flex-shrink: 0; padding: 10px 14px; border: 1px solid var(--line); background: var(--surface); color: var(--text); font: 14px/1.5 Arial, sans-serif; cursor: pointer; }
+.gameplay-close:hover { border-color: var(--green); color: var(--green); }
+.gameplay-close:focus-visible, .gameplay-dialog a:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+.gameplay-dialog > .gameplay-guide { padding: 8px 30px 10px; }
+.gameplay-dialog > .text-link { margin-inline: 30px; }
+.gameplay-lead { color: var(--muted); font-size: 17px; line-height: 1.7; max-width: 90ch; }
+.gameplay-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 40px; }
+.gameplay-group { border-top: 1px solid var(--line); padding: 25px 0; }
+.gameplay-group h3 { font-size: 25px; margin: 0 0 10px; }
+.gameplay-group > p { color: var(--text); margin-top: 0; }
+.gameplay-group ul { color: var(--muted); padding-left: 19px; font-size: 14px; }
+.gameplay-group li { padding: 0 0 8px 3px; }
+.gameplay-source { font: 11px/1.5 SFMono-Regular, Consolas, monospace; color: var(--green); }
+.gameplay-scope { padding: 22px; background: var(--surface); border-left: 2px solid var(--amber); color: var(--muted); font-size: 14px; }
+.gameplay-page { padding-bottom: 70px; }
+.gameplay-page > h2 { font-size: 32px; }
+html.gameplay-modal-open { overflow: hidden; }
+@media (max-width: 650px) { .gameplay-dialog { width: calc(100% - 20px); max-height: calc(100dvh - 24px); } .gameplay-dialog-header { padding: 18px; gap: 10px; } .gameplay-dialog-header h2 { font-size: 25px; } .gameplay-dialog > .gameplay-guide { padding-inline: 18px; } .gameplay-dialog > .text-link { margin-inline: 18px; } .gameplay-groups { grid-template-columns: 1fr; } .gameplay-lead { font-size: 15px; } .gameplay-close { padding: 9px; } }
+.motion-primary { margin-top: 0; }
+.motion-stage { position: relative; }
+.motion-primary video { max-height: none; }
+.motion-play { position: absolute; inset: 50% auto auto 50%; transform: translate(-50%, -50%); display: flex; align-items: center; gap: 12px; padding: 16px 22px; white-space: nowrap; border: 1px solid var(--green); background: #121516ef; color: var(--text); font: 15px/1.5 Arial, sans-serif; cursor: pointer; box-shadow: 0 4px 30px #0006; }
+.motion-play span { color: var(--green); }
+.motion-started .motion-play { position: static; inset: auto; transform: none; padding: 8px 12px; font-size: 12px; box-shadow: none; }
+.motion-play[hidden], .motion-controls[hidden] { display: none; }
+.motion-state { position: absolute; top: 14px; right: 14px; font: 12px/1.4 SFMono-Regular, Consolas, monospace; background: #121516ef; color: var(--green); border: 1px solid var(--line); padding: 7px 10px; pointer-events: none; }
+.motion-controls { display: flex; gap: 12px; justify-content: space-between; align-items: center; padding: 12px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.motion-controls button { background: transparent; border: 1px solid var(--line); color: var(--muted); padding: 8px 12px; min-height: 40px; font: 12px/1.5 Arial, sans-serif; cursor: pointer; }
+.motion-controls button:hover, .motion-controls button[aria-pressed="true"] { border-color: var(--green); color: var(--green); }
+.motion-variants { display: flex; flex-wrap: wrap; gap: 8px; }
+@media (max-width: 550px) { .motion-controls { flex-wrap: wrap; gap: 8px; } .motion-controls button { padding: 7px 10px; } .motion-state { top: 8px; right: 8px; font-size: 10px; } .motion-play { padding: 12px 15px; font-size: 13px; } }

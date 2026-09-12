@@ -1,0 +1,47 @@
+{
+  "revision": "774f79c",
+  "walker": "armham",
+  "tracked_unit": "armbull",
+  "walker_initial_heading": 49152,
+  "frames": 420,
+  "ticks": [
+    31,
+    450
+  ],
+  "peak_footprints": 26,
+  "peak_track_segments": 68,
+  "probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 640,
+        "r_frame_rate": "30/1",
+        "nb_frames": "420"
+      }
+    ],
+    "format": {
+      "duration": "14.000000"
+    }
+  },
+  "census_sha256": "56ff3789cb4a761d60700b1a41c632b4db62466304ab6addaad7720c7d02ab6e",
+  "gait_selection": {
+    "candidates": [
+      "armham",
+      "corstorm",
+      "armzeus"
+    ],
+    "selected": "armham",
+    "measurement_frames": [
+      60,
+      209
+    ],
+    "walk_cycle_ticks": 17,
+    "steady_speed_world_pixels_per_tick": 1.1,
+    "distance_per_half_cycle": 9.35,
+    "native_footprint_spacing_world_pixels": 10,
+    "note": "Marks follow distance travelled, not COB foot-contact events; gait is a closer visual match, not exact synchronization."
+  }
+}

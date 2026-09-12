@@ -1,0 +1,77 @@
+{
+  "lighting": {
+    "frames": 150,
+    "tick_range": [
+      90,
+      239
+    ],
+    "counter": "LitModelFaces",
+    "off_peak": 0,
+    "on_peak": 33,
+    "counter_nonzero_frames": 57,
+    "burning_peak": 0,
+    "poster_frame": 39,
+    "poster_difference_pixels": 72274,
+    "poster_difference_bounds": [
+      364,
+      158,
+      714,
+      451
+    ],
+    "pre_event_identical": true,
+    "unit_snapshot_count_range": [
+      3,
+      4
+    ]
+  },
+  "shockwave": {
+    "frames": 150,
+    "tick_range": [
+      90,
+      239
+    ],
+    "counter": "BlastWaves",
+    "off_peak": 0,
+    "on_peak": 3,
+    "counter_nonzero_frames": 14,
+    "burning_peak": 0,
+    "poster_frame": 36,
+    "poster_difference_pixels": 81126,
+    "poster_difference_bounds": [
+      286,
+      98,
+      662,
+      502
+    ],
+    "pre_event_identical": true,
+    "unit_snapshot_count_range": [
+      2,
+      3
+    ]
+  },
+  "fire": {
+    "frames": 150,
+    "tick_range": [
+      90,
+      239
+    ],
+    "counter": "HeatPlumes",
+    "off_peak": 0,
+    "on_peak": 3,
+    "counter_nonzero_frames": 120,
+    "burning_peak": 3,
+    "poster_frame": 90,
+    "poster_difference_pixels": 28550,
+    "poster_difference_bounds": [
+      271,
+      0,
+      680,
+      297
+    ],
+    "pre_event_identical": true,
+    "unit_snapshot_count_range": [
+      2,
+      3
+    ]
+  }
+}

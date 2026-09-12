@@ -1,0 +1,19 @@
+{
+  "frame": 34,
+  "light_only_changed_bbox": [
+    183,
+    128,
+    275,
+    180
+  ],
+  "receiver_crop_xyxy": [
+    187,
+    128,
+    228,
+    180
+  ],
+  "receiver_changed_pixels": 1557,
+  "peak_lit_faces": 33,
+  "cpu_path": "Client.ComposeFrameSnapshot -> composeCurrentFrame -> list.Replay(classicSink) -> indexed framebuffer -> palette-expanded RGBA",
+  "modern_classic_planes": 0
+}

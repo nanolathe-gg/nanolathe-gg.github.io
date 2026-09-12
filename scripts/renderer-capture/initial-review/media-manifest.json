@@ -1,0 +1,150 @@
+[
+  {
+    "file": "remaster-off.webp",
+    "source": "/private/tmp/nanolathe-feature-main-media/remaster-off.png",
+    "filter": null,
+    "sha256": "1d2391b73ad35fbf79352fd838e41e8d7fff841a288bf07afe093c145578422f",
+    "renderer_revision": "72dcc02"
+  },
+  {
+    "file": "remaster-on.webp",
+    "source": "/private/tmp/nanolathe-feature-main-media/remaster-on.png",
+    "filter": null,
+    "sha256": "d5fa5fc12f6bfa7d88bc35c68f49f2b11c73e86ddf9079b49e0c70a334a61f7f",
+    "renderer_revision": "72dcc02"
+  },
+  {
+    "file": "zoom-1x.webp",
+    "source": "/private/tmp/nanolathe-feature-main-media/zoom-1x.png",
+    "filter": null,
+    "sha256": "029787a7a10d095bf298776e0fe94505c88d6df8e6945e02f989b15d42e81152",
+    "renderer_revision": "72dcc02"
+  },
+  {
+    "file": "tactical-overview.webp",
+    "source": "/private/tmp/nanolathe-feature-main-media/tactical-overview.png",
+    "filter": null,
+    "sha256": "b1555fe934b22f98cb3fac0f27771e217a6e44d7506fccd13b37a0a52738d03c",
+    "renderer_revision": "72dcc02"
+  },
+  {
+    "file": "ssaa-off.webp",
+    "source": "/private/tmp/nanolathe-feature-main-media/ssaa-off.png",
+    "filter": "crop=360:240:420:395",
+    "sha256": "e496d44a90d841d7b35aeb53550afbf461f82d999601dcd4857332e161be0e40",
+    "renderer_revision": "72dcc02"
+  },
+  {
+    "file": "ssaa-on.webp",
+    "source": "/private/tmp/nanolathe-feature-main-media/ssaa-on.png",
+    "filter": "crop=360:240:420:395",
+    "sha256": "c7338df04357425a9471605b5308bdb3b235e99e6dc7bf203e7458c7015becd2",
+    "renderer_revision": "72dcc02"
+  },
+  {
+    "file": "bloom-off.webp",
+    "source": "/private/tmp/nanolathe-feature-main-media/bloom-off.png",
+    "filter": null,
+    "sha256": "87d7f5a179da15ffe18e50bb7f01315b5b38cb01c7ec196e1388e4d18326672d",
+    "renderer_revision": "72dcc02"
+  },
+  {
+    "file": "lighting-off.webp",
+    "source": "/private/tmp/nanolathe-feature-main-media/lighting-off.png",
+    "filter": null,
+    "sha256": "da923bc4fc6634942cd7a565f38f2885e83aca95cb04a637208d39b981b80492",
+    "renderer_revision": "72dcc02"
+  },
+  {
+    "file": "lighting-on.webp",
+    "source": "/private/tmp/nanolathe-feature-main-media/lighting-on.png",
+    "filter": null,
+    "sha256": "5be7497088e8bbb42c2ffdd70e12f434d2fb21dc3d5d0c877ceded5f6ab859d4",
+    "renderer_revision": "72dcc02"
+  },
+  {
+    "file": "distortion-off.webp",
+    "source": "/private/tmp/nanolathe-feature-main-media/distortion-off.png",
+    "filter": null,
+    "sha256": "a2cf5530bc708a78e4b1cb92ee6c119c0e6c21272f1e7b31b1af1e287583a722",
+    "renderer_revision": "72dcc02"
+  },
+  {
+    "file": "water-before.webp",
+    "source": "/private/tmp/nanolathe-coastal-v5-timed/coast-2x-t140-before.png",
+    "filter": null,
+    "sha256": "5552fe48185e6ecd4d41c3a186fe4e756bcdf7ca88368d262b0d4a7c6b30c8de",
+    "renderer_revision": "c4b61e6 (integrated coastal v5 design)"
+  },
+  {
+    "file": "reflection-before.webp",
+    "source": "/private/tmp/nanolathe-reflections-25-visual/coast-2x-t140-before.png",
+    "filter": null,
+    "sha256": "4980b56207f5f11810c16ede456437504b13b603069e167990ec335eba7d30d2",
+    "renderer_revision": "6b5a99d"
+  },
+  {
+    "file": "heat-before.webp",
+    "source": "/private/tmp/tree-heat-before-modern/battle.png",
+    "filter": "crop=720:640:480:120",
+    "sha256": "42c19f0ad13f0d2c14a6428af9599a78d422619a17d8baf446ad155fd27b174e",
+    "renderer_revision": "0c2c1d7"
+  },
+  {
+    "file": "water-after.webp",
+    "source": "/private/tmp/nanolathe-coastal-v5-timed/coast-2x-t140-after.png",
+    "filter": null,
+    "sha256": "1f8d655cee8cae7e9f2482f6f446f061d5fcec2718188202106931ba420f8873",
+    "renderer_revision": "c4b61e6 (integrated coastal v5 design)"
+  },
+  {
+    "file": "reflection-after.webp",
+    "source": "/private/tmp/nanolathe-reflections-25-visual/coast-2x-t140-after.png",
+    "filter": null,
+    "sha256": "c76d5253c8d2bfb669f362a67a547bddda51aa54f51304ec486ce9f7e720fee9",
+    "renderer_revision": "6b5a99d"
+  },
+  {
+    "file": "heat-after.webp",
+    "source": "/private/tmp/tree-heat-after-modern/battle.png",
+    "filter": "crop=720:640:480:120",
+    "sha256": "5f326049442f19a901ecea212b4e3c3f01ea41c87c2ab82580781065ab76c9ed",
+    "renderer_revision": "0c2c1d7"
+  },
+  {
+    "file": "glint-off.webp",
+    "source": "/private/tmp/glint-off-native-1/battle.png",
+    "filter": "crop=640:640:400:300",
+    "sha256": "9337538b695a2029ad001e9ef2054411dccd9cb8ef64bb70fd68b81949cdc132",
+    "renderer_revision": "72dcc02"
+  },
+  {
+    "file": "glint-on.webp",
+    "source": "/private/tmp/glint-on-native-1/battle.png",
+    "filter": "crop=640:640:400:300",
+    "sha256": "471a1de685fa4cc86cea87623097b3f36095ac992f85aaa0367d8a0e2d51658a",
+    "renderer_revision": "72dcc02"
+  },
+  {
+    "file": "hero-battle.webp",
+    "source": "/private/tmp/nanolathe-lighting-detail-after/battle.png",
+    "filter": "crop=1280:880:160:100",
+    "sha256": "6a41b05f0b977c8a640510d4217f2854f31da8b0ece4067307469d664179fdda",
+    "renderer_revision": "lighting detail review; exact build hash not embedded"
+  },
+  {
+    "file": "heat-motion.mp4",
+    "source": "/private/tmp/nanolathe-tree-heat-preview.mp4",
+    "sha256": "a54cc8991e81d969f2ec7031ca17450e88cea7362318e84fca8df355fa29971e"
+  },
+  {
+    "file": "water-motion.mp4",
+    "source": "water-shore-v5.mp4",
+    "sha256": "584bcff89ad099b0478871b34ab0692d4f8026a128b7ccd3b4b4b145dc9d4e09"
+  },
+  {
+    "file": "water-motion-poster.webp",
+    "source": "water-shore-v5.mp4 first frame",
+    "sha256": "9af390b1e73a093fb6cd8d14cbc292bbc6508371c24ac5f493565377a087028d"
+  }
+]

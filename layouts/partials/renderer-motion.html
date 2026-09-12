@@ -1,0 +1,12 @@
+<figure class="renderer-motion motion-primary" data-motion-demo>
+  <div class="motion-stage">
+    <video controls muted loop playsinline preload="none" width="{{ .width }}" height="{{ .height }}" poster="{{ .poster | relURL }}" aria-label="{{ .label }}"><source src="{{ .src | relURL }}" type="video/mp4"></video>
+    <button type="button" class="motion-play" hidden><span aria-hidden="true">▶</span> {{ .playLabel | default "Play animation" }}</button>
+    {{ with .beforeSrc }}<span class="motion-state" aria-live="polite">{{ $.afterLabel }}</span>{{ end }}
+  </div>
+  <div class="motion-controls" hidden>
+    {{ with .beforeSrc }}<div class="motion-variants" role="group" aria-label="Animation comparison"><button type="button" data-motion-src="{{ . | relURL }}" data-motion-poster="{{ $.beforePoster | relURL }}" aria-pressed="false">{{ $.beforeLabel }}</button><button type="button" data-motion-src="{{ $.src | relURL }}" data-motion-poster="{{ $.poster | relURL }}" aria-pressed="true">{{ $.afterLabel }}</button>{{ with $.extraSrc }}<button type="button" data-motion-src="{{ . | relURL }}" data-motion-poster="{{ $.extraPoster | relURL }}" aria-pressed="false">{{ $.extraLabel }}</button>{{ end }}</div>{{ end }}
+    <button type="button" data-motion-replay>Replay from start <span aria-hidden="true">↺</span></button>
+  </div>
+  <figcaption>{{ .caption }}<span class="comparison-files"><a href="{{ .src | relURL }}">Open full animation</a>{{ with .beforeSrc }} · <a href="{{ . | relURL }}">Open {{ $.beforeLabel }}</a>{{ end }}{{ with .extraSrc }} · <a href="{{ . | relURL }}">Open {{ $.extraLabel }}</a>{{ end }}</span></figcaption>
+</figure>

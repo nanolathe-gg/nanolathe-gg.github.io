@@ -1,0 +1,155 @@
+{
+  "renderer_revision": "9e61946a64ee96619551579ecddf4786f7865c9d",
+  "source": "Normal Session.Step and committed snapshots; authored initial scene and queued movement orders",
+  "water_ticks": [
+    31,
+    210
+  ],
+  "metal_ticks": [
+    31,
+    150
+  ],
+  "metal_poster_tick": 109,
+  "files": [
+    {
+      "file": "capture-main.go",
+      "bytes": 8653,
+      "sha256": "94308ee7234393313baf36755f03b625d3afc084e8fbf63ff35513e9cdaa7087"
+    },
+    {
+      "file": "metal-off-full.webp",
+      "bytes": 88120,
+      "sha256": "09ba3ed0d9f1787d910012ebdf1e1459d61ea251d2c92d608bbc6b85c808e01b"
+    },
+    {
+      "file": "metal-off.mp4",
+      "bytes": 961416,
+      "sha256": "13b83ec32786257180e9088d485e9a96757ba72e56d20cae778ad5f944a2c0ae",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 720,
+            "height": 400,
+            "r_frame_rate": "30/1",
+            "nb_frames": "120"
+          }
+        ],
+        "format": {
+          "duration": "4.000000"
+        }
+      }
+    },
+    {
+      "file": "metal-off.webp",
+      "bytes": 50538,
+      "sha256": "f9ecbdf7bff5be36b986a838c4a3a1228b110bd9bf8d85155fe986d1eaafe942"
+    },
+    {
+      "file": "metal-on-full.webp",
+      "bytes": 89006,
+      "sha256": "33eb3f98efd78af1532461ba9fd9efa1287e765bbea0c6e333e9be1a1cf884b0"
+    },
+    {
+      "file": "metal-on.mp4",
+      "bytes": 963042,
+      "sha256": "b995f8bb8c828b350a53931fbede2eed68eb6965350b2196b45b5d86e50bfdfc",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 720,
+            "height": 400,
+            "r_frame_rate": "30/1",
+            "nb_frames": "120"
+          }
+        ],
+        "format": {
+          "duration": "4.000000"
+        }
+      }
+    },
+    {
+      "file": "metal-on.webp",
+      "bytes": 51380,
+      "sha256": "0e6b7d0a5db8fadbc0726612e92d4747d09c8f432b99c033805ab353d625133f"
+    },
+    {
+      "file": "reflections-off.mp4",
+      "bytes": 4730686,
+      "sha256": "2c64b2f183dde8e3df1748fb4c0226bb91a823163df7d372aa11ae5c8020b81b",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 960,
+            "height": 640,
+            "r_frame_rate": "30/1",
+            "nb_frames": "180"
+          }
+        ],
+        "format": {
+          "duration": "6.000000"
+        }
+      }
+    },
+    {
+      "file": "reflections-off.webp",
+      "bytes": 960160,
+      "sha256": "19b37d183caf37c789a2649544e65ce11e3d3ed91358f298d3e6aebf310ae39c"
+    },
+    {
+      "file": "water-off.mp4",
+      "bytes": 1663195,
+      "sha256": "60ac4d6df65cc8ce27bc3caa149b3697424f536a1d8c26802c63fee10cebf806",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 960,
+            "height": 640,
+            "r_frame_rate": "30/1",
+            "nb_frames": "180"
+          }
+        ],
+        "format": {
+          "duration": "6.000000"
+        }
+      }
+    },
+    {
+      "file": "water-off.webp",
+      "bytes": 115834,
+      "sha256": "8e746246772302b8d19121b44ec0f8200bb834f4b90a81cea3af5b0c21f2579d"
+    },
+    {
+      "file": "water-on.mp4",
+      "bytes": 4757383,
+      "sha256": "4b652ab35c2eb9a3f2ed677534726cd840ce85d35bc620606f0dd2caee13dd5f",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 960,
+            "height": 640,
+            "r_frame_rate": "30/1",
+            "nb_frames": "180"
+          }
+        ],
+        "format": {
+          "duration": "6.000000"
+        }
+      }
+    },
+    {
+      "file": "water-on.webp",
+      "bytes": 960798,
+      "sha256": "f8213bf82d1fe79ed9266a51164076664c3d078bbb4e815aeeab5fd905edfc66"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "engine_commit": "801c8b28c38ff6505b4939d96cce7fcf22200da5",
+  "controls": {
+    "off": {
+      "materials": false,
+      "metal_glint": false,
+      "scorch": false
+    },
+    "on": {
+      "materials": true,
+      "metal_glint": true,
+      "scorch": false
+    }
+  },
+  "exact_off_on_off_restoration": true,
+  "fresh_process_frame_zero_replay": "byte-identical for off and on",
+  "off_media_matches_prior_glint_only_off_sha256": true,
+  "inspected_raw_and_decoded_frames": [
+    0,
+    60,
+    120,
+    180,
+    239
+  ],
+  "visual_assessment": "Broad cool material response complements the distinct armor glint. Start/end highlights clearly visible; paint hue and seams preserved; full model, cannon, and shadow stay in native crop. Native raw and H264 decoded QA contact sheets inspected.",
+  "material_faces_min": 8,
+  "material_faces_max": 11,
+  "all_frames_single_gpu_model_without_skips_or_overflow": true,
+  "all_frames_scorch_quads": 0,
+  "production_git_diff": "empty",
+  "source_sha256": {
+    "README.md": "3dd2faa19e205af01ef53d9856b756ab45921a1423baa41bfa1ccd127aa29ecf",
+    "export.py": "5758f18fc4e713e3d31495acdd512c35b99aa90b3f96944dea4f25345207a022",
+    "main.go": "8caae85eb6b0f8f99da4a77abc748d9a31dd131f853a92d39df5a438b811dca6",
+    "pose.go": "6197fbc073c8be90401635f8c47ede765160b8d4b7d292ccf7aed260e1d2d95e",
+    "scout.py": "319ccaf511f8c8f2f84c17f46925e02d02537d2ea15bccaebe03c8a292028c03"
+  }
+}

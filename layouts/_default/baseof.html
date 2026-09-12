@@ -21,6 +21,12 @@
   {{ $tokens := resources.Get "css/tokens.css" | resources.ExecuteAsTemplate "css/tokens.css" . }}
   {{ $css := slice $tokens (resources.Get "css/site.css") (resources.Get "css/brand.css") | resources.Concat "css/site.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+  {{ if or (eq .Layout "features") (eq .Layout "gameplay") }}
+  {{ $featuresCSS := resources.Get "css/features.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $featuresCSS.RelPermalink }}" integrity="{{ $featuresCSS.Data.Integrity }}">
+  {{ $featuresJS := resources.Get "js/features.js" | minify | fingerprint }}
+  <script src="{{ $featuresJS.RelPermalink }}" integrity="{{ $featuresJS.Data.Integrity }}" defer></script>
+  {{ end }}
   {{ if eq .Type "format" }}
   {{ $formatCSS := resources.Get "css/format.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $formatCSS.RelPermalink }}" integrity="{{ $formatCSS.Data.Integrity }}">

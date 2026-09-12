@@ -1,0 +1,134 @@
+[
+  {
+    "file": "lighting-off.mp4",
+    "bytes": 765336,
+    "sha256": "3619d4b2d2d6a8fd9a16a7a124137f367f0f8d8f91b00c43fe158190c0695924",
+    "ffprobe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 640,
+          "r_frame_rate": "30/1",
+          "nb_frames": "150"
+        }
+      ],
+      "format": {
+        "duration": "5.000000",
+        "size": "765336"
+      }
+    }
+  },
+  {
+    "file": "lighting-on.mp4",
+    "bytes": 726980,
+    "sha256": "46c80a643742953aeafdd8a680215c4777fed89de2b142d2ef76e36b530f9199",
+    "ffprobe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 640,
+          "r_frame_rate": "30/1",
+          "nb_frames": "150"
+        }
+      ],
+      "format": {
+        "duration": "5.000000",
+        "size": "726980"
+      }
+    }
+  },
+  {
+    "file": "shockwave-off.mp4",
+    "bytes": 755286,
+    "sha256": "7efd24c8cb3506e538ad3c9147d138b4f1d5280c1794ce4a0cd047c12cd44619",
+    "ffprobe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 640,
+          "r_frame_rate": "30/1",
+          "nb_frames": "150"
+        }
+      ],
+      "format": {
+        "duration": "5.000000",
+        "size": "755286"
+      }
+    }
+  },
+  {
+    "file": "shockwave-on.mp4",
+    "bytes": 860221,
+    "sha256": "191b1583ab22aa9b8d4d1f3b7b4dc88133b1e59599700681f7254702c729ee78",
+    "ffprobe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 640,
+          "r_frame_rate": "30/1",
+          "nb_frames": "150"
+        }
+      ],
+      "format": {
+        "duration": "5.000000",
+        "size": "860221"
+      }
+    }
+  },
+  {
+    "file": "fire-off.mp4",
+    "bytes": 1065270,
+    "sha256": "6e105e79bea87f442712679816908e7476978a3f771042328997213fe7cf3817",
+    "ffprobe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 640,
+          "r_frame_rate": "30/1",
+          "nb_frames": "150"
+        }
+      ],
+      "format": {
+        "duration": "5.000000",
+        "size": "1065270"
+      }
+    }
+  },
+  {
+    "file": "fire-on.mp4",
+    "bytes": 1283278,
+    "sha256": "8f9a2b504be722d29c88789e00a32c5ccf82040f9fa3c26411e876041f6c1fcc",
+    "ffprobe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 640,
+          "r_frame_rate": "30/1",
+          "nb_frames": "150"
+        }
+      ],
+      "format": {
+        "duration": "5.000000",
+        "size": "1283278"
+      }
+    }
+  }
+]

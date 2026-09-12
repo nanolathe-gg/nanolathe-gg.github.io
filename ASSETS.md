@@ -133,3 +133,40 @@ generated and checked by `scripts/cob-example.py`, using the page's pinned
 runtime specification (§4.2, §4.3 and §4.6). They do not interpret arbitrary
 scripts or use retail geometry. Playback is an explicitly slowed presentation
 of normal delta-1 drains; the diagram uses the positive encoded angle.
+
+## Modern renderer feature captures (2026-09-12 local review)
+
+`static/images/renderer/` contains actual Nanolathe screenshots and silent clips
+rendered with the user's original Total Annihilation installation. The user
+explicitly requested retail-data scenes for a visual features page, with review
+before publication. These are not AI illustrations or retail-executable captures.
+The screenshots contain underlying game artwork belonging to its respective
+owners; that artwork is not covered by this website's MIT code license. No raw
+archives, palettes, models, sprite banks or playable game data are included.
+
+The opening shows a live Great Divide benchmark battle from the initial review.
+Approved terrain, camera, shockwave and tree-fire captures remain at `9e61946`.
+SSAA, lighting, water, reflection and ground-mark captures use `774f79c`.
+The current metal/paint finish and smoldering-wreck examples use `801c8b2`. Their sources and validation evidence are under
+`scripts/renderer-capture/v2/` and `v3/`; the root media manifest hashes the
+actual files shipped by the page.
+
+SSAA now compares the genuine classic indexed CPU framebuffer with modern GPU
+geometry for four mobile units and one building. Lighting compares the same
+paths without distortion, with optional bloom. The coast has no units; a separate
+tall transport shows reflections. A staged mobile Annihilator rotation shows native metal/paint finishes and
+glints. Real ARM Hammer and Bulldog movement lays footprints and tracks. A real
+Stumpy corpse shows cooling glow and heat fading over its committed lifetime.
+Captions identify staging, normal simulation, controls and renderer differences.
+
+Still images are lossless WebP. Documented native crops and nearest-neighbour
+enlargement make small effects readable; no colours or renderer effects are
+altered. Terrain's 4× inspection enlarges the original 2× captures in the browser;
+it is explicitly separate from engine camera zoom. Silent clips play on request
+at normal speed. Superseded media is removed, with earlier capture provenance
+retained. No raw playable retail data is included.
+
+Renderer explanations in `data/renderer.json` link to the owning sources at each
+capture revision. The gameplay guide in `data/gameplay.json` retains its pinned
+`9e61946` sources and is server-rendered both in the features popup and at
+`/gameplay/`, providing direct links and a no-JavaScript fallback.

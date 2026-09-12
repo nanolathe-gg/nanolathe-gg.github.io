@@ -1,0 +1,137 @@
+{
+  "renderer_commit": "72dcc024de8e6abb3b2f83137a292f566f13b63f",
+  "staged": true,
+  "description": "Deliberately arranged presentation tableau, not live gameplay. Real retail terrain, feature sprites, authored 3DO unit models and activated COB poses. All visibility coverage explicitly enabled and fog omitted. Unit positions, headings, tick and effects are staged. No simulation orders or game ticks were run. No artificial image effects or postprocessing.",
+  "retail_root": "/Users/daniel/TotalAnnihilation",
+  "map": "Great Divide",
+  "map_size_world": [
+    2560,
+    4096
+  ],
+  "center_world": [
+    1540,
+    1988
+  ],
+  "resolution": [
+    960,
+    640
+  ],
+  "tick": 100,
+  "units": [
+    "armcom",
+    "armbull",
+    "armmav",
+    "armmerl",
+    "armzeus",
+    "armflea",
+    "armsolar",
+    "armllt",
+    "armrad",
+    "armck",
+    "armfig",
+    "armlab"
+  ],
+  "feature_count": 2551,
+  "effects": {
+    "asset": "anims/fx.gaf",
+    "graphic": "Explode2",
+    "frame": 5,
+    "start_tick": 95,
+    "count": 2,
+    "placement_offsets": [
+      [
+        -70,
+        -65
+      ],
+      [
+        70,
+        25
+      ]
+    ]
+  },
+  "controls": {
+    "remaster": "Client.SetDetailArt nil versus production buildDetailArt with cached map tiles and feature sprite banks",
+    "ssaa": "Client.SetAntiAlias(false/true), all 12 mobile and building models",
+    "bloom": "Renderer.SetGlow(false/true)",
+    "lighting": "Renderer.SetBattleLighting(false/true)",
+    "distortion": "Renderer.SetBlastDistortion(false/true)",
+    "zoom": "Camera.Zoom = 1 or 2; same center and unit state",
+    "tactical": "Camera.Zoom = 0.25; same authored unit types spread by 500 world pixels to reveal icon categories; map edges black"
+  },
+  "settings": "Enhanced; AA on except ssaa-off; remaster on except remaster-off and tactical; shadows/vehicle shadows/shading enabled; all effect controls on except the named off control. Effects only in bloom/lighting/distortion pairs.",
+  "diagnostics": {
+    "lighting_off_lights": 0,
+    "lighting_on_lights": 2,
+    "lighting_on_faces": 113,
+    "distortion_off_waves": 0,
+    "distortion_on_waves": 2,
+    "glow_on_quads": 2
+  },
+  "pair_pixel_checks": {
+    "remaster": {
+      "different_pixels": 367571,
+      "difference_bounds": [
+        0,
+        0,
+        960,
+        640
+      ]
+    },
+    "ssaa": {
+      "different_pixels": 65359,
+      "difference_bounds": [
+        154,
+        63,
+        865,
+        627
+      ]
+    },
+    "bloom": {
+      "different_pixels": 45607,
+      "difference_bounds": [
+        242,
+        112,
+        695,
+        465
+      ]
+    },
+    "lighting": {
+      "different_pixels": 23189,
+      "difference_bounds": [
+        180,
+        65,
+        785,
+        549
+      ]
+    },
+    "distortion": {
+      "different_pixels": 108857,
+      "difference_bounds": [
+        179,
+        31,
+        781,
+        533
+      ]
+    }
+  },
+  "commands": [
+    "cd /private/tmp/nanolathe-feature-captures",
+    "go build -o /private/tmp/nanolathe-feature-main-media/capture-driver ./.featurecapture",
+    "/private/tmp/nanolathe-feature-main-media/capture-driver -remaster > /private/tmp/nanolathe-feature-main-media/run.log 2>&1"
+  ],
+  "files": {
+    "bloom-off.png": "586a9ca74c97ee09118f1e62f2b41829b34ff756acbeb254297496a6f96d2263",
+    "bloom-on.png": "3359cd6707496a09ef2d8586213b88d1a2b12d16f5b1ab8a2f81d4f240741be0",
+    "distortion-off.png": "2c9ceba82f56c09f6bd5e5b7dddc0b00b96e280d77e17bb1307bd2eed0443bc6",
+    "distortion-on.png": "3359cd6707496a09ef2d8586213b88d1a2b12d16f5b1ab8a2f81d4f240741be0",
+    "lighting-off.png": "e7ccd775e1cb2685da5d0162e2362bdc0d2f4738f45471bd29c737b9c7484c74",
+    "lighting-on.png": "3359cd6707496a09ef2d8586213b88d1a2b12d16f5b1ab8a2f81d4f240741be0",
+    "remaster-off.png": "9d8f86938192a6d0b5f463367fc1b35f28dfccf9f995503c3bc0a34ef66ae4a3",
+    "remaster-on.png": "944f9ebb107d9b5f53881bfbf3b953589929e7da4e67f9c6da3ebea7845e7efa",
+    "ssaa-off.png": "dee0dea80ac78b52e240591b94d791128ba43a50295f9abd57ef198cf866939a",
+    "ssaa-on.png": "944f9ebb107d9b5f53881bfbf3b953589929e7da4e67f9c6da3ebea7845e7efa",
+    "tactical-overview.png": "8fce5b62b187199a1bd04f63a7a82acd4ab6b7a128f1d1f7d7a7da9142790193",
+    "zoom-1x.png": "635b62d22154057fac61b3407df58a67cf6fd35cb59874f357faf47d7c2d4f9d",
+    "zoom-2x.png": "944f9ebb107d9b5f53881bfbf3b953589929e7da4e67f9c6da3ebea7845e7efa"
+  }
+}

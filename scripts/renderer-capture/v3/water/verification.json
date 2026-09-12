@@ -1,0 +1,156 @@
+{
+  "verification": {
+    "water-on.mp4": {
+      "width": 960,
+      "height": 640,
+      "r_frame_rate": "30/1",
+      "duration": "6.000000",
+      "nb_read_frames": "180"
+    },
+    "water-cpu-or-off.mp4": {
+      "width": 960,
+      "height": 640,
+      "r_frame_rate": "30/1",
+      "duration": "6.000000",
+      "nb_read_frames": "180"
+    },
+    "reflection-on.mp4": {
+      "width": 960,
+      "height": 640,
+      "r_frame_rate": "30/1",
+      "duration": "6.000000",
+      "nb_read_frames": "180"
+    },
+    "reflection-off.mp4": {
+      "width": 960,
+      "height": 640,
+      "r_frame_rate": "30/1",
+      "duration": "6.000000",
+      "nb_read_frames": "180"
+    }
+  },
+  "census": {
+    "coast": {
+      "model_command_counts": [
+        0
+      ],
+      "wind_states": [
+        {
+          "Heading": 12967,
+          "Strength": 1555
+        },
+        {
+          "Heading": 7115,
+          "Strength": 3552
+        }
+      ],
+      "sample_differences": [
+        {
+          "frame": 0,
+          "changed_pixels_above10": 369244,
+          "maximum_channel_difference": 113,
+          "difference_bbox": [
+            0,
+            0,
+            960,
+            640
+          ]
+        },
+        {
+          "frame": 60,
+          "changed_pixels_above10": 370682,
+          "maximum_channel_difference": 117,
+          "difference_bbox": [
+            0,
+            0,
+            960,
+            640
+          ]
+        },
+        {
+          "frame": 120,
+          "changed_pixels_above10": 370273,
+          "maximum_channel_difference": 130,
+          "difference_bbox": [
+            3,
+            0,
+            960,
+            640
+          ]
+        },
+        {
+          "frame": 179,
+          "changed_pixels_above10": 377972,
+          "maximum_channel_difference": 127,
+          "difference_bbox": [
+            0,
+            0,
+            960,
+            640
+          ]
+        }
+      ]
+    },
+    "reflection": {
+      "model_command_counts": [
+        1
+      ],
+      "wind_states": [
+        {
+          "Heading": 54134,
+          "Strength": 3341
+        },
+        {
+          "Heading": 45890,
+          "Strength": 1802
+        }
+      ],
+      "sample_differences": [
+        {
+          "frame": 0,
+          "changed_pixels_above10": 9674,
+          "maximum_channel_difference": 50,
+          "difference_bbox": [
+            395,
+            300,
+            676,
+            441
+          ]
+        },
+        {
+          "frame": 60,
+          "changed_pixels_above10": 6476,
+          "maximum_channel_difference": 49,
+          "difference_bbox": [
+            441,
+            289,
+            692,
+            446
+          ]
+        },
+        {
+          "frame": 120,
+          "changed_pixels_above10": 5908,
+          "maximum_channel_difference": 49,
+          "difference_bbox": [
+            523,
+            349,
+            756,
+            517
+          ]
+        },
+        {
+          "frame": 179,
+          "changed_pixels_above10": 8645,
+          "maximum_channel_difference": 50,
+          "difference_bbox": [
+            592,
+            465,
+            869,
+            580
+          ]
+        }
+      ]
+    }
+  }
+}

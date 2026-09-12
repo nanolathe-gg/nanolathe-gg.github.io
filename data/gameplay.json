@@ -1,0 +1,126 @@
+{
+  "revision": "9e61946",
+  "intro": "Total Annihilation is a real-time strategy game about building and commanding a machine army. Nanolathe reimplements its single-player systems, from a Commander’s first extractor to air, land and naval warfare. These mechanics come from the installed game data; individual units have their own abilities, and expansion units require the corresponding content.",
+  "groups": [
+    {
+      "id": "locomotion",
+      "title": "Land, sea, air — and between them",
+      "lead": "An army’s movement type determines where it can fight.",
+      "items": [
+        "Tracked and wheeled vehicles and walking Kbots use their movement class, footprint, slope and water-depth limits to navigate the map.",
+        "Hovercraft cross land and water. Amphibious units can travel underwater, while surface ships and submarines operate at their authored depths.",
+        "VTOL aircraft take off, turn, fly and land. Fighters, bombers and construction aircraft use the same simulation with different unit definitions and orders.",
+        "Seaplanes support their amphibious aircraft rules, including water landing. Aircraft can use eligible landing and repair pads."
+      ],
+      "source": "docs/DESIGN_MOVEMENT_PATH.md"
+    },
+    {
+      "id": "weapons",
+      "title": "A full arsenal",
+      "lead": "Weapons are simulated projectiles and effects with their own targeting and damage rules.",
+      "items": [
+        "Direct-fire lasers, plasma and ballistic artillery, rockets and guided missiles, dropped bombs and torpedoes cover close combat, air defence and naval engagements.",
+        "Flamethrowers, lightning weapons, paralyzing attacks and the Commander’s D-gun use their authored weapon behaviour.",
+        "Turrets aim through unit scripts; weapons have reload and burst timing, range, tracking, line-of-fire checks, impact effects and area damage.",
+        "Nuclear missiles and anti-nuclear interceptors use stockpiled ammunition. Build rounds ahead of time; eligible interceptors acquire incoming targetable projectiles."
+      ],
+      "source": "docs/DESIGN_WEAPONS_PROJECTILES.md"
+    },
+    {
+      "id": "production",
+      "title": "Build a working war machine",
+      "lead": "Start with a Commander, then expand through constructors and factories.",
+      "items": [
+        "Place structures, queue factory products and follow the build menus supplied by your installed units, including advanced factories and constructors.",
+        "Nanolathe construction creates a visible frame that fills as work completes. Builders can help construction and assist production.",
+        "Factory doors, moving parts, build effects and unit animation run from the original COB scripts.",
+        "Build placement respects footprints, terrain, occupancy and special requirements such as geothermal sites."
+      ],
+      "source": "docs/DESIGN_ECONOMY_CONSTRUCTION.md"
+    },
+    {
+      "id": "economy",
+      "title": "Metal and energy, continuously",
+      "lead": "An expanding army needs a running economy, not just a purchase price.",
+      "items": [
+        "Extract metal from the map and generate energy using solar, wind, tidal, geothermal and other generators defined by the content.",
+        "Store resources, convert energy into metal with metal makers, and balance production against upkeep and construction demand.",
+        "Construction and stockpile production consume resources as work proceeds. Limited supplies affect the work the economy can admit.",
+        "Map wind and tidal conditions feed the relevant generators. Cloaking and other active systems have their own energy demands."
+      ],
+      "source": "docs/DESIGN_ECONOMY_CONSTRUCTION.md"
+    },
+    {
+      "id": "fieldwork",
+      "title": "Repair, reclaim, resurrect, capture",
+      "lead": "A battlefield is also a source of resources and recoverable machines.",
+      "items": [
+        "Repair damaged units and buildings with capable constructors. Guard and assist orders can keep builders working with other units.",
+        "Reclaim eligible trees, rocks and wreckage for their authored resources, or deconstruct units using the reclaim order.",
+        "Resurrection-capable units restore eligible wrecks to working units. Available resurrectors and wreck definitions come from the installed content.",
+        "Capture-capable units can take over eligible enemy units. These work operations share the engine’s order, approach and construction systems."
+      ],
+      "source": "docs/DESIGN_ECONOMY_CONSTRUCTION.md"
+    },
+    {
+      "id": "transport",
+      "title": "Move the army, not just the front line",
+      "lead": "Transports connect positions that ordinary movement cannot.",
+      "items": [
+        "Load and unload eligible cargo using the transport’s capacity, size and unit-admission rules.",
+        "Air transports approach their cargo, attach it through the unit script, carry it and release it at the destination.",
+        "Ground transport orders and carried-unit attachment are supported by the same cargo system when the installed unit content supplies those capabilities."
+      ],
+      "source": "docs/DESIGN_MOVEMENT_PATH.md"
+    },
+    {
+      "id": "intelligence",
+      "title": "Scout, detect and conceal",
+      "lead": "Knowing where an opponent is can matter as much as what you can shoot.",
+      "items": [
+        "Line of sight, explored terrain and fog of war govern what the battlefield reveals.",
+        "Radar and sonar provide sensor contacts; radar and sonar jamming interfere with the appropriate detection systems.",
+        "Cloaking, stealth, proximity detection and decloaking follow the unit’s capabilities and simulation rules.",
+        "The minimap, unit selection and sensor presentation expose the information available to the viewing player."
+      ],
+      "source": "docs/DESIGN_WORLD_VISIBILITY.md"
+    },
+    {
+      "id": "orders",
+      "title": "Command at every scale",
+      "lead": "Give a single order or plan a sequence for a group.",
+      "items": [
+        "Select units, assign and recall control groups, and issue move, attack, patrol, guard, stop and work orders.",
+        "Queue commands, manage construction queues and stockpiles, and set movement and fire stances where the unit allows them.",
+        "Inspect health, resources, unit information and build choices in the game’s interface.",
+        "Nanolathe’s modern camera adds close-up zoom, tactical icons and range guides; those presentation enhancements are shown on the features page."
+      ],
+      "source": "docs/DESIGN_INTERFACE_HUD_INPUT.md"
+    },
+    {
+      "id": "battlefield",
+      "title": "A battlefield with a memory",
+      "lead": "The original terrain, models, sprites and scripts create the world you fight in.",
+      "items": [
+        "Terrain elevation, water, map features and occupied footprints influence movement, construction and combat.",
+        "Destroyed units can leave wreckage. Trees and other eligible features can catch fire, animate, take damage and change into their authored successors.",
+        "Weapon trails, smoke, explosions, debris, construction particles and positional sound connect actions to the battlefield.",
+        "Original game archives, map definitions, unit data and COB animation scripts are read directly from your local installation."
+      ],
+      "source": "docs/DESIGN_PRESENTATION_CLIENT.md"
+    },
+    {
+      "id": "singleplayer",
+      "title": "Skirmish and campaigns",
+      "lead": "Play locally against the computer or through authored missions.",
+      "items": [
+        "Configure single-player skirmishes with the available sides, maps and computer players. The AI uses its economy, production and combat planner.",
+        "Campaign play loads mission content, initial units, objectives and triggers from the installed game data.",
+        "Save and load games, including in-battle restoration through the retail save-account format. Compatibility work remains ongoing.",
+        "Use game sound effects and the locally installed soundtrack. The GOG MP3 music folder is supported on Windows, Linux and macOS."
+      ],
+      "source": "docs/DESIGN_SESSIONS_AI_SAVE.md"
+    }
+  ],
+  "scope": "These are implemented engine systems, not a promise of perfect retail compatibility for every mission or content pack. Nanolathe is under active development. Multiplayer is outside the current scope. A separate local Total Annihilation installation is required; game data is not bundled."
+}

@@ -88,6 +88,18 @@ The Resources page intentionally has no entries. Future curated metadata and
 release-hosted downloads can be added when the collection is ready. Signed
 engine downloads are also deferred; current guidance is for source builds.
 
+## Renderer features page
+
+`data/renderer.json` supplies the visual feature explanations and capture metadata.
+The features template uses lossless screenshots, accessible before/after sliders,
+and opt-in camera/effect animations with matched off/on playback. The short TA
+introduction opens a detailed gameplay dialog; `/gameplay/` serves the same
+server-rendered guide for direct links, search and a no-JavaScript fallback.
+`data/gameplay.json` owns its content. Media lives in `static/images/renderer/`;
+`scripts/renderer-capture/README.md` records reproducible staged capture commands
+and per-scene validation evidence. The ordinary website build
+requires neither a GPU nor retail game data.
+
 ## Brand assets
 
 Browse **[the brand kit](https://nanolathe.gg/brand/)** or download its ZIP and open
@@ -139,5 +151,8 @@ the certificate. The custom domain also lives in `static/CNAME` for portability.
 ## License
 
 Website code and original brand geometry: [MIT](LICENSE). The bundled Chakra
-Petch font uses the SIL Open Font License in `static/fonts/OFL.txt`. No original
-Total Annihilation game assets are included. Game data must be obtained separately.
+Petch font uses the SIL Open Font License in `static/fonts/OFL.txt`. The features
+page includes engine screenshots and clips displaying original Total Annihilation
+artwork; those underlying game assets remain the property of their respective
+owners and are not covered by the website code license. Playable game data is not
+included and must be obtained separately. See `ASSETS.md` for capture provenance.

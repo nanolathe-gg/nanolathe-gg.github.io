@@ -1,0 +1,20 @@
+{{ if .single }}
+<figure class="renderer-comparison"><img src="{{ .after | relURL }}" width="{{ .width }}" height="{{ .height }}" alt="{{ .altAfter }}" loading="lazy" decoding="async" style="display:block;width:100%;height:auto"><figcaption>{{ .caption }} <a href="{{ .after | relURL }}">Open full image</a></figcaption></figure>
+{{ else }}
+<figure class="renderer-comparison" data-comparison>
+  <div class="comparison-stage{{ if .pixelInspect }} pixel-inspect{{ end }}" style="--split: 50%;{{ if .inspection }} --inspection-scale: 2; --inspection-origin: 75% 25%;{{ end }}">
+    <img class="comparison-after" src="{{ .after | relURL }}" width="{{ .width }}" height="{{ .height }}" alt="{{ .altAfter }}" loading="lazy" decoding="async">
+    <div class="comparison-before"><img src="{{ .before | relURL }}" width="{{ .width }}" height="{{ .height }}" alt="{{ .altBefore }}" loading="lazy" decoding="async"></div>
+    <div class="comparison-labels" aria-hidden="true"><span>{{ .beforeLabel }}</span><span>{{ .afterLabel }}</span></div>
+    <div class="comparison-divider" aria-hidden="true"><span>↔</span></div>
+  </div>
+  {{ if .inspection }}<div class="comparison-inspection" role="group" aria-label="Pixel magnification" hidden><span>Inspect the detail</span><button type="button" data-magnification="1" aria-pressed="false">2× view</button><button type="button" data-magnification="2" aria-pressed="true">4× inspection</button></div>{{ end }}
+  <div class="comparison-controls" hidden>
+    <button type="button" data-position="100">{{ .beforeLabel }}</button>
+    <label class="sr-only" for="compare-{{ .id }}">Reveal {{ .beforeLabel }} or {{ .afterLabel }}: {{ .title }}</label>
+    <input id="compare-{{ .id }}" type="range" min="0" max="100" value="50" aria-valuetext="Half of each image">
+    <button type="button" data-position="0">{{ .afterLabel }}</button>
+  </div>
+  <figcaption>{{ .caption }} <span class="comparison-hint" hidden>Drag the slider or choose a view.</span><span class="comparison-files"><a href="{{ .before | relURL }}">Open {{ .beforeLabel }}</a> · <a href="{{ .after | relURL }}">Open {{ .afterLabel }}</a></span></figcaption>
+</figure>
+{{ end }}

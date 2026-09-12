@@ -1,0 +1,13 @@
+<div class="gameplay-guide">
+  <p class="gameplay-lead">{{ hugo.Data.gameplay.intro }}</p>
+  <div class="gameplay-groups">
+    {{ range hugo.Data.gameplay.groups }}
+    <section class="gameplay-group" aria-labelledby="game-{{ .id }}">
+      <h3 id="game-{{ .id }}">{{ .title }}</h3><p>{{ .lead }}</p>
+      <ul>{{ range .items }}<li>{{ . }}</li>{{ end }}</ul>
+      <a class="gameplay-source" href="{{ site.Params.engineRepo }}/blob/{{ hugo.Data.gameplay.revision }}/{{ .source }}">Implementation notes <span aria-hidden="true">↗</span></a>
+    </section>
+    {{ end }}
+  </div>
+  <p class="gameplay-scope">{{ hugo.Data.gameplay.scope }}</p>
+</div>

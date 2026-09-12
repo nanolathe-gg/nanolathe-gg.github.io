@@ -1,0 +1,92 @@
+[
+  {
+    "file": "movies-metadata.json",
+    "bytes": 596689,
+    "sha256": "4f4767004c588061fb21b8fa49e3193074c29df02e51b5777c79d86dc06c7ba2"
+  },
+  {
+    "file": "ssaa-close-off.png",
+    "bytes": 202492,
+    "sha256": "13bc49d277f8658f24622aba74b40fc99c20cab678fe29d1dbffa9aec0d38564"
+  },
+  {
+    "file": "ssaa-close-on.png",
+    "bytes": 203156,
+    "sha256": "9347e6afee4e687aca102f911ad07b50cd17a55937d43742551af2f1562c3349"
+  },
+  {
+    "file": "ssaa-off.png",
+    "bytes": 1049380,
+    "sha256": "96c07a16fa94ff0d5cbc32c0ca80fcbd4001819dfb28a83f379775fce9af9005"
+  },
+  {
+    "file": "ssaa-on.png",
+    "bytes": 1049220,
+    "sha256": "cfade27fd4c46006ae601fb593e8efb477dbaa132f4ab7851b1864c80b45c506"
+  },
+  {
+    "file": "stills-metadata.json",
+    "bytes": 15752,
+    "sha256": "9de07f7e49681d6eda089fba5d4a84d789138bcddbd69d3ade9d6bbe840be9b7"
+  },
+  {
+    "file": "tactical-overview.png",
+    "bytes": 972022,
+    "sha256": "ffc3c2eb97b77b6c283dd944979ef32e0d393371268489654958e9edd2af447d"
+  },
+  {
+    "file": "tactical-poster.png",
+    "bytes": 971871,
+    "sha256": "0791f80fa22ced7904ece920d2b1f59f2e9c31ef70dd1a9f02d93cb359c08e9c"
+  },
+  {
+    "file": "tactical-start.png",
+    "bytes": 930409,
+    "sha256": "da1494eebfe71421b9c98bb4479b1bd976dd7533074719803808d65511858674"
+  },
+  {
+    "file": "tactical-web.mp4",
+    "bytes": 6130312,
+    "sha256": "0d4a83094c1eea1a06eb53e885f8d36d83b1a5236659a9d119580729b403371a"
+  },
+  {
+    "file": "tactical.mp4",
+    "bytes": 15555859,
+    "sha256": "4d2e951ac9dccfe82c5f465a71a3b704953047062688c9db4009bdcbf7c3c6d5"
+  },
+  {
+    "file": "terrain-off.png",
+    "bytes": 186513,
+    "sha256": "9685b0503cf437476caa01dfd22e816f1a88234a9901a9ecf0598c17a57339c3"
+  },
+  {
+    "file": "terrain-on.png",
+    "bytes": 1052210,
+    "sha256": "21258e83d9fa8990f1dea30735d888548bfbb2abc2c76c446ed21f308781ccdb"
+  },
+  {
+    "file": "zoom-1x.png",
+    "bytes": 919270,
+    "sha256": "0c08d71f27e68913a84b6e3342003c10ac7c5e6a135987090108c6cf6ab93a37"
+  },
+  {
+    "file": "zoom-2x.png",
+    "bytes": 1112799,
+    "sha256": "8f328a7f4b2b4b11e1a3162ef87f369273db51e406a822bc79d224c6df9b0077"
+  },
+  {
+    "file": "zoom-poster.png",
+    "bytes": 1398900,
+    "sha256": "5e5038e1aac0df21ea59b520cde756c828ef2f2549424a577f62d22ab87bf11d"
+  },
+  {
+    "file": "zoom-web.mp4",
+    "bytes": 4476532,
+    "sha256": "a9b5e8e49d2dfc1e60e63b35a64ea3c37fa826c10b624100111eff0e9e1010bb"
+  },
+  {
+    "file": "zoom.mp4",
+    "bytes": 11860379,
+    "sha256": "c73104f1460517d376d2e1deafa4460acef0c1f36e5b5a8a454b384b733a8dac"
+  }
+]

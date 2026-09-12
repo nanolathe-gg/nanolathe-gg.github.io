@@ -1,0 +1,28 @@
+{
+  "exact_off_on_off_restoration": true,
+  "fresh_process_frame_zero_replay": "byte-identical for off and on",
+  "negative_raw_delta_frames": 0,
+  "inspected_raw_and_decoded_frames": [
+    0,
+    60,
+    120,
+    180,
+    239
+  ],
+  "visual_assessment": "Clear broad armor highlight at start/end, diminishing through rotation; whole model and cannon preserved; no crop clipping or image resizing. Native raw and H264 decoded QA contact sheets inspected.",
+  "changing_pixel_union_raw": [
+    178,
+    134,
+    343,
+    301
+  ],
+  "all_frames_single_gpu_model_without_skips_or_overflow": true,
+  "production_git_diff": "empty",
+  "source_sha256": {
+    "README.md": "1cd05c3777737012f8800d9a2664e816751a96588d1a9ec4fcd3cf14ef22a614",
+    "export.py": "5fffa803183e357ad48f9428922195703e0b55c9bdb043ba5ff071bfe4b1c812",
+    "main.go": "d97f7f87230c2cbd30e974b02c79d122ac5dddb3e6635367b63382e44ffbc9c6",
+    "pose.go": "6197fbc073c8be90401635f8c47ede765160b8d4b7d292ccf7aed260e1d2d95e",
+    "scout.py": "af90bcec63b20c935aa8926f05005632d9f6844705255491860aaded4e71ba18"
+  }
+}
