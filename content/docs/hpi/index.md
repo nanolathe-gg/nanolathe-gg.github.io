@@ -193,7 +193,7 @@ Directory entry names are single path components; the full path is built by
 joining parents with a separator (the game is DOS-heritage, so archives were
 authored with `\`; any modern reimplementation can use `/`). Name matching is
 case-insensitive. **Established:** lookup searches each directory's entries
-backwards, selecting the last matching component. Earlier duplicate directories
+backward, selecting the last matching component. Earlier duplicate directories
 do not contribute children to the selected directory. Retail also uses bit 1
 as mutable enumeration visibility; other flag bits are not semantic types
 `[02 §2]`. Nanolathe likewise classifies by bit 0 and does not reject
@@ -330,14 +330,14 @@ Bounds, allocation limits and directory-cycle detection protect the host. They a
 
 ## How the engine validates it
 
-Behaviour is owned by `[02 §2]` and `[02 R-MALF-01 §3]`; this list is the
+Behavior is owned by `[02 §2]` and `[02 R-MALF-01 §3]`; this list is the
 byte-level checklist a reader needs to accept exactly what retail accepts.
 
 - **Mount-time checks, exactly three:** bytes 0–3 equal `HAPI`; bytes 4–7
   equal `00 00 01 00`; the 36 trailing bytes equal the copyright template
   with the year wildcarded. Any failure: the archive is not mounted, no
   message. The three reads ignore their return counts, so a file shorter
-  than 36 bytes is compared against uninitialised bytes (in practice
+  than 36 bytes is compared against uninitialized bytes (in practice
   rejected).
 - **Nothing else is checked at mount.** `directory_size` is allocated and
   read as-is (short read accepted; a value below 20 skips the decipher

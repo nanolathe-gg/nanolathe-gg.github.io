@@ -34,6 +34,10 @@ Actions; generated `public/` output is not committed.
 
 ## Content and maintenance
 
+Use American English for site copy, including headings, captions, accessibility
+text, and documentation (for example, armor, color, behavior, and defense). Keep
+verbatim source snapshots, quotations, and technical identifiers unchanged.
+
 - `hugo.toml`: engine repository, branch, and site metadata.
 - `content/`: page titles, descriptions, and route selection.
 - `layouts/`: the homepage and page content for this first release.

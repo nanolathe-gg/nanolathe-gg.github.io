@@ -392,10 +392,10 @@ This decoder does not assign meanings to ignored record bytes.
   (`[04 R-SLOPE-01]`).** The height byte reaches the
   runtime plot cell **verbatim** — no scaling, shift or height-scale between
   this byte and the engine's derived per-cell minimum/maximum, which are the
-  min/max over the cell, its east, south and south-east neighbours (edge
+  min/max over the cell, its east, south and south-east neighbors (edge
   guarded). A measurement that appears to contradict this ("the start
   plateaus' rims classify at slope 17 while the stock vehicle classes author
-  `MaxSlope=15`", a 2735-cell pocket on `ashap plateau`) is an artefact of
+  `MaxSlope=15`", a 2735-cell pocket on `ashap plateau`) is an artifact of
   aggregating heights over the class footprint: retail classifies each cell
   on its own 2×2 corner quad and takes the minimum tier over the footprint,
   under which every cell of those rim anchors is at or below the limit (the

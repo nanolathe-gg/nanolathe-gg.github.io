@@ -165,7 +165,7 @@ Missions declare their win/lose conditions as `[GlobalHeader]`-level keys
 (in the historical survey they sit at the global level, not inside a schema).
 The trigger vocabulary, with historical occurrence counts from a 272-file
 OTA survey, and the meaning the executable gives each key
-([08 R-TRIG-01 §4] owns the behaviour; only the grammar is restated here):
+([08 R-TRIG-01 §4] owns the behavior; only the grammar is restated here):
 
 | Key | Uses | Side | Meaning |
 | --- | ---: | --- | --- |
@@ -190,7 +190,7 @@ Grammar facts the executable fixes: a flag key with value `0` is absent; each
 key builds at most one condition, in the vocabulary order above regardless
 of authored order; the argument scanset `%[a-zA-Z]` is **letters only**, so a
 type name containing a digit is truncated at the digit and never matches;
-`ANYTYPE` is recognised only by `MoveUnitToRadius`, `UnitTypePassesX` and
+`ANYTYPE` is recognized only by `MoveUnitToRadius`, `UnitTypePassesX` and
 `UnitTypePassesZ`; the four "name only" keys store the whole value, so
 `BuildUnitType=ARMSY, 1;` matches nothing. Win means every victory key
 holds at once (AND); lose means any defeat key holds (OR). The loader builds

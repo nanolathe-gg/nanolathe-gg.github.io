@@ -63,7 +63,7 @@ Nanolathe recognizes a binary `ENDGAME.GUI` fallback and repairs one missing fin
 | Field | Type | Meaning |
 | --- | --- | --- |
 | `id` | int | Gadget type — dispatches everything else. Known: 0 header, 1 button, 2 listbox, 3 textbox, 4 scrollbar, 5 label, 6 blank surface, 7 font, 12 picture box. **Stored as one byte** (the low eight bits of the integer), so the engine dispatches on `id mod 256`. The executable also knows `8` (raw file, below), `10` (line, below), `11` (built exactly like a header/panel) and `13` (the end-of-mission score bar, created by the engine, never authored); `9` and everything above 13 read only `[COMMON]` and get no build work. Full per-kind key table: [07 R-WGT-01 §11]; builder dispatch: [07 R-WGT-01 §12]. |
-| `assoc` | int | Association key linking gadgets, and most gadget kinds do use it. A listbox and scrollbar sharing `assoc` are wired together (listbox drives knob size, scrollbar scrolls list); buttons with the radio attribute use it as their group; a slider's synthesised arrow buttons carry it; a listbox copies its selection to same-`assoc` listboxes and (attribute 8) to a same-`assoc` textbox. See the executable spec [07 R-WGT-01 §3, §5]. |
+| `assoc` | int | Association key linking gadgets, and most gadget kinds do use it. A listbox and scrollbar sharing `assoc` are wired together (listbox drives knob size, scrollbar scrolls list); buttons with the radio attribute use it as their group; a slider's synthesized arrow buttons carry it; a listbox copies its selection to same-`assoc` listboxes and (attribute 8) to a same-`assoc` textbox. See the executable spec [07 R-WGT-01 §3, §5]. |
 | `name` | string | Dual purpose: (a) graphic lookup — the name of a GAF entry in `<menu>.GAF` or `commongui.gaf`, falling back to default art for the type/size; (b) event binding — hard-coded per-menu event names attach behavior. `HELPTEXT` is a universal name: a label so named shows hover help text. |
 | `xpos`, `ypos` | int | Position in pixels (640×480 space). The first gadget is clamped so the interface stays on-screen. |
 | `width`, `height` | int | Authored size in pixels. Type-specific builders can replace dimensions from resolved art; scrollbar orientation follows the long axis [07 R-WGT-01 §§3–5, §12]. |
@@ -118,7 +118,7 @@ record bytes.
 | `status` | Stored 16-bit down-state word, not a general GAF frame index; stage and frame selection are [07 R-WGT-01 §3]. |
 | `text` | Label text. Multi-stage buttons separate per-stage text with a vertical bar (e.g. `text=On\|Off;`) |
 | `quickkey` | The reader retains at most 18 bytes: if the first byte is alphabetic it becomes the key verbatim; otherwise decimal-prefix conversion supplies the low byte (`83` = `S`, `!` and `00` = zero). Later assignment can replace it [07 R-WGT-01 §§3, 11]. |
-| `grayedout` | `1` = visible but disabled. Stored as bit 0 of the button's own grey word — **not** an `attribs` bit — and tested by the button handler at press time, so a greyed button still shows hover help [07 R-WGT-01 §13] |
+| `grayedout` | `1` = visible but disabled. Stored as bit 0 of the button's own gray word — **not** an `attribs` bit — and tested by the button handler at press time, so a grayed button still shows hover help [07 R-WGT-01 §13] |
 | `stages` | Number of stages for cycle buttons (0 = plain). `stages=1`, or a label of exactly `Off\|On`, is promoted to 2 stages with the `stagebuttn1` art [07 R-WGT-01 §3] |
 
 Stock button GAF entries have frame 0 = rest, frame 1 = pressed, frame 2 =
@@ -187,13 +187,13 @@ into a 32-byte field and the window builder opens
 
 | Field | Meaning |
 | --- | --- |
-| `filename` | Same 32-byte field as the font gadget; the builder opens the name **verbatim** (no directory, no extension) and loads the whole file. Nothing reads it afterwards — the kind has no runtime behaviour [07 R-WGT-01 §8, §12]. |
+| `filename` | Same 32-byte field as the font gadget; the builder opens the name **verbatim** (no directory, no extension) and loads the whole file. Nothing reads it afterward — the kind has no runtime behavior [07 R-WGT-01 §8, §12]. |
 
 ### Line (`id=10`) — engine-known, never authored
 
 | Field | Meaning |
 | --- | --- |
-| `nuttin` | Integer, stored as a 32-bit word in the text field; the painter does not consume it. The line itself is drawn from `attribs`: `1` horizontal (`(x,y)–(x+w−1,y)`), `2` vertical (`(x,y)–(x,y+h−1)`), `4` a single diagonal line across the gadget's rectangle (`(x,y)–(x+w−1,y+h−1)`, not a four-sided rectangle outline — "outlined" is the bit's name, not the shape it draws), in the gadget colour (`colorf` as a window colour-table row) [07 R-WGT-01 §8]. |
+| `nuttin` | Integer, stored as a 32-bit word in the text field; the painter does not consume it. The line itself is drawn from `attribs`: `1` horizontal (`(x,y)–(x+w−1,y)`), `2` vertical (`(x,y)–(x,y+h−1)`), `4` a single diagonal line across the gadget's rectangle (`(x,y)–(x+w−1,y+h−1)`, not a four-sided rectangle outline — "outlined" is the bit's name, not the shape it draws), in the gadget color (`colorf` as a window color-table row) [07 R-WGT-01 §8]. |
 
 ### Picture box (`id=12`)
 

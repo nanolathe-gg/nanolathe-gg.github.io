@@ -159,8 +159,8 @@ glints. Real ARM Hammer and Bulldog movement lays footprints and tracks. A real
 Stumpy corpse shows cooling glow and heat fading over its committed lifetime.
 Captions identify staging, normal simulation, controls and renderer differences.
 
-Still images are lossless WebP. Documented native crops and nearest-neighbour
-enlargement make small effects readable; no colours or renderer effects are
+Still images are lossless WebP. Documented native crops and nearest-neighbor
+enlargement make small effects readable; no colors or renderer effects are
 altered. Terrain's 4× inspection enlarges the original 2× captures in the browser;
 it is explicitly separate from engine camera zoom. Silent clips play on request
 at normal speed. Superseded media is removed, with earlier capture provenance

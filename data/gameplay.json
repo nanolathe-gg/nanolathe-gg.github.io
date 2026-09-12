@@ -19,8 +19,8 @@
       "title": "A full arsenal",
       "lead": "Weapons are simulated projectiles and effects with their own targeting and damage rules.",
       "items": [
-        "Direct-fire lasers, plasma and ballistic artillery, rockets and guided missiles, dropped bombs and torpedoes cover close combat, air defence and naval engagements.",
-        "Flamethrowers, lightning weapons, paralyzing attacks and the Commander’s D-gun use their authored weapon behaviour.",
+        "Direct-fire lasers, plasma and ballistic artillery, rockets and guided missiles, dropped bombs and torpedoes cover close combat, air defense and naval engagements.",
+        "Flamethrowers, lightning weapons, paralyzing attacks and the Commander’s D-gun use their authored weapon behavior.",
         "Turrets aim through unit scripts; weapons have reload and burst timing, range, tracking, line-of-fire checks, impact effects and area damage.",
         "Nuclear missiles and anti-nuclear interceptors use stockpiled ammunition. Build rounds ahead of time; eligible interceptors acquire incoming targetable projectiles."
       ],
