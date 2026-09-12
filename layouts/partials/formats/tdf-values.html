@@ -1,0 +1,5 @@
+<div data-tdf-values class="tdf-demo">
+<div class="demo-controls" data-tdf-controls hidden><label for="tdf-value-case" class="control-line">Authored value <select id="tdf-value-case"><option value="0">Absent key</option><option value="1">Explicit zero: x=0;</option><option value="2">Explicit empty: x=;</option><option value="3">Unparsable: x=junk;</option><option value="4">Decimal prefix: x=12tail;</option><option value="5">Even flag: x=2;</option></select></label></div>
+<div class="tdf-value-flow"><div><span class="eyebrow">01 / Source</span><code data-tdf-authored>(no x assignment)</code></div><div><span class="eyebrow">02 / Integer read, default 7</span><strong data-tdf-integer>7</strong></div><div><span class="eyebrow">03 / Example packed bit</span><strong data-tdf-bit>1 · set</strong></div></div>
+<p data-tdf-value-note aria-live="polite">The key is absent, so the accessor returns its supplied default 7. The illustrative one-bit store keeps 7 &amp; 1 = 1.</p>
+</div>

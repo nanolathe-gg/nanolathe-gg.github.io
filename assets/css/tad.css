@@ -1,0 +1,10 @@
+.tad-overview { display:block; width:100%; height:auto; }
+.tad-bytes { overflow-wrap:anywhere; word-break:normal; font:.85rem/1.9 var(--mono); color:var(--text); padding:16px; border:1px solid var(--line); background:#111815; }
+.tad-controls { display:grid; gap:16px; }
+.tad-step-title { color:var(--green); font-family:var(--mono); }
+.tad-catalog { padding:24px; }
+.tad-catalog label { display:flex; flex-wrap:wrap; align-items:center; gap:12px; font-size:.83rem; margin:14px 0; }
+.tad-catalog input { width:95px; background:#18201b; color:var(--text); border:1px solid #65784f; padding:8px; }
+.tad-bits { display:flex; gap:3px; margin:20px 0; }
+.tad-bits span { flex:1; height:40px; border:1px solid #7ba953; background:#314829; }
+.tad-bit-label { font:.8rem/1.8 var(--mono); color:var(--text); }

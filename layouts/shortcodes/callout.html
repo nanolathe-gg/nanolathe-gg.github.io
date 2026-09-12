@@ -1,0 +1,3 @@
+{{ $kind := .Get "kind" | default "note" }}
+{{ if not (in (slice "note" "warning" "established" "policy" "unknown") $kind) }}{{ errorf "Unknown callout kind %q at %s" $kind .Position }}{{ end }}
+<aside class="doc-callout doc-callout--{{ $kind }}" aria-label="{{ .Get "title" }}"><div class="callout-label">{{ $kind }}</div><strong>{{ .Get "title" }}</strong><div>{{ .Inner | .Page.RenderString (dict "display" "block") }}</div></aside>

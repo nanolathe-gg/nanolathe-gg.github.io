@@ -25,9 +25,10 @@ locally. Production builds use Hugo 0.160.0, pinned in the Pages workflow.
 make check
 ```
 
-The build packages the brand kit before running Hugo. Both Python scripts use
-only the standard library. The check verifies required pages,
-internal links, anchors, local assets, and the custom-domain file. Pull requests
+The build packages the brand kit before running Hugo. All verification scripts use
+only the Python standard library. The check verifies required pages,
+internal links, anchors, local assets, the custom-domain file, and every format's
+authored examples. Pull requests
 build and validate without deploying. Pushes to `main` deploy through GitHub
 Actions; generated `public/` output is not committed.
 
@@ -47,14 +48,41 @@ Actions; generated `public/` output is not committed.
 
 Engine links and clone commands target `https://github.com/nanolathe-gg/nanolathe`.
 
-### Documentation rollout
+### Format documentation
 
-- **v0:** this website links to the maintained documents on GitHub.
-- **v1:** import a pinned revision of the engine's research corpus into readable
-  pages, preserving citations, stable anchors, and confidence labels. Keep
-  behavioral corrections in the owning engine research document.
-- **Later:** add authored examples, diagrams, screenshots, and interactive
-  explanations, starting with PAL, GAF, 3DO, and TNT.
+All 14 researched formats have illustrated references at `/docs/formats/<slug>/`,
+with Markdown and authored assets in the matching `content/docs/<slug>/`
+bundles. The documentation directory links to each guide. Every page pins its
+research to an engine commit and includes original downloadable examples.
+Examples range from sprite and model inspectors to map layers, bytecode stepping,
+palette and scanline comparisons, text parsing, and playable audio.
+
+New format pages reuse the `format` layout, semantic table renderer, callouts,
+figure/demo shortcodes, and automatic contents list. Start with:
+
+```sh
+hugo new content --kind format docs/new-format/index.md
+```
+
+Replace the source revision and placeholder copy before building. A corresponding
+`/docs/<slug>` page automatically replaces that format's GitHub link in the
+documentation directory. See [the format authoring guide](brand/FORMAT_PAGES.md)
+for the complete pattern and component examples. Keep behavioral corrections in
+the engine's owning research document and update the website's pinned snapshot.
+
+Examples are reproducible with the Python standard library. Each format has a
+`scripts/<slug>-example.py` generator; use `--check` to verify without writing:
+
+```sh
+python3 scripts/gaf-example.py
+python3 scripts/gaf-example.py --check
+python3 scripts/check-format-examples.py
+```
+
+The checks decode authored binaries or text, verify worked example states, and
+compare generated assets. All 14 generators run in `make check`. They do not
+require retail game data or a checkout of the engine repository.
+
 
 The Resources page intentionally has no entries. Future curated metadata and
 release-hosted downloads can be added when the collection is ready. Signed

@@ -1,0 +1,59 @@
+// Original documentation example. No paired terrain is supplied.
+[GlobalHeader]
+{
+ missionname=Illustrated Basin;
+ missiondescription=Two variants on one schematic landscape.;
+ size=8 x 6;
+ SCHEMACOUNT=2;
+ gravity=112;
+ minwindspeed=100;
+ maxwindspeed=2000;
+ [Schema 0]
+ {
+  Type=Network 1;
+  SurfaceMetal=3;
+  HumanMetal=1000;
+  HumanEnergy=1000;
+  ComputerMetal=1000;
+  ComputerEnergy=1000;
+  [specials]
+  {
+   [special0]
+   {
+    specialwhat=StartPos1;
+    XPos=768;
+    ZPos=640;
+   }
+   [special1]
+   {
+    specialwhat=StartPos2;
+    XPos=3328;
+    ZPos=2432;
+   }
+  }
+ }
+ [Schema 1]
+ {
+  Type=Network 2;
+  SurfaceMetal=6;
+  HumanMetal=2000;
+  HumanEnergy=1500;
+  ComputerMetal=2000;
+  ComputerEnergy=1500;
+  [specials]
+  {
+   [special0]
+   {
+    specialwhat=StartPos1;
+    XPos=768;
+    ZPos=2432;
+   }
+   [special1]
+   {
+    specialwhat=StartPos2;
+    XPos=3328;
+    ZPos=640;
+   }
+  }
+ }
+}

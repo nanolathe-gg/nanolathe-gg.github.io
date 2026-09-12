@@ -21,6 +21,12 @@
   {{ $tokens := resources.Get "css/tokens.css" | resources.ExecuteAsTemplate "css/tokens.css" . }}
   {{ $css := slice $tokens (resources.Get "css/site.css") (resources.Get "css/brand.css") | resources.Concat "css/site.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+  {{ if eq .Type "format" }}
+  {{ $formatCSS := resources.Get "css/format.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $formatCSS.RelPermalink }}" integrity="{{ $formatCSS.Data.Integrity }}">
+  {{ with .Params.demoCSS }}{{ $demoCSS := resources.Get . | minify | fingerprint }}<link rel="stylesheet" href="{{ $demoCSS.RelPermalink }}" integrity="{{ $demoCSS.Data.Integrity }}">{{ end }}
+  {{ with .Params.demoScript }}{{ $demoJS := resources.Get . | minify | fingerprint }}<script src="{{ $demoJS.RelPermalink }}" integrity="{{ $demoJS.Data.Integrity }}" defer></script>{{ end }}
+  {{ end }}
   {{ $js := resources.Get "js/site.js" | minify | fingerprint }}
   <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
 </head>
@@ -33,7 +39,7 @@
       <nav id="navigation" aria-label="Main navigation">
         {{ $current := .RelPermalink }}
         {{ range slice (dict "url" "/get-started/" "title" "Get started") (dict "url" "/docs/" "title" "Documentation") (dict "url" "/features/" "title" "Features") (dict "url" "/resources/" "title" "Resources") }}
-        <a href="{{ .url | relURL }}"{{ if eq $current (.url | relURL) }} aria-current="page"{{ end }}>{{ .title }}</a>
+        <a href="{{ .url | relURL }}"{{ if eq $current (.url | relURL) }} aria-current="page"{{ else if and (eq .url "/docs/") (hasPrefix $current ("docs/" | relURL)) }} aria-current="true"{{ end }}>{{ .title }}</a>
         {{ end }}
         <a class="nav-github" href="{{ site.Params.engineRepo }}">GitHub <span aria-hidden="true">↗</span></a>
       </nav>

@@ -1,0 +1,11 @@
+{{ define "main" }}
+<header class="format-heading wrap">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="{{ "docs/" | relURL }}">Documentation</a><span aria-hidden="true">/</span><a href="{{ "docs/#formats" | relURL }}">File formats</a><span aria-hidden="true">/</span><span aria-current="page">{{ .Params.format }}</span></nav>
+  <div class="format-title"><div><span class="eyebrow">Format reference · {{ .Params.extension }}</span><h1>{{ .Title }}</h1><p>{{ .Description }}</p></div><span class="format-monogram" aria-hidden="true">{{ .Params.format }}</span></div>
+  <dl class="format-facts">{{ range .Params.facts }}<div><dt>{{ .label }}</dt><dd>{{ .value }}</dd></div>{{ end }}</dl>
+</header>
+<div class="format-layout wrap">
+  <aside class="format-sidebar"><details open><summary>On this page</summary>{{ .TableOfContents }}</details><div class="format-source"><span class="eyebrow">Research snapshot</span><a href="{{ site.Params.engineRepo }}/blob/{{ .Params.sourceRevision }}/{{ .Params.sourcePath }}">{{ substr .Params.sourceRevision 0 7 }} ↗</a><p>Evidence labels distinguish observed behavior from host policy and open questions.</p></div></aside>
+  <article class="format-article">{{ .Content }}<footer class="format-end"><a href="{{ "docs/#formats" | relURL }}">← All file formats</a><a href="{{ site.Params.engineRepo }}/blob/{{ .Params.sourceRevision }}/{{ .Params.sourcePath }}">Read the research ↗</a></footer></article>
+</div>
+{{ end }}

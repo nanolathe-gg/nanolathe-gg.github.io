@@ -1,0 +1,4 @@
+{{ $name := .Get "name" }}
+{{ $partial := printf "formats/%s.html" $name }}
+{{ if not (templates.Exists (printf "partials/%s" $partial)) }}{{ errorf "Missing format demo %s at %s" $name .Position }}{{ end }}
+<figure class="format-demo" id="{{ .Get "id" }}"><div class="demo-heading"><span class="eyebrow">{{ .Get "label" | default "Interactive example" }}</span><h3>{{ .Get "title" }}</h3></div>{{ partial $partial . }}<figcaption>{{ .Inner | .Page.RenderString }}</figcaption></figure>

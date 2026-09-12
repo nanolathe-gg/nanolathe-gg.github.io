@@ -1,0 +1,13 @@
+<div data-tnt-inspector data-source="example.json">
+  <div class="tnt-inspector">
+    <div class="tnt-stage"><img src="terrain.svg" width="512" height="384" alt="Original terrain: repeated 32-pixel tiles form an island" data-tnt-image><svg viewBox="0 0 512 384" aria-hidden="true" data-tnt-overlay></svg></div>
+    <p class="tnt-legend" data-tnt-caption>Terrain art · 16 × 12 tile placements · 4 unique 32 × 32 tiles</p>
+  </div>
+  <div class="demo-controls tnt-controls" data-tnt-controls hidden>
+    <label>View <select data-tnt-layer><option value="terrain">Tile art</option><option value="heights">Corner heights</option><option value="features">Source feature words</option></select></label>
+    <label>Grid <select data-tnt-grid><option value="none">Off</option><option value="32">32-pixel tile grid</option><option value="16">16-pixel attribute grid</option></select></label>
+    <label><input type="checkbox" data-tnt-water> Overlay cells below sea level</label>
+    <label>Sea level <input type="range" min="0" max="120" value="35" data-tnt-sea><output data-tnt-level>35</output></label>
+    <p class="demo-readout" data-tnt-readout>32 × 24 attribute cells · 512 × 384 map pixels</p>
+  </div>
+</div>

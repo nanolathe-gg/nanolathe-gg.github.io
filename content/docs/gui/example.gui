@@ -1,0 +1,21 @@
+// Original documentation panel; the bracket names are deliberately unordered.
+[Panel] {
+  [COMMON] { id=0; name=EXAMPLE; xpos=0; ypos=0; width=640; height=400; active=1; }
+  totalgadgets=4; defaultfocus=DEPLOY;
+}
+[GADGET72] {
+  [COMMON] { id=2; name=ROSTER; xpos=36; ypos=76; width=408; height=204; assoc=7; active=1; attribs=16; }
+  itemheight=40;
+}
+[Scroll] {
+  [COMMON] { id=4; name=ROSTER_SCROLL; xpos=456; ypos=76; width=20; height=204; assoc=7; active=1; attribs=2; }
+  range=164; knobpos=0; knobsize=40; thick=100;
+}
+[GADGET3] {
+  [COMMON] { id=1; name=DEPLOY; xpos=452; ypos=320; width=152; height=44; active=1; help=Choose this authored option; }
+  text=DEPLOY; status=0; grayedout=0; stages=0; quickkey=68;
+}
+[HelpLabel] {
+  [COMMON] { id=5; name=HELPTEXT; xpos=36; ypos=326; width=392; height=28; active=1; }
+  text=An original panel schematic;
+}

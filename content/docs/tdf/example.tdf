@@ -1,0 +1,8 @@
+// Original example: three spellings, one lookup result.
+[Example]
+{
+    Power=3;
+    power=7;
+    Power=9;
+    [Nested] { label=An authored child section; }
+}

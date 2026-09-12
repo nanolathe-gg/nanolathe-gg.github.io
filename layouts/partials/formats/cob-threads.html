@@ -1,0 +1,13 @@
+<div class="cob-lab" data-cob-threads>
+  <div class="cob-lab-options" data-lab-options hidden><label>Launch Worker with <select data-thread-mode><option value="1">call-script · parent waits</option><option value="0">start-script · parent continues</option></select></label><label class="check-label"><input type="checkbox" data-thread-full> Occupy the other seven slots</label></div>
+  <div class="cob-lab-columns">
+    <div class="cob-source"><span class="eyebrow">Parent · slot 0</span><ol data-parent-source aria-label="Parent source"><li><code data-thread-command>call-script Worker(42);</code></li><li><code>parentDone = 1;</code></li><li><code>return (0);</code></li></ol><span class="cob-flag" data-parent-flag>parentDone = 0</span></div>
+    <div class="cob-source"><span class="eyebrow">Worker(value) · first free slot</span><ol data-worker-source aria-label="Worker source"><li><code>childDone = value == 42;</code></li><li><code>return (7);</code></li></ol><span class="cob-flag" data-child-flag>childDone = 0</span></div>
+  </div>
+  <p class="cob-lab-note">Both statics are explicitly initialized to 0 before this example. Worker takes one local parameter; the compiled prologue allocates its local cell.</p>
+  <ol class="cob-slot-pool" aria-label="Eight VM thread slots" data-thread-slots>
+    <li><span>Slot 0</span><strong>Ready</strong></li>{{ range seq 1 7 }}<li><span>Slot {{ . }}</span><strong>Free</strong></li>{{ end }}
+  </ol>
+  <div class="cob-lab-transport" data-lab-controls hidden><div class="control-line"><button type="button" data-prev aria-label="Previous thread event">← Back</button><button type="button" data-next aria-label="Next thread event">Step →</button><button type="button" data-reset aria-label="Reset threads">Reset</button></div></div>
+  <div class="cob-lab-state" aria-live="polite"><strong data-thread-phase>Before tick 0</strong><p data-thread-action>The scheduler visits slots 0 through 7 once. A child in a later slot can run in this drain; a parent woken after its visit waits until the next drain.</p><p>Parent expression stack: <code data-thread-stack>[42]</code></p></div>
+</div>

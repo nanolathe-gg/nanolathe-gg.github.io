@@ -1,0 +1,88 @@
+{
+  "provenance": "Original examples of established insertion and ordinary integer-accessor rules; not a complete retail parser.",
+  "states": [
+    {
+      "assignment": "Power=3;",
+      "action": "insert at lower bound",
+      "entries": [
+        {
+          "key": "Power",
+          "value": "3"
+        }
+      ],
+      "lookup": "3"
+    },
+    {
+      "assignment": "power=7;",
+      "action": "insert at lower bound",
+      "entries": [
+        {
+          "key": "power",
+          "value": "7"
+        },
+        {
+          "key": "Power",
+          "value": "3"
+        }
+      ],
+      "lookup": "7"
+    },
+    {
+      "assignment": "Power=9;",
+      "action": "insert at lower bound",
+      "entries": [
+        {
+          "key": "Power",
+          "value": "9"
+        },
+        {
+          "key": "power",
+          "value": "7"
+        },
+        {
+          "key": "Power",
+          "value": "3"
+        }
+      ],
+      "lookup": "9"
+    }
+  ],
+  "cases": [
+    {
+      "label": "Absent",
+      "value": null,
+      "integer": 7,
+      "lowBit": 1
+    },
+    {
+      "label": "Explicit zero",
+      "value": "0",
+      "integer": 0,
+      "lowBit": 0
+    },
+    {
+      "label": "Explicit empty",
+      "value": "",
+      "integer": 0,
+      "lowBit": 0
+    },
+    {
+      "label": "Unparsable",
+      "value": "junk",
+      "integer": 0,
+      "lowBit": 0
+    },
+    {
+      "label": "Decimal prefix",
+      "value": "12tail",
+      "integer": 12,
+      "lowBit": 0
+    },
+    {
+      "label": "Even flag",
+      "value": "2",
+      "integer": 2,
+      "lowBit": 0
+    }
+  ]
+}

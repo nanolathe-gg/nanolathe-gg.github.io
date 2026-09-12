@@ -1,0 +1,82 @@
+{
+  "byteLength": 2762,
+  "entries": [
+    {
+      "name": "PULSE",
+      "offset": 2026,
+      "loop": 1,
+      "frames": [
+        {
+          "width": 12,
+          "height": 12,
+          "x": 6,
+          "y": 6,
+          "hold": 3,
+          "offset": 139,
+          "dataOffset": 20
+        },
+        {
+          "width": 16,
+          "height": 16,
+          "x": 8,
+          "y": 8,
+          "hold": 3,
+          "offset": 362,
+          "dataOffset": 163
+        },
+        {
+          "width": 20,
+          "height": 20,
+          "x": 10,
+          "y": 10,
+          "hold": 3,
+          "offset": 663,
+          "dataOffset": 386
+        },
+        {
+          "width": 24,
+          "height": 24,
+          "x": 12,
+          "y": 12,
+          "hold": 3,
+          "offset": 1016,
+          "dataOffset": 687
+        },
+        {
+          "width": 28,
+          "height": 28,
+          "x": 14,
+          "y": 14,
+          "hold": 3,
+          "offset": 1459,
+          "dataOffset": 1040
+        },
+        {
+          "width": 32,
+          "height": 32,
+          "x": 16,
+          "y": 16,
+          "hold": 3,
+          "offset": 2002,
+          "dataOffset": 1483
+        }
+      ]
+    },
+    {
+      "name": "MASK",
+      "offset": 2714,
+      "loop": 1,
+      "frames": [
+        {
+          "width": 24,
+          "height": 24,
+          "x": 12,
+          "y": 12,
+          "hold": 3,
+          "offset": 2690,
+          "dataOffset": 2114
+        }
+      ]
+    }
+  ]
+}

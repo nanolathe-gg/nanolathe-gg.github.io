@@ -1,0 +1,2056 @@
+{
+  "motion": {
+    "90-0": [
+      {
+        "tick": 0,
+        "phase": "Before the first drain",
+        "angle": 0,
+        "busy": 0,
+        "done": false,
+        "line": 0,
+        "action": "The turret starts at 0\u00b0. The script has not issued its turn yet."
+      },
+      {
+        "tick": 0,
+        "phase": "1 / Script drain",
+        "angle": 0,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "turn stores target 16384 and step 546 raw units/tick. The piece has not moved yet. The following show runs now; the script returns."
+      },
+      {
+        "tick": 0,
+        "phase": "2 / Piece interpolation",
+        "angle": 546,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 1,
+        "phase": "1 / Script drain",
+        "angle": 546,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 1,
+        "phase": "2 / Piece interpolation",
+        "angle": 1092,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 2,
+        "phase": "1 / Script drain",
+        "angle": 1092,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 2,
+        "phase": "2 / Piece interpolation",
+        "angle": 1638,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 3,
+        "phase": "1 / Script drain",
+        "angle": 1638,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 3,
+        "phase": "2 / Piece interpolation",
+        "angle": 2184,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 4,
+        "phase": "1 / Script drain",
+        "angle": 2184,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 4,
+        "phase": "2 / Piece interpolation",
+        "angle": 2730,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 5,
+        "phase": "1 / Script drain",
+        "angle": 2730,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 5,
+        "phase": "2 / Piece interpolation",
+        "angle": 3276,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 6,
+        "phase": "1 / Script drain",
+        "angle": 3276,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 6,
+        "phase": "2 / Piece interpolation",
+        "angle": 3822,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 7,
+        "phase": "1 / Script drain",
+        "angle": 3822,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 7,
+        "phase": "2 / Piece interpolation",
+        "angle": 4368,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 8,
+        "phase": "1 / Script drain",
+        "angle": 4368,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 8,
+        "phase": "2 / Piece interpolation",
+        "angle": 4914,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 9,
+        "phase": "1 / Script drain",
+        "angle": 4914,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 9,
+        "phase": "2 / Piece interpolation",
+        "angle": 5460,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 10,
+        "phase": "1 / Script drain",
+        "angle": 5460,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 10,
+        "phase": "2 / Piece interpolation",
+        "angle": 6006,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 11,
+        "phase": "1 / Script drain",
+        "angle": 6006,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 11,
+        "phase": "2 / Piece interpolation",
+        "angle": 6552,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 12,
+        "phase": "1 / Script drain",
+        "angle": 6552,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 12,
+        "phase": "2 / Piece interpolation",
+        "angle": 7098,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 13,
+        "phase": "1 / Script drain",
+        "angle": 7098,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 13,
+        "phase": "2 / Piece interpolation",
+        "angle": 7644,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 14,
+        "phase": "1 / Script drain",
+        "angle": 7644,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 14,
+        "phase": "2 / Piece interpolation",
+        "angle": 8190,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 15,
+        "phase": "1 / Script drain",
+        "angle": 8190,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 15,
+        "phase": "2 / Piece interpolation",
+        "angle": 8736,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 16,
+        "phase": "1 / Script drain",
+        "angle": 8736,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 16,
+        "phase": "2 / Piece interpolation",
+        "angle": 9282,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 17,
+        "phase": "1 / Script drain",
+        "angle": 9282,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 17,
+        "phase": "2 / Piece interpolation",
+        "angle": 9828,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 18,
+        "phase": "1 / Script drain",
+        "angle": 9828,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 18,
+        "phase": "2 / Piece interpolation",
+        "angle": 10374,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 19,
+        "phase": "1 / Script drain",
+        "angle": 10374,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 19,
+        "phase": "2 / Piece interpolation",
+        "angle": 10920,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 20,
+        "phase": "1 / Script drain",
+        "angle": 10920,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 20,
+        "phase": "2 / Piece interpolation",
+        "angle": 11466,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 21,
+        "phase": "1 / Script drain",
+        "angle": 11466,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 21,
+        "phase": "2 / Piece interpolation",
+        "angle": 12012,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 22,
+        "phase": "1 / Script drain",
+        "angle": 12012,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 22,
+        "phase": "2 / Piece interpolation",
+        "angle": 12558,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 23,
+        "phase": "1 / Script drain",
+        "angle": 12558,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 23,
+        "phase": "2 / Piece interpolation",
+        "angle": 13104,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 24,
+        "phase": "1 / Script drain",
+        "angle": 13104,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 24,
+        "phase": "2 / Piece interpolation",
+        "angle": 13650,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 25,
+        "phase": "1 / Script drain",
+        "angle": 13650,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 25,
+        "phase": "2 / Piece interpolation",
+        "angle": 14196,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 26,
+        "phase": "1 / Script drain",
+        "angle": 14196,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 26,
+        "phase": "2 / Piece interpolation",
+        "angle": 14742,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 27,
+        "phase": "1 / Script drain",
+        "angle": 14742,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 27,
+        "phase": "2 / Piece interpolation",
+        "angle": 15288,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 28,
+        "phase": "1 / Script drain",
+        "angle": 15288,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 28,
+        "phase": "2 / Piece interpolation",
+        "angle": 15834,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 29,
+        "phase": "1 / Script drain",
+        "angle": 15834,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 29,
+        "phase": "2 / Piece interpolation",
+        "angle": 16380,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 30,
+        "phase": "1 / Script drain",
+        "angle": 16380,
+        "busy": 546,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 30,
+        "phase": "2 / Piece interpolation",
+        "angle": 16384,
+        "busy": 0,
+        "done": true,
+        "line": 3,
+        "action": "The piece reaches 90\u00b0 and clears the speed word. There is no second script scan in this drain."
+      }
+    ],
+    "90-1": [
+      {
+        "tick": 0,
+        "phase": "Before the first drain",
+        "angle": 0,
+        "busy": 0,
+        "done": false,
+        "line": 0,
+        "action": "The turret starts at 0\u00b0. The script has not issued its turn yet."
+      },
+      {
+        "tick": 0,
+        "phase": "1 / Script drain",
+        "angle": 0,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "turn stores target 16384 and step 546 raw units/tick. The piece has not moved yet. wait-for-turn sees a nonzero speed word and blocks this thread."
+      },
+      {
+        "tick": 0,
+        "phase": "2 / Piece interpolation",
+        "angle": 546,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 1,
+        "phase": "1 / Script drain",
+        "angle": 546,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 1,
+        "phase": "2 / Piece interpolation",
+        "angle": 1092,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 2,
+        "phase": "1 / Script drain",
+        "angle": 1092,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 2,
+        "phase": "2 / Piece interpolation",
+        "angle": 1638,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 3,
+        "phase": "1 / Script drain",
+        "angle": 1638,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 3,
+        "phase": "2 / Piece interpolation",
+        "angle": 2184,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 4,
+        "phase": "1 / Script drain",
+        "angle": 2184,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 4,
+        "phase": "2 / Piece interpolation",
+        "angle": 2730,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 5,
+        "phase": "1 / Script drain",
+        "angle": 2730,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 5,
+        "phase": "2 / Piece interpolation",
+        "angle": 3276,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 6,
+        "phase": "1 / Script drain",
+        "angle": 3276,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 6,
+        "phase": "2 / Piece interpolation",
+        "angle": 3822,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 7,
+        "phase": "1 / Script drain",
+        "angle": 3822,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 7,
+        "phase": "2 / Piece interpolation",
+        "angle": 4368,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 8,
+        "phase": "1 / Script drain",
+        "angle": 4368,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 8,
+        "phase": "2 / Piece interpolation",
+        "angle": 4914,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 9,
+        "phase": "1 / Script drain",
+        "angle": 4914,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 9,
+        "phase": "2 / Piece interpolation",
+        "angle": 5460,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 10,
+        "phase": "1 / Script drain",
+        "angle": 5460,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 10,
+        "phase": "2 / Piece interpolation",
+        "angle": 6006,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 11,
+        "phase": "1 / Script drain",
+        "angle": 6006,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 11,
+        "phase": "2 / Piece interpolation",
+        "angle": 6552,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 12,
+        "phase": "1 / Script drain",
+        "angle": 6552,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 12,
+        "phase": "2 / Piece interpolation",
+        "angle": 7098,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 13,
+        "phase": "1 / Script drain",
+        "angle": 7098,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 13,
+        "phase": "2 / Piece interpolation",
+        "angle": 7644,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 14,
+        "phase": "1 / Script drain",
+        "angle": 7644,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 14,
+        "phase": "2 / Piece interpolation",
+        "angle": 8190,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 15,
+        "phase": "1 / Script drain",
+        "angle": 8190,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 15,
+        "phase": "2 / Piece interpolation",
+        "angle": 8736,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 16,
+        "phase": "1 / Script drain",
+        "angle": 8736,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 16,
+        "phase": "2 / Piece interpolation",
+        "angle": 9282,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 17,
+        "phase": "1 / Script drain",
+        "angle": 9282,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 17,
+        "phase": "2 / Piece interpolation",
+        "angle": 9828,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 18,
+        "phase": "1 / Script drain",
+        "angle": 9828,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 18,
+        "phase": "2 / Piece interpolation",
+        "angle": 10374,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 19,
+        "phase": "1 / Script drain",
+        "angle": 10374,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 19,
+        "phase": "2 / Piece interpolation",
+        "angle": 10920,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 20,
+        "phase": "1 / Script drain",
+        "angle": 10920,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 20,
+        "phase": "2 / Piece interpolation",
+        "angle": 11466,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 21,
+        "phase": "1 / Script drain",
+        "angle": 11466,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 21,
+        "phase": "2 / Piece interpolation",
+        "angle": 12012,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 22,
+        "phase": "1 / Script drain",
+        "angle": 12012,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 22,
+        "phase": "2 / Piece interpolation",
+        "angle": 12558,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 23,
+        "phase": "1 / Script drain",
+        "angle": 12558,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 23,
+        "phase": "2 / Piece interpolation",
+        "angle": 13104,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 24,
+        "phase": "1 / Script drain",
+        "angle": 13104,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 24,
+        "phase": "2 / Piece interpolation",
+        "angle": 13650,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 25,
+        "phase": "1 / Script drain",
+        "angle": 13650,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 25,
+        "phase": "2 / Piece interpolation",
+        "angle": 14196,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 26,
+        "phase": "1 / Script drain",
+        "angle": 14196,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 26,
+        "phase": "2 / Piece interpolation",
+        "angle": 14742,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 27,
+        "phase": "1 / Script drain",
+        "angle": 14742,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 27,
+        "phase": "2 / Piece interpolation",
+        "angle": 15288,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 28,
+        "phase": "1 / Script drain",
+        "angle": 15288,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 28,
+        "phase": "2 / Piece interpolation",
+        "angle": 15834,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 29,
+        "phase": "1 / Script drain",
+        "angle": 15834,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 29,
+        "phase": "2 / Piece interpolation",
+        "angle": 16380,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 30,
+        "phase": "1 / Script drain",
+        "angle": 16380,
+        "busy": 546,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 30,
+        "phase": "2 / Piece interpolation",
+        "angle": 16384,
+        "busy": 0,
+        "done": false,
+        "line": 2,
+        "action": "The piece reaches 90\u00b0 and clears the speed word. There is no second script scan in this drain."
+      },
+      {
+        "tick": 31,
+        "phase": "1 / Script drain",
+        "angle": 16384,
+        "busy": 0,
+        "done": true,
+        "line": 3,
+        "action": "The next drain sees speed 0. The waiting thread resumes, shows the beacon and returns."
+      },
+      {
+        "tick": 31,
+        "phase": "2 / Piece interpolation",
+        "angle": 16384,
+        "busy": 0,
+        "done": true,
+        "line": 3,
+        "action": "No positional turn remains to interpolate."
+      }
+    ],
+    "180-0": [
+      {
+        "tick": 0,
+        "phase": "Before the first drain",
+        "angle": 0,
+        "busy": 0,
+        "done": false,
+        "line": 0,
+        "action": "The turret starts at 0\u00b0. The script has not issued its turn yet."
+      },
+      {
+        "tick": 0,
+        "phase": "1 / Script drain",
+        "angle": 0,
+        "busy": 1092,
+        "done": true,
+        "line": 3,
+        "action": "turn stores target 16384 and step 1092 raw units/tick. The piece has not moved yet. The following show runs now; the script returns."
+      },
+      {
+        "tick": 0,
+        "phase": "2 / Piece interpolation",
+        "angle": 1092,
+        "busy": 1092,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 1,
+        "phase": "1 / Script drain",
+        "angle": 1092,
+        "busy": 1092,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 1,
+        "phase": "2 / Piece interpolation",
+        "angle": 2184,
+        "busy": 1092,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 2,
+        "phase": "1 / Script drain",
+        "angle": 2184,
+        "busy": 1092,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 2,
+        "phase": "2 / Piece interpolation",
+        "angle": 3276,
+        "busy": 1092,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 3,
+        "phase": "1 / Script drain",
+        "angle": 3276,
+        "busy": 1092,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 3,
+        "phase": "2 / Piece interpolation",
+        "angle": 4368,
+        "busy": 1092,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 4,
+        "phase": "1 / Script drain",
+        "angle": 4368,
+        "busy": 1092,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 4,
+        "phase": "2 / Piece interpolation",
+        "angle": 5460,
+        "busy": 1092,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 5,
+        "phase": "1 / Script drain",
+        "angle": 5460,
+        "busy": 1092,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 5,
+        "phase": "2 / Piece interpolation",
+        "angle": 6552,
+        "busy": 1092,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 6,
+        "phase": "1 / Script drain",
+        "angle": 6552,
+        "busy": 1092,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 6,
+        "phase": "2 / Piece interpolation",
+        "angle": 7644,
+        "busy": 1092,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 7,
+        "phase": "1 / Script drain",
+        "angle": 7644,
+        "busy": 1092,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 7,
+        "phase": "2 / Piece interpolation",
+        "angle": 8736,
+        "busy": 1092,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 8,
+        "phase": "1 / Script drain",
+        "angle": 8736,
+        "busy": 1092,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 8,
+        "phase": "2 / Piece interpolation",
+        "angle": 9828,
+        "busy": 1092,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 9,
+        "phase": "1 / Script drain",
+        "angle": 9828,
+        "busy": 1092,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 9,
+        "phase": "2 / Piece interpolation",
+        "angle": 10920,
+        "busy": 1092,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 10,
+        "phase": "1 / Script drain",
+        "angle": 10920,
+        "busy": 1092,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 10,
+        "phase": "2 / Piece interpolation",
+        "angle": 12012,
+        "busy": 1092,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 11,
+        "phase": "1 / Script drain",
+        "angle": 12012,
+        "busy": 1092,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 11,
+        "phase": "2 / Piece interpolation",
+        "angle": 13104,
+        "busy": 1092,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 12,
+        "phase": "1 / Script drain",
+        "angle": 13104,
+        "busy": 1092,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 12,
+        "phase": "2 / Piece interpolation",
+        "angle": 14196,
+        "busy": 1092,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 13,
+        "phase": "1 / Script drain",
+        "angle": 14196,
+        "busy": 1092,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 13,
+        "phase": "2 / Piece interpolation",
+        "angle": 15288,
+        "busy": 1092,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 14,
+        "phase": "1 / Script drain",
+        "angle": 15288,
+        "busy": 1092,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 14,
+        "phase": "2 / Piece interpolation",
+        "angle": 16380,
+        "busy": 1092,
+        "done": true,
+        "line": 3,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 15,
+        "phase": "1 / Script drain",
+        "angle": 16380,
+        "busy": 1092,
+        "done": true,
+        "line": 3,
+        "action": "The script has already returned. Piece motion is independent of its thread."
+      },
+      {
+        "tick": 15,
+        "phase": "2 / Piece interpolation",
+        "angle": 16384,
+        "busy": 0,
+        "done": true,
+        "line": 3,
+        "action": "The piece reaches 90\u00b0 and clears the speed word. There is no second script scan in this drain."
+      }
+    ],
+    "180-1": [
+      {
+        "tick": 0,
+        "phase": "Before the first drain",
+        "angle": 0,
+        "busy": 0,
+        "done": false,
+        "line": 0,
+        "action": "The turret starts at 0\u00b0. The script has not issued its turn yet."
+      },
+      {
+        "tick": 0,
+        "phase": "1 / Script drain",
+        "angle": 0,
+        "busy": 1092,
+        "done": false,
+        "line": 2,
+        "action": "turn stores target 16384 and step 1092 raw units/tick. The piece has not moved yet. wait-for-turn sees a nonzero speed word and blocks this thread."
+      },
+      {
+        "tick": 0,
+        "phase": "2 / Piece interpolation",
+        "angle": 1092,
+        "busy": 1092,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 1,
+        "phase": "1 / Script drain",
+        "angle": 1092,
+        "busy": 1092,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 1,
+        "phase": "2 / Piece interpolation",
+        "angle": 2184,
+        "busy": 1092,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 2,
+        "phase": "1 / Script drain",
+        "angle": 2184,
+        "busy": 1092,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 2,
+        "phase": "2 / Piece interpolation",
+        "angle": 3276,
+        "busy": 1092,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 3,
+        "phase": "1 / Script drain",
+        "angle": 3276,
+        "busy": 1092,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 3,
+        "phase": "2 / Piece interpolation",
+        "angle": 4368,
+        "busy": 1092,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 4,
+        "phase": "1 / Script drain",
+        "angle": 4368,
+        "busy": 1092,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 4,
+        "phase": "2 / Piece interpolation",
+        "angle": 5460,
+        "busy": 1092,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 5,
+        "phase": "1 / Script drain",
+        "angle": 5460,
+        "busy": 1092,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 5,
+        "phase": "2 / Piece interpolation",
+        "angle": 6552,
+        "busy": 1092,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 6,
+        "phase": "1 / Script drain",
+        "angle": 6552,
+        "busy": 1092,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 6,
+        "phase": "2 / Piece interpolation",
+        "angle": 7644,
+        "busy": 1092,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 7,
+        "phase": "1 / Script drain",
+        "angle": 7644,
+        "busy": 1092,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 7,
+        "phase": "2 / Piece interpolation",
+        "angle": 8736,
+        "busy": 1092,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 8,
+        "phase": "1 / Script drain",
+        "angle": 8736,
+        "busy": 1092,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 8,
+        "phase": "2 / Piece interpolation",
+        "angle": 9828,
+        "busy": 1092,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 9,
+        "phase": "1 / Script drain",
+        "angle": 9828,
+        "busy": 1092,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 9,
+        "phase": "2 / Piece interpolation",
+        "angle": 10920,
+        "busy": 1092,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 10,
+        "phase": "1 / Script drain",
+        "angle": 10920,
+        "busy": 1092,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 10,
+        "phase": "2 / Piece interpolation",
+        "angle": 12012,
+        "busy": 1092,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 11,
+        "phase": "1 / Script drain",
+        "angle": 12012,
+        "busy": 1092,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 11,
+        "phase": "2 / Piece interpolation",
+        "angle": 13104,
+        "busy": 1092,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 12,
+        "phase": "1 / Script drain",
+        "angle": 13104,
+        "busy": 1092,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 12,
+        "phase": "2 / Piece interpolation",
+        "angle": 14196,
+        "busy": 1092,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 13,
+        "phase": "1 / Script drain",
+        "angle": 14196,
+        "busy": 1092,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 13,
+        "phase": "2 / Piece interpolation",
+        "angle": 15288,
+        "busy": 1092,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 14,
+        "phase": "1 / Script drain",
+        "angle": 15288,
+        "busy": 1092,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 14,
+        "phase": "2 / Piece interpolation",
+        "angle": 16380,
+        "busy": 1092,
+        "done": false,
+        "line": 2,
+        "action": "The piece advances after every script slot has been visited. The waiting thread does not run here."
+      },
+      {
+        "tick": 15,
+        "phase": "1 / Script drain",
+        "angle": 16380,
+        "busy": 1092,
+        "done": false,
+        "line": 2,
+        "action": "The early wait guard still sees a nonzero speed word. This thread remains blocked."
+      },
+      {
+        "tick": 15,
+        "phase": "2 / Piece interpolation",
+        "angle": 16384,
+        "busy": 0,
+        "done": false,
+        "line": 2,
+        "action": "The piece reaches 90\u00b0 and clears the speed word. There is no second script scan in this drain."
+      },
+      {
+        "tick": 16,
+        "phase": "1 / Script drain",
+        "angle": 16384,
+        "busy": 0,
+        "done": true,
+        "line": 3,
+        "action": "The next drain sees speed 0. The waiting thread resumes, shows the beacon and returns."
+      },
+      {
+        "tick": 16,
+        "phase": "2 / Piece interpolation",
+        "angle": 16384,
+        "busy": 0,
+        "done": true,
+        "line": 3,
+        "action": "No positional turn remains to interpolate."
+      }
+    ]
+  },
+  "threads": {
+    "0-0": [
+      {
+        "phase": "Before tick 0",
+        "slots": [
+          "Ready",
+          "Free",
+          "Free",
+          "Free",
+          "Free",
+          "Free",
+          "Free",
+          "Free"
+        ],
+        "action": "Parent occupies slot 0. Its argument 42 is ready on the stack. Slots 1\u20137 are free.",
+        "parent": false,
+        "child": false,
+        "stack": "[42]",
+        "line": 0
+      },
+      {
+        "phase": "Tick 0 / slot 0 / start attempt",
+        "slots": [
+          "Running",
+          "Ready",
+          "Free",
+          "Free",
+          "Free",
+          "Free",
+          "Free",
+          "Free"
+        ],
+        "action": "The first free slot is 1. It receives argument 42 and inherits mask 1. Parent can continue in its current slot visit.",
+        "parent": false,
+        "child": false,
+        "stack": "[empty]",
+        "line": 1
+      },
+      {
+        "phase": "Tick 0 / end of slot 0",
+        "slots": [
+          "Free",
+          "Ready",
+          "Free",
+          "Free",
+          "Free",
+          "Free",
+          "Free",
+          "Free"
+        ],
+        "action": "Worker has not had its slot visit yet. Parent sets parentDone and returns before Worker runs.",
+        "parent": true,
+        "child": false,
+        "stack": "slot released",
+        "line": 2
+      },
+      {
+        "phase": "Tick 0 / slot 1",
+        "slots": [
+          "Free",
+          "Free",
+          "Free",
+          "Free",
+          "Free",
+          "Free",
+          "Free",
+          "Free"
+        ],
+        "action": "Worker reads local argument 42, sets childDone, and returns 7. Its slot is released. The child finishes independently; the returned 7 is discarded.",
+        "parent": true,
+        "child": true,
+        "stack": "slot released",
+        "line": 3
+      }
+    ],
+    "0-1": [
+      {
+        "phase": "Before tick 0",
+        "slots": [
+          "Ready",
+          "Occupied",
+          "Occupied",
+          "Occupied",
+          "Occupied",
+          "Occupied",
+          "Occupied",
+          "Occupied"
+        ],
+        "action": "Parent occupies slot 0. Its argument 42 is ready on the stack. The other seven slots are occupied by unrelated blocked threads.",
+        "parent": false,
+        "child": false,
+        "stack": "[42]",
+        "line": 0
+      },
+      {
+        "phase": "Tick 0 / slot 0 / start attempt",
+        "slots": [
+          "Running",
+          "Occupied",
+          "Occupied",
+          "Occupied",
+          "Occupied",
+          "Occupied",
+          "Occupied",
+          "Occupied"
+        ],
+        "action": "start-script cannot allocate. Argument 42 stays on the parent stack. The parent continues after the failed start.",
+        "parent": false,
+        "child": false,
+        "stack": "[42]",
+        "line": 1
+      },
+      {
+        "phase": "Tick 0 / end of slot 0",
+        "slots": [
+          "Free",
+          "Occupied",
+          "Occupied",
+          "Occupied",
+          "Occupied",
+          "Occupied",
+          "Occupied",
+          "Occupied"
+        ],
+        "action": "No child ran. The parent sets parentDone, then returns. Its return value is popped; the retained argument is abandoned with its slot.",
+        "parent": true,
+        "child": false,
+        "stack": "slot released",
+        "line": 2
+      }
+    ],
+    "1-0": [
+      {
+        "phase": "Before tick 0",
+        "slots": [
+          "Ready",
+          "Free",
+          "Free",
+          "Free",
+          "Free",
+          "Free",
+          "Free",
+          "Free"
+        ],
+        "action": "Parent occupies slot 0. Its argument 42 is ready on the stack. Slots 1\u20137 are free.",
+        "parent": false,
+        "child": false,
+        "stack": "[42]",
+        "line": 0
+      },
+      {
+        "phase": "Tick 0 / slot 0 / start attempt",
+        "slots": [
+          "Waiting: 1",
+          "Ready",
+          "Free",
+          "Free",
+          "Free",
+          "Free",
+          "Free",
+          "Free"
+        ],
+        "action": "The first free slot is 1. It receives argument 42 and inherits mask 1. Parent waits for slot 1.",
+        "parent": false,
+        "child": false,
+        "stack": "[empty]",
+        "line": 1
+      },
+      {
+        "phase": "Tick 0 / end of slot 0",
+        "slots": [
+          "Waiting: 1",
+          "Ready",
+          "Free",
+          "Free",
+          "Free",
+          "Free",
+          "Free",
+          "Free"
+        ],
+        "action": "Worker has not had its slot visit yet. Parent is blocked.",
+        "parent": false,
+        "child": false,
+        "stack": "[empty]",
+        "line": 1
+      },
+      {
+        "phase": "Tick 0 / slot 1",
+        "slots": [
+          "Running",
+          "Free",
+          "Free",
+          "Free",
+          "Free",
+          "Free",
+          "Free",
+          "Free"
+        ],
+        "action": "Worker reads local argument 42, sets childDone, and returns 7. Its slot is released. Parent wakes, but slot 0 has already been visited. The returned 7 is discarded.",
+        "parent": false,
+        "child": true,
+        "stack": "[empty]",
+        "line": 3
+      },
+      {
+        "phase": "Tick 1 / slot 0",
+        "slots": [
+          "Free",
+          "Free",
+          "Free",
+          "Free",
+          "Free",
+          "Free",
+          "Free",
+          "Free"
+        ],
+        "action": "The next drain visits the now-runnable parent. It sets parentDone and returns. call-script supplied no expression result.",
+        "parent": true,
+        "child": true,
+        "stack": "slot released",
+        "line": 2
+      }
+    ],
+    "1-1": [
+      {
+        "phase": "Before tick 0",
+        "slots": [
+          "Ready",
+          "Occupied",
+          "Occupied",
+          "Occupied",
+          "Occupied",
+          "Occupied",
+          "Occupied",
+          "Occupied"
+        ],
+        "action": "Parent occupies slot 0. Its argument 42 is ready on the stack. The other seven slots are occupied by unrelated blocked threads.",
+        "parent": false,
+        "child": false,
+        "stack": "[42]",
+        "line": 0
+      },
+      {
+        "phase": "Tick 0 / slot 0 / start attempt",
+        "slots": [
+          "Blocked: \u22121",
+          "Occupied",
+          "Occupied",
+          "Occupied",
+          "Occupied",
+          "Occupied",
+          "Occupied",
+          "Occupied"
+        ],
+        "action": "call-script cannot allocate. Argument 42 stays on the parent stack. The caller blocks on slot \u22121; no child exists to release it.",
+        "parent": false,
+        "child": false,
+        "stack": "[42]",
+        "line": 1
+      },
+      {
+        "phase": "Tick 0 / end of slot 0",
+        "slots": [
+          "Blocked: \u22121",
+          "Occupied",
+          "Occupied",
+          "Occupied",
+          "Occupied",
+          "Occupied",
+          "Occupied",
+          "Occupied"
+        ],
+        "action": "No child ran. The parent remains blocked; matching signal termination can release it.",
+        "parent": false,
+        "child": false,
+        "stack": "[42]",
+        "line": 1
+      }
+    ]
+  }
+}

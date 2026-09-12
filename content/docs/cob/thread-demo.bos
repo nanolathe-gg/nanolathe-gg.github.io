@@ -1,0 +1,16 @@
+// Original illustrative source; no compiled output is claimed.
+// Parent begins in slot 0; slots 1..7 are initially free.
+static-var parentDone, childDone;
+Parent()
+{
+    parentDone = 0;
+    childDone = 0;
+    call-script Worker(42); // compare: start-script Worker(42);
+    parentDone = 1;
+    return (0);
+}
+Worker(value)
+{
+    childDone = value == 42;
+    return (7);
+}

@@ -1,0 +1,30 @@
+<div class="cob-lab" data-cob-motion>
+  <div class="cob-lab-options" data-lab-options hidden>
+    <label>Turn command <select data-motion-mode><option value="90">Animated · &lt;90&gt; per second</option><option value="180">Animated · &lt;180&gt; per second</option></select></label>
+    <label class="check-label"><input type="checkbox" data-motion-wait checked> Wait before showing the beacon</label>
+  </div>
+  <div class="cob-lab-columns">
+    <div class="cob-source"><span class="eyebrow">Illustrative BOS · AimDemo</span>
+      <ol data-motion-source aria-label="Motion source"><li><code data-motion-command>turn turret to y-axis &lt;90&gt; speed &lt;90&gt;;</code></li><li data-wait-line><code>wait-for-turn turret around y-axis;</code></li><li><code>show beacon;</code></li><li><code>return (0);</code></li></ol>
+      <p class="demo-fine">Initial state: turret at 0°, beacon hidden, no earlier turn or spin. The diagram uses the positive encoded angle.</p>
+    </div>
+    <div class="cob-motion-stage">
+      <svg viewBox="0 0 360 250" width="360" height="250" role="img" aria-label="Turret initially at zero degrees; dashed target at 90 degrees; beacon hidden" data-motion-picture>
+        <path d="M180 30V220M30 155H330" stroke="#415346" stroke-dasharray="4 6"/>
+        <path d="M180 40A115 115 0 0 1 295 155" stroke="#8ea772" stroke-width="2" fill="none" stroke-dasharray="3 5"/>
+        <text x="169" y="22" fill="#c0cdb6" font-size="13">0°</text><text x="300" y="143" fill="#c0cdb6" font-size="13">90°</text>
+        <g transform="rotate(90 180 155)" fill="none" stroke="#b6ef63" stroke-dasharray="5 4"><rect x="168" y="53" width="24" height="92"/><circle cx="180" cy="155" r="39"/></g>
+        <g data-motion-turret><rect x="168" y="53" width="24" height="92" fill="#afc78a"/><circle cx="180" cy="155" r="39" fill="#3a5141" stroke="#d0e1ad" stroke-width="2"/></g>
+        <circle cx="53" cy="214" r="10" fill="#26362c" stroke="#80996c" data-motion-beacon/>
+        <text x="72" y="219" fill="#c0cdb6" font-size="12" data-beacon-label>beacon hidden</text>
+      </svg>
+    </div>
+  </div>
+  <dl class="cob-metrics"><div><dt>Current angle</dt><dd data-motion-angle>0°</dd></div><div><dt>Target</dt><dd>90°</dd></div><div><dt>Turn-speed word</dt><dd data-motion-busy>0</dd></div><div><dt>Script</dt><dd data-motion-thread>Ready</dd></div></dl>
+  <div class="cob-lab-transport" data-lab-controls hidden>
+    <div class="control-line"><button type="button" data-prev aria-label="Previous motion phase">← Back</button><button type="button" data-play>Play motion</button><button type="button" data-next aria-label="Next motion phase">Step →</button><button type="button" data-reset aria-label="Reset motion">Reset</button></div>
+    <label class="cob-scrubber">Motion timeline <input type="range" min="0" max="64" value="0" data-progress></label>
+    <p class="demo-fine">Slow playback: two phases per tick. One simulation tick is 1/30 second; the presentation is slowed for inspection.</p>
+  </div>
+  <div class="cob-lab-state" data-lab-state aria-live="polite"><strong data-motion-phase>Before the first drain</strong><p data-motion-action>The script issues motion during its slot visit. After all eight slots, interpolation moves the piece. A waiting script observes arrival on the next drain.</p></div>
+</div>

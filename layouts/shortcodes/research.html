@@ -1,0 +1,3 @@
+{{- $path := .Get 0 | default .Page.Params.sourcePath -}}
+{{- $anchor := .Get 1 | default "" -}}
+{{- printf "%s/blob/%s/%s%s" site.Params.engineRepo .Page.Params.sourceRevision $path $anchor -}}

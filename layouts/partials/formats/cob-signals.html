@@ -1,0 +1,14 @@
+<div class="cob-lab" data-cob-signals>
+  <div class="cob-lab-options" data-lab-options hidden>
+    <label>Signalling thread’s mask <select data-sender-mask><option value="0">0 · no bits</option><option value="1" selected>1 · root default</option><option value="2">2 · bit 1</option><option value="3">3 · bits 0 + 1</option></select></label>
+    <fieldset class="cob-signal-bits"><legend>Bits in the signal</legend><label><input type="checkbox" value="1" data-signal-bit> 1 <code>001</code></label><label><input type="checkbox" value="2" data-signal-bit checked> 2 <code>010</code></label><label><input type="checkbox" value="4" data-signal-bit> 4 <code>100</code></label></fieldset>
+  </div>
+  <div class="cob-signal-equation"><code>threadMask &amp; signal</code><span>nonzero → terminate that thread</span></div>
+  <div class="cob-signal-grid" data-signal-rows>
+    {{ range slice (dict "name" "Controller · sender" "mask" "001") (dict "name" "Aim worker" "mask" "010") (dict "name" "Restore worker" "mask" "011") (dict "name" "Ambient worker" "mask" "100") }}
+    <div class="cob-signal-card"><span>{{ .name }}</span><code data-mask>{{ .mask }}</code><small data-intersection>Mask before signal</small><strong data-outcome>Active</strong></div>
+    {{ end }}
+  </div>
+  <div class="cob-lab-transport" data-lab-controls hidden><div class="control-line"><button type="button" data-send>Send signal 2</button><button type="button" data-reset aria-label="Reset signals">Reset</button></div></div>
+  <div class="cob-lab-state" aria-live="polite"><strong data-signal-title>Four active threads</strong><p data-signal-action>A signal with value 2 matches both mask 2 and mask 3. The numeric values do not have to be equal: sharing any set bit is enough.</p></div>
+</div>

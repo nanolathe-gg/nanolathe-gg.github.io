@@ -1,0 +1,434 @@
+{
+  "provenance": "Original schema illustration. Referenced resources do not ship with this fixture. Yard presets use established successful-source behavior, not an unsafe malformed-source emulation.",
+  "fields": {
+    "UnitName": "EX_RELAY",
+    "Version": "1",
+    "Name": "Relay workshop",
+    "Description": "An authored documentation example",
+    "Objectname": "ex_relay",
+    "Corpse": "ex_relay_dead",
+    "SoundCategory": "EX_UTILITY",
+    "Weapon1": "EX_PULSE",
+    "BMcode": "0",
+    "Builder": "1",
+    "CanMove": "1",
+    "MaxVelocity": "0",
+    "FootprintX": "4",
+    "FootprintZ": "4",
+    "YardMap": "oooo o..o occo oYYo",
+    "BuildCostMetal": "120",
+    "BuildCostEnergy": "900",
+    "BuildTime": "1800",
+    "WorkerTime": "100"
+  },
+  "presets": [
+    {
+      "label": "Authored 4 \u00d7 4 pattern",
+      "source": "oooo o..o occo oYYo",
+      "cells": [
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 0,
+          "repeated": false
+        },
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 1,
+          "repeated": false
+        },
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 2,
+          "repeated": false
+        },
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 3,
+          "repeated": false
+        },
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 5,
+          "repeated": false
+        },
+        {
+          "character": ".",
+          "byte": "0x00",
+          "sourceIndex": 6,
+          "repeated": false
+        },
+        {
+          "character": ".",
+          "byte": "0x00",
+          "sourceIndex": 7,
+          "repeated": false
+        },
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 8,
+          "repeated": false
+        },
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 10,
+          "repeated": false
+        },
+        {
+          "character": "c",
+          "byte": "0x2D",
+          "sourceIndex": 11,
+          "repeated": false
+        },
+        {
+          "character": "c",
+          "byte": "0x2D",
+          "sourceIndex": 12,
+          "repeated": false
+        },
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 13,
+          "repeated": false
+        },
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 15,
+          "repeated": false
+        },
+        {
+          "character": "Y",
+          "byte": "0x31",
+          "sourceIndex": 16,
+          "repeated": false
+        },
+        {
+          "character": "Y",
+          "byte": "0x31",
+          "sourceIndex": 17,
+          "repeated": false
+        },
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 18,
+          "repeated": false
+        }
+      ]
+    },
+    {
+      "label": "Same cells, no spaces",
+      "source": "ooooo..ooccooYYo",
+      "cells": [
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 0,
+          "repeated": false
+        },
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 1,
+          "repeated": false
+        },
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 2,
+          "repeated": false
+        },
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 3,
+          "repeated": false
+        },
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 4,
+          "repeated": false
+        },
+        {
+          "character": ".",
+          "byte": "0x00",
+          "sourceIndex": 5,
+          "repeated": false
+        },
+        {
+          "character": ".",
+          "byte": "0x00",
+          "sourceIndex": 6,
+          "repeated": false
+        },
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 7,
+          "repeated": false
+        },
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 8,
+          "repeated": false
+        },
+        {
+          "character": "c",
+          "byte": "0x2D",
+          "sourceIndex": 9,
+          "repeated": false
+        },
+        {
+          "character": "c",
+          "byte": "0x2D",
+          "sourceIndex": 10,
+          "repeated": false
+        },
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 11,
+          "repeated": false
+        },
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 12,
+          "repeated": false
+        },
+        {
+          "character": "Y",
+          "byte": "0x31",
+          "sourceIndex": 13,
+          "repeated": false
+        },
+        {
+          "character": "Y",
+          "byte": "0x31",
+          "sourceIndex": 14,
+          "repeated": false
+        },
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 15,
+          "repeated": false
+        }
+      ]
+    },
+    {
+      "label": "One final o repeats",
+      "source": "o",
+      "cells": [
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 0,
+          "repeated": false
+        },
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 0,
+          "repeated": true
+        },
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 0,
+          "repeated": true
+        },
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 0,
+          "repeated": true
+        },
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 0,
+          "repeated": true
+        },
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 0,
+          "repeated": true
+        },
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 0,
+          "repeated": true
+        },
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 0,
+          "repeated": true
+        },
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 0,
+          "repeated": true
+        },
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 0,
+          "repeated": true
+        },
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 0,
+          "repeated": true
+        },
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 0,
+          "repeated": true
+        },
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 0,
+          "repeated": true
+        },
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 0,
+          "repeated": true
+        },
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 0,
+          "repeated": true
+        },
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 0,
+          "repeated": true
+        }
+      ]
+    },
+    {
+      "label": "Lowercase g is skipped",
+      "source": "o g o . . c Y",
+      "cells": [
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 0,
+          "repeated": false
+        },
+        {
+          "character": "o",
+          "byte": "0x2F",
+          "sourceIndex": 4,
+          "repeated": false
+        },
+        {
+          "character": ".",
+          "byte": "0x00",
+          "sourceIndex": 6,
+          "repeated": false
+        },
+        {
+          "character": ".",
+          "byte": "0x00",
+          "sourceIndex": 8,
+          "repeated": false
+        },
+        {
+          "character": "c",
+          "byte": "0x2D",
+          "sourceIndex": 10,
+          "repeated": false
+        },
+        {
+          "character": "Y",
+          "byte": "0x31",
+          "sourceIndex": 12,
+          "repeated": false
+        },
+        {
+          "character": "Y",
+          "byte": "0x31",
+          "sourceIndex": 12,
+          "repeated": true
+        },
+        {
+          "character": "Y",
+          "byte": "0x31",
+          "sourceIndex": 12,
+          "repeated": true
+        },
+        {
+          "character": "Y",
+          "byte": "0x31",
+          "sourceIndex": 12,
+          "repeated": true
+        },
+        {
+          "character": "Y",
+          "byte": "0x31",
+          "sourceIndex": 12,
+          "repeated": true
+        },
+        {
+          "character": "Y",
+          "byte": "0x31",
+          "sourceIndex": 12,
+          "repeated": true
+        },
+        {
+          "character": "Y",
+          "byte": "0x31",
+          "sourceIndex": 12,
+          "repeated": true
+        },
+        {
+          "character": "Y",
+          "byte": "0x31",
+          "sourceIndex": 12,
+          "repeated": true
+        },
+        {
+          "character": "Y",
+          "byte": "0x31",
+          "sourceIndex": 12,
+          "repeated": true
+        },
+        {
+          "character": "Y",
+          "byte": "0x31",
+          "sourceIndex": 12,
+          "repeated": true
+        },
+        {
+          "character": "Y",
+          "byte": "0x31",
+          "sourceIndex": 12,
+          "repeated": true
+        }
+      ]
+    }
+  ]
+}

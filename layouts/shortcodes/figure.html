@@ -1,0 +1,1 @@
+<figure class="doc-figure"><img src="{{ .Get "src" }}" alt="{{ .Get "alt" }}" loading="lazy"{{ with .Get "width" }} width="{{ . }}"{{ end }}{{ with .Get "height" }} height="{{ . }}"{{ end }}><figcaption>{{ .Inner | .Page.RenderString }}</figcaption></figure>

@@ -1,0 +1,7 @@
+{{- $slug := .Get 0 -}}
+{{- $page := site.GetPage (printf "/docs/%s" $slug) -}}
+{{- if and $page (not $page.Draft) -}}
+  {{- $page.RelPermalink -}}
+{{- else -}}
+  {{- printf "%s/blob/%s/research/formats/%s.md" site.Params.engineRepo .Page.Params.sourceRevision $slug -}}
+{{- end -}}

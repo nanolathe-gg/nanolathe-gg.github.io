@@ -9,7 +9,7 @@ root = Path(__file__).resolve().parents[1]
 output = root / 'static/brand'
 brand = json.loads((root / 'data/brand.json').read_text())
 colors = {color['token']: color['hex'] for color in brand['colors']}
-guides = ['GUIDE.md', 'ARTWORK_PROMPTS.md', 'PAGE_PATTERNS.md', 'README_HEADER.md']
+guides = ['GUIDE.md', 'ARTWORK_PROMPTS.md', 'PAGE_PATTERNS.md', 'FORMAT_PAGES.md', 'README_HEADER.md']
 for name in guides:
     shutil.copyfile(root / 'brand' / name, output / name)
 (output / 'tokens.json').write_text(json.dumps(brand, indent=2) + '\n')
@@ -19,8 +19,9 @@ variables += [f"  --{role}: {font['stack']};" for role, font in brand['fonts'].i
 
 files = [root/'ASSETS.md', root/'LICENSE', root/'data/brand.json']
 files += list((root/'assets/css').glob('*.css'))
-files += list((root/'assets/js').glob('*.js'))
+files += list((root/'assets/js').rglob('*.js'))
 files += list((root/'layouts').rglob('*.html'))
+files += list((root/'archetypes').glob('*.md'))
 files += [root/'scripts/brand.py', root/'scripts/export-brand.cjs', root/'scripts/readme-banner.py']
 files += [root/'brand'/name for name in guides]
 files += list((root/'static/fonts').glob('*'))
@@ -51,6 +52,7 @@ Open START-HERE.html in your browser for the offline asset catalog.
 - brand/GUIDE.md: colors, fonts, logo usage, layout, motion, and voice.
 - brand/ARTWORK_PROMPTS.md: reusable style and scene prompts.
 - brand/PAGE_PATTERNS.md: Hugo layouts and component examples.
+- brand/FORMAT_PAGES.md: reusable visual format-reference pattern.
 - brand/README_HEADER.md: README banner, embedding snippet, source, and prompt.
 - static/brand/: SVG and PNG logos, icons, profile images, favicons, CSS/JSON tokens.
 - static/fonts/: Chakra Petch SemiBold and the SIL Open Font License.

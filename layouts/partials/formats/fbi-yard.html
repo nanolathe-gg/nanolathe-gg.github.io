@@ -1,0 +1,13 @@
+<div class="fbi-demo" data-fbi-yard>
+<div class="demo-controls" data-fbi-controls hidden><label class="control-line" for="fbi-yard-case">Yard source <select id="fbi-yard-case"><option value="0">Authored 4 × 4 pattern</option><option value="1">Same cells, no spaces</option><option value="2">One final o repeats</option><option value="3">Lowercase g is skipped</option></select></label><label class="check-label"><input type="checkbox" data-fbi-hex checked> Show decoded byte values</label></div>
+<div class="comparison-grid"><div><span class="eyebrow">Authored text · 4 × 4 footprint</span><pre><code>BMcode=0;
+FootprintX=4;
+FootprintZ=4;
+YardMap=<span data-fbi-source>oooo o..o occo oYYo</span>;</code></pre><p data-fbi-status aria-live="polite">16 cells decoded; spaces consume no cells. No final-character repetition is needed.</p><p class="demo-fine">Character spelling and numeric byte labels are the result. Colors group equal characters; they do not claim passability or the effect of opening a yard.</p></div>
+<div><span class="eyebrow">Decoded cells · source order, left to right</span><ol class="fbi-yard-grid" aria-label="Sixteen decoded yard cells" data-fbi-cells>
+<li data-char="o"><strong>o</strong><span>0x2F</span></li><li data-char="o"><strong>o</strong><span>0x2F</span></li><li data-char="o"><strong>o</strong><span>0x2F</span></li><li data-char="o"><strong>o</strong><span>0x2F</span></li>
+<li data-char="o"><strong>o</strong><span>0x2F</span></li><li data-char="."><strong>.</strong><span>0x00</span></li><li data-char="."><strong>.</strong><span>0x00</span></li><li data-char="o"><strong>o</strong><span>0x2F</span></li>
+<li data-char="o"><strong>o</strong><span>0x2F</span></li><li data-char="c"><strong>c</strong><span>0x2D</span></li><li data-char="c"><strong>c</strong><span>0x2D</span></li><li data-char="o"><strong>o</strong><span>0x2F</span></li>
+<li data-char="o"><strong>o</strong><span>0x2F</span></li><li data-char="Y"><strong>Y</strong><span>0x31</span></li><li data-char="Y"><strong>Y</strong><span>0x31</span></li><li data-char="o"><strong>o</strong><span>0x2F</span></li>
+</ol><p class="demo-fine">Dashed cells in repeated-source examples reuse the final recognized character.</p></div></div>
+</div>

@@ -1,0 +1,1 @@
+{"mapWidth":4096,"mapHeight":3072,"schemas":[{"type":"Network 1","metal":3,"humanMetal":1000,"humanEnergy":1000,"starts":[[768,640],[3328,2432]]},{"type":"Network 2","metal":6,"humanMetal":2000,"humanEnergy":1500,"starts":[[768,2432],[3328,640]]}]}

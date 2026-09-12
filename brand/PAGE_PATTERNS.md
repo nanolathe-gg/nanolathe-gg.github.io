@@ -74,6 +74,13 @@ links, canonical URLs, `robots.txt`, and the sitemap support discovery. Rankings
 and inclusion in AI answers are not guaranteed. See Google's guidance on
 [AI search features](https://developers.google.com/search/docs/appearance/ai-features).
 
+## Format documentation
+
+For a file-format reference, use the shared format layout and Markdown-first
+components described in [FORMAT_PAGES.md](FORMAT_PAGES.md). The GAF page provides
+an authored binary fixture, pixel examples, comparisons, byte tables, callouts,
+and pinned research citations. Its `format` archetype is ready to copy.
+
 ## Long reference or guide page
 
 Use `docs-layout wrap` for an anchor index beside an `article`. Match every

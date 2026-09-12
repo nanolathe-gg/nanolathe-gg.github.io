@@ -1,0 +1,7 @@
+piece base, turret;
+
+Create()
+{
+    turn turret to y-axis <90> now;
+    return (0);
+}

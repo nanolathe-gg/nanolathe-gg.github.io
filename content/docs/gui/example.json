@@ -1,0 +1,93 @@
+{
+  "provenance": "Original authored schematic; parser handles only this controlled fixture subset, not general retail TDF.",
+  "gadgets": [
+    {
+      "section": "Panel",
+      "common": {
+        "id": "0",
+        "name": "EXAMPLE",
+        "xpos": "0",
+        "ypos": "0",
+        "width": "640",
+        "height": "400",
+        "active": "1"
+      },
+      "fields": {
+        "totalgadgets": "4",
+        "defaultfocus": "DEPLOY"
+      }
+    },
+    {
+      "section": "GADGET72",
+      "common": {
+        "id": "2",
+        "name": "ROSTER",
+        "xpos": "36",
+        "ypos": "76",
+        "width": "408",
+        "height": "204",
+        "assoc": "7",
+        "active": "1",
+        "attribs": "16"
+      },
+      "fields": {
+        "itemheight": "40"
+      }
+    },
+    {
+      "section": "Scroll",
+      "common": {
+        "id": "4",
+        "name": "ROSTER_SCROLL",
+        "xpos": "456",
+        "ypos": "76",
+        "width": "20",
+        "height": "204",
+        "assoc": "7",
+        "active": "1",
+        "attribs": "2"
+      },
+      "fields": {
+        "range": "164",
+        "knobpos": "0",
+        "knobsize": "40",
+        "thick": "100"
+      }
+    },
+    {
+      "section": "GADGET3",
+      "common": {
+        "id": "1",
+        "name": "DEPLOY",
+        "xpos": "452",
+        "ypos": "320",
+        "width": "152",
+        "height": "44",
+        "active": "1",
+        "help": "Choose this authored option"
+      },
+      "fields": {
+        "text": "DEPLOY",
+        "status": "0",
+        "grayedout": "0",
+        "stages": "0",
+        "quickkey": "68"
+      }
+    },
+    {
+      "section": "HelpLabel",
+      "common": {
+        "id": "5",
+        "name": "HELPTEXT",
+        "xpos": "36",
+        "ypos": "326",
+        "width": "392",
+        "height": "28",
+        "active": "1"
+      },
+      "fields": {
+        "text": "An original panel schematic"
+      }
+    }
+  ]
+}

@@ -28,10 +28,8 @@ jobs:
           echo "$checksum  /tmp/hugo.tar.gz" | sha256sum --check --strict
           tar -xzf /tmp/hugo.tar.gz -C /tmp hugo
           echo /tmp >> "$GITHUB_PATH"
-      - name: Build production site
-        run: make build
-      - name: Check generated pages and links
-        run: python3 scripts/check-site.py
+      - name: Build and check site and format examples
+        run: make check
       - uses: actions/upload-pages-artifact@v5
         if: github.event_name != 'pull_request'
         with:

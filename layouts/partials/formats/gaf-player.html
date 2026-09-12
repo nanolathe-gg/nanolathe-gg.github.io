@@ -1,0 +1,13 @@
+{{ $example := .Page.Resources.GetMatch "example.json" | transform.Unmarshal }}
+<div class="gaf-player" data-gaf-player>
+  <div class="sprite-stage checkerboard"><span class="stage-label">PULSE / RLE · 6 frames</span><div class="sprite-origin"><img data-sprite src="pulse-0.svg" width="72" height="72" alt="Original green pulse sprite, frame 0, 12 by 12 pixels"><span class="sprite-anchor" aria-hidden="true"></span></div><span class="stage-scale" data-scale>6× nearest neighbor · crosshair = anchor</span></div>
+  <div class="demo-controls" data-enhancement hidden>
+    <div class="control-line"><button type="button" data-play aria-pressed="false">Play</button><label class="check-label"><input type="checkbox" data-offsets checked> Apply offsets</label><label class="check-label"><input type="checkbox" data-loop checked> Loop</label></div>
+    <label class="range-label">Frame <input type="range" data-frame min="0" max="5" value="0" step="1"><output data-frame-label aria-live="off">00 / 05</output></label>
+    <label class="range-label">Hold <input type="range" data-hold min="1" max="10" value="3" step="1"><output data-hold-label>3 ticks</output></label>
+    <p class="demo-readout" data-geometry aria-live="polite">12 × 12 px · offset (6, 6) · origin = anchor − offset</p>
+    <p class="demo-fine">Playback uses a slowed teaching clock of 10 ticks/s. Hold and loop controls change this preview; the download stores 3 ticks per frame and loop = 1.</p>
+  </div>
+  <div class="frame-strip">{{ range $i, $frame := (index $example.entries 0).frames }}<button hidden data-enhancement type="button" data-select-frame="{{ $i }}" data-width="{{ .width }}" data-height="{{ .height }}" data-x="{{ .x }}" data-y="{{ .y }}" aria-label="Show frame {{ $i }}" aria-pressed="{{ if eq $i 0 }}true{{ else }}false{{ end }}"><img src="pulse-{{ $i }}.svg" alt="" width="48" height="48"><span>{{ printf "%02d" $i }}</span></button>{{ end }}</div>
+  <noscript><img class="contact-sheet" src="contact-sheet.svg" alt="Six pulse frames, growing from 12 by 12 to 32 by 32 pixels and aligned on the same center"><p>Frame offsets keep the center fixed as the image grows. Enable JavaScript to scrub frames and change timing.</p></noscript>
+</div>

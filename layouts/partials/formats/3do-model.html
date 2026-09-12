@@ -1,0 +1,12 @@
+{{ $model := .Page.Resources.GetMatch "model.json" | transform.Unmarshal }}
+<div class="model-explorer" data-model="{{ $model | jsonify }}">
+  <div class="model-stage"><img data-model-fallback src="model.svg" width="720" height="460" alt="Original five-piece survey crawler: a low chassis with side tracks, amber turret, green-tipped barrel, rear mast and a muzzle locator"><canvas data-model-canvas role="img" hidden aria-label="Interactive view of the original 3DO model. Use the labeled controls below to rotate the view, select pieces and inspect the hierarchy."></canvas><span class="model-stage-label">EXAMPLE.3DO / AUTHORING SPACE</span></div>
+  <div class="model-toolbar" data-model-controls hidden>
+    <div class="control-line"><label>Inspect piece <select data-piece><option value="-1">Whole model</option>{{ range $i, $piece := $model.pieces }}<option value="{{ $i }}">{{ .name }} · {{ len .vertices }} {{ if eq (len .vertices) 1 }}vertex{{ else }}vertices{{ end }} / {{ len .faces }} faces</option>{{ end }}</select></label><button type="button" data-model-reset>Reset view</button></div>
+    <div class="model-options"><label class="check-label"><input type="checkbox" data-wire> Wireframe</label><label class="check-label"><input type="checkbox" data-origins checked> Piece origins</label><label class="check-label"><input type="checkbox" data-plate> Selection plate</label><label class="check-label"><input type="checkbox" data-explode> Explode hierarchy</label></div>
+    <label class="range-label">Orbit <input data-orbit type="range" min="-180" max="180" value="-38" step="1"><output data-orbit-value>−38°</output></label>
+    <label class="range-label">Turret <input data-turret type="range" min="-90" max="90" value="0" step="1"><output data-turret-value>0°</output></label>
+    <p class="demo-readout" data-model-readout aria-live="polite">5 pieces · 85 vertices · 61 primitives · bind pose</p>
+    <p class="demo-fine">The turret control adds a preview-only rotation. No animation or rotation is stored in the file. Exploding adds display-only separation; this viewer uses its own projection and colors, not the retail rasterizer.</p>
+  </div>
+</div>

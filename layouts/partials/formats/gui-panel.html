@@ -1,0 +1,26 @@
+<div class="gui-demo" data-gui-demo>
+<div class="demo-controls" data-gui-controls hidden>
+<label class="control-line" for="gui-record">Inspect gadget <select id="gui-record"><option value="1">1 · ROSTER / listbox</option><option value="2">2 · ROSTER_SCROLL / scrollbar</option><option value="3">3 · DEPLOY / button</option><option value="4">4 · HELPTEXT / label</option><option value="0">0 · EXAMPLE / panel</option></select></label>
+<label class="check-label"><input type="checkbox" data-gui-bounds checked> Show authored bounds</label>
+<label class="check-label"><input type="checkbox" data-gui-active checked> Button active (visible)</label>
+<label class="check-label"><input type="checkbox" data-gui-grey> Button grayedout (disabled)</label>
+</div>
+<svg class="gui-panel" viewBox="0 0 640 400" width="640" height="400" role="img" aria-label="Original 640 by 400 panel: a roster list and scrollbar share association 7, with a visible Deploy button and help label.">
+<rect x="1" y="1" width="638" height="398" rx="14" fill="#111b1e" stroke="#536a61"/><text x="36" y="43" fill="#e1eee6" font-size="21" font-family="monospace">FIELD ROSTER</text><text x="450" y="43" fill="#9cabaa" font-size="12">640 × 400 authored pixels</text>
+<rect x="36" y="76" width="408" height="204" fill="#18262a" stroke="#485c57"/><g font-family="monospace" font-size="16" fill="#bdcdc8"><rect x="40" y="80" width="400" height="38" fill="#315943"/><text x="56" y="106">01 / Survey team</text><text x="56" y="146">02 / Relay station</text><text x="56" y="186">03 / Supply crawler</text><text x="56" y="226">04 / Listening post</text><text x="56" y="266">05 / Repair team</text></g>
+<rect x="456" y="76" width="20" height="204" fill="#213632" stroke="#708f7e"/><rect x="458" y="78" width="16" height="40" fill="#88be92"/>
+<path d="M240 291v12h226v-12" stroke="#98ffad" fill="none" stroke-dasharray="4 4"/><text x="287" y="295" fill="#a4e6b5" font-size="11">shared assoc = 7</text>
+<g data-gui-button><rect x="452" y="320" width="152" height="44" rx="6" fill="#98f5a8"/><text x="528" y="348" text-anchor="middle" font-family="monospace" font-size="16" fill="#122a1b">DEPLOY</text></g>
+<text x="36" y="347" font-family="monospace" font-size="12" fill="#bdcdc8">An original panel schematic</text>
+<rect data-gui-outline x="36" y="76" width="408" height="204" fill="none" stroke="#f1c36b" stroke-width="3" stroke-dasharray="7 4"/>
+</svg>
+<div class="comparison-grid"><div><span class="eyebrow">Selected source record</span><pre><code data-gui-source>[GADGET72] {
+  [COMMON] {
+    id=2; name=ROSTER; assoc=7;
+    xpos=36; ypos=76;
+    width=408; height=204;
+    active=1; attribs=16;
+  }
+  itemheight=40;
+}</code></pre></div><div class="gui-explainer"><p data-gui-description>Record 1 is a listbox (id 2). Its authored rectangle is (36, 76), 408 × 204. The scrollbar shares association 7.</p><p data-gui-status aria-live="polite">Button: visible and enabled.</p><p class="demo-fine">The roster contents and art are illustrative. Real list content comes from the engine, and a builder can replace authored dimensions from resolved art.</p></div></div>
+</div>

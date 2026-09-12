@@ -1,0 +1,11 @@
+.ota-stage { position:relative; aspect-ratio:4/3; max-width:640px; margin:auto; }
+.ota-stage img,.ota-stage svg { width:100%; height:100%; position:absolute; inset:0; }
+.ota-map { padding:24px; }
+.ota-values { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; padding:0 24px 20px; }
+.ota-values span { display:block; font:.7rem var(--mono); color:var(--muted); }
+.ota-values strong { display:block; font:1.3rem var(--mono); margin-top:8px; }
+.ota-controls select { background:#18201b; color:var(--text); border:1px solid #65784f; padding:8px; max-width:100%; }
+.ota-discovery { padding:24px; }
+.ota-discovery ol { margin:16px 0; padding-left:25px; font: .8rem/1.9 var(--mono); }
+.ota-discovery li[data-found=false] { color:var(--amber); }
+@media(max-width:650px) { .ota-map { padding:14px; }.ota-values { padding-inline:14px; gap:10px; }.ota-values span { font-size:.62rem; } }

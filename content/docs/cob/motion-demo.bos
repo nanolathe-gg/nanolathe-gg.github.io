@@ -1,0 +1,11 @@
+// Original illustrative source; no compiled output is claimed.
+// Begin with turret at encoded angle 0 and no earlier turn or spin.
+piece turret, beacon;
+AimDemo()
+{
+    hide beacon;
+    turn turret to y-axis <90> speed <90>;
+    wait-for-turn turret around y-axis;
+    show beacon;
+    return (0);
+}

@@ -1,0 +1,65 @@
+{
+  "provenance": "Original hand-assembled example, not output claimed from a recovered compiler. The BOS is equivalent illustrative source.",
+  "bytes": 111,
+  "codeOffset": 44,
+  "entryWords": [
+    0
+  ],
+  "scripts": [
+    "Create"
+  ],
+  "pieces": [
+    "base",
+    "turret"
+  ],
+  "words": [
+    "0x10021001",
+    "0x00004000",
+    "0x1000C000",
+    "0x00000001",
+    "0x00000001",
+    "0x10021001",
+    "0x00000000",
+    "0x10065000"
+  ],
+  "states": [
+    {
+      "word": 0,
+      "stack": [],
+      "angle": 0,
+      "action": "Ready: Create starts at code word 0."
+    },
+    {
+      "word": 0,
+      "nextWord": 2,
+      "stack": [
+        16384
+      ],
+      "angle": 0,
+      "action": "Push 16384 onto the stack."
+    },
+    {
+      "word": 2,
+      "nextWord": 5,
+      "stack": [],
+      "angle": 16384,
+      "action": "Pop target 16384. Turn piece 1 (turret), axis 1 (Y), immediately to 90\u00b0."
+    },
+    {
+      "word": 5,
+      "nextWord": 7,
+      "stack": [
+        0
+      ],
+      "angle": 16384,
+      "action": "Push 0 onto the stack."
+    },
+    {
+      "word": 7,
+      "nextWord": 8,
+      "stack": [],
+      "angle": 16384,
+      "action": "Return 0. The entry has finished."
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+<div class="hpi-cipher" data-hpi-cipher>
+  <div class="comparison-grid">
+    <div><span class="comparison-label">Stored byte in example-encrypted.hpi</span><pre><code data-hpi-cipher-byte>E8</code></pre><p data-hpi-position>Absolute archive offset 0x14 · first root-node byte</p></div>
+    <div><span class="comparison-label">After the position transform</span><pre><code data-hpi-plain-byte>02</code></pre><p data-hpi-meaning>Root entry count begins with 02 (two entries).</p></div>
+  </div>
+  <div class="demo-controls" hidden data-hpi-controls><label for="hpi-byte">Inspect directory header byte</label> <input id="hpi-byte" type="range" min="20" max="27" value="20" step="1"><p class="demo-readout" data-hpi-formula>14 XOR 01 XOR NOT E8 = 02</p></div>
+</div>

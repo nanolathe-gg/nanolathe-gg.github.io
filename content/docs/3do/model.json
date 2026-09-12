@@ -1,0 +1,1332 @@
+{
+  "byteLength": 3750,
+  "palette": {
+    "20": "#64705d",
+    "21": "#7e8d70",
+    "22": "#3c4841",
+    "23": "#a8b695",
+    "24": "#b6ef63",
+    "25": "#e7b66f",
+    "26": "#a88652",
+    "27": "#354038"
+  },
+  "pieces": [
+    {
+      "name": "base",
+      "offset": 0,
+      "parent": null,
+      "translation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "selection": 0,
+      "nameOffset": 260,
+      "vertexOffset": 265,
+      "primitiveOffset": 697,
+      "siblingOffset": 0,
+      "childOffset": 52,
+      "vertices": [
+        [
+          -17.0,
+          0.0,
+          -22.0
+        ],
+        [
+          17.0,
+          0.0,
+          -22.0
+        ],
+        [
+          17.0,
+          0.0,
+          22.0
+        ],
+        [
+          -17.0,
+          0.0,
+          22.0
+        ],
+        [
+          -11.0,
+          2.0,
+          -15.0
+        ],
+        [
+          11.0,
+          2.0,
+          -15.0
+        ],
+        [
+          11.0,
+          8.0,
+          -15.0
+        ],
+        [
+          -11.0,
+          8.0,
+          -15.0
+        ],
+        [
+          -11.0,
+          2.0,
+          16.0
+        ],
+        [
+          11.0,
+          2.0,
+          16.0
+        ],
+        [
+          11.0,
+          8.0,
+          16.0
+        ],
+        [
+          -11.0,
+          8.0,
+          16.0
+        ],
+        [
+          -16.0,
+          1.0,
+          -18.0
+        ],
+        [
+          -11.0,
+          1.0,
+          -18.0
+        ],
+        [
+          -11.0,
+          6.0,
+          -18.0
+        ],
+        [
+          -16.0,
+          6.0,
+          -18.0
+        ],
+        [
+          -16.0,
+          1.0,
+          18.0
+        ],
+        [
+          -11.0,
+          1.0,
+          18.0
+        ],
+        [
+          -11.0,
+          6.0,
+          18.0
+        ],
+        [
+          -16.0,
+          6.0,
+          18.0
+        ],
+        [
+          11.0,
+          1.0,
+          -18.0
+        ],
+        [
+          16.0,
+          1.0,
+          -18.0
+        ],
+        [
+          16.0,
+          6.0,
+          -18.0
+        ],
+        [
+          11.0,
+          6.0,
+          -18.0
+        ],
+        [
+          11.0,
+          1.0,
+          18.0
+        ],
+        [
+          16.0,
+          1.0,
+          18.0
+        ],
+        [
+          16.0,
+          6.0,
+          18.0
+        ],
+        [
+          11.0,
+          6.0,
+          18.0
+        ],
+        [
+          -8.0,
+          8.0,
+          6.0
+        ],
+        [
+          8.0,
+          8.0,
+          6.0
+        ],
+        [
+          8.0,
+          9.0,
+          6.0
+        ],
+        [
+          -8.0,
+          9.0,
+          6.0
+        ],
+        [
+          -8.0,
+          8.0,
+          13.0
+        ],
+        [
+          8.0,
+          8.0,
+          13.0
+        ],
+        [
+          8.0,
+          9.0,
+          13.0
+        ],
+        [
+          -8.0,
+          9.0,
+          13.0
+        ]
+      ],
+      "faces": [
+        {
+          "offset": 697,
+          "indexOffset": 1497,
+          "indexes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "color": 24,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 729,
+          "indexOffset": 1505,
+          "indexes": [
+            4,
+            7,
+            6,
+            5
+          ],
+          "color": 20,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 761,
+          "indexOffset": 1513,
+          "indexes": [
+            8,
+            9,
+            10,
+            11
+          ],
+          "color": 20,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 793,
+          "indexOffset": 1521,
+          "indexes": [
+            4,
+            8,
+            11,
+            7
+          ],
+          "color": 20,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 825,
+          "indexOffset": 1529,
+          "indexes": [
+            5,
+            6,
+            10,
+            9
+          ],
+          "color": 20,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 857,
+          "indexOffset": 1537,
+          "indexes": [
+            7,
+            11,
+            10,
+            6
+          ],
+          "color": 20,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 889,
+          "indexOffset": 1545,
+          "indexes": [
+            4,
+            5,
+            9,
+            8
+          ],
+          "color": 20,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 921,
+          "indexOffset": 1553,
+          "indexes": [
+            12,
+            15,
+            14,
+            13
+          ],
+          "color": 22,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 953,
+          "indexOffset": 1561,
+          "indexes": [
+            16,
+            17,
+            18,
+            19
+          ],
+          "color": 22,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 985,
+          "indexOffset": 1569,
+          "indexes": [
+            12,
+            16,
+            19,
+            15
+          ],
+          "color": 22,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 1017,
+          "indexOffset": 1577,
+          "indexes": [
+            13,
+            14,
+            18,
+            17
+          ],
+          "color": 22,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 1049,
+          "indexOffset": 1585,
+          "indexes": [
+            15,
+            19,
+            18,
+            14
+          ],
+          "color": 22,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 1081,
+          "indexOffset": 1593,
+          "indexes": [
+            12,
+            13,
+            17,
+            16
+          ],
+          "color": 22,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 1113,
+          "indexOffset": 1601,
+          "indexes": [
+            20,
+            23,
+            22,
+            21
+          ],
+          "color": 22,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 1145,
+          "indexOffset": 1609,
+          "indexes": [
+            24,
+            25,
+            26,
+            27
+          ],
+          "color": 22,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 1177,
+          "indexOffset": 1617,
+          "indexes": [
+            20,
+            24,
+            27,
+            23
+          ],
+          "color": 22,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 1209,
+          "indexOffset": 1625,
+          "indexes": [
+            21,
+            22,
+            26,
+            25
+          ],
+          "color": 22,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 1241,
+          "indexOffset": 1633,
+          "indexes": [
+            23,
+            27,
+            26,
+            22
+          ],
+          "color": 22,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 1273,
+          "indexOffset": 1641,
+          "indexes": [
+            20,
+            21,
+            25,
+            24
+          ],
+          "color": 22,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 1305,
+          "indexOffset": 1649,
+          "indexes": [
+            28,
+            31,
+            30,
+            29
+          ],
+          "color": 21,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 1337,
+          "indexOffset": 1657,
+          "indexes": [
+            32,
+            33,
+            34,
+            35
+          ],
+          "color": 21,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 1369,
+          "indexOffset": 1665,
+          "indexes": [
+            28,
+            32,
+            35,
+            31
+          ],
+          "color": 21,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 1401,
+          "indexOffset": 1673,
+          "indexes": [
+            29,
+            30,
+            34,
+            33
+          ],
+          "color": 21,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 1433,
+          "indexOffset": 1681,
+          "indexes": [
+            31,
+            35,
+            34,
+            30
+          ],
+          "color": 21,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 1465,
+          "indexOffset": 1689,
+          "indexes": [
+            28,
+            29,
+            33,
+            32
+          ],
+          "color": 21,
+          "texture": null,
+          "isColored": 1
+        }
+      ]
+    },
+    {
+      "name": "turret",
+      "offset": 52,
+      "parent": 0,
+      "translation": [
+        0.0,
+        8.0,
+        0.0
+      ],
+      "selection": -1,
+      "nameOffset": 1697,
+      "vertexOffset": 1704,
+      "primitiveOffset": 1896,
+      "siblingOffset": 208,
+      "childOffset": 104,
+      "vertices": [
+        [
+          -7.0,
+          0.0,
+          -6.0
+        ],
+        [
+          7.0,
+          0.0,
+          -6.0
+        ],
+        [
+          7.0,
+          6.0,
+          -6.0
+        ],
+        [
+          -7.0,
+          6.0,
+          -6.0
+        ],
+        [
+          -7.0,
+          0.0,
+          6.0
+        ],
+        [
+          7.0,
+          0.0,
+          6.0
+        ],
+        [
+          7.0,
+          6.0,
+          6.0
+        ],
+        [
+          -7.0,
+          6.0,
+          6.0
+        ],
+        [
+          -4.0,
+          6.0,
+          -3.0
+        ],
+        [
+          4.0,
+          6.0,
+          -3.0
+        ],
+        [
+          4.0,
+          8.0,
+          -3.0
+        ],
+        [
+          -4.0,
+          8.0,
+          -3.0
+        ],
+        [
+          -4.0,
+          6.0,
+          3.0
+        ],
+        [
+          4.0,
+          6.0,
+          3.0
+        ],
+        [
+          4.0,
+          8.0,
+          3.0
+        ],
+        [
+          -4.0,
+          8.0,
+          3.0
+        ]
+      ],
+      "faces": [
+        {
+          "offset": 1896,
+          "indexOffset": 2280,
+          "indexes": [
+            0,
+            3,
+            2,
+            1
+          ],
+          "color": 25,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 1928,
+          "indexOffset": 2288,
+          "indexes": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "color": 25,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 1960,
+          "indexOffset": 2296,
+          "indexes": [
+            0,
+            4,
+            7,
+            3
+          ],
+          "color": 25,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 1992,
+          "indexOffset": 2304,
+          "indexes": [
+            1,
+            2,
+            6,
+            5
+          ],
+          "color": 25,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 2024,
+          "indexOffset": 2312,
+          "indexes": [
+            3,
+            7,
+            6,
+            2
+          ],
+          "color": 25,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 2056,
+          "indexOffset": 2320,
+          "indexes": [
+            0,
+            1,
+            5,
+            4
+          ],
+          "color": 25,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 2088,
+          "indexOffset": 2328,
+          "indexes": [
+            8,
+            11,
+            10,
+            9
+          ],
+          "color": 26,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 2120,
+          "indexOffset": 2336,
+          "indexes": [
+            12,
+            13,
+            14,
+            15
+          ],
+          "color": 26,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 2152,
+          "indexOffset": 2344,
+          "indexes": [
+            8,
+            12,
+            15,
+            11
+          ],
+          "color": 26,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 2184,
+          "indexOffset": 2352,
+          "indexes": [
+            9,
+            10,
+            14,
+            13
+          ],
+          "color": 26,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 2216,
+          "indexOffset": 2360,
+          "indexes": [
+            11,
+            15,
+            14,
+            10
+          ],
+          "color": 26,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 2248,
+          "indexOffset": 2368,
+          "indexes": [
+            8,
+            9,
+            13,
+            12
+          ],
+          "color": 26,
+          "texture": null,
+          "isColored": 1
+        }
+      ]
+    },
+    {
+      "name": "barrel",
+      "offset": 104,
+      "parent": 1,
+      "translation": [
+        0.0,
+        3.0,
+        -5.0
+      ],
+      "selection": -1,
+      "nameOffset": 2376,
+      "vertexOffset": 2383,
+      "primitiveOffset": 2575,
+      "siblingOffset": 0,
+      "childOffset": 156,
+      "vertices": [
+        [
+          -2.0,
+          -1.5,
+          -14.0
+        ],
+        [
+          2.0,
+          -1.5,
+          -14.0
+        ],
+        [
+          2.0,
+          1.5,
+          -14.0
+        ],
+        [
+          -2.0,
+          1.5,
+          -14.0
+        ],
+        [
+          -2.0,
+          -1.5,
+          0.0
+        ],
+        [
+          2.0,
+          -1.5,
+          0.0
+        ],
+        [
+          2.0,
+          1.5,
+          0.0
+        ],
+        [
+          -2.0,
+          1.5,
+          0.0
+        ],
+        [
+          -2.8000030517578125,
+          -2.0,
+          -15.0
+        ],
+        [
+          2.8000030517578125,
+          -2.0,
+          -15.0
+        ],
+        [
+          2.8000030517578125,
+          2.0,
+          -15.0
+        ],
+        [
+          -2.8000030517578125,
+          2.0,
+          -15.0
+        ],
+        [
+          -2.8000030517578125,
+          -2.0,
+          -12.0
+        ],
+        [
+          2.8000030517578125,
+          -2.0,
+          -12.0
+        ],
+        [
+          2.8000030517578125,
+          2.0,
+          -12.0
+        ],
+        [
+          -2.8000030517578125,
+          2.0,
+          -12.0
+        ]
+      ],
+      "faces": [
+        {
+          "offset": 2575,
+          "indexOffset": 2959,
+          "indexes": [
+            0,
+            3,
+            2,
+            1
+          ],
+          "color": 21,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 2607,
+          "indexOffset": 2967,
+          "indexes": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "color": 21,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 2639,
+          "indexOffset": 2975,
+          "indexes": [
+            0,
+            4,
+            7,
+            3
+          ],
+          "color": 21,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 2671,
+          "indexOffset": 2983,
+          "indexes": [
+            1,
+            2,
+            6,
+            5
+          ],
+          "color": 21,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 2703,
+          "indexOffset": 2991,
+          "indexes": [
+            3,
+            7,
+            6,
+            2
+          ],
+          "color": 21,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 2735,
+          "indexOffset": 2999,
+          "indexes": [
+            0,
+            1,
+            5,
+            4
+          ],
+          "color": 21,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 2767,
+          "indexOffset": 3007,
+          "indexes": [
+            8,
+            11,
+            10,
+            9
+          ],
+          "color": 24,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 2799,
+          "indexOffset": 3015,
+          "indexes": [
+            12,
+            13,
+            14,
+            15
+          ],
+          "color": 24,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 2831,
+          "indexOffset": 3023,
+          "indexes": [
+            8,
+            12,
+            15,
+            11
+          ],
+          "color": 24,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 2863,
+          "indexOffset": 3031,
+          "indexes": [
+            9,
+            10,
+            14,
+            13
+          ],
+          "color": 24,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 2895,
+          "indexOffset": 3039,
+          "indexes": [
+            11,
+            15,
+            14,
+            10
+          ],
+          "color": 24,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 2927,
+          "indexOffset": 3047,
+          "indexes": [
+            8,
+            9,
+            13,
+            12
+          ],
+          "color": 24,
+          "texture": null,
+          "isColored": 1
+        }
+      ]
+    },
+    {
+      "name": "flare",
+      "offset": 156,
+      "parent": 2,
+      "translation": [
+        0.0,
+        0.0,
+        -15.0
+      ],
+      "selection": -1,
+      "nameOffset": 3055,
+      "vertexOffset": 3061,
+      "primitiveOffset": 3073,
+      "siblingOffset": 0,
+      "childOffset": 0,
+      "vertices": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "faces": []
+    },
+    {
+      "name": "mast",
+      "offset": 208,
+      "parent": 0,
+      "translation": [
+        -8.0,
+        8.0,
+        8.0
+      ],
+      "selection": -1,
+      "nameOffset": 3073,
+      "vertexOffset": 3078,
+      "primitiveOffset": 3270,
+      "siblingOffset": 0,
+      "childOffset": 0,
+      "vertices": [
+        [
+          -0.600006103515625,
+          0.0,
+          -0.600006103515625
+        ],
+        [
+          0.600006103515625,
+          0.0,
+          -0.600006103515625
+        ],
+        [
+          0.600006103515625,
+          12.0,
+          -0.600006103515625
+        ],
+        [
+          -0.600006103515625,
+          12.0,
+          -0.600006103515625
+        ],
+        [
+          -0.600006103515625,
+          0.0,
+          0.600006103515625
+        ],
+        [
+          0.600006103515625,
+          0.0,
+          0.600006103515625
+        ],
+        [
+          0.600006103515625,
+          12.0,
+          0.600006103515625
+        ],
+        [
+          -0.600006103515625,
+          12.0,
+          0.600006103515625
+        ],
+        [
+          -2.0,
+          10.0,
+          -1.0
+        ],
+        [
+          2.0,
+          10.0,
+          -1.0
+        ],
+        [
+          2.0,
+          13.0,
+          -1.0
+        ],
+        [
+          -2.0,
+          13.0,
+          -1.0
+        ],
+        [
+          -2.0,
+          10.0,
+          1.0
+        ],
+        [
+          2.0,
+          10.0,
+          1.0
+        ],
+        [
+          2.0,
+          13.0,
+          1.0
+        ],
+        [
+          -2.0,
+          13.0,
+          1.0
+        ]
+      ],
+      "faces": [
+        {
+          "offset": 3270,
+          "indexOffset": 3654,
+          "indexes": [
+            0,
+            3,
+            2,
+            1
+          ],
+          "color": 23,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 3302,
+          "indexOffset": 3662,
+          "indexes": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "color": 23,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 3334,
+          "indexOffset": 3670,
+          "indexes": [
+            0,
+            4,
+            7,
+            3
+          ],
+          "color": 23,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 3366,
+          "indexOffset": 3678,
+          "indexes": [
+            1,
+            2,
+            6,
+            5
+          ],
+          "color": 23,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 3398,
+          "indexOffset": 3686,
+          "indexes": [
+            3,
+            7,
+            6,
+            2
+          ],
+          "color": 23,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 3430,
+          "indexOffset": 3694,
+          "indexes": [
+            0,
+            1,
+            5,
+            4
+          ],
+          "color": 23,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 3462,
+          "indexOffset": 3702,
+          "indexes": [
+            8,
+            11,
+            10,
+            9
+          ],
+          "color": 24,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 3494,
+          "indexOffset": 3710,
+          "indexes": [
+            12,
+            13,
+            14,
+            15
+          ],
+          "color": 24,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 3526,
+          "indexOffset": 3718,
+          "indexes": [
+            8,
+            12,
+            15,
+            11
+          ],
+          "color": 24,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 3558,
+          "indexOffset": 3726,
+          "indexes": [
+            9,
+            10,
+            14,
+            13
+          ],
+          "color": 24,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 3590,
+          "indexOffset": 3734,
+          "indexes": [
+            11,
+            15,
+            14,
+            10
+          ],
+          "color": 24,
+          "texture": null,
+          "isColored": 1
+        },
+        {
+          "offset": 3622,
+          "indexOffset": 3742,
+          "indexes": [
+            8,
+            9,
+            13,
+            12
+          ],
+          "color": 24,
+          "texture": null,
+          "isColored": 1
+        }
+      ]
+    }
+  ]
+}

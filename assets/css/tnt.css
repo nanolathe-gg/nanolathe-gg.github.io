@@ -1,0 +1,10 @@
+.tnt-inspector { padding:24px; }
+.tnt-stage { position:relative; width:100%; aspect-ratio:4/3; max-width:640px; margin:auto; background:#121918; }
+.tnt-stage img,.tnt-stage svg { position:absolute; width:100%; height:100%; inset:0; image-rendering:pixelated; }
+.tnt-stage svg { pointer-events:none; }
+.tnt-controls { display:grid; gap:15px; }
+.tnt-controls label { display:flex; align-items:center; gap:12px; flex-wrap:wrap; font-size:.82rem; }
+.tnt-controls select { padding:8px; background:#18201b; color:var(--text); border:1px solid #65784f; max-width:100%; }
+.tnt-controls input[type=range] { flex:1; min-width:80px; }
+.tnt-legend { font:.74rem/1.8 var(--mono); color:var(--text); }
+@media(max-width:650px) { .tnt-inspector { padding:14px; } }

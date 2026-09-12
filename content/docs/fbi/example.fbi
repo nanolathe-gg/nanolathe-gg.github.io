@@ -1,0 +1,22 @@
+// Original schema illustration, not an installable retail unit pack.
+[UNITINFO] {
+    UnitName=EX_RELAY;
+    Version=1;
+    Name=Relay workshop;
+    Description=An authored documentation example;
+    Objectname=ex_relay;
+    Corpse=ex_relay_dead;
+    SoundCategory=EX_UTILITY;
+    Weapon1=EX_PULSE;
+    BMcode=0;
+    Builder=1;
+    CanMove=1;
+    MaxVelocity=0;
+    FootprintX=4;
+    FootprintZ=4;
+    YardMap=oooo o..o occo oYYo;
+    BuildCostMetal=120;
+    BuildCostEnergy=900;
+    BuildTime=1800;
+    WorkerTime=100;
+}

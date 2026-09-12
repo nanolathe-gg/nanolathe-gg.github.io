@@ -5,7 +5,12 @@ from urllib.parse import unquote, urlsplit
 import sys
 
 root = Path(__file__).resolve().parents[1] / "public"
-required = ["index.html", "get-started/index.html", "docs/index.html", "features/index.html", "resources/index.html", "brand/index.html", "404.html"]
+required = ["index.html", "get-started/index.html", "docs/index.html", "docs/formats/gaf/index.html", "docs/formats/3do/index.html", "features/index.html", "resources/index.html", "brand/index.html", "404.html"]
+# Every authored format bundle must produce its public route.
+for bundle in sorted((root.parent / "content/docs").glob("*/index.md")):
+    route = f"docs/formats/{bundle.parent.name}/index.html"
+    if route not in required:
+        required.append(route)
 errors = []
 
 class Page(HTMLParser):
