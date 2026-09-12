@@ -1,0 +1,27 @@
+{
+  "revision": "801c8b28c38ff6505b4939d96cce7fcf22200da5",
+  "faces": 101,
+  "triangles": 202,
+  "material_faces": {
+    "0": 89,
+    "1": 6,
+    "2": 6
+  },
+  "atlas_size": [
+    1032,
+    68
+  ],
+  "source_sha256": "41d10454aa7ad8778e19289daaa58ab73ecd567e3c1ae71546671ba2156c0b1f",
+  "files": [
+    {
+      "path": "static/models/materials/annihilator.json",
+      "bytes": 35996,
+      "sha256": "0eb128c7863bc457e6d286fe2c189cba9f9f81328e3b13cef611e821fedf880b"
+    },
+    {
+      "path": "static/models/materials/annihilator.png",
+      "bytes": 26592,
+      "sha256": "cd5cd5942b2c671dee472bdebc4f7113b70d1557eaf13ec4c190feac9903fcf8"
+    }
+  ]
+}

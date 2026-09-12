@@ -257,11 +257,11 @@
       "intro": "Broad metal highlights and softer painted surfaces respond as a unit turns.",
       "original": "Palette shading gives models their shape, without this extra directional specular highlight.",
       "how": "Recognized metal textures receive a broad, cool response beneath the directional glint. Painted panels receive a weaker, rougher highlight. Face orientation controls both, while the original panel colors and dark seams remain visible. Untagged textures keep their existing shading.",
-      "look": "the broad sloping panels brightening and cooling as they turn toward the light. Switch the finish off and on at the same angle to separate the added response from the original shading.",
+      "look": "the broad sloping panels brightening and cooling as you rotate the unit toward the light. Switch the finish off and on at the same angle to separate the added response from the original shading.",
       "status": "Modern renderer · Experimental",
       "revision": "801c8b2",
       "source": "internal/platform/gpurender/metal_glint.go",
-      "capture": "One original ARM mobile Annihilator, armmanni, in a staged 360° turntable with a frozen activated COB pose. The current renderer at 801c8b2 submits 8–11 annotated material faces per frame. The comparison switches materials and glints together; scorch is disabled. Both versions share each recorded pose. The native 2× camera renders 512 × 384; an identical 320 × 256 crop isolates the model without resampling. This is a presentation rotation, not a unit spinning in live combat. The original Comet Catcher terrain forms the background, with other units and map features omitted.",
+      "capture": "The live browser study uses a frozen, activated pose of the original ARM mobile Annihilator. Its metal and paint annotations, directional response, and glint formulas come from renderer revision 801c8b2. WebGL draws the model with a freely adjustable camera and a neutral backdrop; projection, depth testing, and antialiasing differ from the game. The optional light orbit rotates that normally fixed direction to study highlights on a stationary unit; Reset view restores the game’s light direction. The in-game comparison below retains the original paired 360° captures on Comet Catcher, switching materials and glints together at each recorded pose.",
       "motion": {
         "src": "images/renderer/v3/materials-on.mp4",
         "poster": "images/renderer/v3/materials-on.webp",
@@ -274,6 +274,10 @@
         "beforePoster": "images/renderer/v3/materials-off.webp",
         "beforeLabel": "Finish off",
         "afterLabel": "Finish on"
+      },
+      "interactive": {
+        "model": "models/materials/annihilator.json",
+        "atlas": "models/materials/annihilator.png"
       }
     },
     {

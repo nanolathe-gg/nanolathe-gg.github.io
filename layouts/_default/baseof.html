@@ -27,6 +27,10 @@
   {{ $featuresJS := resources.Get "js/features.js" | minify | fingerprint }}
   <script src="{{ $featuresJS.RelPermalink }}" integrity="{{ $featuresJS.Data.Integrity }}" defer></script>
   {{ end }}
+  {{ if eq .Layout "features" }}
+  {{ $materialJS := resources.Get "js/material-viewer.js" | minify | fingerprint }}
+  <script src="{{ $materialJS.RelPermalink }}" integrity="{{ $materialJS.Data.Integrity }}" defer></script>
+  {{ end }}
   {{ if eq .Type "format" }}
   {{ $formatCSS := resources.Get "css/format.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $formatCSS.RelPermalink }}" integrity="{{ $formatCSS.Data.Integrity }}">

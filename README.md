@@ -108,7 +108,12 @@ introduction opens a detailed gameplay dialog; `/gameplay/` serves the same
 server-rendered guide for direct links, search and a no-JavaScript fallback.
 `data/gameplay.json` owns its content. Media lives in `static/images/renderer/`;
 `scripts/renderer-capture/README.md` records reproducible staged capture commands
-and per-scene validation evidence. The ordinary website build
+and per-scene validation evidence. The metallic materials section also includes
+a draggable WebGL study with finish toggles, tilt, and optional unit or light
+rotation. Reset restores the engine’s fixed light direction. Its
+single-pose display assets and shader provenance are documented in
+`scripts/renderer-capture/live-materials/`; the original clip remains available.
+The ordinary website build
 requires neither a GPU nor retail game data.
 
 ## Brand assets

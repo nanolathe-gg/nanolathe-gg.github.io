@@ -1,0 +1,23 @@
+<div class="material-demo" data-material-viewer data-model-src="{{ .interactive.model | relURL }}" data-atlas-src="{{ .interactive.atlas | relURL }}">
+  <figure class="material-viewer">
+    <div class="material-stage">
+      <img data-material-poster src="{{ .motion.poster | relURL }}" width="600" height="480" alt="ARM mobile Annihilator with its metal finish enabled." loading="lazy">
+      <canvas data-material-canvas width="600" height="480" tabindex="0" role="img" aria-label="Interactive ARM mobile Annihilator. Drag to rotate, or use the rotation and tilt controls below." aria-describedby="material-instructions" hidden></canvas>
+      <div class="material-badge" hidden><span>Live 3D</span><span data-material-light-state>Fixed light</span><span data-material-state>Finish on</span></div>
+      <p class="material-drag" hidden>Drag to rotate <span aria-hidden="true">↔</span></p>
+    </div>
+    <div class="material-controls" hidden>
+      <div class="material-toolbar">
+        <div role="group" aria-label="Live material finish"><button type="button" data-material-finish="0" aria-pressed="false">Finish off</button><button type="button" data-material-finish="1" aria-pressed="true">Finish on</button></div>
+        <div><button type="button" data-material-spin aria-pressed="false">Rotate unit</button><button type="button" data-material-light-spin aria-pressed="false">Orbit light</button><button type="button" data-material-reset>Reset view</button></div>
+      </div>
+      <div class="material-sliders">
+        <label>Rotation <output data-material-angle aria-live="off">68°</output><input data-material-rotation type="range" min="0" max="360" step="1" value="68"></label>
+        <label>Tilt <output data-material-elevation aria-live="off">35°</output><input data-material-tilt type="range" min="15" max="75" step="1" value="35"></label>
+        <label class="material-light-control">Light direction <output data-material-light-angle aria-live="off">0°</output><input data-material-light type="range" min="0" max="360" step="1" value="0"></label>
+      </div>
+    </div>
+    <figcaption><strong>ARM mobile Annihilator</strong><span data-material-status role="status">Interactive view requires JavaScript and WebGL. The in-game comparison is available below.</span><span id="material-instructions" hidden>Drag or use the sliders to explore. Arrow keys rotate and tilt; R resets the view. Orbit the light to watch highlights move across a stationary unit. Switching finishes pauses motion; reset restores the game’s fixed light direction.</span></figcaption>
+  </figure>
+  <details class="material-recording"><summary>Watch the in-game comparison</summary>{{ partial "renderer-motion.html" .motion }}</details>
+</div>

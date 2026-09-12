@@ -130,3 +130,32 @@ html.gameplay-modal-open { overflow: hidden; }
 .motion-controls button:hover, .motion-controls button[aria-pressed="true"] { border-color: var(--green); color: var(--green); }
 .motion-variants { display: flex; flex-wrap: wrap; gap: 8px; }
 @media (max-width: 550px) { .motion-controls { flex-wrap: wrap; gap: 8px; } .motion-controls button { padding: 7px 10px; } .motion-state { top: 8px; right: 8px; font-size: 10px; } .motion-play { padding: 12px 15px; font-size: 13px; } }
+
+/* Live material study: compact controls, with the native capture one click away. */
+.material-viewer { margin: 0; border: 1px solid var(--line); background: var(--surface); }
+.material-stage { position: relative; aspect-ratio: 5 / 3; background: #151c1b; }
+.material-stage > img, .material-stage canvas { width: 100%; height: 100%; display: block; object-fit: contain; }
+.material-stage [hidden], .material-demo [hidden] { display: none; }
+.material-stage canvas { touch-action: none; cursor: grab; }
+.material-stage canvas.is-dragging { cursor: grabbing; }
+.material-stage canvas:focus-visible { outline: 2px solid var(--green); outline-offset: -3px; }
+.material-badge { position: absolute; top: 16px; left: 16px; right: 16px; display: flex; justify-content: space-between; gap: 12px; pointer-events: none; font: 11px/1.4 monospace; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+.material-badge span:last-child { color: var(--green); }
+.material-drag { position: absolute; bottom: 10px; left: 0; right: 0; text-align: center; color: var(--muted); font: 12px/1.4 Arial, sans-serif; pointer-events: none; }
+.material-drag span { margin-left: 6px; color: var(--green); }
+.material-controls { padding: 14px 16px; border-top: 1px solid var(--line); }
+.material-toolbar, .material-toolbar > div { display: flex; gap: 8px; flex-wrap: wrap; }
+.material-toolbar { justify-content: space-between; }
+.material-controls button { border: 1px solid var(--line); padding: 9px 12px; min-height: 40px; background: transparent; color: var(--muted); font: 12px/1.4 Arial, sans-serif; cursor: pointer; }
+.material-controls button:hover, .material-controls button[aria-pressed="true"] { border-color: var(--green); color: var(--green); }
+.material-sliders { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 18px; }
+.material-sliders label { display: grid; grid-template-columns: 1fr auto; gap: 5px; font: 12px/1.4 Arial, sans-serif; color: var(--muted); }
+.material-sliders output { font-variant-numeric: tabular-nums; }
+.material-sliders input { grid-column: 1 / -1; width: 100%; min-height: 28px; accent-color: var(--green); margin: 0; }
+.material-viewer figcaption { padding: 14px 16px; border-top: 1px solid var(--line); font: 12px/1.6 Arial, sans-serif; color: var(--muted); }
+.material-viewer figcaption strong { display: block; color: var(--text); margin-bottom: 3px; }
+.material-viewer figcaption span { display: block; }
+.material-recording { margin-top: 16px; border: 1px solid var(--line); }
+.material-recording > summary { padding: 14px 16px; cursor: pointer; font: 13px/1.5 Arial, sans-serif; color: var(--muted); }
+.material-recording .renderer-motion { margin: 0; border: 0; }
+@media(max-width: 550px) { .material-stage { aspect-ratio: 5 / 4; } .material-toolbar { flex-direction: column; gap: 10px; } .material-toolbar > div { display: grid; grid-template-columns: 1fr 1fr; } .material-controls button { min-height: 44px; } .material-sliders { grid-template-columns: 1fr 1fr; gap: 16px; } .material-light-control { grid-column: 1 / -1; } .material-toolbar [data-material-reset] { grid-column: 1 / -1; } .material-badge { inset: 12px 12px auto; } }

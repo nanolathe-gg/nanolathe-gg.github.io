@@ -153,8 +153,9 @@ rendered with the user's original Total Annihilation installation. The user
 explicitly requested retail-data scenes for a visual features page, with review
 before publication. These are not AI illustrations or retail-executable captures.
 The screenshots contain underlying game artwork belonging to its respective
-owners; that artwork is not covered by this website's MIT code license. No raw
-archives, palettes, models, sprite banks or playable game data are included.
+owners; that artwork is not covered by this website's MIT code license. No raw game archives, palettes, sprite banks, or playable game files are included.
+The live material study also includes a flattened presentation mesh and RGBA
+atlas for one frozen unit pose; see the live-viewer provenance below.
 
 The opening shows a live Great Divide benchmark battle from the initial review.
 Approved terrain, camera, shockwave and tree-fire captures remain at `9e61946`.
@@ -201,3 +202,20 @@ owners and is not covered by this repository’s MIT license.
 
 The About narrative, project history, AI involvement, and development priorities
 are based on the creator’s interview on 2026-09-12.
+
+## Live materials viewer
+
+`static/models/materials/annihilator.json` and `annihilator.png` are a single-pose
+ARM mobile Annihilator presentation mesh and atlas derived from the same original
+assets as the recorded comparison. They retain no game model hierarchy, COB
+script, animation, or unit definition. Original artwork remains the property of
+its respective owners and is not licensed under the website's MIT code license.
+
+The browser viewer adapts revision `801c8b2`'s material/glint formulas and curated
+face annotations, with WebGL projection, depth testing, and antialiasing. Its
+neutral backdrop and shadow are browser presentation choices. Its optional
+light orbit rotates the normally fixed highlight direction for inspection; reset
+restores the engine direction. Source, conversion
+commands, differences, and asset hashes are recorded in
+`scripts/renderer-capture/live-materials/`. The in-game comparison remains
+available below the viewer.

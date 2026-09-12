@@ -1,10 +1,14 @@
-# Renderer feature captures — local review
+# Renderer feature captures
 
-The features page remains unpublished pending the user's review. All screenshots
-and silent clips are actual Nanolathe output using a separate retail Total
+All screenshots and silent clips are actual Nanolathe output using a separate
+retail Total
 Annihilation installation. No extracted playable game assets are bundled.
 Classic CPU examples use Nanolathe's indexed software renderer; none are captures
 of the retail executable. Captions identify exact controls and scene staging.
+
+The metallic materials section also has a live WebGL study; `live-materials/`
+documents its single-pose display mesh, atlas, shader port, and differences from
+the game. The paired in-game material clips remain available below the viewer.
 
 ## Current examples and source evidence
 

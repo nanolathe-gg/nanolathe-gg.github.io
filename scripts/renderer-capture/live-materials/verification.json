@@ -1,0 +1,59 @@
+{
+  "mesh_checks": {
+    "triangles": 202,
+    "degenerate_triangles": 0,
+    "winding_matches_normals": true,
+    "finite_coordinates": true,
+    "atlas_uvs_in_bounds": true,
+    "manifest_hashes_match": true
+  },
+  "browser_checks": {
+    "drag": {
+      "before": [
+        68,
+        35
+      ],
+      "after": [
+        118,
+        47
+      ]
+    },
+    "keyboard_rotation": [
+      68,
+      73
+    ],
+    "finish_toggle_preserves_angle": true,
+    "auto_rotation_advances": true,
+    "finish_toggle_pauses_rotation": true,
+    "webgl_unavailable": "poster and working in-game video",
+    "model_http_404": "poster and in-game comparison available",
+    "context_loss_restore": {
+      "angle_before": 73,
+      "angle_after": 73,
+      "restored": true
+    },
+    "mobile": "390px iframe viewport; complete model and wrapping controls visually inspected",
+    "light_orbit": {
+      "unit_yaw_during_orbit": 68,
+      "light_angles_observed": [
+        5,
+        246
+      ],
+      "finish_toggle_paused_at": 247,
+      "unit_and_light_motion_mutually_exclusive": true,
+      "manual_keyboard_light_direction": 36,
+      "reset": {
+        "unit_yaw": 68,
+        "light_offset": 0,
+        "both_modes_stopped": true
+      },
+      "mobile": "390px layout inspected; light slider and full-width reset fit; orbit and reset exercised"
+    }
+  },
+  "site_checks": [
+    "make check: 23 HTML pages and 14 format generators passed",
+    "node --check assets/js/material-viewer.js",
+    "git diff --check"
+  ],
+  "publication": "local preview only"
+}
