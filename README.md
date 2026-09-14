@@ -72,7 +72,7 @@ hash, descriptions, and examples together when the icon vocabulary changes.
 
 ### Format documentation
 
-All 14 researched formats have illustrated references at `/docs/formats/<slug>/`,
+All 15 researched formats have illustrated references at `/docs/formats/<slug>/`,
 with Markdown and authored assets in the matching `content/docs/<slug>/`
 bundles. The documentation directory links to each guide. Every page pins its
 research to an engine commit and includes original downloadable examples.
@@ -102,7 +102,7 @@ python3 scripts/check-format-examples.py
 ```
 
 The checks decode authored binaries or text, verify worked example states, and
-compare generated assets. All 14 generators run in `make check`. They do not
+compare generated assets. All 15 generators run in `make check`. They do not
 require retail game data or a checkout of the engine repository.
 
 

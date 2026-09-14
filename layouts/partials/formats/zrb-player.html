@@ -1,0 +1,26 @@
+{{ $palette := eq (.Get "fixture") "palette" }}
+{{ $resource := cond $palette "example" "rectangle" }}
+{{ $example := .Page.Resources.GetMatch (printf "%s.json" $resource) | transform.Unmarshal }}
+{{ $start := cond $palette 7 0 }}
+{{ $first := index $example.frames $start }}
+<div class="zrb-player{{ if not $palette }} zrb-motion{{ end }}" data-zrb-player data-show-blocks="true" data-zrb-source="{{ $resource }}.json" data-zrb-start="{{ $start }}">
+  <div class="comparison-grid zrb-comparison">
+    <div><span class="comparison-label">{{ if $palette }}Decoded color{{ else }}Moving rectangle{{ end }} · 64 × 32 stored pixels</span><div class="zrb-stage"><img data-zrb-image src="{{ $example.prefix }}frame-{{ $start }}.svg" width="640" height="320" alt="Frame {{ $start }}: {{ $first.description }}"></div><p data-zrb-extent>Stored extent · each block is 4 × 4 pixels.</p></div>
+    <div data-zrb-block-panel><span class="comparison-label">Block instructions · 16 × 8 blocks</span><div class="zrb-stage"><img data-zrb-blocks src="{{ $example.prefix }}blocks-{{ $start }}.svg" width="640" height="320" alt="Frame {{ $start }}: {{ $first.solid }} solid writes and {{ $first.retained }} retained blocks"></div><p><span class="zrb-key zrb-key--solid" aria-hidden="true"></span> Solid write <span class="zrb-key zrb-key--retain" aria-hidden="true">−</span> Retain previous indices</p></div>
+  </div>
+  <div class="demo-controls" data-zrb-controls hidden>
+    {{ if $palette }}
+    <div class="control-line"><button type="button" data-zrb-jump="7" aria-pressed="true">Before · frame 7</button><button type="button" data-zrb-jump="8" aria-pressed="false">Palette update · frame 8</button><label class="check-label"><input type="checkbox" data-zrb-double> Double rows (header flag)</label></div>
+    {{ else }}
+    <div class="control-line"><button type="button" data-zrb-play aria-pressed="false">Play</button><button type="button" data-zrb-step>Next frame</button><label class="check-label"><input type="checkbox" data-zrb-loop checked> Loop</label><label class="check-label"><input type="checkbox" data-zrb-show-blocks checked> Show block instructions</label></div>
+    <label class="range-label">Frame <input type="range" data-zrb-frame min="0" max="15" value="0" step="1"><output data-zrb-frame-label aria-live="off">00 / 15</output></label>
+    <div class="control-line zrb-speed"><label>Preview speed <select data-zrb-speed><option value="125">Authored · 125 ms / frame</option><option value="500">Teaching · 500 ms / frame</option></select></label></div>
+    {{ end }}
+  </div>
+  <div class="zrb-inspection">
+    <dl class="zrb-stats"><div><dt>Solid writes</dt><dd data-zrb-solid>{{ $first.solid }} / 128</dd></div><div><dt>Retained blocks</dt><dd data-zrb-retained>{{ $first.retained }} / 128</dd></div><div><dt>Palette chunk</dt><dd data-zrb-palette>{{ $first.paletteBytes }} bytes</dd></div></dl>
+    <p class="demo-readout" data-zrb-packet>Packet {{ $start }} · offset {{ $first.offset }} · {{ $first.size }} bytes · mask {{ printf "0x%02X" (int $first.mask) }}</p>
+    <p class="demo-fine" data-zrb-note>{{ $first.note }}</p>
+    <p class="demo-fine" data-zrb-help>Enable JavaScript to {{ if $palette }}compare the palette change{{ else }}play or scrub this original clip{{ end }}. <a href="{{ $resource }}.zrb" download>Download the SMK2 (.zrb)</a> · <a href="{{ $resource }}.json" download>Decoded frame data</a></p>
+  </div>
+</div>

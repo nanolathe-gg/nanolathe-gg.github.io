@@ -220,6 +220,38 @@ commands, differences, and asset hashes are recorded in
 `scripts/renderer-capture/live-materials/`. The in-game comparison remains
 available below the viewer.
 
+## ZRB cinematic teaching assets
+
+The ZRB guide adapts `research/formats/zrb.md` at engine commit
+`a6bae7c35cadb7d3a987be20fd74b3b4e8d2a5c2`, with an exact source snapshot in
+`content/docs/zrb/research-source.txt`.
+
+`scripts/zrb-example.py` independently authors two silent SMK2 clips, each with
+16 frames, 64 × 32 stored pixels, 125 ms cadence, and no ring packet:
+
+- `rectangle.zrb` (970 bytes): a 16 × 12 rectangle moves out and back, changing
+  between three palette indices. Its palette stays fixed; display flags are 0.
+  `rectangle.json` and `rectangle-frame-*.svg` / `rectangle-blocks-*.svg` supply
+  the hero animation and optional instruction view.
+- `example.zrb` (990 bytes): an original signal sweep uses the repeated-row
+  display flag. Frame 8 changes the palette while retaining all indices.
+  `example.json`, `frame-*.svg`, and `blocks-*.svg` supply the separate palette
+  comparison, initially showing frame 7.
+
+No retail video, audio, extracted colors, or decoder implementation source is
+used. The generator reads the authored bytes to produce the JSON and SVGs;
+the browser displays these decoded assets. The instruction map's colors and
+dashes are explanatory overlays, not video pixels. All visual assets are
+original website material under the MIT license.
+
+Run `python3 scripts/zrb-example.py --check` for a standard-library verification
+of both decoded scenes, motion, color changes, palette transition, packet
+boundaries, and generated assets. The optional `--verify-ffmpeg` black-box check
+matched all 32 stored RGB24 frames (196,608 bytes) during authoring. FFmpeg is
+not needed to build or use the page. The website generator intentionally
+decodes only these fixtures' solid/retain subset; it is not the engine's
+general Smacker reader.
+
 ## Strategic icon player reference
 
 - **Files:** `static/images/strategic-icons/*.png` (49 examples, 24×24 pixels).

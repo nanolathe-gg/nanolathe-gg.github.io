@@ -12,6 +12,7 @@ formats:
   - { slug: fnt, label: FNT, title: Bitmap fonts, description: 'The original interface’s one-bit glyph format.' }
   - { slug: pcx, label: PCX, title: Still images, description: 'Unit portraits and screen images.' }
   - { slug: wav, label: WAV, title: Audio, description: 'Sound effects, voices, and legacy audio containers.' }
+  - { slug: zrb, label: ZRB, title: Smacker cinematics, description: 'Movie packets, palettes, video blocks, and compressed audio.' }
   - { slug: tad, label: TAD, title: Community recordings, description: 'The community TA Demo Recorder format.' }
 behavior:
   - { number: '01', slug: 01-core-runtime-platform-and-determinism, title: 'Runtime, platform & determinism' }

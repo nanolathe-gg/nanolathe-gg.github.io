@@ -1,6 +1,6 @@
 # Format documentation pages
 
-All 14 guides under `/docs/formats/` share the integrated reference layout,
+All 15 guides under `/docs/formats/` share the integrated reference layout,
 introduced with GAF and 3DO. Use the same layout for subsequent formats.
 Content belongs in Markdown, reusable presentation in
 shortcodes/CSS, and format-specific interactions in a small partial and script.
