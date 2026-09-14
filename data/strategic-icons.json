@@ -1,0 +1,507 @@
+{
+  "revision": "58397146593069d7f8ca50f3f371bc816d04e796",
+  "artRevision": 6,
+  "sourceSHA256": "fe8a96dc3482f61e9faeb5f712b4d3ce662708a96bbec1c1f05944efaef7855f",
+  "groups": {
+    "families": [
+      {
+        "id": "family-kbot",
+        "title": "Kbot",
+        "text": "Circle. Walking units with an explicit kbot family.",
+        "Family": "kbot",
+        "Role": "support",
+        "Subtype": "",
+        "Level": 0,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "family-vehicle",
+        "title": "Vehicle",
+        "text": "Diamond. Includes vehicles with support roles.",
+        "Family": "vehicle",
+        "Role": "support",
+        "Subtype": "",
+        "Level": 0,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "family-aircraft",
+        "title": "Aircraft",
+        "text": "Upward triangle.",
+        "Family": "aircraft",
+        "Role": "support",
+        "Subtype": "",
+        "Level": 0,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "family-hovercraft",
+        "title": "Hovercraft",
+        "text": "Trapezoid, wider at the bottom.",
+        "Family": "hovercraft",
+        "Role": "support",
+        "Subtype": "",
+        "Level": 0,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "family-ship",
+        "title": "Ship",
+        "text": "Flat top with a rounded hull below.",
+        "Family": "ship",
+        "Role": "support",
+        "Subtype": "",
+        "Level": 0,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "family-submarine",
+        "title": "Submarine",
+        "text": "Wide horizontal capsule.",
+        "Family": "submarine",
+        "Role": "support",
+        "Subtype": "",
+        "Level": 0,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "family-structure",
+        "title": "Structure",
+        "text": "Square. Includes factories and stationary defenses.",
+        "Family": "structure",
+        "Role": "support",
+        "Subtype": "",
+        "Level": 0,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "family-generic",
+        "title": "Unresolved family",
+        "text": "Hexagon. Used when family evidence is absent or conflicts.",
+        "Family": "generic",
+        "Role": "support",
+        "Subtype": "",
+        "Level": 0,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "family-commander",
+        "title": "Commander appearance",
+        "text": "A single crown replaces the frame and inner symbol. Decoys share it.",
+        "Family": "commander",
+        "Role": "commander",
+        "Subtype": "",
+        "Level": 0,
+        "CommanderAppearance": true
+      }
+    ],
+    "weapons": [
+      {
+        "id": "weapon-interceptor",
+        "title": "Interceptor",
+        "text": "Shield. A weapon with the interceptor flag.",
+        "Family": "structure",
+        "Role": "combat",
+        "Subtype": "interceptor",
+        "Level": 0,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "weapon-paralyzer",
+        "title": "Paralyzer",
+        "text": "Lightning bolt with small side bars.",
+        "Family": "structure",
+        "Role": "combat",
+        "Subtype": "paralyzer",
+        "Level": 0,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "weapon-dropped",
+        "title": "Dropped weapon",
+        "text": "Bomb silhouette.",
+        "Family": "structure",
+        "Role": "combat",
+        "Subtype": "dropped",
+        "Level": 0,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "weapon-water",
+        "title": "Water weapon",
+        "text": "Horizontal capsule, as used by torpedoes.",
+        "Family": "structure",
+        "Role": "combat",
+        "Subtype": "water",
+        "Level": 0,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "weapon-beam",
+        "title": "Beam weapon",
+        "text": "Three diagonal strokes.",
+        "Family": "structure",
+        "Role": "combat",
+        "Subtype": "beam",
+        "Level": 0,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "weapon-ballistic",
+        "title": "Ballistic weapon",
+        "text": "Large filled circle.",
+        "Family": "structure",
+        "Role": "combat",
+        "Subtype": "ballistic",
+        "Level": 0,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "weapon-propelled",
+        "title": "Self-propelled weapon",
+        "text": "Rocket silhouette.",
+        "Family": "structure",
+        "Role": "combat",
+        "Subtype": "propelled",
+        "Level": 0,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "weapon-projectile",
+        "title": "Other projectile",
+        "text": "Small filled circle: the fallback weapon glyph.",
+        "Family": "structure",
+        "Role": "combat",
+        "Subtype": "projectile",
+        "Level": 0,
+        "CommanderAppearance": false
+      }
+    ],
+    "roles": [
+      {
+        "id": "role-construction",
+        "title": "Constructor",
+        "text": "Wrench. A mobile builder with build products.",
+        "Family": "structure",
+        "Role": "construction",
+        "Subtype": "",
+        "Level": 0,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "role-assist",
+        "title": "Build / repair support",
+        "text": "The same wrench, for a builder with no build products.",
+        "Family": "structure",
+        "Role": "assist",
+        "Subtype": "",
+        "Level": 0,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "role-resurrection",
+        "title": "Resurrection",
+        "text": "Cross with a partial ring.",
+        "Family": "structure",
+        "Role": "resurrection",
+        "Subtype": "",
+        "Level": 0,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "role-factory",
+        "title": "Factory",
+        "text": "Factory silhouette. Shared by every factory product family.",
+        "Family": "structure",
+        "Role": "factory",
+        "Subtype": "",
+        "Level": 0,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "role-airbase",
+        "title": "Airbase",
+        "text": "H-shaped aircraft repair/support mark.",
+        "Family": "structure",
+        "Role": "airbase",
+        "Subtype": "",
+        "Level": 0,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "role-transport",
+        "title": "Transport",
+        "text": "Downward arrow entering an open container.",
+        "Family": "structure",
+        "Role": "transport",
+        "Subtype": "",
+        "Level": 0,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "role-energy",
+        "title": "Energy generation",
+        "text": "Lightning bolt.",
+        "Family": "structure",
+        "Role": "energy",
+        "Subtype": "",
+        "Level": 0,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "role-extractor",
+        "title": "Metal extraction",
+        "text": "Filled downward triangle.",
+        "Family": "structure",
+        "Role": "extractor",
+        "Subtype": "",
+        "Level": 0,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "role-converter",
+        "title": "Metal conversion",
+        "text": "Opposing arrows with a center dot.",
+        "Family": "structure",
+        "Role": "converter",
+        "Subtype": "",
+        "Level": 0,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "role-storage-energy",
+        "title": "Energy storage",
+        "text": "Box containing a small lightning bolt.",
+        "Family": "structure",
+        "Role": "storage",
+        "Subtype": "energy",
+        "Level": 0,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "role-storage-metal",
+        "title": "Metal storage",
+        "text": "Box containing two horizontal bars.",
+        "Family": "structure",
+        "Role": "storage",
+        "Subtype": "metal",
+        "Level": 0,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "role-radar",
+        "title": "Radar",
+        "text": "Upright antenna and upward arcs.",
+        "Family": "structure",
+        "Role": "radar",
+        "Subtype": "",
+        "Level": 0,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "role-sonar",
+        "title": "Sonar",
+        "text": "Horizontal line and downward arcs.",
+        "Family": "structure",
+        "Role": "sonar",
+        "Subtype": "",
+        "Level": 0,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "role-jammer",
+        "title": "Jammer",
+        "text": "Slashed circle. Covers radar or sonar jamming.",
+        "Family": "structure",
+        "Role": "jammer",
+        "Subtype": "",
+        "Level": 0,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "role-teleporter",
+        "title": "Teleporter",
+        "text": "Arrow passing through a broken ring.",
+        "Family": "structure",
+        "Role": "teleporter",
+        "Subtype": "",
+        "Level": 0,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "role-targeting",
+        "title": "Targeting upgrade",
+        "text": "Crosshair.",
+        "Family": "structure",
+        "Role": "targeting",
+        "Subtype": "",
+        "Level": 0,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "role-spy",
+        "title": "Spy",
+        "text": "Eye-shaped symbol.",
+        "Family": "structure",
+        "Role": "spy",
+        "Subtype": "",
+        "Level": 0,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "role-mine",
+        "title": "Mine / kamikaze",
+        "text": "Ring with four outward rays. Both roles share this glyph.",
+        "Family": "structure",
+        "Role": "mine",
+        "Subtype": "",
+        "Level": 0,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "role-fortification",
+        "title": "Fortification",
+        "text": "Battlement. Converted features remain in the feature layer.",
+        "Family": "structure",
+        "Role": "fortification",
+        "Subtype": "",
+        "Level": 0,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "role-support",
+        "title": "Other support",
+        "text": "Ring with a center dot: the conservative role fallback.",
+        "Family": "structure",
+        "Role": "support",
+        "Subtype": "",
+        "Level": 0,
+        "CommanderAppearance": false
+      }
+    ],
+    "levels": [
+      {
+        "id": "level-1",
+        "title": "Level 0 or 1",
+        "text": "No notches. An unresolved level is also unmarked.",
+        "Family": "kbot",
+        "Role": "construction",
+        "Subtype": "",
+        "Level": 1,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "level-2",
+        "title": "Level 2",
+        "text": "Two light ticks crossing the lower border.",
+        "Family": "kbot",
+        "Role": "construction",
+        "Subtype": "",
+        "Level": 2,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "level-3",
+        "title": "Level 3 or higher",
+        "text": "Three light ticks. Higher values are visually capped at three.",
+        "Family": "kbot",
+        "Role": "construction",
+        "Subtype": "",
+        "Level": 3,
+        "CommanderAppearance": false
+      }
+    ],
+    "examples": [
+      {
+        "id": "example-armck",
+        "title": "Construction KBot \u00b7 ARMCK",
+        "text": "Circle + wrench + no notches: basic kbot constructor.",
+        "Family": "kbot",
+        "Role": "construction",
+        "Subtype": "",
+        "Level": 1,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "example-armack",
+        "title": "Adv. Construction Kbot \u00b7 ARMACK",
+        "text": "Circle + wrench + two notches: advanced kbot constructor.",
+        "Family": "kbot",
+        "Role": "construction",
+        "Subtype": "",
+        "Level": 2,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "example-armjam",
+        "title": "Jammer \u00b7 ARMJAM",
+        "text": "Diamond + slashed circle + two notches: mobile jammer.",
+        "Family": "vehicle",
+        "Role": "jammer",
+        "Subtype": "",
+        "Level": 2,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "example-armpt",
+        "title": "Skeeter \u00b7 ARMPT",
+        "text": "Rounded ship hull + beam strokes + no notches. Its later missile slot does not change the icon.",
+        "Family": "ship",
+        "Role": "combat",
+        "Subtype": "beam",
+        "Level": 1,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "example-armsub",
+        "title": "Lurker \u00b7 ARMSUB",
+        "text": "Submarine capsule + water-weapon capsule + no notches.",
+        "Family": "submarine",
+        "Role": "combat",
+        "Subtype": "water",
+        "Level": 1,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "example-armvp",
+        "title": "Vehicle Plant \u00b7 ARMVP",
+        "text": "Square + factory + no notches: first-factory level.",
+        "Family": "structure",
+        "Role": "factory",
+        "Subtype": "",
+        "Level": 1,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "example-armmoho",
+        "title": "Moho Mine \u00b7 ARMMOHO",
+        "text": "Square + downward triangle + two notches. Its authored LEVEL3 does not override its two-factory build path.",
+        "Family": "structure",
+        "Role": "extractor",
+        "Subtype": "",
+        "Level": 2,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "example-corkrog",
+        "title": "Krogoth \u00b7 CORKROG",
+        "text": "Circle + small projectile dot + three notches. Its shortest build path crosses three factories.",
+        "Family": "kbot",
+        "Role": "combat",
+        "Subtype": "projectile",
+        "Level": 3,
+        "CommanderAppearance": false
+      },
+      {
+        "id": "example-armcom",
+        "title": "Commander \u00b7 ARMCOM",
+        "text": "Crown, with no level marks. A decoy uses the same appearance.",
+        "Family": "commander",
+        "Role": "commander",
+        "Subtype": "",
+        "Level": 0,
+        "CommanderAppearance": true
+      }
+    ]
+  }
+}

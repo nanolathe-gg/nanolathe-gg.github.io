@@ -1,0 +1,3 @@
+<div class="reference-table" role="region" tabindex="0" aria-label="{{ with .Attributes.caption }}{{ . }}{{ else }}Reference table{{ end }}">
+<table><thead>{{ range .THead }}<tr>{{ range . }}<th scope="col">{{ .Text }}</th>{{ end }}</tr>{{ end }}</thead><tbody>{{ range .TBody }}<tr>{{ range . }}<td>{{ .Text }}</td>{{ end }}</tr>{{ end }}</tbody></table>
+</div>

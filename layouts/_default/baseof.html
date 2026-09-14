@@ -31,11 +31,15 @@
   {{ $materialJS := resources.Get "js/material-viewer.js" | minify | fingerprint }}
   <script src="{{ $materialJS.RelPermalink }}" integrity="{{ $materialJS.Data.Integrity }}" defer></script>
   {{ end }}
-  {{ if eq .Type "format" }}
+  {{ if or (eq .Type "format") (eq .Type "guide") }}
   {{ $formatCSS := resources.Get "css/format.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $formatCSS.RelPermalink }}" integrity="{{ $formatCSS.Data.Integrity }}">
   {{ with .Params.demoCSS }}{{ $demoCSS := resources.Get . | minify | fingerprint }}<link rel="stylesheet" href="{{ $demoCSS.RelPermalink }}" integrity="{{ $demoCSS.Data.Integrity }}">{{ end }}
   {{ with .Params.demoScript }}{{ $demoJS := resources.Get . | minify | fingerprint }}<script src="{{ $demoJS.RelPermalink }}" integrity="{{ $demoJS.Data.Integrity }}" defer></script>{{ end }}
+  {{ end }}
+  {{ if eq .Type "guide" }}
+  {{ $guideCSS := resources.Get "css/guide.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $guideCSS.RelPermalink }}" integrity="{{ $guideCSS.Data.Integrity }}">
   {{ end }}
   {{ $js := resources.Get "js/site.js" | minify | fingerprint }}
   <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>

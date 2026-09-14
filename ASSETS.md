@@ -219,3 +219,23 @@ restores the engine direction. Source, conversion
 commands, differences, and asset hashes are recorded in
 `scripts/renderer-capture/live-materials/`. The in-game comparison remains
 available below the viewer.
+
+## Strategic icon player reference
+
+- **Files:** `static/images/strategic-icons/*.png` (49 examples, 24×24 pixels).
+- **Source:** Nanolathe engine commit `58397146593069d7f8ca50f3f371bc816d04e796`,
+  `internal/client/strategic_icon_art.go`, icon vocabulary revision 6. These use
+  the existing MIT-licensed engine geometry and bilinear preview sampler; they
+  are not game screenshots, retail artwork, or AI-generated approximations.
+- **Rendering:** `scripts/strategic-icon-examples.py` adapts only package/type
+  names so the exact geometry and sampler run with the Go standard library.
+  Cyan `(75,215,240)` is a sample owner tint on the website surface color.
+  The page displays each PNG at native size and enlarged 3×.
+- **Descriptors:** `data/strategic-icons.json` contains comparison families,
+  every weapon glyph and role glyph, level samples, and nine named examples.
+  Named examples were verified using the engine's `strategic-icon-sheet` tool
+  against the local 278-definition reference catalog. Retail names are factual
+  labels; no retail art or binary game data is distributed with these samples.
+- **Reproduction:** run the generator with `--engine` pointing to the pinned
+  checkout; `--check` compares all checked-in PNGs without changing them. A
+  SHA-256 guard rejects changed geometry until its source is reviewed.

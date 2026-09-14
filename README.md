@@ -52,6 +52,24 @@ verbatim source snapshots, quotations, and technical identifiers unchanged.
 
 Engine links and clone commands target `https://github.com/nanolathe-gg/nanolathe`.
 
+### Player references
+
+`content/docs/keyboard-shortcuts.md` and `content/docs/strategic-icons.md` use the
+shared `guide` layout and appear under “Playing Nanolathe” in the documentation
+directory. Keep keyboard bindings aligned with the pinned engine dispatcher,
+host controls, and authored command panels; modern-only controls have their own
+section. Icon examples are described in `data/strategic-icons.json`, with PNGs in
+`static/images/strategic-icons/`. Their generator uses the exact pinned engine
+atlas geometry and preview sampler, with no retail artwork:
+
+```sh
+python3 scripts/strategic-icon-examples.py --engine ../nanolathe --check
+```
+
+This optional regeneration check requires Go and a matching engine checkout;
+ordinary builds use the checked-in images. Update the source revision, geometry
+hash, descriptions, and examples together when the icon vocabulary changes.
+
 ### Format documentation
 
 All 14 researched formats have illustrated references at `/docs/formats/<slug>/`,

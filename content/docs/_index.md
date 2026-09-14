@@ -1,7 +1,7 @@
 +++
 title = 'Understand every moving part'
-seoTitle = 'Total Annihilation file formats and engine research'
-description = 'Total Annihilation file formats, clean-room engine behavior, and Nanolathe implementation guides.'
+seoTitle = 'Nanolathe controls, strategic icons, and Total Annihilation references'
+description = 'Keyboard shortcuts, modern GPU strategic icons, Total Annihilation file formats, clean-room engine behavior, and implementation guides.'
 layout = 'docs'
 eyebrow = 'Documentation'
 +++

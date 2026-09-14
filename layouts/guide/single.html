@@ -1,0 +1,10 @@
+{{ define "main" }}
+<header class="format-heading guide-heading wrap">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="{{ "docs/" | relURL }}">Documentation</a><span aria-hidden="true">/</span><a href="{{ "docs/#playing" | relURL }}">Playing Nanolathe</a><span aria-hidden="true">/</span><span aria-current="page">{{ .Title }}</span></nav>
+  <div class="format-title"><div><span class="eyebrow">Player reference</span><h1>{{ .Title }}</h1><p>{{ .Description }}</p></div></div>
+</header>
+<div class="format-layout guide-layout wrap">
+  <aside class="format-sidebar"><details open><summary>On this page</summary>{{ .TableOfContents }}</details></aside>
+  <article class="format-article guide-article">{{ .Content }}<footer class="format-end"><a href="{{ "docs/#playing" | relURL }}">← Player references</a>{{ with .Params.related }}{{ with site.GetPage . }}<a href="{{ .RelPermalink }}">{{ .Title }} →</a>{{ end }}{{ end }}</footer></article>
+</div>
+{{ end }}

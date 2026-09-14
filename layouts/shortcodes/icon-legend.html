@@ -1,0 +1,10 @@
+{{ $group := .Get 0 }}
+{{ $data := index hugo.Data "strategic-icons" }}
+<div class="icon-legend">
+  {{ range index $data.groups $group }}
+  <figure class="icon-example">
+    <div class="icon-samples"><img src="{{ printf "images/strategic-icons/%s.png" .id | relURL }}" width="72" height="72" alt="{{ .title }} strategic icon" loading="lazy"><img class="icon-native" src="{{ printf "images/strategic-icons/%s.png" .id | relURL }}" width="24" height="24" alt="" aria-hidden="true" loading="lazy"></div>
+    <figcaption><strong>{{ .title }}</strong>{{ .text }}</figcaption>
+  </figure>
+  {{ end }}
+</div>
