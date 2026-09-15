@@ -8,7 +8,7 @@
       <div class="eyebrow"><span class="status-dot"></span> Written in Go / Development preview</div>
       <h1>An open-source<br><em>2.5D RTS engine.</em></h1>
       <p class="hero-description">Nanolathe is an independent real-time strategy engine written in Go, reimplementing Total Annihilation through clean-room research.</p>
-      <div class="actions"><a class="button primary" href="{{ "get-started/" | relURL }}">Build &amp; run {{ partial "arrow.html" . }}</a><a class="button secondary" href="{{ "docs/" | relURL }}">Explore the research <span aria-hidden="true">↗</span></a></div>
+      <div class="actions"><a class="button primary" href="{{ "get-started/" | relURL }}">Download &amp; play {{ partial "arrow.html" . }}</a><a class="button secondary" href="{{ "docs/" | relURL }}">Explore the research <span aria-hidden="true">↗</span></a></div>
       <p class="hero-note">Requires original Total Annihilation game data, supplied separately.</p>
     </div>
     <div class="art-caption"><button class="motion-toggle" hidden aria-pressed="false">Pause animation</button><span class="crosshair" aria-hidden="true">＋</span> Original concept artwork</div>
@@ -21,14 +21,14 @@
 </section>
 <section class="section start-section">
   <div class="wrap">
-    <div class="section-heading"><div><span class="eyebrow">Start building</span><h2>Your next battlefield starts here.</h2></div><span class="small-label">Developer preview</span></div>
+    <div class="section-heading"><div><span class="eyebrow">Start playing</span><h2>Your next battlefield starts here.</h2></div><span class="small-label">Public alpha</span></div>
     <div class="steps-grid">
       <article class="step"><span class="step-number">01<span>/</span></span><h3>Bring your game data</h3><p>Get Total Annihilation from GOG or Steam, or use an installation from your original CDs.</p><div class="step-links"><a href="https://www.gog.com/en/game/total_annihilation_commander_pack">GOG <span aria-hidden="true">↗</span></a><a href="https://store.steampowered.com/app/298030/Total_Annihilation/">Steam <span aria-hidden="true">↗</span></a></div></article>
-      <article class="step"><span class="step-number">02<span>/</span></span><h3>Get the source</h3><p>Install Go and your platform’s build tools, then clone the Nanolathe repository.</p><a href="{{ site.Params.engineRepo }}">Nanolathe on GitHub <span aria-hidden="true">↗</span></a></article>
-      <article class="step"><span class="step-number">03<span>/</span></span><h3>Build. Run. Explore.</h3><p>Point the engine at your game installation and launch directly with <code>go run</code>.</p><a href="{{ "get-started/" | relURL }}">Follow the setup guide {{ partial "arrow.html" . }}</a></article>
+      <article class="step"><span class="step-number">02<span>/</span></span><h3>Run the install command</h3><p>Paste one command for Mac, Windows, or Linux. It installs Nanolathe and creates your shortcut.</p><a href="{{ "get-started/#install" | relURL }}">Choose your platform {{ partial "arrow.html" . }}</a></article>
+      <article class="step"><span class="step-number">03<span>/</span></span><h3>Use the shortcut</h3><p>Launch Nanolathe from its app or menu shortcut. It remembers your game data and offers new releases as development continues.</p><a href="{{ "get-started/" | relURL }}">Follow the setup guide {{ partial "arrow.html" . }}</a></article>
     </div>
-    <div class="command-panel"><div class="command-title"><span class="status-dot"></span> From your Nanolathe checkout <button class="copy-button" data-copy="run-command">Copy command</button></div><pre><code id="run-command">go run ./cmd/nanolathe --root "/path/to/TotalAnnihilation"</code></pre></div>
-    <p class="section-footnote">Development builds only. Signed downloads will follow.</p>
+    <div class="actions"><a class="button primary" href="{{ "get-started/" | relURL }}">Download &amp; play {{ partial "arrow.html" . }}</a></div>
+    <p class="section-footnote">Free public alpha for Mac, Windows, and Linux. Original game data required.</p>
   </div>
 </section>
 <section class="section wrap research-section">
