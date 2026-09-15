@@ -108,7 +108,30 @@ require retail game data or a checkout of the engine repository.
 
 The Resources page intentionally has no entries. Future curated metadata and
 release-hosted downloads can be added when the collection is ready. Signed
-engine downloads are also deferred; current guidance is for source builds.
+engine downloads are deferred; Get started offers source installation commands.
+
+### Source installer releases
+
+`static/install.sh` and `static/install.ps1` are public copies of the engine's
+`tools/installer` scripts. `static/install/release.txt` pins a tested engine
+commit, source archive checksums, and official Go toolchain checksums. Never
+point it at a moving branch or hand-edit a checksum to bypass a failed download.
+
+After the engine's required checks pass and its commit is pushed, prepare the
+website files together:
+
+```sh
+python3 scripts/prepare-source-release.py --engine ../nanolathe --revision FULL_COMMIT --version RELEASE_LABEL --go-version 1.26.8
+make check
+```
+
+The preparation script verifies the downloaded scripts against that exact local
+engine commit. Push a website review branch and use its raw manifest URL with the
+engine's **Source installer** workflow to test full installs on native runners
+before publishing. `make check` verifies the public script copies and hashes.
+Keep the Get started instructions aligned with the engine's installer guide.
+Publishing the website commit promotes the manifest for new installs/updates;
+ordinary game launches remain offline.
 
 ## About page
 

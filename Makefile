@@ -9,6 +9,7 @@ build: brand
 check: build
 	python3 scripts/check-site.py
 	python3 scripts/check-format-examples.py
+	python3 scripts/check-installers.py
 
 serve: brand
 	hugo server
