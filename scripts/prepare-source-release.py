@@ -15,7 +15,7 @@ from urllib.request import urlopen
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
-PLATFORMS = ("darwin-amd64", "darwin-arm64", "linux-amd64", "linux-arm64", "windows-amd64")
+PLATFORMS = ("darwin-amd64", "darwin-arm64", "linux-amd64", "linux-arm64", "windows-amd64", "windows-arm64")
 
 
 def download(url):

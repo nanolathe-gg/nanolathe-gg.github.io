@@ -15,7 +15,7 @@ for line in text.splitlines():
 assert re.fullmatch(r"[0-9a-f]{40}", fields["source_revision"])
 assert re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]{0,63}", fields["version"])
 assert re.fullmatch(r"[0-9]+\.[0-9]+\.[0-9]+", fields["go_version"])
-for key in ("source_tar_sha256", "source_zip_sha256", "go_darwin_amd64_sha256", "go_darwin_arm64_sha256", "go_linux_amd64_sha256", "go_linux_arm64_sha256", "go_windows_amd64_sha256", "installer_sh_sha256", "installer_ps1_sha256"):
+for key in ("source_tar_sha256", "source_zip_sha256", "go_darwin_amd64_sha256", "go_darwin_arm64_sha256", "go_linux_amd64_sha256", "go_linux_arm64_sha256", "go_windows_amd64_sha256", "go_windows_arm64_sha256", "installer_sh_sha256", "installer_ps1_sha256"):
     assert re.fullmatch(r"[0-9a-f]{64}", fields[key]), key
 for extension in ("sh", "ps1"):
     path = root / "static" / ("install." + extension)
