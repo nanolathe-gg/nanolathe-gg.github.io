@@ -49,6 +49,16 @@ verify() {
 replace_pointer() {
     if [ "$os" = darwin ]; then mv -fh "$1" "$2"; else mv -fT "$1" "$2"; fi
 }
+# Resolve main once, then download the immutable commit archive (no Git dependency).
+latest_revision() {
+    local revision
+    revision=$(curl --disable --proto '=https' --proto-redir '=https' --tlsv1.2 --fail --location --silent --show-error \
+        --connect-timeout 2 --max-time "$1" --max-filesize 128 \
+        --header 'Accept: application/vnd.github.sha' --header 'Cache-Control: no-cache' \
+        --user-agent 'Nanolathe-installer' https://api.github.com/repos/nanolathe-gg/nanolathe/commits/main) || return 1
+    [[ "$revision" =~ ^[0-9a-f]{40}$ ]] || return 1
+    printf '%s' "$revision"
+}
 install_release() {
     stage=$(mktemp -d "$base/.install-XXXXXXXX")
     fetch https://nanolathe.gg/install/release.txt "$stage/release.txt"
@@ -77,6 +87,8 @@ install_release() {
     for value in "$version" "$revision" "$source_hash" "$go_version" "$zip_hash" "$go_da" "$go_dx" "$go_la" "$go_lx" "$go_wx" "$go_wa"; do
         [ -n "$value" ] || fail 'manifest is missing a required key'
     done
+    revision=$(latest_revision 30) || fail 'could not resolve the latest commit on main'
+    version="main-${revision:0:12}"
     local go_hash toolchain release
     case "$os-$arch" in darwin-arm64) go_hash=$go_da ;; darwin-amd64) go_hash=$go_dx ;; linux-arm64) go_hash=$go_la ;; linux-amd64) go_hash=$go_lx ;; esac
     toolchain="$base/toolchains/go$go_version-$os-$arch-$go_hash"
@@ -89,7 +101,8 @@ install_release() {
         mv "$stage/go" "$toolchain"
     fi
     fetch "https://codeload.github.com/nanolathe-gg/nanolathe/tar.gz/$revision" "$stage/source.tar.gz"
-    verify "$stage/source.tar.gz" "$source_hash"
+    # The release manifest's source hashes describe its legacy pinned commit.
+    # Current main is fetched over HTTPS by the resolved immutable commit ID.
     mkdir "$stage/source" "$stage/release"
     tar -xzf "$stage/source.tar.gz" -C "$stage/source"
     local source="$stage/source/nanolathe-$revision"
@@ -105,6 +118,7 @@ install_release() {
         "$stage/release/nanolathe" --check-install --root "$root_arg"
     fi
     cp "$stage/release.txt" "$stage/release/release.txt"
+    printf '%s\n' "$revision" > "$stage/release/source-revision"
     # A unique directory avoids modifying the running release when reinstalling.
     release="$base/releases/$version-$revision-$(date +%Y%m%d%H%M%S)-$$"
     write_launcher "$stage/release/launch.sh"
@@ -134,6 +148,16 @@ base=$1; shift
 # Keep the installed executable selected if any update step fails.
 release=$(cd "$base/current" && pwd -P)
 binary="$release/nanolathe"
+# Resolve main once, then download the immutable commit archive (no Git dependency).
+latest_revision() {
+    local revision
+    revision=$(curl --disable --proto '=https' --proto-redir '=https' --tlsv1.2 --fail --location --silent --show-error \
+        --connect-timeout 2 --max-time "$1" --max-filesize 128 \
+        --header 'Accept: application/vnd.github.sha' --header 'Cache-Control: no-cache' \
+        --user-agent 'Nanolathe-installer' https://api.github.com/repos/nanolathe-gg/nanolathe/commits/main) || return 1
+    [[ "$revision" =~ ^[0-9a-f]{40}$ ]] || return 1
+    printf '%s' "$revision"
+}
 read_update_manifest() {
     local line key value seen='|'
     manifest_revision= manifest_installer= manifest_version=
@@ -168,8 +192,15 @@ offer_update() (
         --output "$update_stage/release.txt" https://nanolathe.gg/install/release.txt 2>/dev/null || return 1
     read_update_manifest "$release/release.txt" || return 1
     installed_revision=$manifest_revision
+    if [ -f "$release/source-revision" ]; then
+        installed_revision=$(cat "$release/source-revision") || return 1
+        [[ "$installed_revision" =~ ^[0-9a-f]{40}$ ]] || return 1
+    fi
     read_update_manifest "$update_stage/release.txt" || return 1
-    [ -n "$manifest_installer" ] && [ "$manifest_revision" != "$installed_revision" ] || return 1
+    [ -n "$manifest_installer" ] || return 1
+    manifest_revision=$(latest_revision 3) || return 1
+    [ "$manifest_revision" != "$installed_revision" ] || return 1
+    manifest_version="main-${manifest_revision:0:12}"
     answer=
     if { exec 6<> /dev/tty; } 2>/dev/null; then
         printf '\nNanolathe %s has an update. Update & play? [y/N] (N: Play current version): ' "$manifest_version" >&6

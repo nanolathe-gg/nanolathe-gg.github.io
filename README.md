@@ -112,26 +112,32 @@ engine downloads are deferred; Get started offers source installation commands.
 
 ### Source installer releases
 
-`static/install.sh` and `static/install.ps1` are public copies of the engine's
-`tools/installer` scripts. `static/install/release.txt` pins a tested engine
-commit, source archive checksums, and official Go toolchain checksums. Never
-point it at a moving branch or hand-edit a checksum to bypass a failed download.
+`static/install.sh` and `static/install.ps1` resolve the latest commit on the
+engine repository's `main` branch at the start of every installation. They
+fetch that exact commit's archive over HTTPS and record it in the installed
+release's `source-revision` file. Launchers compare that commit with current
+`main` and offer an update; failed checks or builds preserve the installed game.
+Existing users should rerun the install command once to adopt main tracking.
 
-After the engine's required checks pass and its commit is pushed, prepare the
-website files together:
+`static/install/release.txt` still supplies pinned official Go toolchain and
+public installer checksums. Its source revision and archive hashes describe a
+legacy snapshot for older installers; they do not select or verify current-main
+source. Current source downloads trust GitHub HTTPS and the resolved commit ID.
+The private Go version must still be updated when main requires a newer compiler.
+
+Refresh toolchain/legacy snapshot metadata after engine checks pass:
 
 ```sh
-python3 scripts/prepare-source-release.py --engine ../nanolathe --revision FULL_COMMIT --version RELEASE_LABEL --go-version 1.26.8
+python3 scripts/prepare-source-release.py --revision FULL_COMMIT --version RELEASE_LABEL --go-version 1.26.8
 make check
 ```
 
-The preparation script verifies the downloaded scripts against that exact local
-engine commit. Push a website review branch and use its raw manifest URL with the
-engine's **Source installer** workflow to test full installs on native runners
-before publishing. `make check` verifies the public script copies and hashes.
-Keep the Get started instructions aligned with the engine's installer guide.
-Publishing the website commit promotes the manifest for new installs/updates;
-ordinary game launches remain offline.
+Preparation hashes the website's current installer scripts. Importing scripts
+from an engine snapshot requires `--sync-installers --engine ../nanolathe`;
+review their main-tracking behavior before publishing. After editing either
+public installer, refresh its `installer_*_sha256` field in the manifest.
+`make check` verifies published copies, checksums, and offline installer behavior.
+Native Windows installation should also be checked before publishing.
 
 ## About page
 

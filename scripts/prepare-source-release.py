@@ -1,7 +1,8 @@
-"""Prepare public installers from an exact, already-pushed engine commit.
+"""Refresh installer metadata using an exact, already-pushed engine commit.
 
 Run the engine gates and native installer checks first. This only stages website
-files; committing/pushing the website publishes the chosen source release.
+files. Public installers resolve main at runtime; this snapshot supplies legacy
+source metadata and pinned toolchain/updater checksums.
 """
 import argparse
 import hashlib
@@ -29,7 +30,8 @@ def sha(data):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--engine", type=Path, required=True)
+    parser.add_argument("--engine", type=Path, help="Local engine checkout (required with --sync-installers)")
+    parser.add_argument("--sync-installers", action="store_true", help="Explicitly replace website installers with the engine snapshot; review main-tracking behavior before publishing")
     parser.add_argument("--revision", required=True, help="Full engine commit, already public on GitHub")
     parser.add_argument("--version", required=True, help="Release label, for example 0.1.0-alpha.1")
     parser.add_argument("--go-version", default="1.26.8")
@@ -40,6 +42,8 @@ def main():
         parser.error("--version must be a short filename-safe label")
     if not re.fullmatch(r"[0-9]+\.[0-9]+\.[0-9]+", args.go_version):
         parser.error("--go-version must be an exact Go patch version")
+    if args.sync_installers and not args.engine:
+        parser.error("--sync-installers requires --engine")
     releases = json.loads(download("https://go.dev/dl/?mode=json&include=all"))
     release = next((r for r in releases if r["version"] == "go" + args.go_version), None)
     if not release or not release["stable"]:
@@ -54,20 +58,22 @@ def main():
         os_name, arch = platform.split("-")
         file = next(f for f in release["files"] if (f["os"], f["arch"], f["kind"]) == (os_name, arch, "archive"))
         fields[f"go_{os_name}_{arch}_sha256"] = file["sha256"]
-    scripts = {}
-    with tarfile.open(fileobj=io.BytesIO(archives["tar.gz"])) as tar, zipfile.ZipFile(io.BytesIO(archives["zip"])) as zipped:
-        for name in ("install.sh", "install.ps1"):
-            repo_path = "tools/installer/" + name
-            archived_path = f"nanolathe-{args.revision}/{repo_path}"
-            data = tar.extractfile(archived_path).read()
-            local = subprocess.check_output(["git", "-C", str(args.engine), "show", f"{args.revision}:{repo_path}"])
-            if data != local or zipped.read(archived_path) != local:
-                raise SystemExit(f"Archive/local source mismatch for {repo_path}")
-            scripts[name] = data
-            fields["installer_" + name.rsplit(".", 1)[1] + "_sha256"] = sha(data)
+    scripts = {name: (ROOT / "static" / name).read_bytes() for name in ("install.sh", "install.ps1")}
+    if args.sync_installers:
+        with tarfile.open(fileobj=io.BytesIO(archives["tar.gz"])) as tar, zipfile.ZipFile(io.BytesIO(archives["zip"])) as zipped:
+            for name in scripts:
+                repo_path = "tools/installer/" + name
+                archived_path = f"nanolathe-{args.revision}/{repo_path}"
+                data = tar.extractfile(archived_path).read()
+                local = subprocess.check_output(["git", "-C", str(args.engine), "show", f"{args.revision}:{repo_path}"])
+                if data != local or zipped.read(archived_path) != local:
+                    raise SystemExit(f"Archive/local source mismatch for {repo_path}")
+                scripts[name] = data
     # All downloads and comparisons finish before replacing any public file.
     for name, data in scripts.items():
-        (ROOT / "static" / name).write_bytes(data)
+        fields["installer_" + name.rsplit(".", 1)[1] + "_sha256"] = sha(data)
+        if args.sync_installers:
+            (ROOT / "static" / name).write_bytes(data)
     destination = ROOT / "static/install/release.txt"
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text("".join(f"{key}={value}\n" for key, value in fields.items()))
