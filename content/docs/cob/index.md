@@ -7,7 +7,7 @@ url = '/docs/formats/cob/'
 format = 'COB'
 extension = '.cob'
 sourcePath = 'research/formats/cob.md'
-sourceRevision = '72dcc024de8e6abb3b2f83137a292f566f13b63f'
+sourceRevision = '23332234bf03c8f0fd9a90d6b12b03323fbd3a13'
 demoScript = 'js/formats/cob.js'
 demoCSS = 'css/cob.css'
 [[facts]]
@@ -41,7 +41,7 @@ The example is hand-assembled from established opcode encodings and independentl
 | 0 | `0x2C` | `10021001 00004000` | Push target 16384 (= one quarter-turn) | `[16384]` |
 | 2 | `0x34` | `1000C000 00000001 00000001` | Turn piece 1 on axis 1 immediately | `[]` |
 | 5 | `0x40` | `10021001 00000000` | Push return value 0 | `[0]` |
-| 7 | `0x48` | `10065000` | Return, consuming the value | `[]` |
+| 7 | `0x48` | `10065000` | Return without a completion receiver; release the slot without popping | `[0]` (slot released) |
 
 ### Two address spaces {#address-spaces}
 
@@ -56,7 +56,7 @@ The example is hand-assembled from established opcode encodings and independentl
 file_byte = OffsetToScriptCode + 4 × code_word_index
 ```
 
-The 44-byte header points to code and five tables. Their physical order is unrestricted; the fixture happens to place code immediately after the header. All stored words are little-endian. Stack cells are interpreted as signed 32-bit values.
+The 44-byte header points to code and five tables. Their physical order is unrestricted; the fixture happens to place code immediately after the header. All stored words are little-endian. Stack cells are interpreted as signed 32-bit values. The example’s `Create` has no completion receiver, so its final stack view shows the unpopped `0` in a released slot. The next root thread starts with an empty logical stack [04 §4.2].
 
 {{< callout kind="warning" title="A code address is not a byte offset" >}}
 Multiplying a header pointer by four is wrong; failing to multiply a code word index by four is also wrong. The entry table stores word indexes, so its entries are not relocated as file pointers.
@@ -90,13 +90,13 @@ The early wait guard polls the turn-speed word; it does not compare the current 
 
 ## One script can start another {#thread-laboratory}
 
-**Both `call-script` and `start-script` allocate a child thread.** A successful `call-script` blocks its parent until the child slot is released. `start-script` allows the parent to continue. These are cooperative threads: a runnable slot executes until it yields or ends, and then the scheduler moves to the next slot.
+**Both `call-script` and `start-script` allocate a child thread.** A successful `call-script` blocks its parent until the child returns or is terminated by a matching signal. `start-script` allows the parent to continue. These are cooperative threads: a runnable slot executes until it yields or ends, and then the scheduler moves to the next slot.
 
 {{< format-demo name="cob-threads" id="thread-lab" title="Who runs next? Follow the eight slots." label="Laboratory 02 · Calls and concurrency" >}}
 Compare the order in which `parentDone` and `childDone` become 1. Parent starts in slot 0; Worker takes the first free slot. Each step groups the statements shown into a scheduler event, rather than a single bytecode instruction. [Download the default BOS](thread-demo.bos). The occupied-pool scenario starts with seven unrelated blocked threads. Runtime rules and failure edges: [04 §4.2–§4.3]({{< research "research/retail-executable-spec/04-units-orders-scripts-and-movement.md" >}}).
 {{< /format-demo >}}
 
-With `start-script`, the parent sets its flag and returns before slot 1 is visited. With `call-script`, the child sets its flag first. Its return wakes the parent, but slot 0 has already had its visit: the parent continues on the next drain. The returned `7` is **discarded by the script call**; it is not an expression result assigned to the parent.
+With `start-script`, the parent sets its flag and returns before slot 1 is visited. With `call-script`, the child sets its flag first. Its return wakes the parent, but slot 0 has already had its visit: the parent continues on the next drain. The returned `7` is **unused by the script call**; it is not an expression result assigned to the parent. Without a completion receiver, retail releases the child slot without popping that value. An invalid-opcode kill also releases the child slot, but does not wake its waiting parent [04 §4.2].
 
 | Start attempt | Free slot available | All eight slots occupied |
 | --- | --- | --- |
@@ -299,7 +299,7 @@ commit behavior are the runtime contract in [04 §4.6].
 | `0x10066000` | jump-if-false | target word index | `( cond -- )` — jumps when cond == 0 |
 | `0x10062000` | call-script | script index, argument count | `( args... -- )` on successful start; caller waits for child thread, return value discarded |
 | `0x10061000` | start-script | script index, argument count | `( args... -- )` on successful start; spawn thread |
-| `0x10065000` | return | — | `( value -- )` return from function/thread |
+| `0x10065000` | return | — | With a completion receiver, pop and deliver the value; otherwise leave the logical top untouched. Release the thread slot and wake its callers [04 §4.2]. |
 | `0x10013000` | sleep | — | `( milliseconds -- )` |
 | `0x10067000` | signal | — | `( mask -- )` release every thread whose mask intersects the popped mask, **the signalling thread included** |
 | `0x10068000` | set-signal-mask | — | `( mask -- )` replace the current thread's mask |
@@ -697,7 +697,7 @@ that the unrecorded historical enumeration used exactly that set.
 
 ## Pinned research and implementation {#sources}
 
-This page adapts the [owning COB research]({{< research >}}) at commit **72dcc02**. The [complete source snapshot](research-source.txt) preserves the original research, evidence IDs and confidence labels. All illustrative assets on this page are original authored examples; none are extracted retail assets.
+This page adapts the [owning COB research]({{< research >}}) at commit **2333223**. The [complete source snapshot](research-source.txt) preserves the original research, evidence IDs and confidence labels. All illustrative assets on this page are original authored examples; none are extracted retail assets.
 
 | Owning reference | Scope |
 | --- | --- |

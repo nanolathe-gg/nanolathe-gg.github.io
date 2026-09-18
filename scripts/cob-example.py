@@ -70,7 +70,7 @@ def laboratory():
                                   ('The caller blocks on slot −1; no child exists to release it.' if call else 'The parent continues after the failed start.'),line=1))
                 rows.append(state('Tick 0 / end of slot 0', ['Blocked: −1' if call else 'Free']+background,
                                   'No child ran. '+('The parent remains blocked; matching signal termination can release it.' if call else
-                                  'The parent sets parentDone, then returns. Its return value is popped; the retained argument is abandoned with its slot.'),
+                                  'The parent sets parentDone, then returns. With no completion receiver, neither its return value nor the retained argument is popped; the slot is released.'),
                                   parent=not call,stack='[42]' if call else 'slot released',line=1 if call else 2))
             else:
                 rows.append(state('Tick 0 / slot 0 / start attempt',
@@ -83,7 +83,7 @@ def laboratory():
                                   parent=not call,stack='[empty]' if call else 'slot released',line=1 if call else 2))
                 rows.append(state('Tick 0 / slot 1', ['Running' if call else 'Free']+['Free']*7,
                                   'Worker reads local argument 42, sets childDone, and returns 7. Its slot is released. '+
-                                  ('Parent wakes, but slot 0 has already been visited. The returned 7 is discarded.' if call else 'The child finishes independently; the returned 7 is discarded.'),
+                                  ('Parent wakes, but slot 0 has already been visited. No completion receiver consumes or pops the returned 7.' if call else 'The child finishes independently; no completion receiver consumes or pops the returned 7.'),
                                   parent=not call,child=True,stack='[empty]' if call else 'slot released',line=3))
                 if call:
                     rows.append(state('Tick 1 / slot 0', ['Free']*8,
@@ -115,7 +115,8 @@ def generate():
         elif op==0x1000C000:
             piece,axis=codewords[pc:pc+2];pc+=2; angle=stack.pop();assert(piece,axis)==(1,1);action='Pop target 16384. Turn piece 1 (turret), axis 1 (Y), immediately to 90°.'
         elif op==0x10065000:
-            result=stack.pop();action=f'Return {result}. The entry has finished.'
+            # Create has no completion receiver: retail frees the slot without a pop [04 §4.2].
+            action='Return without a completion receiver. No value is popped; the slot is released.'
         else:raise AssertionError(hex(op))
         states.append({'word':start,'nextWord':pc,'stack':stack.copy(),'angle':angle,'action':action})
     manifest={'provenance':'Original hand-assembled example, not output claimed from a recovered compiler. The BOS is equivalent illustrative source.','bytes':len(blob),'codeOffset':h[9],'entryWords':[0],'scripts':names_at(h[7],h[1]),'pieces':names_at(h[8],h[2]),'words':[f'0x{x:08X}' for x in codewords],'states':states}

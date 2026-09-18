@@ -7,7 +7,7 @@ url = '/docs/formats/hpi/'
 format = 'HPI'
 extension = '.hpi'
 sourcePath = 'research/formats/hpi.md'
-sourceRevision = '72dcc024de8e6abb3b2f83137a292f566f13b63f'
+sourceRevision = '23332234bf03c8f0fd9a90d6b12b03323fbd3a13'
 demoScript = 'js/formats/hpi.js'
 [[facts]]
 label = 'Header'
@@ -47,7 +47,7 @@ archives are searched in mount order, first match wins. Within an extension
 tier, retail preserves host enumeration order without sorting. The ten-HPI
 budget applies to newly mounted archives in one invocation, not to the total
 mounted set. Revision selection, repeated mounting and content-family rules
-(including the rejection of loose FBI definitions) belong to `[02 §2]` and
+(including the rejection of loose FBI definitions and loose weapon TDFs) belong to `[02 §2]` and
 `[02 R-CAT-01 §4]`; they are not properties of the container bytes.
 
 Saved games begin with `HAPIBANK` but use a different header and account/item
@@ -378,6 +378,12 @@ cover the zero-derived-key and additional-flag-bit cases.
 `internal/save`'s separate reader.
 
 ## Unknowns and caveats
+
+- **Unknown:** whether retail accepts an acyclic directory graph with shared
+  nodes. A repeated visit can encounter already-relocated data; the established
+  ancestor-cycle fault does not settle that case. A repeated-node relocation
+  trace and stock directory-reference census would settle support
+  [02 R-MALF-01 §3].
 
 - **Unknown:** the intended meaning of SQSH byte +4 (`0x02` in the sample).
   The linked writer establishes the constant and the decoder ignores it; an

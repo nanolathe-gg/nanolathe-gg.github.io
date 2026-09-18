@@ -7,7 +7,7 @@ url = '/docs/formats/fnt/'
 format = 'FNT'
 extension = '.fnt'
 sourcePath = 'research/formats/fnt.md'
-sourceRevision = 'c1b934071e15fc3156d9aa92ba91db26368768ac'
+sourceRevision = '23332234bf03c8f0fd9a90d6b12b03323fbd3a13'
 [[facts]]
 label = 'Pixels'
 value = '1 bit · MSB first'
@@ -137,6 +137,12 @@ Height accessors, the text-width walker, the string drawer, and the glyph raster
 {{< /callout >}}
 
 Corpus counts are observations, not format limits. An earlier layout survey covered 24 fonts; a later traced survey records 25 unique fonts. A per-archive census of `totala1.hpi`, `rev31.gp3`, `ccdata.ccx`, and `btdata.ccx` reports **39 copies, 25 distinct logical paths, and 21 distinct hashes**. Those populations are different and should not be collapsed into one “font count.”
+
+The patched install's winning `fonts/SMLFONT.FNT` comes from `rev31.gp3`:
+2,713 bytes with 223 glyphs, also shipped in `ccdata.ccx` and `btdata.ccx`.
+The base `totala1.hpi` copy is 2,704 bytes with 222 glyphs; it lacks the patch's
+`0xA0` glyph. Neither copy contains `0xFF`. Both have height 11 and vertical
+offset 1. These are distinct archive copies of the same logical font path.
 
 ## Sources and example files {#sources}
 

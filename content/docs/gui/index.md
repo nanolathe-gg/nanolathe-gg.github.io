@@ -7,7 +7,7 @@ url = '/docs/formats/gui/'
 format = 'GUI'
 extension = '.gui'
 sourcePath = 'research/formats/gui.md'
-sourceRevision = '72dcc024de8e6abb3b2f83137a292f566f13b63f'
+sourceRevision = '23332234bf03c8f0fd9a90d6b12b03323fbd3a13'
 demoScript = 'js/formats/gui.js'
 demoCSS = 'css/gui.css'
 [[facts]]
@@ -221,7 +221,8 @@ fields.
   128 by the parser and at 127 again by the window builder (the effective
   cap). The complete per-kind key table with every width is
   [07 R-WGT-01 §11]. Retail does not check the gadget count against its
-  fixed window capacity; an excessive count can overrun that storage. A
+  fixed capacity of 200 records, including the panel record: 199 gadget
+  sections fit, and the 200th gadget writes beyond the allocation. A
   syntax error is fatal like any TDF; a missing panel file returns failure
   to the screen.
 
@@ -267,7 +268,7 @@ dominate (4,421 of 5,840 gadgets).
 
 ## Pinned research and implementation {#sources}
 
-This page adapts the [owning GUI research]({{< research >}}) at commit **72dcc02**. The [complete source snapshot](research-source.txt) preserves the original research, evidence IDs and confidence labels. All illustrative assets on this page are original authored examples; none are extracted retail assets.
+This page adapts the [owning GUI research]({{< research >}}) at commit **2333223**. The [complete source snapshot](research-source.txt) preserves the original research, evidence IDs and confidence labels. All illustrative assets on this page are original authored examples; none are extracted retail assets.
 
 | Owning reference | Scope |
 | --- | --- |

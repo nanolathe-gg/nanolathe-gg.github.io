@@ -57,9 +57,11 @@
     {
       "word": 7,
       "nextWord": 8,
-      "stack": [],
+      "stack": [
+        0
+      ],
       "angle": 16384,
-      "action": "Return 0. The entry has finished."
+      "action": "Return without a completion receiver. No value is popped; the slot is released."
     }
   ]
 }

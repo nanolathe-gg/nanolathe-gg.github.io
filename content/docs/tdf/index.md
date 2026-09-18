@@ -7,7 +7,7 @@ url = '/docs/formats/tdf/'
 format = 'TDF'
 extension = '.tdf'
 sourcePath = 'research/formats/tdf.md'
-sourceRevision = '72dcc024de8e6abb3b2f83137a292f566f13b63f'
+sourceRevision = '23332234bf03c8f0fd9a90d6b12b03323fbd3a13'
 demoScript = 'js/formats/tdf.js'
 demoCSS = 'css/tdf.css'
 [[facts]]
@@ -231,9 +231,11 @@ retail file has 15 classes and four further keys:
 | Key | Classes | Meaning |
 | --- | ---: | --- |
 | `MinWaterDepth` | 5 | Minimum depth the class needs (ship classes) |
-| `MaxWaterSlope` | 3 | Slope limit that applies over water, separately from `MaxSlope`. `TANKDH3` authors `30`; both hover classes author `255` alongside `MaxSlope=12`, which is what lets a hovercraft cross steep sea floor. **Initialization:** every class record is pre-filled at startup with `MaxSlope` = `BadSlope` = `MaxWaterSlope` = `BadWaterSlope` = 255 and `MaxWaterDepth`/`MinWaterDepth` = ±10000 before any parse, and the engine then runs three unconditional clamps (`MaxSlope = min(MaxSlope, MaxWaterSlope)`, then the two Bad values clamped to their Max counterparts). An omitted `MaxWaterSlope` therefore leaves `MaxSlope` at its authored value; the pool does **not** start zero-filled, so an omitted class does not compile to `MaxSlope = 0` `[04 §6.1 R-DOC04-A]`. |
+| `MaxWaterSlope` | 3 | Slope limit that applies over water, separately from `MaxSlope`. `TANKDH3` authors `30`; both hover classes author `255` alongside `MaxSlope=12`, which is what lets a hovercraft cross steep sea floor. |
 | `BadSlope` | 2 | Hover classes only, `12`. **Established:** the movement classifier reads it as the clear-vs-steep boundary — slopes at or below `BadSlope` are clear, slopes between `BadSlope` and `MaxSlope` are the passable-but-penalized steep tier, slopes above `MaxSlope` are hard-blocked. |
 | `BadWaterSlope` | 2 | Hover classes only, `255`. Same mechanism over water. |
+
+**Initialization:** every class record is pre-filled at startup with `MaxSlope` = `BadSlope` = `MaxWaterSlope` = `BadWaterSlope` = 255 and `MaxWaterDepth`/`MinWaterDepth` = ±10000 before any parse, and the engine then runs three unconditional clamps (`MaxSlope = min(MaxSlope, MaxWaterSlope)`, then the two Bad values clamped to their Max counterparts). The pre-fill supplies the absent-key defaults for the two `Max*` slope keys and the water-depth keys. An omitted `BadSlope` or `BadWaterSlope` instead defaults to half (`>> 1`, logical) of the corresponding Max value read immediately before it, before the final clamps. An omitted `MaxWaterSlope` therefore leaves `MaxSlope` at its authored value; the pool does **not** start zero-filled, so an omitted class does not compile to `MaxSlope = 0` `[04 §6.1 R-DOC04-A]`.
 
 **Established:** all four slope thresholds are live. The ordered reads and
 clamps are `[04 §6.1 R-DOC04-A]`; classification and the clear/steep/blocked
@@ -330,6 +332,13 @@ Field reference (all optional unless the feature type needs them):
 | `seqnamedie` | Animation/feature left when destroyed |
 | `reproduce`, `reproducearea` | Growth mechanic, authored on 19 files (310 records). Both keys are read by the engine, so it is not unused. |
 
+**Established — feature overrides:** the parser forces `nodrawundergray` on for
+`DragonsTeeth`, `DragonsTeeth_Core`, `Fortification`, and `Fortification_Core`,
+matching section names case-insensitively regardless of the authored flag
+[02 §5; 05 R-FEAT-01 §1]. The 16-bit yield mask above also matters for stock
+Gate wrecks and heaps: values over 65,535 wrap before storage, and negative
+integers become positive unsigned yields.
+
 TNT maps reference features **by name** (see [tnt.md]({{< format-link "tnt" >}})); the engine
 searches all loaded feature TDFs for the section, and reports a missing one
 with `Record "%s" missing from feature files`.
@@ -343,6 +352,12 @@ misspells the reclaim successor as `featurereclamamate`; the read spelling is
 `featurereclamate`.
 
 ### `weapons/` — weapon definitions {#weapons}
+
+**Established — archive admission:** in the installed retail build, weapon TDFs
+are opened and read but parsed only when they come from a mounted archive.
+A loose file cannot add or replace a weapon record. Because loose files win
+lookup, a loose file that shadows an archived weapon TDF suppresses that
+archived copy too [02 R-CONTENT-02; R-CAT-01 §4].
 
 Every weapon key the executable reads, with its accessor, stored width,
 default and consumer section, is tabulated in `[02 R-KEYS-01 §5]`; the
@@ -434,7 +449,7 @@ owned by `[06 §7.3]`.
 | `holdtime` | Follow-camera hold, in whole simulation ticks (authored in seconds, multiplied by 30 and truncated with the other time-valued weapon keys). When the projectile the camera is following retires, the camera freezes on that projectile's last point and stays there for `holdtime` ticks before resuming ordinary following. It has no projectile-motion effect at all: every reader is a projectile-retirement path that loads the camera hold counter, not motion code. Established; the engine side is `[06 §7.3]`, the camera side `[07 §10]`. |
 | `turret` | Weapon must be deployed from a mount with 360° rotation and pitch (143 retail weapons) |
 | `coverage` | "What the protection umbrella is for weapons that shoot other weapons" — the interceptor's protected radius |
-| `minbarrelangle` | Lowest angle in degrees the barrels can point, used in the ballistic solution |
+| `minbarrelangle` | Ballistic launch-angle admission bound, authored in degrees (default −11.25). Retail multiplies by its stored double `0.017453292519943278`, then stores single-precision radians; keeping a double-precision `pi/180` product is not the same conversion [02 §5; 06 §3.3]. |
 | `aimrate` | Documented in `gamedata/WEAPONS.TDF` as average aiming speed in 64K degrees per second, and inert — the executable has no string for it. |
 | `propeller` | The weapon's model has a propeller that spins |
 | `startfire` | Authored once in the retail corpus, and inert. |
@@ -608,7 +623,7 @@ not mean byte-for-byte preservation of comments and outer whitespace.
 
 ## Pinned research and implementation {#sources}
 
-This page adapts the [owning TDF research]({{< research >}}) at commit **72dcc02**. The [complete source snapshot](research-source.txt) preserves the original research, evidence IDs and confidence labels. All illustrative assets on this page are original authored examples; none are extracted retail assets.
+This page adapts the [owning TDF research]({{< research >}}) at commit **2333223**. The [complete source snapshot](research-source.txt) preserves the original research, evidence IDs and confidence labels. All illustrative assets on this page are original authored examples; none are extracted retail assets.
 
 | Owning reference | Scope |
 | --- | --- |

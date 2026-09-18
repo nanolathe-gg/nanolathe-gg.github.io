@@ -7,7 +7,7 @@ url = '/docs/formats/zrb/'
 format = 'ZRB'
 extension = '.zrb'
 sourcePath = 'research/formats/zrb.md'
-sourceRevision = 'a6bae7c35cadb7d3a987be20fd74b3b4e8d2a5c2'
+sourceRevision = '23332234bf03c8f0fd9a90d6b12b03323fbd3a13'
 demoScript = 'js/formats/zrb.js'
 demoCSS = 'css/zrb.css'
 [[facts]]
@@ -119,7 +119,7 @@ A positive interval of `125` means 125 milliseconds per frame. A negative interv
 Stored height and display height are separate. Repeating each stored row and inserting an alternate black row both double the display height, but produce different pictures. Nanolathe’s format reader reports the display extent; it does not render these display modes. The palette example’s Double rows control illustrates repeated rows, selected by its header flag `4`. The moving rectangle uses flags `0`, so stored and display dimensions are both 64 × 32.
 
 {{< callout kind="policy" title="Zero cadence stays zero" >}}
-Retail-library examination establishes that a zero interval remains zero. The public format description’s 100 ms fallback is not adopted here. Nanolathe explicitly rejects zero cadence as unsupported; none of the inspected movies uses it.
+The research records an authored-file experiment: a zero-interval file also produces an invalid-timebase diagnostic in FFmpeg. This does not establish the retail playback library’s internal behavior. Nanolathe explicitly rejects zero cadence as unsupported instead of adopting the public format description’s 100 ms fallback; none of the inspected movies uses it.
 {{< /callout >}}
 
 ## Bits, Huffman trees, and caches {#trees}
@@ -218,6 +218,8 @@ Borrowed input must remain immutable. Frame pixels and per-packet audio may be r
 {{< callout kind="unknown" title="The format reader ends before device timing" >}}
 Packet-size bit 1 and unsupported SMK4/perceptual-codec details remain unresolved here. Retail palette transfer, device mixing, synchronization, exact audio-cursor calibration, and focus-loss behavior belong to the cinematic boundary [03 §9]. Agreement with a reference decoder does not establish those device behaviors.
 {{< /callout >}}
+
+Retail imports playback from RAD’s `smackw32.dll`; it contains no Smacker decoder of its own. Decoder internals are outside the analyzed executable corpus. The byte-level account here rests on public format documentation, asset parsing, authored fixtures, and reference-decoder comparisons.
 
 The shell’s movie sequencing belongs to [08 R-OOS-01 §4]. This guide owns the file bytes; it does not define a device or playback timing loop.
 

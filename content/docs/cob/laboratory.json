@@ -1841,7 +1841,7 @@
           "Free",
           "Free"
         ],
-        "action": "Worker reads local argument 42, sets childDone, and returns 7. Its slot is released. The child finishes independently; the returned 7 is discarded.",
+        "action": "Worker reads local argument 42, sets childDone, and returns 7. Its slot is released. The child finishes independently; no completion receiver consumes or pops the returned 7.",
         "parent": true,
         "child": true,
         "stack": "slot released",
@@ -1897,7 +1897,7 @@
           "Occupied",
           "Occupied"
         ],
-        "action": "No child ran. The parent sets parentDone, then returns. Its return value is popped; the retained argument is abandoned with its slot.",
+        "action": "No child ran. The parent sets parentDone, then returns. With no completion receiver, neither its return value nor the retained argument is popped; the slot is released.",
         "parent": true,
         "child": false,
         "stack": "slot released",
@@ -1971,7 +1971,7 @@
           "Free",
           "Free"
         ],
-        "action": "Worker reads local argument 42, sets childDone, and returns 7. Its slot is released. Parent wakes, but slot 0 has already been visited. The returned 7 is discarded.",
+        "action": "Worker reads local argument 42, sets childDone, and returns 7. Its slot is released. Parent wakes, but slot 0 has already been visited. No completion receiver consumes or pops the returned 7.",
         "parent": false,
         "child": true,
         "stack": "[empty]",

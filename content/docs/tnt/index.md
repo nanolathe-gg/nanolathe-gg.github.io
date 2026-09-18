@@ -7,7 +7,7 @@ url = '/docs/formats/tnt/'
 format = 'TNT'
 extension = '.tnt'
 sourcePath = 'research/formats/tnt.md'
-sourceRevision = '72dcc024de8e6abb3b2f83137a292f566f13b63f'
+sourceRevision = '23332234bf03c8f0fd9a90d6b12b03323fbd3a13'
 demoScript = 'js/formats/tnt.js'
 demoCSS = 'css/tnt.css'
 [[facts]]
@@ -300,7 +300,8 @@ The load pipeline is `[02 R-MAP-01 §6–§8]`; the per-cell semantics are
 
 `.sct` editor sections use the same tile/height concepts at small scale
 with a seven-word little-endian header. **Established — bounded editor-file
-observation**, reflected in `formats/sct.go` (not a retail runtime loader):
+observation.** Nanolathe has no SCT reader; this layout is documented for a
+future editor-file consumer. Retail does not load SCT sections at runtime either:
 
 ```text
 u32 version                 # observed 2 or 3
@@ -352,7 +353,7 @@ attribute byte +3 = `0`. Sea levels range 0 (dry/lava maps) to ~75; the
 most common retail value is 75.
 
 {{< callout kind="policy" title="Bounds belong to the host reader" >}}
-Nanolathe validates section spans, dimensions, allocation budgets and indexes. The retail loader did not establish those malformed-input rejection rules. Likewise, stricter SCT overlap checks are defensive host policy; ignored editor bytes remain uninterpreted.
+Nanolathe validates section spans, dimensions, allocation budgets and indexes. The retail loader did not establish those malformed-input rejection rules. SCT has no Nanolathe reader; the editor-only layout above does not imply engine support.
 {{< /callout >}}
 
 ## Reader policy and unknowns
@@ -364,14 +365,13 @@ canonical fourth attribute byte; `internal/world` performs the reconstruction
 above. Legacy empty codes are normalized to the canonical empty word. With
 an absent-minimap flag, the parser does not dereference the minimap pointer.
 These are checked decoding and representation choices, not retail malformed-
-input guarantees. `formats.LoadSCTWithLimits` additionally rejects overlapping
-known blocks, including the complete version-specific height-record span.
-`SCT.Heights` exposes the unsigned heights in row-major order over a
-`2*Width` by `2*Height` grid. `AttributeData` preserves exactly those records,
-including ignored bytes; `Raw` retains the complete file and any intervening
-padding. Authored tests cover both versions, nonsquare grids, independent
-graphics/preview placement and rejected incomplete or overlapping records.
-This decoder does not assign meanings to ignored record bytes.
+input guarantees. `AttributeData` preserves the TNT records, including ignored
+bytes; `Raw` retains the complete file and intervening padding.
+
+The former SCT reader was removed as unreachable. A future reader should
+check overlapping blocks and the complete version-specific height span,
+exposing unsigned heights over the `2*Width` by `2*Height` grid without
+inventing meanings for the editor's ignored bytes.
 
 - **Unknown:** the authored meanings of the SCT record bytes ignored by the
   inspected editor, and any version beyond the observed 2/3 pair. A writer

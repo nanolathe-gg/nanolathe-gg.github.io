@@ -7,7 +7,7 @@ url = '/docs/formats/gaf/'
 format = 'GAF'
 extension = '.gaf'
 sourcePath = 'research/formats/gaf.md'
-sourceRevision = '11ae6adaf16d446f0b4292fb045267a5b784ffb2'
+sourceRevision = '23332234bf03c8f0fd9a90d6b12b03323fbd3a13'
 demoScript = 'js/formats/gaf.js'
 [[facts]]
 label = 'Pixel format'
@@ -96,8 +96,8 @@ The playback cursor advances when its countdown is below 2. A stored `0` or `1` 
 
 | Offset | Bytes | Type | Field | Meaning |
 | --- | --- | --- | --- | --- |
-| `+0x00` | 2 | `u16` | `width` | Pixel width, greater than zero. |
-| `+0x02` | 2 | `u16` | `height` | Pixel height, greater than zero. |
+| `+0x00` | 2 | `u16` | `width` | Pixel width; zero is accepted. |
+| `+0x02` | 2 | `u16` | `height` | Pixel height; zero is accepted. |
 | `+0x04` | 2 | `i16` | `x_offset` | Signed horizontal anchor offset. |
 | `+0x06` | 2 | `i16` | `y_offset` | Signed vertical anchor offset. |
 | `+0x08` | 1 | `u8` | `color_key` | Transparent palette index for the ordinary **raw** keyed blitter. `9` in all 48,519 frames in the earlier survey. RLE uses skip runs instead. |
@@ -152,15 +152,17 @@ A literal or repeated index 0 is opaque black. A literal or repeated index 9 is 
 
 ### Malformed rows: retail versus a checked reader {#row-validation}
 
-| Situation | Inspected retail behavior | Nanolathe validation policy |
+| Situation | Established retail behavior | Nanolathe checked reader |
 | --- | --- | --- |
-| Run overshoots the width | Clamps output to the remaining width. A literal still advances its source by its full authored count. | Rejects the row. |
-| Payload runs out early | Continues reading following bytes until it produces the width. The next row still begins at the authored payload boundary. | Rejects truncated commands or incomplete output. |
-| Nonempty row leaves unused payload | The row boundary comes from its authored byte count. | Requires exact payload consumption and exactly `width` pixels. |
-| Skip command has length zero | No corresponding host-style validation established here. | Rejects zero-length skip commands. |
+| Run overshoots the width | Clamps output to the remaining width. A literal reads only the copied bytes; its discarded suffix is not read. A repeat consumes one palette byte. | Follows the same consumption rules, checking the bytes actually read. |
+| Payload runs out early | Continues into following bytes until the width is covered. The next row still begins at `row + 2 + payload_count`. | Accepts this walk when the stored row extent and all bytes actually consumed fit in the file. |
+| Nonempty row leaves unused payload | Stops decoding at the width and ignores the remaining payload. | Accepts unused payload within the checked stored row extent. |
+| Skip command has length zero | Consumes the command byte without advancing the output position. | Accepts it within the aggregate command budget. |
 | Payload length is zero | Leaves the row untouched. | Accepts a fully transparent row. |
 
-These stricter checks apply to both Nanolathe’s metadata and pixel readers. They are **host safety policy**, not extra rules enforced by the retail executable. [02 R-MALF-01 §6](#sources) owns the malformed-input behavior.
+A leaf with zero width or height draws nothing and reads no pixel or RLE stream. A composite still visits its children when its own dimensions are zero.
+
+Both Nanolathe readers share these rules. Row headers, stored row extents, and bytes actually consumed must fit in the file; even a zero-size leaf requires an in-file data location. Out-of-file data rejects the whole bank without substitute frames. File bounds and aggregate work limits are **host safety policy**. [02 R-MALF-01 §6](#sources) owns the retail behavior.
 
 ## Composed frames {#composed-frames}
 
@@ -229,10 +231,10 @@ Entry lookup is a linear scan; **first match wins**. A missing name produces a n
 
 `LoadGAFMetadata` retains file and entry fields, frame-reference pointers and delay words, geometry and signed origins, and the complete composite child graph, including the alternate-child selector. It allocates **no decoded pixel or transparency planes**. It still validates payloads.
 
-`LoadGAF` uses the same checked index before decoding pixels. Both readers share signed-count handling, first-match lookup, alias handling, malformed-payload rules, aggregate reference/pixel-geometry budgets, and depth limits. A malformed payload rejects the whole bank in both readers. Repeated entry pointers share an immutable reference table and do not spend the reference budget again.
+`LoadGAF` uses the same checked index before decoding pixels. Both readers share signed-count handling, first-match lookup, alias handling, malformed-payload rules, aggregate reference/pixel-geometry and RLE-command budgets, and depth limits. Out-of-file data or an exceeded budget rejects the whole bank in both readers. Repeated entry pointers share an immutable reference table and do not spend the reference budget again.
 
 {{< callout kind="policy" title="Acceptance bounds belong to the host" >}}
-Retail has no aggregate allocation or composition-depth limit during relocation. Nanolathe adds explicit budgets and cycle/depth checks. The metadata reader enforces the pixel-geometry budget even without allocating pixels, keeping both readers on the same corrupt-content policy. These are implementation limits, not format maxima.
+Retail has no aggregate allocation or composition-depth limit during relocation. Nanolathe adds explicit budgets and cycle/depth checks. The metadata reader enforces the pixel-geometry budget even without allocating pixels, keeping both readers on the same corrupt-content policy. A separate RLE budget defaults to 128 Mi commands across unique frames, counting zero-length skips and repeated reads from overlapping short rows. These are implementation limits, not format maxima.
 {{< /callout >}}
 
 ### Direct-raster consumers
@@ -288,7 +290,7 @@ The earlier 950-file survey reports 48,519 frames; the later 958-file census inc
 
 ## Sources and evidence {#sources}
 
-This page adapts the Nanolathe [GAF research]({{< research >}}) at commit **11ae6ad**. A [plain-text snapshot](research-source.txt) preserves the complete document, citations, and publication-omission notices. The original research omits retail-derived byte examples in this edition; the worked bytes on this page come from the new authored fixture.
+This page adapts the Nanolathe [GAF research]({{< research >}}) at commit **2333223**. A [plain-text snapshot](research-source.txt) preserves the complete document, citations, and publication-omission notices. The original research omits retail-derived byte examples in this edition; the worked bytes on this page come from the new authored fixture.
 
 **Established** identifies observed reference-asset facts or bounded executable traces, as stated alongside each claim. **Policy** identifies Nanolathe host decisions. **Unknown** retains unresolved behavior; no illustrative image should be treated as additional retail evidence.
 
