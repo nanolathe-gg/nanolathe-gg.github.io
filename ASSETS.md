@@ -187,6 +187,24 @@ capture revision. The gameplay guide in `data/gameplay.json` retains its pinned
 `/gameplay/`, providing direct links and a no-JavaScript fallback.
 
 
+## Announcement reel ribbon (2026-09-20)
+
+`static/images/reel/battle.webp`, `water.webp`, `heat.webp`, `build.webp` and
+`strategic.webp` are actual Nanolathe frames from a caption-free 1280 × 720 pass
+of the engine's `films/announce.json` at engine revision `68a43d9d`, rendered
+with the user's original Total Annihilation installation through the offline
+`--film` capture route. Four are a centered 960 × 540 crop; the strategic view
+is the whole frame. All are resampled to 640 × 360 and stored as WebP; no colors
+or renderer effects are altered. The homepage dims them in CSS until hover.
+`poster.jpg` is the Lava Run frame with the reel's own display type and a play
+mark, for the engine README's link to the video. The reel itself is hosted on
+YouTube and is loaded only after a visitor opens it, from
+`youtube-nocookie.com`; without JavaScript the ribbon is a plain link.
+
+These frames contain underlying game artwork belonging to its respective
+owners; that artwork is not covered by this website's MIT code license. No raw
+game archives, palettes, sprite banks, or playable game files are included.
+
 ## About page research captures
 
 `static/images/about/retail-geometry-tests.png` and `retail-shading-tests.png`

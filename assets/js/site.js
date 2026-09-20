@@ -38,6 +38,32 @@ document.querySelectorAll('[data-copy]').forEach(button => {
   });
 });
 
+// The reel loads nothing from YouTube until it is opened; without a dialog or
+// with a modified click the ribbon stays an ordinary link to the video.
+const reelDialog = document.querySelector('.reel-dialog');
+if (reelDialog && typeof reelDialog.showModal === 'function') {
+  const stage = reelDialog.querySelector('.reel-stage');
+  let reelTrigger;
+  document.querySelectorAll('[data-reel]').forEach(link => {
+    link.addEventListener('click', event => {
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      reelTrigger = link;
+      const frame = document.createElement('iframe');
+      frame.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(link.dataset.reel)}?autoplay=1&rel=0`;
+      frame.title = 'Nanolathe announcement reel';
+      frame.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      frame.allowFullscreen = true;
+      frame.referrerPolicy = 'strict-origin-when-cross-origin';
+      stage.replaceChildren(frame);
+      reelDialog.showModal();
+    });
+  });
+  reelDialog.querySelector('.reel-close').addEventListener('click', () => reelDialog.close());
+  reelDialog.addEventListener('click', event => { if (event.target === reelDialog) reelDialog.close(); });
+  reelDialog.addEventListener('close', () => { stage.replaceChildren(); reelTrigger?.focus(); });
+}
+
 // Decorative adaptation of the spray described in rendering research [R-P0-19-P]:
 // square marks, directed trajectories, a seven-color cycle, and a 30 Hz cadence.
 // Coordinates and colors here are authored for the original website illustration;

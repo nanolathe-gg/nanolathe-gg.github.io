@@ -10,6 +10,11 @@ engineRepo = 'https://github.com/nanolathe-gg/nanolathe'
 engineBranch = 'main'
 websiteRepo = 'https://github.com/nanolathe-gg/nanolathe-gg.github.io'
 
+[params.reel]
+youtube = 'bMWSCOY0dTc'
+length = '0:43'
+frames = ['battle', 'water', 'heat', 'build', 'strategic']
+
 [markup.goldmark.renderer]
 unsafe = false
 
