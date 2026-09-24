@@ -139,6 +139,40 @@ public installer, refresh its `installer_*_sha256` field in the manifest.
 `make check` verifies published copies, checksums, and offline installer behavior.
 Native Windows installation should also be checked before publishing.
 
+### Mod catalogue
+
+The engine's *Get more mods* dialog reads `https://nanolathe.gg/mods/manifest.json`
+(`static/mods/manifest.json`). The archives are not in this repository: each
+mod version is one asset, `<id>-<version>.zip`, on this repository's single
+[`mods` release](https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/tag/mods),
+which the manifest names by URL. The engine accepts release assets of
+`nanolathe-gg` repositories, follows GitHub's redirect to its asset host, and
+refuses any archive whose size or SHA-256 differs from its manifest entry.
+
+Each version has a recipe, `mods/<id>-<version>.json`: the upstream archive's
+name, size and SHA-256, the members to keep, and the `nanolathe-mod.json`
+metadata to embed. To add a version, download the upstream archive and run
+(the upload needs the GitHub CLI, logged in with write access):
+
+```sh
+python3 scripts/package-mod.py mods/prota-4.8.json ~/Downloads/ProTA4.8.zip --upload
+make check check-mods-remote
+```
+
+Packaging verifies the upstream file, copies only the included members (never
+executables, libraries, ddraw wrappers or launcher settings), embeds the
+metadata, and writes `.cache/mods/<id>-<version>.zip` uncompressed with fixed
+timestamps in sorted order, so the same upstream file always yields the same
+bytes. `--upload` publishes it to the `mods` release, creating the release if
+needed, and the manifest entry is added or replaced. `make check` verifies the
+manifest against the recipes offline; `make check-mods-remote` also downloads
+every release asset and checks it as the engine would.
+
+A published asset is never replaced: clients resume and verify downloads
+against the published hash, so a mistake is corrected with a new version. To
+withdraw a version, remove its manifest entry and recipe; delete the asset
+once nothing needs it.
+
 ## About page
 
 `content/about.md` supplies metadata and `layouts/_default/about.html` tells the
