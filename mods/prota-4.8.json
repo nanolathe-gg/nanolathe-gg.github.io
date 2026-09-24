@@ -1,0 +1,25 @@
+{
+  "upstream": {
+    "file": "ProTA4.8.zip",
+    "from": "https://prota.tauniverse.com",
+    "size": 17103752,
+    "sha256": "1b0acde162f30007a0e3a7a5a76e224217cec73a6a48e7894e394bff4ede0001"
+  },
+  "include": [
+    "ProTA.gp3",
+    "Icon/*",
+    "ProTA readme.txt",
+    "* changelog.txt"
+  ],
+  "metadata": {
+    "schema": 1,
+    "id": "prota",
+    "name": "ProTA",
+    "version": "4.8",
+    "summary": "A rebalancing of Total Annihilation that stays true to the original game.",
+    "homepage": "https://prota.tauniverse.com",
+    "contentProfile": "prota",
+    "minimumGameplay": "community-3.9",
+    "controls": "community"
+  }
+}
