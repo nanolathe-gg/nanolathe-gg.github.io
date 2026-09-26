@@ -1,0 +1,34 @@
+{
+  "upstream": {
+    "file": "TAESC_GOLD_10_2_0_FULL.rar",
+    "format": "rar",
+    "from": "https://taesc.tauniverse.com/?p=downloads",
+    "size": 350859995,
+    "sha256": "a9873e551d7fa72ad2f74ca37d8bbc7c873043d178979c842bbf8ed667eea2c3"
+  },
+  "stripPrefix": "Step_2_Install Main Files (copy all contents into your main TA folder)/",
+  "include": [
+    "T2ESC.ufo",
+    "T3ESC.ufo",
+    "T4ESC1.ufo",
+    "T4ESC2.ufo",
+    "T5ESC.ufo",
+    "TXESC.ufo",
+    "TAESC.gp3",
+    "TADEMO.ufo",
+    "Icon/*",
+    "Music/*",
+    "data/1.ZRB",
+    "GOLD_10_2_0.txt"
+  ],
+  "metadata": {
+    "schema": 1,
+    "id": "escalation",
+    "name": "TA: Escalation",
+    "version": "10.2.0",
+    "summary": "Experimental: shield self-healing is incomplete.",
+    "homepage": "https://taesc.tauniverse.com/?p=downloads",
+    "contentProfile": "escalation",
+    "minimumGameplay": "community-3.9"
+  }
+}

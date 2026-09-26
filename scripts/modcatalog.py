@@ -82,6 +82,16 @@ def selected(name, patterns):
     return any(fnmatch.fnmatchcase(name, pattern) for pattern in patterns)
 
 
+def content_name(name, include, strip_prefix=""):
+    """Select within the content root, preserving its relative member names."""
+    if strip_prefix:
+        prefix = strip_prefix.rstrip("/") + "/"
+        if not name.startswith(prefix):
+            return None
+        name = name[len(prefix):]
+    return name if selected(name, include) else None
+
+
 def name_problem(name):
     """Why a member name is unsafe to extract, or None."""
     path = PurePosixPath(name)

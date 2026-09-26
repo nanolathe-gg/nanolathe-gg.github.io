@@ -16,6 +16,21 @@
         "size": 12440085,
         "sha256": "81c5e3dc997d3bae39ca89afe8e52c8c456fe5b788f45838d816359d1acf1201"
       }
+    },
+    {
+      "schema": 1,
+      "id": "escalation",
+      "name": "TA: Escalation",
+      "version": "10.2.0",
+      "summary": "Experimental: shield self-healing is incomplete.",
+      "homepage": "https://taesc.tauniverse.com/?p=downloads",
+      "contentProfile": "escalation",
+      "minimumGameplay": "community-3.9",
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/mods/escalation-10.2.0.zip",
+        "size": 361798978,
+        "sha256": "9470dbd841d147dd9fe2d2e1e989e98b9488ff5b27dd947e8f98abfa134642d6"
+      }
     }
   ]
 }

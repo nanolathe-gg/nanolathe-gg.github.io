@@ -151,11 +151,37 @@ refuses any archive whose size or SHA-256 differs from its manifest entry.
 
 Each version has a recipe, `mods/<id>-<version>.json`: the upstream archive's
 name, size and SHA-256, the members to keep, and the `nanolathe-mod.json`
-metadata to embed. To add a version, download the upstream archive and run
-(the upload needs the GitHub CLI, logged in with write access):
+metadata to embed. ZIP input is the default. RAR recipes specify
+`upstream.format: "rar"` and need `bsdtar` (libarchive), provided by the system
+`tar` on macOS. This is a packaging dependency only. An optional `stripPrefix`
+selects a content directory inside the source archive; include patterns match
+paths relative to that directory, which becomes the hosted ZIP root.
+
+To prepare a version, download the pinned upstream archive and run:
 
 ```sh
-python3 scripts/package-mod.py mods/prota-4.8.json ~/Downloads/ProTA4.8.zip --upload
+python3 scripts/package-mod.py mods/escalation-10.2.0.json ~/Downloads/TAESC_GOLD_10_2_0_FULL.rar
+python3 scripts/test-package-mod.py
+make check
+```
+
+Escalation's upstream download is listed on its
+[downloads page](https://taesc.tauniverse.com/?p=downloads). Its recipe takes
+all eight authored content archives (including `TADEMO.ufo`), `Icon/`,
+`Music/`, the active `data/1.ZRB` intro, and the Gold release notes from the
+Step 2 directory. `TADEMO.ufo` contributes authored unit and feature
+definitions and must be retained to preserve the upstream catalog. The
+`data/OTA_1.ZRB` backup, executables, launcher settings, and optional shaders
+are excluded. No control preset is named:
+the engine's `community` preset is specific to ProTA.
+
+Preparation writes the local ZIP and manifest entry, so keep both the recipe
+and manifest change on a branch until engine compatibility has been verified.
+After review, upload the archive before deploying the manifest (the upload
+needs the GitHub CLI, logged in with write access):
+
+```sh
+python3 scripts/package-mod.py mods/escalation-10.2.0.json ~/Downloads/TAESC_GOLD_10_2_0_FULL.rar --upload
 make check check-mods-remote
 ```
 
