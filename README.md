@@ -160,7 +160,7 @@ paths relative to that directory, which becomes the hosted ZIP root.
 To prepare a version, download the pinned upstream archive and run:
 
 ```sh
-python3 scripts/package-mod.py mods/escalation-10.2.0.json ~/Downloads/TAESC_GOLD_10_2_0_FULL.rar
+python3 scripts/package-mod.py mods/escalation-10.2.0+nanolathe.1.json ~/Downloads/TAESC_GOLD_10_2_0_FULL.rar
 python3 scripts/test-package-mod.py
 make check
 ```
@@ -175,13 +175,17 @@ definitions and must be retained to preserve the upstream catalog. The
 are excluded. No control preset is named:
 the engine's `community` preset is specific to ProTA.
 
+The `+nanolathe.1` packaging revision preserves the Gold 10.2.0 content and
+removes the obsolete incomplete-healing warning after the engine's historical
+healing contract was verified. The earlier published ZIP remains immutable.
+
 Preparation writes the local ZIP and manifest entry, so keep both the recipe
 and manifest change on a branch until engine compatibility has been verified.
 After review, upload the archive before deploying the manifest (the upload
 needs the GitHub CLI, logged in with write access):
 
 ```sh
-python3 scripts/package-mod.py mods/escalation-10.2.0.json ~/Downloads/TAESC_GOLD_10_2_0_FULL.rar --upload
+python3 scripts/package-mod.py mods/escalation-10.2.0+nanolathe.1.json ~/Downloads/TAESC_GOLD_10_2_0_FULL.rar --upload
 make check check-mods-remote
 ```
 
