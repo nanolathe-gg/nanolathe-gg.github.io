@@ -5,7 +5,9 @@
 The upstream archive must match the recipe's size and SHA-256. The recipe's
 include patterns select members; executables, libraries and anything else the
 engine refuses are never copied. The recipe's metadata is embedded as
-nanolathe-mod.json. The archive is written to .cache/mods/, and
+nanolathe-mod.json. ZIP input is the default; upstream.format "rar" uses
+bsdtar, and stripPrefix selects a nested content root before matching includes.
+The archive is written to .cache/mods/, and
 static/mods/manifest.json gains or replaces the entry for that id and version,
 pointing at the asset of the same name on this repository's "mods" release.
 
@@ -16,8 +18,12 @@ the published hash. A mistake is corrected with a new version.
 """
 import json
 from pathlib import Path
+import shutil
+import stat
 import subprocess
 import sys
+import tarfile
+import tempfile
 import zipfile
 
 import modcatalog as mc
@@ -31,6 +37,48 @@ def gh(*args):
     return subprocess.run(["gh", *args, "--repo", mc.REPOSITORY], check=True, capture_output=True, text=True).stdout
 
 
+def zip_members(path, include, prefix):
+    with zipfile.ZipFile(path) as source:
+        for info in source.infolist():
+            name = mc.content_name(info.filename, include, prefix)
+            if info.is_dir() or name is None:
+                continue
+            if stat.S_IFMT(info.external_attr >> 16) not in (0, stat.S_IFREG):
+                fail(f"{info.filename} is not a regular file")
+            yield name, source.read(info)
+
+
+def tar_members(stream, include, prefix):
+    with tarfile.open(fileobj=stream, mode="r|") as source:
+        for info in source:
+            name = mc.content_name(info.name, include, prefix)
+            if info.isdir() or name is None:
+                continue
+            if not info.isreg():
+                fail(f"{info.name} is not a regular file")
+            yield name, source.extractfile(info).read()
+
+
+def rar_members(path, include, prefix):
+    # bsdtar can transcode a RAR to a tar stream. Nothing is extracted to the
+    # filesystem; Python validates the selected entries before writing the ZIP.
+    reader = shutil.which("bsdtar") or shutil.which("tar")
+    if reader is None or "bsdtar" not in subprocess.run(
+            [reader, "--version"], check=True, capture_output=True, text=True).stdout:
+        fail("RAR input requires bsdtar (libarchive); on macOS the system tar provides it")
+    with tempfile.TemporaryFile() as errors:
+        process = subprocess.Popen([reader, "-cf", "-", "@" + str(path.resolve())],
+                                   stdout=subprocess.PIPE, stderr=errors)
+        try:
+            yield from tar_members(process.stdout, include, prefix)
+        finally:
+            process.stdout.close()
+            status = process.wait()
+        if status:
+            errors.seek(0)
+            fail(f"RAR reader failed: {errors.read().decode(errors='replace').strip()}")
+
+
 def build(recipe_path, upstream_path):
     recipe = mc.load_json(recipe_path)
     meta, upstream, include = recipe["metadata"], recipe["upstream"], recipe["include"]
@@ -40,17 +88,21 @@ def build(recipe_path, upstream_path):
     if upstream_path.stat().st_size != upstream["size"] or mc.sha256(upstream_path) != upstream["sha256"]:
         fail(f"{upstream_path} is not the recipe's {upstream['file']} ({upstream['size']} bytes, SHA-256 {upstream['sha256']})")
 
+    prefix = recipe.get("stripPrefix", "")
+    if prefix and (problem := mc.name_problem(prefix)) is not None:
+        fail(f"stripPrefix {prefix!r} {problem}")
+    upstream_format = upstream.get("format", "zip")
+    readers = {"zip": zip_members, "rar": rar_members}
+    if upstream_format not in readers:
+        fail(f"unsupported upstream format {upstream_format!r}")
     members, folded = {}, {mc.METADATA_NAME.casefold()}
-    with zipfile.ZipFile(upstream_path) as source:
-        for info in source.infolist():
-            if info.is_dir() or not mc.selected(info.filename, include):
-                continue
-            if (problem := mc.name_problem(info.filename)) is not None:
-                fail(f"{info.filename} {problem}")
-            if info.filename.casefold() in folded:
-                fail(f"{info.filename} is selected twice")
-            folded.add(info.filename.casefold())
-            members[info.filename] = source.read(info)
+    for name, data in readers[upstream_format](upstream_path, include, prefix):
+        if (problem := mc.name_problem(name)) is not None:
+            fail(f"{name} {problem}")
+        if name.casefold() in folded:
+            fail(f"{name} is selected twice")
+        folded.add(name.casefold())
+        members[name] = data
     for pattern in include:
         if not any(mc.selected(name, [pattern]) for name in members):
             fail(f"include pattern {pattern!r} matches nothing")
