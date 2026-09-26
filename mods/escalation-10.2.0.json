@@ -26,7 +26,7 @@
     "id": "escalation",
     "name": "TA: Escalation",
     "version": "10.2.0",
-    "summary": "Escalation Gold expands Total Annihilation with new units and technology tiers.",
+    "summary": "Escalation Gold adds units, shields and technology tiers. Experimental support; shield self-healing is incomplete.",
     "homepage": "https://taesc.tauniverse.com/?p=downloads",
     "contentProfile": "escalation",
     "minimumGameplay": "community-3.9"
