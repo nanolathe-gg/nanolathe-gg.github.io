@@ -168,6 +168,25 @@ needed, and the manifest entry is added or replaced. `make check` verifies the
 manifest against the recipes offline; `make check-mods-remote` also downloads
 every release asset and checks it as the engine would.
 
+TA Zero uses a multipart recipe: Base, Alpha 5 and Map Pack 1f are pinned
+separately and combined into one content root. Pass their paths in recipe order:
+
+```sh
+python3 scripts/package-mod.py mods/ta-zero-alpha5-20241224.json \
+  ~/Downloads/TA_Zero_Base.zip ~/Downloads/TA_Zero_Alpha_5.zip \
+  ~/Downloads/TA_Zero_Map_Pack_v1f.zip
+```
+
+Each `sources` item has its own `upstream`, `include` and optional `stripPrefix`.
+The packager rejects duplicate destination names across sources. Before upload,
+compare the original layered roots with the extracted ZIP using the engine VFS
+and compiled catalog: combining archives can change mount precedence even when
+no filenames collide. This release preserves the verified Base/Alpha 5/1f
+content; its metadata marks support experimental, selects the `zero` content
+profile and controls, and requires Community 3.9 or Modern. Windows binaries,
+launcher settings and local installation receipts are omitted. Append `--upload`
+to the command after verification, then deploy the catalogue.
+
 A published asset is never replaced: clients resume and verify downloads
 against the published hash, so a mistake is corrected with a new version. To
 withdraw a version, remove its manifest entry and recipe; delete the asset

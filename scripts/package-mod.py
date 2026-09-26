@@ -2,7 +2,10 @@
 
     python3 scripts/package-mod.py mods/prota-4.8.json ~/Downloads/ProTA4.8.zip [--upload]
 
-The upstream archive must match the recipe's size and SHA-256. The recipe's
+Each upstream archive must match its recipe size and SHA-256. Multipart
+recipes list sources in order; pass one archive path per source. Each source
+may strip a wrapping directory with stripPrefix before selecting its members.
+Duplicate destination names are refused, including across sources. The recipe's
 include patterns select members; executables, libraries and anything else the
 engine refuses are never copied. The recipe's metadata is embedded as
 nanolathe-mod.json. The archive is written to .cache/mods/, and
@@ -16,6 +19,7 @@ the published hash. A mistake is corrected with a new version.
 """
 import json
 from pathlib import Path
+import stat
 import subprocess
 import sys
 import zipfile
@@ -31,29 +35,47 @@ def gh(*args):
     return subprocess.run(["gh", *args, "--repo", mc.REPOSITORY], check=True, capture_output=True, text=True).stdout
 
 
-def build(recipe_path, upstream_path):
+def build(recipe_path, *upstream_paths):
     recipe = mc.load_json(recipe_path)
-    meta, upstream, include = recipe["metadata"], recipe["upstream"], recipe["include"]
+    meta = recipe["metadata"]
     if problems := mc.metadata_problems(meta):
         fail("; ".join(problems))
-    upstream_path = Path(upstream_path).expanduser()
-    if upstream_path.stat().st_size != upstream["size"] or mc.sha256(upstream_path) != upstream["sha256"]:
-        fail(f"{upstream_path} is not the recipe's {upstream['file']} ({upstream['size']} bytes, SHA-256 {upstream['sha256']})")
-
+    # Multipart recipes name each source independently. Refuse collisions:
+    # filesystem overwrite order cannot establish archive mount precedence.
+    sources = recipe.get("sources", [recipe])
+    if not sources or len(sources) != len(upstream_paths):
+        fail(f"expected {len(sources)} upstream archives in recipe order")
     members, folded = {}, {mc.METADATA_NAME.casefold()}
-    with zipfile.ZipFile(upstream_path) as source:
-        for info in source.infolist():
-            if info.is_dir() or not mc.selected(info.filename, include):
-                continue
-            if (problem := mc.name_problem(info.filename)) is not None:
-                fail(f"{info.filename} {problem}")
-            if info.filename.casefold() in folded:
-                fail(f"{info.filename} is selected twice")
-            folded.add(info.filename.casefold())
-            members[info.filename] = source.read(info)
-    for pattern in include:
-        if not any(mc.selected(name, [pattern]) for name in members):
-            fail(f"include pattern {pattern!r} matches nothing")
+    for source_recipe, upstream_path in zip(sources, upstream_paths):
+        upstream, include = source_recipe["upstream"], source_recipe["include"]
+        upstream_path = Path(upstream_path).expanduser()
+        if upstream_path.stat().st_size != upstream["size"] or mc.sha256(upstream_path) != upstream["sha256"]:
+            fail(f"{upstream_path} is not the recipe's {upstream['file']} ({upstream['size']} bytes, SHA-256 {upstream['sha256']})")
+        prefix = source_recipe.get("stripPrefix", "").rstrip("/")
+        if prefix and (problem := mc.name_problem(prefix)) is not None:
+            fail(f"stripPrefix {prefix!r} {problem}")
+        selected = []
+        with zipfile.ZipFile(upstream_path) as source:
+            for info in source.infolist():
+                name = info.filename
+                if prefix:
+                    if not name.startswith(prefix + "/"):
+                        continue
+                    name = name[len(prefix) + 1:]
+                if info.is_dir() or not mc.selected(name, include):
+                    continue
+                if (problem := mc.name_problem(name)) is not None:
+                    fail(f"{name} {problem}")
+                if stat.S_IFMT(info.external_attr >> 16) not in (0, stat.S_IFREG):
+                    fail(f"{info.filename} is not a regular file")
+                if name.casefold() in folded:
+                    fail(f"{name} is selected twice")
+                folded.add(name.casefold())
+                selected.append(name)
+                members[name] = source.read(info)
+        for pattern in include:
+            if not any(mc.selected(name, [pattern]) for name in selected):
+                fail(f"include pattern {pattern!r} matches nothing in {upstream['file']}")
     members[mc.METADATA_NAME] = mc.metadata_bytes(meta)
 
     target = mc.build_path(meta)
@@ -109,7 +131,7 @@ def write_entry(meta, target):
 
 if __name__ == "__main__":
     args = [arg for arg in sys.argv[1:] if arg != "--upload"]
-    if len(args) != 2:
+    if len(args) < 2:
         raise SystemExit(__doc__)
     meta, target = build(*args)
     if "--upload" in sys.argv[1:]:

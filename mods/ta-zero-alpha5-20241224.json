@@ -1,0 +1,53 @@
+{
+  "sources": [
+    {
+      "upstream": {
+        "file": "TA_Zero_Base.zip",
+        "from": "https://zero.tauniverse.com/ta-zero/",
+        "size": 113223308,
+        "sha256": "c093c084d70e06de09fe98c113b4e1c16d95101100743120f0d60ed54105beb0"
+      },
+      "include": [
+        "TA_Features_2013.ccx",
+        "ZIcon/*",
+        "tamus/*"
+      ],
+      "stripPrefix": "TA Zero"
+    },
+    {
+      "upstream": {
+        "file": "TA_Zero_Alpha_5.zip",
+        "from": "https://zero.tauniverse.com/ta-zero/",
+        "size": 49382629,
+        "sha256": "43672d46ee0ef9114f517f1aa1cdf902bd6df62fd7dbe1b270cada89382b6d8e"
+      },
+      "include": [
+        "TAZ31.gp3",
+        "TA Zero Readme.txt"
+      ]
+    },
+    {
+      "upstream": {
+        "file": "TA_Zero_Map_Pack_v1f.zip",
+        "from": "https://zero.tauniverse.com/ta-zero/",
+        "size": 199469750,
+        "sha256": "3017e4322a502d7b42ac86f520a910dbb7a8664815b7cf44542d8a6547f3f3f8"
+      },
+      "include": [
+        "TA_Zero_Maps.ufo",
+        "Map Pack Readme.txt"
+      ]
+    }
+  ],
+  "metadata": {
+    "schema": 1,
+    "id": "ta-zero",
+    "name": "TA Zero",
+    "version": "alpha5-20241224",
+    "summary": "Experimental Alpha 5 compatibility, including Base resources and Map Pack 1f. Some historical gameplay and controls remain incomplete.",
+    "homepage": "https://zero.tauniverse.com/ta-zero/",
+    "contentProfile": "zero",
+    "minimumGameplay": "community-3.9",
+    "controls": "zero"
+  }
+}

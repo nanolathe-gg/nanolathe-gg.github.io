@@ -16,6 +16,22 @@
         "size": 12440085,
         "sha256": "81c5e3dc997d3bae39ca89afe8e52c8c456fe5b788f45838d816359d1acf1201"
       }
+    },
+    {
+      "schema": 1,
+      "id": "ta-zero",
+      "name": "TA Zero",
+      "version": "alpha5-20241224",
+      "summary": "Experimental Alpha 5 compatibility, including Base resources and Map Pack 1f. Some historical gameplay and controls remain incomplete.",
+      "homepage": "https://zero.tauniverse.com/ta-zero/",
+      "contentProfile": "zero",
+      "minimumGameplay": "community-3.9",
+      "controls": "zero",
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/mods/ta-zero-alpha5-20241224.zip",
+        "size": 375898941,
+        "sha256": "faecd8bbbe08d672f98b7a67e4d36aa9418216c4d3877c01ebecb1e7b5f074a3"
+      }
     }
   ]
 }
