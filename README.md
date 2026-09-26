@@ -167,9 +167,12 @@ make check
 
 Escalation's upstream download is listed on its
 [downloads page](https://taesc.tauniverse.com/?p=downloads). Its recipe takes
-the seven Escalation content archives, `Icon/`, `Music/`, and the Gold release
-notes from the Step 2 directory. The replay archive, executables, launcher
-settings, and optional shaders are excluded. No control preset is named:
+all eight authored content archives (including `TADEMO.ufo`), `Icon/`,
+`Music/`, the active `data/1.ZRB` intro, and the Gold release notes from the
+Step 2 directory. `TADEMO.ufo` contributes authored unit and feature
+definitions and must be retained to preserve the upstream catalog. The
+`data/OTA_1.ZRB` backup, executables, launcher settings, and optional shaders
+are excluded. No control preset is named:
 the engine's `community` preset is specific to ProTA.
 
 Preparation writes the local ZIP and manifest entry, so keep both the recipe
