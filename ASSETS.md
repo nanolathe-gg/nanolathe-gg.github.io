@@ -40,6 +40,19 @@ are provided for embedding. The original master, composition script, and
 exports are included in the downloadable kit. The complete prompt and usage
 instructions are in [brand/README_HEADER.md](brand/README_HEADER.md).
 
+## Reddit showcase button
+
+`brand/sources/reddit-button-construction.png` is original concept artwork
+generated with the built-in OpenAI image generation tool on 2026-09-26, using
+the homepage construction illustration as a style reference. It is not an
+engine screenshot or retail artwork.
+
+`scripts/reddit-button.cjs` crops the illustration and combines it with the
+existing outlined logo and wordmark, a charcoal gradient, and a subtle frame.
+The self-contained SVG and opaque 288 × 32 and 576 × 64 PNG exports live in
+`static/brand/`. The full prompt, source dimensions, crop, and usage instructions
+are recorded in [brand/REDDIT_BUTTON.md](brand/REDDIT_BUTTON.md).
+
 ## Technical content
 
 Engine commands and status were checked against `cmd/nanolathe/flags.go`,
