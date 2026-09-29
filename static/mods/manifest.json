@@ -47,6 +47,21 @@
         "size": 375898941,
         "sha256": "faecd8bbbe08d672f98b7a67e4d36aa9418216c4d3877c01ebecb1e7b5f074a3"
       }
+    },
+    {
+      "schema": 1,
+      "id": "mayhem",
+      "name": "Total Mayhem",
+      "version": "11.3.0",
+      "summary": "Experimental Total Mayhem 11.3.0 compatibility. Some patch-era gameplay and controls remain unverified.",
+      "homepage": "https://mayhem.tauniverse.com/totalm.htm",
+      "contentProfile": "mayhem",
+      "minimumGameplay": "community-3.9",
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/mods/mayhem-11.3.0.zip",
+        "size": 21901488,
+        "sha256": "db53fbe7fea09c3a0969c5e50aa8abd4ad1846297bb088f8f0eb30fc87c484c2"
+      }
     }
   ]
 }

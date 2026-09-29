@@ -217,6 +217,18 @@ profile and controls, and requires Community 3.9 or Modern. Windows binaries,
 launcher settings and local installation receipts are omitted. Append `--upload`
 to the command after verification, then deploy the catalogue.
 
+Total Mayhem 11.3.0 uses the official single ZIP. Its bundled `TotalA.exe`
+matches the retail 3.1 reference executable byte for byte, but its DLLs add
+runtime engine behavior. The Nanolathe archive keeps only `mayhem.gp3`,
+`TADemoM.ufo`, `Icon/` and the two changelogs. The `mayhem` content profile
+maps its renamed content directories and selects the existing Mayhem
+Community table. Compatibility remains experimental while full gameplay and
+controls parity with the shipped DLL is unverified. Prepare it with:
+
+```sh
+python3 scripts/package-mod.py mods/mayhem-11.3.0.json ~/Downloads/TotalM1130.zip
+```
+
 A published asset is never replaced: clients resume and verify downloads
 against the published hash, so a mistake is corrected with a new version. To
 withdraw a version, remove its manifest entry and recipe; delete the asset

@@ -1,0 +1,25 @@
+{
+  "upstream": {
+    "file": "TotalM1130.zip",
+    "from": "https://mayhem.tauniverse.com/totalm.htm",
+    "size": 26035480,
+    "sha256": "f485e8950a4b71940f414159ab6375a3cc32f35c2e8a962918e5984d801363af"
+  },
+  "include": [
+    "mayhem.gp3",
+    "TADemoM.ufo",
+    "Icon/*",
+    "1092 to 113 changelog.txt",
+    "824e and OTA to 109 changelog.txt"
+  ],
+  "metadata": {
+    "schema": 1,
+    "id": "mayhem",
+    "name": "Total Mayhem",
+    "version": "11.3.0",
+    "summary": "Experimental Total Mayhem 11.3.0 compatibility. Some patch-era gameplay and controls remain unverified.",
+    "homepage": "https://mayhem.tauniverse.com/totalm.htm",
+    "contentProfile": "mayhem",
+    "minimumGameplay": "community-3.9"
+  }
+}
