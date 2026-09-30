@@ -34,7 +34,7 @@ def main():
     parser.add_argument("--sync-installers", action="store_true", help="Explicitly replace website installers with the engine snapshot; review main-tracking behavior before publishing")
     parser.add_argument("--revision", required=True, help="Full engine commit, already public on GitHub")
     parser.add_argument("--version", required=True, help="Release label, for example 0.1.0-alpha.1")
-    parser.add_argument("--go-version", default="1.26.8")
+    parser.add_argument("--go-version", default="1.27.1")
     args = parser.parse_args()
     if not re.fullmatch(r"[0-9a-f]{40}", args.revision):
         parser.error("--revision must be a full lowercase commit hash")

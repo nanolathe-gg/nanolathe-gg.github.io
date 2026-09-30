@@ -128,7 +128,7 @@ The private Go version must still be updated when main requires a newer compiler
 Refresh toolchain/legacy snapshot metadata after engine checks pass:
 
 ```sh
-python3 scripts/prepare-source-release.py --revision FULL_COMMIT --version RELEASE_LABEL --go-version 1.26.8
+python3 scripts/prepare-source-release.py --revision FULL_COMMIT --version RELEASE_LABEL --go-version 1.27.1
 make check
 ```
 
