@@ -142,97 +142,102 @@ Native Windows installation should also be checked before publishing.
 ### Mod catalogue
 
 The engine's *Get more mods* dialog reads `https://nanolathe.gg/mods/manifest.json`
-(`static/mods/manifest.json`). The archives are not in this repository: each
-mod version is one asset, `<id>-<version>.zip`, on this repository's single
-[`mods` release](https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/tag/mods),
-which the manifest names by URL. The engine accepts release assets of
-`nanolathe-gg` repositories, follows GitHub's redirect to its asset host, and
-refuses any archive whose size or SHA-256 differs from its manifest entry.
+(`static/mods/manifest.json`). This is the single catalogue for the latest
+unreleased test builds. Its root stays schema 1, with one current entry per
+mod. Each entry contains only `id`, `name`, `version`, `summary`, `homepage`
+and `archive` (`url`, `size`, `sha256`). All package configuration belongs in
+the ZIP's root `nanolathe-mod.json`, a complete schema 2 config; the catalogue
+does not select content profiles, controls, rules or settings.
 
-Each version has a recipe, `mods/<id>-<version>.json`: the upstream archive's
-name, size and SHA-256, the members to keep, and the `nanolathe-mod.json`
-metadata to embed. ZIP input is the default. RAR recipes specify
-`upstream.format: "rar"` and need `bsdtar` (libarchive), provided by the system
-`tar` on macOS. This is a packaging dependency only. An optional `stripPrefix`
-selects a content directory inside the source archive; include patterns match
-paths relative to that directory, which becomes the hosted ZIP root.
+The archives are not tracked in this repository: each mod version is one
+asset, `<id>-<version>.zip`, on this repository's single
+[`mods` release](https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/tag/mods).
+The engine follows GitHub's redirect to its asset host and refuses an archive
+whose size, SHA-256 or embedded identity differs from its catalogue entry.
+Published assets stay immutable and hosted for saves that name them. A new
+packaging revision is a new version and ZIP, even when content is unchanged.
 
-To prepare a version, download the pinned upstream archive and run:
+Each current package has a recipe, `mods/<id>-<version>.json`: the upstream
+archive's name, size and SHA-256, the members to keep, and the full config to
+embed. The four configs come from the engine repository's
+`modconfigs/<release>/nanolathe-mod.json`, preserving the curated summaries
+and homepages here. The configs carry the mod's content layout, limits,
+Community feature table, recommended rules, settings, keys and locks. The
+engine validates these declarations when installing the ZIP.
+
+ZIP input is the default. RAR recipes specify `upstream.format: "rar"` and
+need `bsdtar` (libarchive), provided by the system `tar` on macOS. This is a
+packaging dependency only. An optional `stripPrefix` selects a content
+directory inside the source archive; include patterns match paths relative
+to that directory, which becomes the hosted ZIP root.
+
+To prepare the four current packages from their pinned upstream archives:
 
 ```sh
-python3 scripts/package-mod.py mods/escalation-10.2.0+nanolathe.1.json ~/Downloads/TAESC_GOLD_10_2_0_FULL.rar
+python3 scripts/package-mod.py mods/prota-4.8+nanolathe.1.json ~/Downloads/ProTA4.8.zip
+python3 scripts/package-mod.py mods/escalation-10.2.0+nanolathe.2.json ~/Downloads/TAESC_GOLD_10_2_0_FULL.rar
+python3 scripts/package-mod.py mods/ta-zero-alpha5-20241224+nanolathe.1.json \
+  ~/Downloads/TA_Zero_Base.zip ~/Downloads/TA_Zero_Alpha_5.zip \
+  ~/Downloads/TA_Zero_Map_Pack_v1f.zip
+python3 scripts/package-mod.py mods/mayhem-11.3.0+nanolathe.1.json ~/Downloads/TotalM1130.zip
 python3 scripts/test-package-mod.py
+python3 scripts/test-package-multipart.py
 make check
+python3 scripts/check-mods.py --local
 ```
+
+Packaging verifies each input, copies only the included members, embeds the
+complete config, and writes `.cache/mods/<id>-<version>.zip` uncompressed with
+fixed timestamps in sorted order. The same sources and recipe produce the
+same bytes. The catalogue projection is explicit, so adding a config field
+cannot accidentally publish it in the feed. Preparation replaces the mod's
+current catalogue entry while preserving its position in the list.
 
 Escalation's upstream download is listed on its
 [downloads page](https://taesc.tauniverse.com/?p=downloads). Its recipe takes
 all eight authored content archives (including `TADEMO.ufo`), `Icon/`,
 `Music/`, the active `data/1.ZRB` intro, and the Gold release notes from the
 Step 2 directory. `TADEMO.ufo` contributes authored unit and feature
-definitions and must be retained to preserve the upstream catalog. The
-`data/OTA_1.ZRB` backup, executables, launcher settings, and optional shaders
-are excluded. No control preset is named:
-the engine's `community` preset is specific to ProTA.
+definitions. The backup intro, executables, launcher settings and optional
+shaders are excluded. Its config carries the Escalation content layout and
+Community table, with no keyboard preset.
 
-The `+nanolathe.1` packaging revision preserves the Gold 10.2.0 content and
-removes the obsolete incomplete-healing warning after the engine's historical
-healing contract was verified. The earlier published ZIP remains immutable.
+TA Zero uses a multipart recipe: Base, Alpha 5 and Map Pack 1f are pinned
+separately and combined into one content root. Each `sources` item has its
+own `upstream`, `include` and optional `stripPrefix`; pass input paths in
+recipe order. The packager rejects duplicate destination names across
+sources. Before publishing a changed selection, compare the original layered
+roots with the extracted ZIP using the engine VFS and compiled catalog:
+combining archives can change mount precedence even when no filenames
+collide. This packaging revision preserves the verified Base/Alpha 5/1f
+content and carries its complete config, including the Zero keyboard preset.
+Compatibility remains experimental while historical gameplay and controls
+remain incomplete.
 
-Preparation writes the local ZIP and manifest entry, so keep both the recipe
-and manifest change on a branch until engine compatibility has been verified.
-After review, upload the archive before deploying the manifest (the upload
-needs the GitHub CLI, logged in with write access):
+Total Mayhem 11.3.0 uses the official single ZIP. The Nanolathe archive keeps
+only `mayhem.gp3`, `TADemoM.ufo`, `Icon/` and the two changelogs. Its config
+maps the renamed content directories and carries the Mayhem Community table.
+Compatibility remains experimental while full gameplay and controls parity
+with the shipped runtime is unverified. None of the hosted packages includes
+executables, libraries, wrappers, launcher settings or base-game archives.
+
+Keep the recipes and catalogue on a branch until engine compatibility is
+verified. After review, append `--upload` to each preparation command to
+publish its ZIP with the GitHub CLI, logged in with write access. Upload all
+new ZIPs before deploying the catalogue, then run:
 
 ```sh
-python3 scripts/package-mod.py mods/escalation-10.2.0+nanolathe.1.json ~/Downloads/TAESC_GOLD_10_2_0_FULL.rar --upload
 make check check-mods-remote
 ```
 
-Packaging verifies the upstream file, copies only the included members (never
-executables, libraries, ddraw wrappers or launcher settings), embeds the
-metadata, and writes `.cache/mods/<id>-<version>.zip` uncompressed with fixed
-timestamps in sorted order, so the same upstream file always yields the same
-bytes. `--upload` publishes it to the `mods` release, creating the release if
-needed, and the manifest entry is added or replaced. `make check` verifies the
-manifest against the recipes offline; `make check-mods-remote` also downloads
-every release asset and checks it as the engine would.
-
-TA Zero uses a multipart recipe: Base, Alpha 5 and Map Pack 1f are pinned
-separately and combined into one content root. Pass their paths in recipe order:
-
-```sh
-python3 scripts/package-mod.py mods/ta-zero-alpha5-20241224.json \
-  ~/Downloads/TA_Zero_Base.zip ~/Downloads/TA_Zero_Alpha_5.zip \
-  ~/Downloads/TA_Zero_Map_Pack_v1f.zip
-```
-
-Each `sources` item has its own `upstream`, `include` and optional `stripPrefix`.
-The packager rejects duplicate destination names across sources. Before upload,
-compare the original layered roots with the extracted ZIP using the engine VFS
-and compiled catalog: combining archives can change mount precedence even when
-no filenames collide. This release preserves the verified Base/Alpha 5/1f
-content; its metadata marks support experimental, selects the `zero` content
-profile and controls, and requires Community 3.9 or Modern. Windows binaries,
-launcher settings and local installation receipts are omitted. Append `--upload`
-to the command after verification, then deploy the catalogue.
-
-Total Mayhem 11.3.0 uses the official single ZIP. Its bundled `TotalA.exe`
-matches the retail 3.1 reference executable byte for byte, but its DLLs add
-runtime engine behavior. The Nanolathe archive keeps only `mayhem.gp3`,
-`TADemoM.ufo`, `Icon/` and the two changelogs. The `mayhem` content profile
-maps its renamed content directories and selects the existing Mayhem
-Community table. Compatibility remains experimental while full gameplay and
-controls parity with the shipped DLL is unverified. Prepare it with:
-
-```sh
-python3 scripts/package-mod.py mods/mayhem-11.3.0.json ~/Downloads/TotalM1130.zip
-```
-
-A published asset is never replaced: clients resume and verify downloads
-against the published hash, so a mistake is corrected with a new version. To
-withdraw a version, remove its manifest entry and recipe; delete the asset
-once nothing needs it.
+An upload refuses to replace an asset with different bytes. `make check`
+compares the catalogue with each recipe's identity and display fields and
+checks any available local ZIP's size, SHA-256 and full embedded config.
+`--local` requires all current ZIPs to be available; `make check-mods-remote`
+downloads and checks every current release asset against the same recipe.
+The published catalogue copy must also equal its source. To withdraw a mod,
+remove its current catalogue entry and recipe while retaining published
+versions for existing saves.
 
 ## About page
 

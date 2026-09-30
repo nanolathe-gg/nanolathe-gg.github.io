@@ -1,0 +1,179 @@
+{
+  "sources": [
+    {
+      "upstream": {
+        "file": "TA_Zero_Base.zip",
+        "from": "https://zero.tauniverse.com/ta-zero/",
+        "size": 113223308,
+        "sha256": "c093c084d70e06de09fe98c113b4e1c16d95101100743120f0d60ed54105beb0"
+      },
+      "include": [
+        "TA_Features_2013.ccx",
+        "ZIcon/*",
+        "tamus/*"
+      ],
+      "stripPrefix": "TA Zero"
+    },
+    {
+      "upstream": {
+        "file": "TA_Zero_Alpha_5.zip",
+        "from": "https://zero.tauniverse.com/ta-zero/",
+        "size": 49382629,
+        "sha256": "43672d46ee0ef9114f517f1aa1cdf902bd6df62fd7dbe1b270cada89382b6d8e"
+      },
+      "include": [
+        "TAZ31.gp3",
+        "TA Zero Readme.txt"
+      ]
+    },
+    {
+      "upstream": {
+        "file": "TA_Zero_Map_Pack_v1f.zip",
+        "from": "https://zero.tauniverse.com/ta-zero/",
+        "size": 199469750,
+        "sha256": "3017e4322a502d7b42ac86f520a910dbb7a8664815b7cf44542d8a6547f3f3f8"
+      },
+      "include": [
+        "TA_Zero_Maps.ufo",
+        "Map Pack Readme.txt"
+      ]
+    }
+  ],
+  "metadata": {
+    "schema": 2,
+    "id": "ta-zero",
+    "name": "TA Zero",
+    "version": "alpha5-20241224+nanolathe.1",
+    "summary": "Experimental Alpha 5 compatibility, including Base resources and Map Pack 1f. Some historical gameplay and controls remain incomplete.",
+    "homepage": "https://zero.tauniverse.com/ta-zero/",
+    "requires": [],
+    "content": {
+      "detect": [
+        "ZBuildMenu",
+        "ZGameDat",
+        "ZGui",
+        "ZI",
+        "ZUnitPic",
+        "ZUnits",
+        "ZWeapon"
+      ],
+      "layout": {
+        "ai": "ZI",
+        "download": "ZBuildMenu",
+        "gamedata": "ZGameDat",
+        "guis": "ZGui",
+        "music": "tamus",
+        "unitpics": "ZUnitPic",
+        "units": "ZUnits",
+        "weapons": "ZWeapon"
+      },
+      "limits": {
+        "units": 16000,
+        "weapons": 16000,
+        "tnt_bytes": 67108864,
+        "los_bytes": 8388608
+      },
+      "presentation": {
+        "main_menu_background": "bitmaps/FrontendZ.pcx",
+        "single_player_background": "bitmaps/SingleZbg.pcx",
+        "loading_background": "bitmaps/LoadGameZbg.pcx",
+        "team_logos": "textures/LogoZ.gaf"
+      }
+    },
+    "rules": {
+      "minimumGameplay": "community-3.9",
+      "gameplay": "community-3.9",
+      "communityFeatures": {
+        "constructionKickout": true,
+        "guardingBuildersHold": true,
+        "patrollingBuilderFilters": true,
+        "reclaimToggleKeepsBuild": true,
+        "structureRotation": true,
+        "areaDamageOverflow": false,
+        "areaDamageDedupCap": true,
+        "gridClaimTieBreak": false,
+        "transportedExplosions": true,
+        "buildWeaponSlotGuard": false,
+        "antinukeCircularCoverage": true,
+        "alliedJammingIgnored": true,
+        "resurrectionFinalization": true,
+        "weaponTargetKeys": true,
+        "veterancy": true,
+        "schemaUnits": true,
+        "airCorpseFall": false,
+        "scriptPorts": true,
+        "mexSnap": true,
+        "wreckSnap": true,
+        "aiDifficultyIncome": false,
+        "aiStockpileProducts": false,
+        "targetLockRelease": false,
+        "aiApplianceEnergy": false,
+        "aiBuilderStopThreshold": false,
+        "workingWeaponsAutonomous": false,
+        "attackSingleSlotTake": false,
+        "mapFeatureOwnerEleven": false,
+        "resurrectionTextFix": false,
+        "healTimeBitmask": true,
+        "aiBuilderPlacementLimit": 127,
+        "repairRate": {
+          "enabled": false,
+          "repairMultiplier": 1,
+          "selfHealMultiplier": 1
+        },
+        "offMapAircraftMarginTiles": 1,
+        "projectileCapacity": 3000,
+        "explosionCapacity": 3000,
+        "debrisCapacity": 1000,
+        "sfxLimit": 20480,
+        "pathStepAllowance": 66650,
+        "unitLimit": 1500,
+        "mexSnapRadius": 3,
+        "wreckSnapRadius": 1,
+        "mexSnapRadiusMax": 3,
+        "wreckSnapRadiusMax": 1
+      }
+    },
+    "settings": {
+      "presentation": {
+        "communitySelection": 2,
+        "factoryHundredBatch": 1,
+        "doubleClickSelection": 1,
+        "overview": 1,
+        "megamapWheel": 1,
+        "megamapWheelMove": 1,
+        "megamapDoubleClickMove": 0,
+        "megamapFlash": 1,
+        "megamapRadarMinimum": 0,
+        "megamapSonarMinimum": 500,
+        "megamapSonarJamMinimum": 0,
+        "megamapAntiNukeMinimum": 512,
+        "playerDotColors": [
+          227,
+          212,
+          80,
+          235,
+          198,
+          219,
+          208,
+          93,
+          36,
+          67
+        ]
+      },
+      "switchAlt": 1,
+      "audio": {
+        "soundMode": 2,
+        "mixingBuffers": 128,
+        "cdMode": 2
+      },
+      "skirmish": {
+        "numPlayers": 10
+      }
+    },
+    "keys": {
+      "profile": "zero",
+      "bindings": {}
+    },
+    "locks": []
+  }
+}
