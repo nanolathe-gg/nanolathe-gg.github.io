@@ -4,6 +4,7 @@ Run: python3 scripts/test-package-mod.py
 Real upstream archives are checked separately by package-mod.py's pinned recipe.
 """
 from contextlib import nullcontext, redirect_stdout
+import copy
 import importlib.util
 import io
 from pathlib import Path
@@ -32,7 +33,16 @@ class PackagingTests(unittest.TestCase):
         root = patch.object(mc, "ROOT", self.root)
         root.start()
         self.addCleanup(root.stop)
-        self.meta = {"schema": 1, "id": "fixture", "name": "Fixture", "version": "1"}
+        self.meta = {
+            "schema": 2, "id": "fixture", "name": "Fixture", "version": "1",
+            "summary": "An authored fixture.", "homepage": "https://example.com/fixture",
+            "requires": [],
+            "content": {"detect": ["units"], "limits": {"units": 16000}},
+            "rules": {"minimumGameplay": "community-3.9", "gameplay": "modern",
+                      "communityFeatures": {"constructionKickout": True}},
+            "settings": {"audio": {"soundMode": 2}},
+            "keys": {"profile": "community", "bindings": {}}, "locks": [],
+        }
 
     def recipe(self, members, format="zip", prefix="", include=None):
         source = self.root / ("upstream.zip" if format == "zip" else "transcoded.tar")
@@ -130,6 +140,49 @@ class PackagingTests(unittest.TestCase):
         with self.assertRaisesRegex(SystemExit, "not the recipe's"):
             package.build(*args)
         self.assertFalse(mc.build_path(self.meta).exists())
+
+    def test_catalogue_projects_display_fields_and_replaces_current_version(self):
+        target = self.build([("Mod.gp3", b"archive", stat.S_IFREG | 0o644)])
+        with patch.object(mc, "STATIC", self.root / "static"):
+            package.write_entry(self.meta, target)
+            manifest_path = mc.STATIC / mc.MANIFEST
+            manifest = mc.load_json(manifest_path)
+            entry = manifest["mods"][0]
+            self.assertEqual(manifest["schema"], 1)
+            self.assertEqual(set(entry), {*mc.CATALOGUE_FIELDS, "archive"})
+            self.assertEqual(mc.entry_problems(entry), [])
+            self.assertEqual(mc.packaged_archive_problems(target, self.meta, entry), [])
+            next_meta = dict(self.meta, version="2")
+            package.write_entry(next_meta, target)
+            self.assertEqual([mod["version"] for mod in mc.load_json(manifest_path)["mods"]], ["2"])
+
+    def test_entire_embedded_config_identity_and_hash_are_checked(self):
+        target = self.build([("Mod.gp3", b"archive", stat.S_IFREG | 0o644)])
+        entry = mc.catalogue_metadata(self.meta)
+        entry["archive"] = {"url": mc.archive_url(self.meta), "size": target.stat().st_size,
+                            "sha256": mc.sha256(target)}
+        for section in ("content", "rules", "settings", "keys", "locks", "requires"):
+            with self.subTest(section=section):
+                changed = copy.deepcopy(self.meta)
+                changed.pop(section)
+                self.assertIn("differs from the recipe config", "; ".join(mc.archive_problems(target, changed)))
+        changed = dict(entry, version="other")
+        self.assertIn("recipe identity differs", "; ".join(mc.packaged_archive_problems(target, self.meta, changed)))
+        changed = copy.deepcopy(entry)
+        changed["archive"]["sha256"] = "0" * 64
+        self.assertIn("SHA-256 differs", "; ".join(mc.packaged_archive_problems(target, self.meta, changed)))
+        changed["archive"]["size"] += 1
+        self.assertIn("archive is", "; ".join(mc.packaged_archive_problems(target, self.meta, changed)))
+
+    def test_config_fields_cannot_leak_into_the_catalogue(self):
+        entry = mc.catalogue_metadata(self.meta)
+        entry["archive"] = {"url": mc.archive_url(self.meta), "size": 1, "sha256": "0" * 64}
+        legacy = {"contentProfile", "controls", "minimumGameplay", "buildMenuPageSize"}
+        for key in (set(self.meta) - set(mc.CATALOGUE_FIELDS)) | legacy:
+            with self.subTest(key=key):
+                self.assertIn("unknown catalogue field", "; ".join(mc.entry_problems(dict(entry, **{key: {}}))))
+        self.assertIn("metadata schema is not 2", mc.metadata_problems(dict(self.meta, schema=1)))
+        self.assertIn("unknown config field", "; ".join(mc.metadata_problems(dict(self.meta, contentProfile="fixture"))))
 
 
 if __name__ == "__main__":

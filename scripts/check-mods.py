@@ -1,9 +1,10 @@
 """Verify the hosted mod catalogue against its recipes.
 
-Every manifest entry must have a recipe in mods/ with the same metadata, and
-every recipe an entry; each entry names its asset on the "mods" release with
+Every manifest entry must have a recipe in mods/ with the same identity and
+display fields, and every recipe an entry; each entry names its asset on the "mods" release with
 a well-formed size and SHA-256; static/mods holds only the manifest; and the
-published copy equals the source.
+published copy equals the source. Locally built archives are also checked when
+present; --local requires every current archive to be available in .cache/mods/.
 
 --remote also downloads every entry's release asset and checks its size,
 SHA-256, embedded nanolathe-mod.json and contents, as the engine would.
@@ -17,36 +18,32 @@ import modcatalog as mc
 errors = []
 manifest_path = mc.STATIC / mc.MANIFEST
 manifest = mc.load_json(manifest_path)
-if manifest.get("schema") != mc.SCHEMA or not isinstance(manifest.get("mods"), list):
+if (manifest.get("schema") != mc.SCHEMA or not isinstance(manifest.get("mods"), list)
+        or set(manifest) != {"schema", "mods"}):
     sys.exit(f"{manifest_path}: not a schema {mc.SCHEMA} catalogue with a mods list")
 
 recipes = {}
 for path in sorted(mc.RECIPES.glob("*.json")):
     meta = mc.load_json(path)["metadata"]
+    errors += [f"{path.name}: {problem}" for problem in mc.metadata_problems(meta)]
     key = f"{meta['id']}@{meta['version']}"
     if path.stem != f"{meta['id']}-{meta['version']}":
         errors.append(f"{path.name}: name it {meta['id']}-{meta['version']}.json")
     recipes[key] = meta
 
 entries = []
-seen = set()
+seen, seen_ids = set(), set()
 for entry in manifest["mods"]:
-    meta = {key: value for key, value in entry.items() if key != "archive"}
-    key = f"{meta.get('id')}@{meta.get('version')}"
-    errors += [f"{key}: {problem}" for problem in mc.metadata_problems(meta)]
-    if key in seen:
-        errors.append(f"{key}: listed twice")
+    key = f"{entry.get('id')}@{entry.get('version')}"
+    errors += [f"{key}: {problem}" for problem in mc.entry_problems(entry)]
+    if entry.get("id") in seen_ids:
+        errors.append(f"{key}: mod id listed twice; list only the current package")
     seen.add(key)
-    if recipes.get(key) != meta:
+    seen_ids.add(entry.get("id"))
+    meta = recipes.get(key)
+    if meta is None or mc.catalogue_metadata(meta) != mc.catalogue_metadata(entry):
         errors.append(f"{key}: differs from its recipe in mods/, or has none")
-    archive = entry.get("archive", {})
-    if archive.get("url") != mc.archive_url(meta):
-        errors.append(f"{key}: archive url is not {mc.archive_url(meta)!r}")
-    if not isinstance(archive.get("size"), int) or archive["size"] <= 0:
-        errors.append(f"{key}: archive size is not a positive integer")
-    if not mc.SHA256.fullmatch(str(archive.get("sha256", ""))):
-        errors.append(f"{key}: archive sha256 is not 64 lower-case hex digits")
-    entries.append((key, meta, archive))
+    entries.append((key, meta, entry))
 for key in sorted(set(recipes) - seen):
     errors.append(f"{key}: has a recipe but no manifest entry")
 
@@ -57,24 +54,29 @@ published = mc.PUBLIC / mc.MANIFEST
 if not published.is_file() or published.read_bytes() != manifest_path.read_bytes():
     errors.append(f"{published.relative_to(mc.ROOT)}: published copy differs from the source")
 
+if not errors:
+    for key, meta, entry in entries:
+        local = mc.build_path(meta)
+        if local.is_file():
+            errors += [f"{key}: {problem}" for problem in mc.packaged_archive_problems(local, meta, entry)]
+        elif "--local" in sys.argv[1:]:
+            errors.append(f"{key}: local archive {local} is missing")
+
 if "--remote" in sys.argv[1:] and not errors:
-    for key, meta, archive in entries:
+    for key, meta, entry in entries:
+        archive = entry["archive"]
         with tempfile.NamedTemporaryFile(suffix=".zip") as download:
             request = urllib.request.Request(archive["url"], headers={"User-Agent": "nanolathe-website-check"})
             with urllib.request.urlopen(request, timeout=60) as response:
                 for block in iter(lambda: response.read(1 << 20), b""):
                     download.write(block)
             download.flush()
-            size = download.tell()
-            if size != archive["size"]:
-                errors.append(f"{key}: release asset is {size} bytes, the entry says {archive['size']}")
-            elif mc.sha256(download.name) != archive["sha256"]:
-                errors.append(f"{key}: release asset SHA-256 differs from the entry")
-            else:
-                errors += [f"{key}: {problem}" for problem in mc.archive_problems(download.name, meta)]
+            errors += [f"{key}: {problem}" for problem in mc.packaged_archive_problems(download.name, meta, entry)]
 
 if errors:
     print("\n".join(errors), file=sys.stderr)
     sys.exit(1)
-checked = "manifest, recipes, release assets" if "--remote" in sys.argv[1:] else "manifest and recipes"
+checked = "manifest, recipes and available local archives"
+if "--remote" in sys.argv[1:]:
+    checked += ", plus release assets"
 print(f"Mod catalogue: {len(seen)} entries; {checked} and the published copy agree.")

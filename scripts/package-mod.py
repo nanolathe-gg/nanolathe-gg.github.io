@@ -7,11 +7,11 @@ recipes list sources in order; pass one archive path per source. Each source
 may strip a wrapping directory with stripPrefix before selecting its members.
 Duplicate destination names are refused, including across sources. The recipe's
 include patterns select members; executables, libraries and anything else the
-engine refuses are never copied. The recipe's metadata is embedded as
-nanolathe-mod.json. ZIP input is the default; upstream.format "rar" uses
+engine refuses are never copied. The recipe's complete schema 2 config is
+embedded as nanolathe-mod.json. ZIP input is the default; upstream.format "rar" uses
 bsdtar, and stripPrefix selects a nested content root before matching includes.
 The archive is written to .cache/mods/, and
-static/mods/manifest.json gains or replaces the entry for that id and version,
+static/mods/manifest.json gains or replaces the current entry for that id,
 pointing at the asset of the same name on this repository's "mods" release.
 
 --upload publishes the archive with the GitHub CLI, creating the release if
@@ -157,11 +157,11 @@ def upload(target):
 def write_entry(meta, target):
     manifest_path = mc.STATIC / mc.MANIFEST
     manifest = mc.load_json(manifest_path) if manifest_path.exists() else {"schema": mc.SCHEMA, "mods": []}
-    entry = dict(meta)
+    entry = mc.catalogue_metadata(meta)
     entry["archive"] = {"url": mc.archive_url(meta), "size": target.stat().st_size, "sha256": mc.sha256(target)}
     mods = manifest["mods"]
     for index, existing in enumerate(mods):
-        if existing["id"] == meta["id"] and existing["version"] == meta["version"]:
+        if existing["id"] == meta["id"]:
             mods[index] = entry
             break
     else:

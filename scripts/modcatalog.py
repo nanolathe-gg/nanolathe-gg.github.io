@@ -30,7 +30,10 @@ REPOSITORY = "nanolathe-gg/nanolathe-gg.github.io"
 RELEASE_TAG = "mods"
 RELEASE_BASE = f"https://github.com/{REPOSITORY}/releases/download/{RELEASE_TAG}/"
 SCHEMA = 1
+CONFIG_SCHEMA = 2
 METADATA_NAME = "nanolathe-mod.json"
+CATALOGUE_FIELDS = ("id", "name", "version", "summary", "homepage")
+CONFIG_FIELDS = {"schema", *CATALOGUE_FIELDS, "requires", "content", "rules", "settings", "keys", "locks"}
 # Every member carries one timestamp and one mode, and members are stored in
 # sorted order without compression, so a rebuild from the same upstream
 # archive is byte-identical whatever zlib the machine has.
@@ -104,21 +107,60 @@ def name_problem(name):
     return None
 
 
-def metadata_problems(meta):
+def catalogue_metadata(meta):
+    """Project display and identity fields; configuration belongs in the ZIP."""
+    return {key: meta[key] for key in CATALOGUE_FIELDS if key in meta}
+
+
+def identity_problems(meta):
     problems = []
-    if meta.get("schema") != SCHEMA:
-        problems.append(f"metadata schema is not {SCHEMA}")
-    if not ID.fullmatch(str(meta.get("id", ""))):
+    if not isinstance(meta.get("id"), str) or not ID.fullmatch(meta["id"]):
         problems.append("id is not lower-case letters, digits and dashes")
-    if not VERSION.fullmatch(str(meta.get("version", ""))):
+    if not isinstance(meta.get("version"), str) or not VERSION.fullmatch(meta["version"]):
         problems.append("version is not a plain version string")
-    if not str(meta.get("name", "")).strip():
+    if not isinstance(meta.get("name"), str) or not meta["name"].strip():
         problems.append("name is empty")
+    for key in ("summary", "homepage"):
+        if key in meta and not isinstance(meta[key], str):
+            problems.append(f"{key} is not a string")
+    return problems
+
+
+def metadata_problems(meta):
+    """Check recipe configuration identity; the engine validates its sections."""
+    if not isinstance(meta, dict):
+        return ["metadata is not an object"]
+    problems = identity_problems(meta)
+    if meta.get("schema") != CONFIG_SCHEMA:
+        problems.append(f"metadata schema is not {CONFIG_SCHEMA}")
+    for key in sorted(set(meta) - CONFIG_FIELDS):
+        problems.append(f"unknown config field {key!r}")
+    return problems
+
+
+def entry_problems(entry):
+    """Catalogue entries carry only identity, display text and archive identity."""
+    if not isinstance(entry, dict):
+        return ["entry is not an object"]
+    problems = identity_problems(entry)
+    for key in sorted(set(entry) - {*CATALOGUE_FIELDS, "archive"}):
+        problems.append(f"unknown catalogue field {key!r}")
+    archive = entry.get("archive")
+    if not isinstance(archive, dict):
+        return problems + ["archive is not an object"]
+    for key in sorted(set(archive) - {"url", "size", "sha256"}):
+        problems.append(f"unknown archive field {key!r}")
+    if not identity_problems(entry) and archive.get("url") != archive_url(entry):
+        problems.append(f"archive url is not {archive_url(entry)!r}")
+    if type(archive.get("size")) is not int or archive["size"] <= 0:
+        problems.append("archive size is not a positive integer")
+    if not isinstance(archive.get("sha256"), str) or not SHA256.fullmatch(archive["sha256"]):
+        problems.append("archive sha256 is not 64 lower-case hex digits")
     return problems
 
 
 def archive_problems(path, meta):
-    """Everything wrong with a hosted archive for this metadata."""
+    """Check the entire embedded configuration against the recipe, and paths."""
     problems = []
     seen = set()
     with zipfile.ZipFile(path) as archive:
@@ -134,9 +176,26 @@ def archive_problems(path, meta):
             seen.add(folded)
         try:
             embedded = json.loads(archive.read(METADATA_NAME))
-        except KeyError:
-            problems.append(f"{METADATA_NAME} is missing")
+        except (KeyError, ValueError, UnicodeError) as error:
+            problems.append(f"{METADATA_NAME} cannot be read: {error}")
         else:
+            problems += [f"{METADATA_NAME}: {problem}" for problem in metadata_problems(embedded)]
             if embedded != meta:
-                problems.append(f"{METADATA_NAME} differs from the manifest entry")
+                problems.append(f"{METADATA_NAME} differs from the recipe config")
+    return problems
+
+
+def packaged_archive_problems(path, meta, entry):
+    """Verify catalogue identity and hash before checking the full ZIP config."""
+    problems = []
+    if (meta.get("id"), meta.get("version")) != (entry.get("id"), entry.get("version")):
+        problems.append("recipe identity differs from the catalogue")
+    archive = entry["archive"]
+    size = Path(path).stat().st_size
+    if size != archive["size"]:
+        problems.append(f"archive is {size} bytes, the entry says {archive['size']}")
+    elif sha256(path) != archive["sha256"]:
+        problems.append("archive SHA-256 differs from the entry")
+    else:
+        problems += archive_problems(path, meta)
     return problems

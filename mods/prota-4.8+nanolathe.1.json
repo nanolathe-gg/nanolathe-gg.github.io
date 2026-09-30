@@ -1,0 +1,152 @@
+{
+  "upstream": {
+    "file": "ProTA4.8.zip",
+    "from": "https://prota.tauniverse.com",
+    "size": 17103752,
+    "sha256": "1b0acde162f30007a0e3a7a5a76e224217cec73a6a48e7894e394bff4ede0001"
+  },
+  "include": [
+    "ProTA.gp3",
+    "Icon/*",
+    "ProTA readme.txt",
+    "* changelog.txt"
+  ],
+  "metadata": {
+    "schema": 2,
+    "id": "prota",
+    "name": "ProTA",
+    "version": "4.8+nanolathe.1",
+    "summary": "A rebalancing of Total Annihilation that stays true to the original game.",
+    "homepage": "https://prota.tauniverse.com",
+    "requires": [],
+    "content": {
+      "detect": [
+        "downloadP",
+        "gamedatP",
+        "guiP",
+        "unitpicsP",
+        "weaponP"
+      ],
+      "layout": {
+        "download": "downloadP",
+        "gamedata": "gamedatP",
+        "guis": "guiP",
+        "unitpics": "unitpicsP",
+        "weapons": "weaponP"
+      },
+      "limits": {
+        "units": 16000,
+        "weapons": 16000,
+        "tnt_bytes": 67108864,
+        "los_bytes": 8388608
+      },
+      "presentation": {
+        "main_menu_version": "4.8"
+      }
+    },
+    "rules": {
+      "minimumGameplay": "community-3.9",
+      "gameplay": "community-3.9",
+      "communityFeatures": {
+        "constructionKickout": true,
+        "guardingBuildersHold": true,
+        "patrollingBuilderFilters": true,
+        "reclaimToggleKeepsBuild": true,
+        "structureRotation": true,
+        "areaDamageOverflow": true,
+        "areaDamageDedupCap": true,
+        "gridClaimTieBreak": true,
+        "transportedExplosions": true,
+        "buildWeaponSlotGuard": false,
+        "antinukeCircularCoverage": true,
+        "alliedJammingIgnored": true,
+        "resurrectionFinalization": true,
+        "weaponTargetKeys": true,
+        "veterancy": true,
+        "schemaUnits": true,
+        "airCorpseFall": false,
+        "scriptPorts": true,
+        "mexSnap": true,
+        "wreckSnap": true,
+        "aiDifficultyIncome": true,
+        "aiStockpileProducts": true,
+        "targetLockRelease": true,
+        "aiApplianceEnergy": true,
+        "aiBuilderStopThreshold": true,
+        "workingWeaponsAutonomous": true,
+        "attackSingleSlotTake": true,
+        "mapFeatureOwnerEleven": true,
+        "resurrectionTextFix": true,
+        "healTimeBitmask": false,
+        "aiBuilderPlacementLimit": 0,
+        "repairRate": {
+          "enabled": false,
+          "repairMultiplier": 1,
+          "selfHealMultiplier": 1
+        },
+        "offMapAircraftMarginTiles": 1,
+        "projectileCapacity": 3000,
+        "explosionCapacity": 3000,
+        "debrisCapacity": 1000,
+        "sfxLimit": 20480,
+        "pathStepAllowance": 66650,
+        "unitLimit": 1500,
+        "mexSnapRadius": 3,
+        "wreckSnapRadius": 1,
+        "mexSnapRadiusMax": 3,
+        "wreckSnapRadiusMax": 1
+      }
+    },
+    "settings": {
+      "presentation": {
+        "communitySelection": 1,
+        "factoryHundredBatch": 1,
+        "doubleClickSelection": 1,
+        "queuedOrderDrag": 1,
+        "communityCounters": 1,
+        "reloadBars": 1,
+        "veteranLabels": 1,
+        "groupNumbers": 1,
+        "weatherReport": 1,
+        "overview": 1,
+        "megamapWheel": 1,
+        "megamapWheelMove": 1,
+        "megamapDoubleClickMove": 0,
+        "megamapFlash": 1,
+        "megamapRadarMinimum": 0,
+        "megamapSonarMinimum": 0,
+        "megamapSonarJamMinimum": 0,
+        "megamapAntiNukeMinimum": 0,
+        "playerDotColors": [
+          227,
+          249,
+          18,
+          250,
+          67,
+          149,
+          208,
+          117,
+          210,
+          34
+        ],
+        "alliedDotSwatches": 1,
+        "victoryCue": 1
+      },
+      "switchAlt": 1,
+      "clock": 1,
+      "audio": {
+        "soundMode": 2,
+        "mixingBuffers": 128,
+        "cdMode": 2
+      },
+      "skirmish": {
+        "numPlayers": 10
+      }
+    },
+    "keys": {
+      "profile": "community",
+      "bindings": {}
+    },
+    "locks": []
+  }
+}
