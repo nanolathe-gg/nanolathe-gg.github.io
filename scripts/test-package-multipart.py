@@ -25,7 +25,9 @@ class MultipartTests(unittest.TestCase):
             patcher = patch.object(mc, attr, value)
             patcher.start()
             self.addCleanup(patcher.stop)
-        self.meta = {"schema": 1, "id": "fixture", "name": "Fixture", "version": "1"}
+        self.meta = {"schema": 2, "id": "fixture", "name": "Fixture", "version": "1",
+                     "content": {"layout": {"unitpics": "Icon"}},
+                     "rules": {"minimumGameplay": "community-3.9"}, "locks": []}
 
     def source(self, filename, entries, include, prefix=""):
         path = self.root / filename
@@ -56,6 +58,7 @@ class MultipartTests(unittest.TestCase):
             self.assertEqual(archive.namelist(), ["Icon/unit.pcx", "Mod.gp3", "Shared.ccx", mc.METADATA_NAME])
             self.assertEqual(archive.read("Shared.ccx"), b"base")
             self.assertEqual(archive.read("Mod.gp3"), b"mod")
+            self.assertEqual(archive.read(mc.METADATA_NAME), mc.metadata_bytes(self.meta))
         self.assertEqual(mc.archive_problems(target, self.meta), [])
         self.assertEqual(self.build([base, mod], [base_path, mod_path]).read_bytes(), first)
 
