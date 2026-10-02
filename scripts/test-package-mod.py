@@ -174,6 +174,36 @@ class PackagingTests(unittest.TestCase):
         changed["archive"]["size"] += 1
         self.assertIn("archive is", "; ".join(mc.packaged_archive_problems(target, self.meta, changed)))
 
+    def test_repackaging_keeps_original_version_and_updates_manifest_hash(self):
+        with patch.object(mc, "STATIC", self.root / "static"):
+            target = self.build([("Mod.gp3", b"first", stat.S_IFREG | 0o644)])
+            package.write_entry(self.meta, target)
+            first = mc.load_json(mc.STATIC / mc.MANIFEST)["mods"][0]
+            replacement = self.build([("Mod.gp3", b"other", stat.S_IFREG | 0o644)])
+            package.write_entry(self.meta, replacement)
+            current = mc.load_json(mc.STATIC / mc.MANIFEST)["mods"]
+            self.assertEqual(len(current), 1)
+            second = current[0]
+            self.assertEqual(second["version"], first["version"])
+            self.assertEqual(second["archive"]["url"], first["archive"]["url"])
+            self.assertEqual(second["archive"]["size"], first["archive"]["size"])
+            self.assertNotEqual(second["archive"]["sha256"], first["archive"]["sha256"])
+            self.assertEqual(mc.packaged_archive_problems(replacement, self.meta, second), [])
+
+    def test_upload_checks_hash_before_replacing_same_named_asset(self):
+        target = self.build([("Mod.gp3", b"archive", stat.S_IFREG | 0o644)])
+        digest = "sha256:" + mc.sha256(target)
+        for remote_digest in (digest, "sha256:" + "0" * 64, None):
+            with self.subTest(remote_digest=remote_digest):
+                release = {"assets": [{"name": target.name, "size": target.stat().st_size,
+                                       "digest": remote_digest}]}
+                with patch.object(package, "gh", return_value=mc.dump_json(release)) as gh, redirect_stdout(io.StringIO()):
+                    package.upload(target)
+                calls = [("release", "view", mc.RELEASE_TAG, "--json", "assets")]
+                if remote_digest != digest:
+                    calls.append(("release", "upload", mc.RELEASE_TAG, str(target), "--clobber"))
+                self.assertEqual([call.args for call in gh.call_args_list], calls)
+
     def test_config_fields_cannot_leak_into_the_catalogue(self):
         entry = mc.catalogue_metadata(self.meta)
         entry["archive"] = {"url": mc.archive_url(self.meta), "size": 1, "sha256": "0" * 64}

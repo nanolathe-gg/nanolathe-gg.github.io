@@ -4,49 +4,49 @@
     {
       "id": "prota",
       "name": "ProTA",
-      "version": "4.8+nanolathe.1",
+      "version": "4.8",
       "summary": "A rebalancing of Total Annihilation that stays true to the original game.",
       "homepage": "https://prota.tauniverse.com",
       "archive": {
-        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/mods/prota-4.8+nanolathe.1.zip",
-        "size": 12443167,
-        "sha256": "c4b4bb6958f899719605816ae9a727eb4a50959757ad8c5c0f3ed02dee4417a8"
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/mods/prota-4.8.zip",
+        "size": 12443155,
+        "sha256": "c533a5fff6422dd1434c73ea76851cf0df8826366112516a11bb5b4510ccc9b4"
       }
     },
     {
       "id": "escalation",
       "name": "TA: Escalation",
-      "version": "10.2.0+nanolathe.2",
+      "version": "10.2.0",
       "summary": "Experimental Gold 10.2.0 compatibility.",
       "homepage": "https://taesc.tauniverse.com/?p=downloads",
       "archive": {
-        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/mods/escalation-10.2.0+nanolathe.2.zip",
-        "size": 361801065,
-        "sha256": "7b6da59f1040ed99367d0a37904e6071d86b14b3b2ac653963ca864f2a1d208f"
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/mods/escalation-10.2.0.zip",
+        "size": 361801053,
+        "sha256": "9379c0d439209c8ae030baa6485cc7d4324624314ac33731d087790742a48c67"
       }
     },
     {
       "id": "ta-zero",
       "name": "TA Zero",
-      "version": "alpha5-20241224+nanolathe.1",
+      "version": "alpha5-20241224",
       "summary": "Experimental Alpha 5 compatibility, including Base resources and Map Pack 1f. Some historical gameplay and controls remain incomplete.",
       "homepage": "https://zero.tauniverse.com/ta-zero/",
       "archive": {
-        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/mods/ta-zero-alpha5-20241224+nanolathe.1.zip",
-        "size": 375902084,
-        "sha256": "e7e75723718d780d03d8de58778db57f9764e9c6edb1a748738152f3af8d01ad"
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/mods/ta-zero-alpha5-20241224.zip",
+        "size": 375902072,
+        "sha256": "dfcdbb14912fee3e25455bddbb6de8d01ce785297edb716fec18af318b32920f"
       }
     },
     {
       "id": "mayhem",
       "name": "Total Mayhem",
-      "version": "11.3.0+nanolathe.1",
+      "version": "11.3.0",
       "summary": "Experimental Total Mayhem 11.3.0 compatibility. Some patch-era gameplay and controls remain unverified.",
       "homepage": "https://mayhem.tauniverse.com/totalm.htm",
       "archive": {
-        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/mods/mayhem-11.3.0+nanolathe.1.zip",
-        "size": 21903472,
-        "sha256": "a6f50f6fc26a99d48f91181ef08ccd2169106842ada31303f1dcf4e68506f13b"
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/mods/mayhem-11.3.0.zip",
+        "size": 21903460,
+        "sha256": "9f6397229d26551bd2f8bc94ba05a9bec03ac451aa0f0bea353b0d2dd84579e2"
       }
     }
   ]

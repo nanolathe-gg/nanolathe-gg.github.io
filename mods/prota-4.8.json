@@ -15,7 +15,7 @@
     "schema": 2,
     "id": "prota",
     "name": "ProTA",
-    "version": "4.8+nanolathe.1",
+    "version": "4.8",
     "summary": "A rebalancing of Total Annihilation that stays true to the original game.",
     "homepage": "https://prota.tauniverse.com",
     "requires": [],

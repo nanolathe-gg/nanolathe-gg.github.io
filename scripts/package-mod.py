@@ -15,9 +15,9 @@ static/mods/manifest.json gains or replaces the current entry for that id,
 pointing at the asset of the same name on this repository's "mods" release.
 
 --upload publishes the archive with the GitHub CLI, creating the release if
-it does not exist. An asset is never replaced: a published name that already
-holds different bytes is refused, because clients verify and resume against
-the published hash. A mistake is corrected with a new version.
+it does not exist. Names use the original mod version. Repackaging replaces
+the same asset; the manifest's SHA-256 identifies the current package, and
+clients use it to check installed copies and isolate partial downloads.
 """
 import json
 from pathlib import Path
@@ -141,14 +141,16 @@ def upload(target):
         release = json.loads(gh("release", "view", mc.RELEASE_TAG, "--json", "assets"))
     except subprocess.CalledProcessError:
         gh("release", "create", mc.RELEASE_TAG, "--title", "Mods",
-           "--notes", "Mod archives for Nanolathe's Get more mods dialog, listed by https://nanolathe.gg/mods/manifest.json. Each asset is one mod version and is never replaced.",
+           "--notes", "Mod archives for Nanolathe's Get more mods dialog, listed by https://nanolathe.gg/mods/manifest.json. Asset names use the original mod name and version. Repackaging replaces the same asset; the manifest's SHA-256 identifies the current package and lets the engine detect updates.",
            "--latest=false")
         release = {"assets": []}
     for asset in release["assets"]:
         if asset["name"] == target.name:
-            if asset["size"] != target.stat().st_size or asset.get("digest", "sha256:" + mc.sha256(target)) != "sha256:" + mc.sha256(target):
-                fail(f"release {mc.RELEASE_TAG} already holds a different {target.name}; publish a new version instead")
-            print(f"{target.name} is already published")
+            if asset["size"] == target.stat().st_size and asset.get("digest") == "sha256:" + mc.sha256(target):
+                print(f"{target.name} is already published")
+                return
+            gh("release", "upload", mc.RELEASE_TAG, str(target), "--clobber")
+            print(f"updated {target.name} on release {mc.RELEASE_TAG}")
             return
     gh("release", "upload", mc.RELEASE_TAG, str(target))
     print(f"uploaded {target.name} to release {mc.RELEASE_TAG}")

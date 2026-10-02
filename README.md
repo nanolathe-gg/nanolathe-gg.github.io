@@ -154,8 +154,12 @@ asset, `<id>-<version>.zip`, on this repository's single
 [`mods` release](https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/tag/mods).
 The engine follows GitHub's redirect to its asset host and refuses an archive
 whose size, SHA-256 or embedded identity differs from its catalogue entry.
-Published assets stay immutable and hosted for saves that name them. A new
-packaging revision is a new version and ZIP, even when content is unchanged.
+Versions use the original mod's version, without a Nanolathe packaging suffix.
+A packaging update replaces the same named ZIP and changes its catalogue
+SHA-256. The engine compares that hash with the installed receipt to offer
+updates, and partial downloads are kept separately for each hash. Saves record
+the installed archive hash; a packaging update does not retain the old bytes
+under the same version.
 
 Each current package has a recipe, `mods/<id>-<version>.json`: the upstream
 archive's name, size and SHA-256, the members to keep, and the full config to
@@ -174,12 +178,12 @@ to that directory, which becomes the hosted ZIP root.
 To prepare the four current packages from their pinned upstream archives:
 
 ```sh
-python3 scripts/package-mod.py mods/prota-4.8+nanolathe.1.json ~/Downloads/ProTA4.8.zip
-python3 scripts/package-mod.py mods/escalation-10.2.0+nanolathe.2.json ~/Downloads/TAESC_GOLD_10_2_0_FULL.rar
-python3 scripts/package-mod.py mods/ta-zero-alpha5-20241224+nanolathe.1.json \
+python3 scripts/package-mod.py mods/prota-4.8.json ~/Downloads/ProTA4.8.zip
+python3 scripts/package-mod.py mods/escalation-10.2.0.json ~/Downloads/TAESC_GOLD_10_2_0_FULL.rar
+python3 scripts/package-mod.py mods/ta-zero-alpha5-20241224.json \
   ~/Downloads/TA_Zero_Base.zip ~/Downloads/TA_Zero_Alpha_5.zip \
   ~/Downloads/TA_Zero_Map_Pack_v1f.zip
-python3 scripts/package-mod.py mods/mayhem-11.3.0+nanolathe.1.json ~/Downloads/TotalM1130.zip
+python3 scripts/package-mod.py mods/mayhem-11.3.0.json ~/Downloads/TotalM1130.zip
 python3 scripts/test-package-mod.py
 python3 scripts/test-package-multipart.py
 make check
@@ -230,14 +234,17 @@ new ZIPs before deploying the catalogue, then run:
 make check check-mods-remote
 ```
 
-An upload refuses to replace an asset with different bytes. `make check`
+An upload skips an asset whose size and SHA-256 already match, and replaces
+one whose bytes changed. Keep the original mod version when correcting its
+package; publish the new archive before deploying its updated manifest hash.
+`make check`
 compares the catalogue with each recipe's identity and display fields and
 checks any available local ZIP's size, SHA-256 and full embedded config.
 `--local` requires all current ZIPs to be available; `make check-mods-remote`
 downloads and checks every current release asset against the same recipe.
 The published catalogue copy must also equal its source. To withdraw a mod,
-remove its current catalogue entry and recipe while retaining published
-versions for existing saves.
+remove its current catalogue entry and recipe. Older original mod versions
+may stay hosted, but packaging revisions of the same version are replaced.
 
 ## About page
 

@@ -1,52 +1,37 @@
 {
   "upstream": {
-    "file": "TAESC_GOLD_10_2_0_FULL.rar",
-    "format": "rar",
-    "from": "https://taesc.tauniverse.com/?p=downloads",
-    "size": 350859995,
-    "sha256": "a9873e551d7fa72ad2f74ca37d8bbc7c873043d178979c842bbf8ed667eea2c3"
+    "file": "TotalM1130.zip",
+    "from": "https://mayhem.tauniverse.com/totalm.htm",
+    "size": 26035480,
+    "sha256": "f485e8950a4b71940f414159ab6375a3cc32f35c2e8a962918e5984d801363af"
   },
-  "stripPrefix": "Step_2_Install Main Files (copy all contents into your main TA folder)/",
   "include": [
-    "T2ESC.ufo",
-    "T3ESC.ufo",
-    "T4ESC1.ufo",
-    "T4ESC2.ufo",
-    "T5ESC.ufo",
-    "TXESC.ufo",
-    "TAESC.gp3",
-    "TADEMO.ufo",
+    "mayhem.gp3",
+    "TADemoM.ufo",
     "Icon/*",
-    "Music/*",
-    "data/1.ZRB",
-    "GOLD_10_2_0.txt"
+    "1092 to 113 changelog.txt",
+    "824e and OTA to 109 changelog.txt"
   ],
   "metadata": {
     "schema": 2,
-    "id": "escalation",
-    "name": "TA: Escalation",
-    "version": "10.2.0+nanolathe.2",
-    "summary": "Experimental Gold 10.2.0 compatibility.",
-    "homepage": "https://taesc.tauniverse.com/?p=downloads",
+    "id": "mayhem",
+    "name": "Total Mayhem",
+    "version": "11.3.0",
+    "summary": "Experimental Total Mayhem 11.3.0 compatibility. Some patch-era gameplay and controls remain unverified.",
+    "homepage": "https://mayhem.tauniverse.com/totalm.htm",
     "requires": [],
     "content": {
       "detect": [
-        "aE",
-        "downloadsE",
-        "gamedatE",
-        "guiE",
-        "unitpicE",
-        "unitsE",
-        "weaponE"
+        "downloadsM",
+        "guiM",
+        "unitpicM",
+        "weaponM"
       ],
       "layout": {
-        "ai": "aE",
-        "download": "downloadsE",
-        "gamedata": "gamedatE",
-        "guis": "guiE",
-        "unitpics": "unitpicE",
-        "units": "unitsE",
-        "weapons": "weaponE"
+        "download": "downloadsM",
+        "guis": "guiM",
+        "unitpics": "unitpicM",
+        "weapons": "weaponM"
       },
       "limits": {
         "units": 16000,
@@ -68,16 +53,16 @@
         "areaDamageDedupCap": true,
         "gridClaimTieBreak": true,
         "transportedExplosions": true,
-        "buildWeaponSlotGuard": true,
+        "buildWeaponSlotGuard": false,
         "antinukeCircularCoverage": true,
         "alliedJammingIgnored": true,
         "resurrectionFinalization": true,
         "weaponTargetKeys": true,
         "veterancy": true,
         "schemaUnits": true,
-        "airCorpseFall": true,
+        "airCorpseFall": false,
         "scriptPorts": true,
-        "mexSnap": false,
+        "mexSnap": true,
         "wreckSnap": true,
         "aiDifficultyIncome": false,
         "aiStockpileProducts": false,
@@ -88,10 +73,10 @@
         "attackSingleSlotTake": false,
         "mapFeatureOwnerEleven": false,
         "resurrectionTextFix": false,
-        "healTimeBitmask": true,
+        "healTimeBitmask": false,
         "aiBuilderPlacementLimit": 0,
         "repairRate": {
-          "enabled": true,
+          "enabled": false,
           "repairMultiplier": 1,
           "selfHealMultiplier": 1
         },
@@ -101,10 +86,10 @@
         "debrisCapacity": 1000,
         "sfxLimit": 20480,
         "pathStepAllowance": 66650,
-        "unitLimit": 1000,
-        "mexSnapRadius": 0,
+        "unitLimit": 1500,
+        "mexSnapRadius": 3,
         "wreckSnapRadius": 1,
-        "mexSnapRadiusMax": 0,
+        "mexSnapRadiusMax": 3,
         "wreckSnapRadiusMax": 1
       }
     },

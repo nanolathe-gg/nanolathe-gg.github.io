@@ -43,7 +43,7 @@
     "schema": 2,
     "id": "ta-zero",
     "name": "TA Zero",
-    "version": "alpha5-20241224+nanolathe.1",
+    "version": "alpha5-20241224",
     "summary": "Experimental Alpha 5 compatibility, including Base resources and Map Pack 1f. Some historical gameplay and controls remain incomplete.",
     "homepage": "https://zero.tauniverse.com/ta-zero/",
     "requires": [],
