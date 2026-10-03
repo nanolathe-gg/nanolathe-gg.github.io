@@ -135,3 +135,10 @@ The prototype source was Library item
 `62b680070387479cabd6b5bfbf1e4db9e9f229dc98b8239155e90f696d9eaa18`. It was used as a design reference. Private Site deployment files were
 not imported. Neither the website nor capture work changed engine runtime
 defaults, retail archives, DNS or any published deployment.
+
+`manifest.json` preserves the original `../capture-output/` package inventory,
+including source-relative paths and raw PNG/control/log entries. This website
+folder retains a reviewable subset of that package plus the adapted README;
+the original report/source and complete raw inventory remain in the task's
+`capture-output/` directory. `website-media.json` is the separate inventory
+for the six files actually served by this branch.
