@@ -1,0 +1,598 @@
+{
+  "lighting": {
+    "cpu-0000.png": {
+      "bytes": 193773,
+      "sha256": "1409c3d0e1e28d0a46dc0f0d5eb63bb2d88c105d3f24712fdc29e22914815939"
+    },
+    "cpu-0001.png": {
+      "bytes": 193773,
+      "sha256": "1409c3d0e1e28d0a46dc0f0d5eb63bb2d88c105d3f24712fdc29e22914815939"
+    },
+    "cpu-0002.png": {
+      "bytes": 193773,
+      "sha256": "1409c3d0e1e28d0a46dc0f0d5eb63bb2d88c105d3f24712fdc29e22914815939"
+    },
+    "cpu-0003.png": {
+      "bytes": 193773,
+      "sha256": "1409c3d0e1e28d0a46dc0f0d5eb63bb2d88c105d3f24712fdc29e22914815939"
+    },
+    "cpu-0004.png": {
+      "bytes": 193773,
+      "sha256": "1409c3d0e1e28d0a46dc0f0d5eb63bb2d88c105d3f24712fdc29e22914815939"
+    },
+    "cpu-0005.png": {
+      "bytes": 193773,
+      "sha256": "1409c3d0e1e28d0a46dc0f0d5eb63bb2d88c105d3f24712fdc29e22914815939"
+    },
+    "cpu-0006.png": {
+      "bytes": 193773,
+      "sha256": "1409c3d0e1e28d0a46dc0f0d5eb63bb2d88c105d3f24712fdc29e22914815939"
+    },
+    "cpu-0007.png": {
+      "bytes": 193773,
+      "sha256": "1409c3d0e1e28d0a46dc0f0d5eb63bb2d88c105d3f24712fdc29e22914815939"
+    },
+    "cpu-0008.png": {
+      "bytes": 193773,
+      "sha256": "1409c3d0e1e28d0a46dc0f0d5eb63bb2d88c105d3f24712fdc29e22914815939"
+    },
+    "cpu-0009.png": {
+      "bytes": 193773,
+      "sha256": "1409c3d0e1e28d0a46dc0f0d5eb63bb2d88c105d3f24712fdc29e22914815939"
+    },
+    "cpu-0010.png": {
+      "bytes": 193773,
+      "sha256": "1409c3d0e1e28d0a46dc0f0d5eb63bb2d88c105d3f24712fdc29e22914815939"
+    },
+    "cpu-0011.png": {
+      "bytes": 193773,
+      "sha256": "1409c3d0e1e28d0a46dc0f0d5eb63bb2d88c105d3f24712fdc29e22914815939"
+    },
+    "cpu-0012.png": {
+      "bytes": 193773,
+      "sha256": "1409c3d0e1e28d0a46dc0f0d5eb63bb2d88c105d3f24712fdc29e22914815939"
+    },
+    "cpu-0013.png": {
+      "bytes": 193773,
+      "sha256": "1409c3d0e1e28d0a46dc0f0d5eb63bb2d88c105d3f24712fdc29e22914815939"
+    },
+    "cpu-0014.png": {
+      "bytes": 193773,
+      "sha256": "1409c3d0e1e28d0a46dc0f0d5eb63bb2d88c105d3f24712fdc29e22914815939"
+    },
+    "cpu-0015.png": {
+      "bytes": 193773,
+      "sha256": "1409c3d0e1e28d0a46dc0f0d5eb63bb2d88c105d3f24712fdc29e22914815939"
+    },
+    "cpu-0016.png": {
+      "bytes": 193773,
+      "sha256": "1409c3d0e1e28d0a46dc0f0d5eb63bb2d88c105d3f24712fdc29e22914815939"
+    },
+    "cpu-0017.png": {
+      "bytes": 193773,
+      "sha256": "1409c3d0e1e28d0a46dc0f0d5eb63bb2d88c105d3f24712fdc29e22914815939"
+    },
+    "cpu-0018.png": {
+      "bytes": 193773,
+      "sha256": "1409c3d0e1e28d0a46dc0f0d5eb63bb2d88c105d3f24712fdc29e22914815939"
+    },
+    "cpu-0019.png": {
+      "bytes": 193773,
+      "sha256": "1409c3d0e1e28d0a46dc0f0d5eb63bb2d88c105d3f24712fdc29e22914815939"
+    },
+    "cpu-0020.png": {
+      "bytes": 193773,
+      "sha256": "1409c3d0e1e28d0a46dc0f0d5eb63bb2d88c105d3f24712fdc29e22914815939"
+    },
+    "cpu-0021.png": {
+      "bytes": 193773,
+      "sha256": "1409c3d0e1e28d0a46dc0f0d5eb63bb2d88c105d3f24712fdc29e22914815939"
+    },
+    "cpu-0022.png": {
+      "bytes": 193773,
+      "sha256": "1409c3d0e1e28d0a46dc0f0d5eb63bb2d88c105d3f24712fdc29e22914815939"
+    },
+    "cpu-0023.png": {
+      "bytes": 193773,
+      "sha256": "1409c3d0e1e28d0a46dc0f0d5eb63bb2d88c105d3f24712fdc29e22914815939"
+    },
+    "cpu-0024.png": {
+      "bytes": 193773,
+      "sha256": "1409c3d0e1e28d0a46dc0f0d5eb63bb2d88c105d3f24712fdc29e22914815939"
+    },
+    "cpu-0025.png": {
+      "bytes": 193773,
+      "sha256": "1409c3d0e1e28d0a46dc0f0d5eb63bb2d88c105d3f24712fdc29e22914815939"
+    },
+    "cpu-0026.png": {
+      "bytes": 193773,
+      "sha256": "1409c3d0e1e28d0a46dc0f0d5eb63bb2d88c105d3f24712fdc29e22914815939"
+    },
+    "cpu-0027.png": {
+      "bytes": 193773,
+      "sha256": "1409c3d0e1e28d0a46dc0f0d5eb63bb2d88c105d3f24712fdc29e22914815939"
+    },
+    "cpu-0028.png": {
+      "bytes": 193773,
+      "sha256": "1409c3d0e1e28d0a46dc0f0d5eb63bb2d88c105d3f24712fdc29e22914815939"
+    },
+    "cpu-0029.png": {
+      "bytes": 193773,
+      "sha256": "1409c3d0e1e28d0a46dc0f0d5eb63bb2d88c105d3f24712fdc29e22914815939"
+    },
+    "cpu-0030.png": {
+      "bytes": 210795,
+      "sha256": "7179f0da873315f55c15c9d61dc02ad75c2372c7b1cae487e0c667efcfb78708"
+    },
+    "cpu-0031.png": {
+      "bytes": 211117,
+      "sha256": "855fbf3370508924f6f1018f5c91159fb3fa8a806382a1f136e09d143d29fde7"
+    },
+    "cpu-0032.png": {
+      "bytes": 211308,
+      "sha256": "ed5a3f871a13224c946160ae05e1b56b9ad543a3fc15818125037deaf50111f7"
+    },
+    "cpu-0033.png": {
+      "bytes": 211752,
+      "sha256": "b08d9a03e5b2aeb45b0d53a27dd63317f5903bdba46947cf5f95daa0a9528940"
+    },
+    "cpu-0034.png": {
+      "bytes": 211928,
+      "sha256": "ca4ba6082af5a50efc10ef56fd170f6d07398687c538f09cbad8129676c1e488"
+    },
+    "cpu-0035.png": {
+      "bytes": 210457,
+      "sha256": "15888f9f44e5b1a65e30e95a9b9a81a19df20bb3076b4f65f8ab7a32b7d7d02d"
+    },
+    "cpu-0036.png": {
+      "bytes": 211259,
+      "sha256": "71a21bc08e6d85fd269a949aaef86cfd97779a36bd60bb7b060cd74c674e8766"
+    },
+    "cpu-0037.png": {
+      "bytes": 210767,
+      "sha256": "f097913d246059d024cf2d238146b625071c0013536ed48065bd96ac033776ad"
+    },
+    "cpu-0038.png": {
+      "bytes": 211716,
+      "sha256": "e2bd7c35f77e639fbd800c0ce8a203a620c6d8ea47dce446b1c38c2aa97af237"
+    },
+    "cpu-0039.png": {
+      "bytes": 211702,
+      "sha256": "31757dcfa8cf199f6e33f31e59321c992be94a4fc7538447171f14471f6d1f10"
+    },
+    "cpu-0040.png": {
+      "bytes": 211800,
+      "sha256": "45c2651595b553cdb8688372efd8991c527020074428ae65cf779f89b47c230f"
+    },
+    "cpu-0041.png": {
+      "bytes": 210373,
+      "sha256": "9fdba116cb72b4de9c10833bbc37650479e8b661ea3ff52b9740b191db563e5d"
+    },
+    "cpu-0042.png": {
+      "bytes": 210919,
+      "sha256": "0b94d1aecbe3afab96c76028bca3ce196004524a56b9459827fcd3407b257f30"
+    },
+    "cpu-0043.png": {
+      "bytes": 209491,
+      "sha256": "9c588af89194d5c10878c8de3003f309a73075b701848d69f9f0d5460305196b"
+    },
+    "cpu-0044.png": {
+      "bytes": 208609,
+      "sha256": "14cc7c4f23bbfe221ec84851950ae6c8806b87b72afc0d09e63ae4e31bd2450c"
+    },
+    "cpu-0045.png": {
+      "bytes": 207671,
+      "sha256": "fd63b23aa338c9d4e85fed15088165c1e8f03dc64b5cf4bd94699af139c47492"
+    },
+    "cpu-0046.png": {
+      "bytes": 207819,
+      "sha256": "bca11608fade6dd1de61290468d506e03379f4cd6db516c2f0da7ae1549db459"
+    },
+    "cpu-0047.png": {
+      "bytes": 206877,
+      "sha256": "af9b2e2f23c8bfaae293ff8ddb99a5c941b556383ba7aa40335cf060c27303b3"
+    },
+    "cpu-0048.png": {
+      "bytes": 206702,
+      "sha256": "1056cd39998a9cfb2c65745ec213f66f6f0706be22c588c00883dbd1b59615c0"
+    },
+    "cpu-0049.png": {
+      "bytes": 205669,
+      "sha256": "215c0580d4a5c67aac753097d0b03b2ae9d9516a4f6bad6f37611012b9ab797d"
+    },
+    "cpu-0050.png": {
+      "bytes": 205982,
+      "sha256": "9880dd13f326c61a60bf2da01c64add95263269a071f1f66671b967f9b6ca2ea"
+    },
+    "cpu-0051.png": {
+      "bytes": 204639,
+      "sha256": "9b69ab613055ce84588c438008974ce3963dfa9f00cd4a54e172f3eb2ce60784"
+    },
+    "cpu-0052.png": {
+      "bytes": 204351,
+      "sha256": "49a509445fc370bf18f31882cc61fc7fa76b4ea3530c2957c26502c247b1a535"
+    },
+    "cpu-0053.png": {
+      "bytes": 203682,
+      "sha256": "3e6d720197035bad1dd82caf835327eb22a58d9c7e5d34569e1d8e20efe6c3b7"
+    },
+    "cpu-0054.png": {
+      "bytes": 206883,
+      "sha256": "4eddda3d363b854829d47c0e91d76d823763a3bb263497b1de7b92de313e641e"
+    },
+    "cpu-0055.png": {
+      "bytes": 205664,
+      "sha256": "9edbefe296948d66d5f528fbfb530bc9647f13a1db5ce00060ac534fd22598a6"
+    },
+    "cpu-0056.png": {
+      "bytes": 206086,
+      "sha256": "658878cfd1bd65495d73f8c1243305de18fd313e82cc16715aacbdcc0c5e15fc"
+    },
+    "cpu-0057.png": {
+      "bytes": 205735,
+      "sha256": "20f34b2d5f9696263f97de6cb53d5b1bf5e0b2014d8caef37df864967276fa11"
+    },
+    "cpu-0058.png": {
+      "bytes": 205388,
+      "sha256": "d061e477e7fd4e84bb338425ea64928b57b8afde20d6f25312a05fafae2c0166"
+    },
+    "cpu-0059.png": {
+      "bytes": 205327,
+      "sha256": "027e3635665adba571b3b57bb9189c5b0ad5eb65c3280ffbcdd0c9a65a54c3d2"
+    },
+    "gpu-0000.png": {
+      "bytes": 1028108,
+      "sha256": "c3261ad4b1ef659fc8d66bb096602a7421973b27a50a916fe670c4a2ca3fd67f"
+    },
+    "gpu-0001.png": {
+      "bytes": 1028108,
+      "sha256": "c3261ad4b1ef659fc8d66bb096602a7421973b27a50a916fe670c4a2ca3fd67f"
+    },
+    "gpu-0002.png": {
+      "bytes": 1028108,
+      "sha256": "c3261ad4b1ef659fc8d66bb096602a7421973b27a50a916fe670c4a2ca3fd67f"
+    },
+    "gpu-0003.png": {
+      "bytes": 1028108,
+      "sha256": "c3261ad4b1ef659fc8d66bb096602a7421973b27a50a916fe670c4a2ca3fd67f"
+    },
+    "gpu-0004.png": {
+      "bytes": 1028108,
+      "sha256": "c3261ad4b1ef659fc8d66bb096602a7421973b27a50a916fe670c4a2ca3fd67f"
+    },
+    "gpu-0005.png": {
+      "bytes": 1028108,
+      "sha256": "c3261ad4b1ef659fc8d66bb096602a7421973b27a50a916fe670c4a2ca3fd67f"
+    },
+    "gpu-0006.png": {
+      "bytes": 1028108,
+      "sha256": "c3261ad4b1ef659fc8d66bb096602a7421973b27a50a916fe670c4a2ca3fd67f"
+    },
+    "gpu-0007.png": {
+      "bytes": 1028108,
+      "sha256": "c3261ad4b1ef659fc8d66bb096602a7421973b27a50a916fe670c4a2ca3fd67f"
+    },
+    "gpu-0008.png": {
+      "bytes": 1028108,
+      "sha256": "c3261ad4b1ef659fc8d66bb096602a7421973b27a50a916fe670c4a2ca3fd67f"
+    },
+    "gpu-0009.png": {
+      "bytes": 1028108,
+      "sha256": "c3261ad4b1ef659fc8d66bb096602a7421973b27a50a916fe670c4a2ca3fd67f"
+    },
+    "gpu-0010.png": {
+      "bytes": 1028108,
+      "sha256": "c3261ad4b1ef659fc8d66bb096602a7421973b27a50a916fe670c4a2ca3fd67f"
+    },
+    "gpu-0011.png": {
+      "bytes": 1028108,
+      "sha256": "c3261ad4b1ef659fc8d66bb096602a7421973b27a50a916fe670c4a2ca3fd67f"
+    },
+    "gpu-0012.png": {
+      "bytes": 1028108,
+      "sha256": "c3261ad4b1ef659fc8d66bb096602a7421973b27a50a916fe670c4a2ca3fd67f"
+    },
+    "gpu-0013.png": {
+      "bytes": 1028108,
+      "sha256": "c3261ad4b1ef659fc8d66bb096602a7421973b27a50a916fe670c4a2ca3fd67f"
+    },
+    "gpu-0014.png": {
+      "bytes": 1028108,
+      "sha256": "c3261ad4b1ef659fc8d66bb096602a7421973b27a50a916fe670c4a2ca3fd67f"
+    },
+    "gpu-0015.png": {
+      "bytes": 1028108,
+      "sha256": "c3261ad4b1ef659fc8d66bb096602a7421973b27a50a916fe670c4a2ca3fd67f"
+    },
+    "gpu-0016.png": {
+      "bytes": 1028108,
+      "sha256": "c3261ad4b1ef659fc8d66bb096602a7421973b27a50a916fe670c4a2ca3fd67f"
+    },
+    "gpu-0017.png": {
+      "bytes": 1028108,
+      "sha256": "c3261ad4b1ef659fc8d66bb096602a7421973b27a50a916fe670c4a2ca3fd67f"
+    },
+    "gpu-0018.png": {
+      "bytes": 1028108,
+      "sha256": "c3261ad4b1ef659fc8d66bb096602a7421973b27a50a916fe670c4a2ca3fd67f"
+    },
+    "gpu-0019.png": {
+      "bytes": 1028108,
+      "sha256": "c3261ad4b1ef659fc8d66bb096602a7421973b27a50a916fe670c4a2ca3fd67f"
+    },
+    "gpu-0020.png": {
+      "bytes": 1028108,
+      "sha256": "c3261ad4b1ef659fc8d66bb096602a7421973b27a50a916fe670c4a2ca3fd67f"
+    },
+    "gpu-0021.png": {
+      "bytes": 1028108,
+      "sha256": "c3261ad4b1ef659fc8d66bb096602a7421973b27a50a916fe670c4a2ca3fd67f"
+    },
+    "gpu-0022.png": {
+      "bytes": 1028108,
+      "sha256": "c3261ad4b1ef659fc8d66bb096602a7421973b27a50a916fe670c4a2ca3fd67f"
+    },
+    "gpu-0023.png": {
+      "bytes": 1028108,
+      "sha256": "c3261ad4b1ef659fc8d66bb096602a7421973b27a50a916fe670c4a2ca3fd67f"
+    },
+    "gpu-0024.png": {
+      "bytes": 1028108,
+      "sha256": "c3261ad4b1ef659fc8d66bb096602a7421973b27a50a916fe670c4a2ca3fd67f"
+    },
+    "gpu-0025.png": {
+      "bytes": 1028108,
+      "sha256": "c3261ad4b1ef659fc8d66bb096602a7421973b27a50a916fe670c4a2ca3fd67f"
+    },
+    "gpu-0026.png": {
+      "bytes": 1028108,
+      "sha256": "c3261ad4b1ef659fc8d66bb096602a7421973b27a50a916fe670c4a2ca3fd67f"
+    },
+    "gpu-0027.png": {
+      "bytes": 1028108,
+      "sha256": "c3261ad4b1ef659fc8d66bb096602a7421973b27a50a916fe670c4a2ca3fd67f"
+    },
+    "gpu-0028.png": {
+      "bytes": 1028108,
+      "sha256": "c3261ad4b1ef659fc8d66bb096602a7421973b27a50a916fe670c4a2ca3fd67f"
+    },
+    "gpu-0029.png": {
+      "bytes": 1028108,
+      "sha256": "c3261ad4b1ef659fc8d66bb096602a7421973b27a50a916fe670c4a2ca3fd67f"
+    },
+    "gpu-0030.png": {
+      "bytes": 1198927,
+      "sha256": "fd4a68121a51798576ec8e46f5e87c48fdb01b2127eb6e8c90ed4521d8f90a15"
+    },
+    "gpu-0031.png": {
+      "bytes": 1202007,
+      "sha256": "5236c9dcd1bb270dc455f932db69eee847c58fd9065e6c4d71581ed975900094"
+    },
+    "gpu-0032.png": {
+      "bytes": 1201743,
+      "sha256": "54c2e0282d18ae895af3ca5b83a1e1f8f47f670806b1e5d5ba620791e6b7f003"
+    },
+    "gpu-0033.png": {
+      "bytes": 1226709,
+      "sha256": "818c67b29021c0f831424624f80338e55ed8b71b421a35dab853660953826dcf"
+    },
+    "gpu-0034.png": {
+      "bytes": 1217506,
+      "sha256": "0156cba07d96563e4f911e5fac72750dd2c623685685b6d533ca5fa04701e3b7"
+    },
+    "gpu-0035.png": {
+      "bytes": 1221335,
+      "sha256": "e917ea183a71f13288c8f0c28a572410b03141c866b6c302ad69398a9f21120d"
+    },
+    "gpu-0036.png": {
+      "bytes": 1224057,
+      "sha256": "dce2bd38306c7d5fba5ffa9ebed2de362b08d1c00a68007a10abbddb719bb037"
+    },
+    "gpu-0037.png": {
+      "bytes": 1233575,
+      "sha256": "911ec3ff0c2ac8f07f794f89b068fd20c250badaa295a52d20ac3b06a008ebdc"
+    },
+    "gpu-0038.png": {
+      "bytes": 1249182,
+      "sha256": "024b40f9f136f43ebcd3418c49cfc27635f6e879e4a6de019e83ff47fc606e73"
+    },
+    "gpu-0039.png": {
+      "bytes": 1279523,
+      "sha256": "dee359be9c414309efb7e2f116912d368237d62deb564aa7b7f3e05cbecac160"
+    },
+    "gpu-0040.png": {
+      "bytes": 1308483,
+      "sha256": "3ea18c3547c1f72b7da140d50e66ae9150a8d37e1a2b0ded5405d1165ab13851"
+    },
+    "gpu-0041.png": {
+      "bytes": 1311216,
+      "sha256": "7c8bbecc6389519ad3e67a416148a53e574442793864269264cd14ab78208d1b"
+    },
+    "gpu-0042.png": {
+      "bytes": 1334530,
+      "sha256": "84c8764178f446c4983a7460426abf0f9e9c03d1d0c6933a799343957a2e6b43"
+    },
+    "gpu-0043.png": {
+      "bytes": 1344167,
+      "sha256": "4841108470a89426579e45874654fd3570c94fe4c645cd85db1feb7fe1a3e69e"
+    },
+    "gpu-0044.png": {
+      "bytes": 1308823,
+      "sha256": "28e7287233a7fbda65c373f1570b7e4a41bc6d91899c493b18dd179dec4619fa"
+    },
+    "gpu-0045.png": {
+      "bytes": 1130889,
+      "sha256": "1f6799ece752ed61868b46a70bd82bfa0bda9770730ee53d966ffe5e410f5c70"
+    },
+    "gpu-0046.png": {
+      "bytes": 1129540,
+      "sha256": "f8e2dbd9000bc63cdffe46f9f081414977e228b34158e89b301219e9fbd7fe25"
+    },
+    "gpu-0047.png": {
+      "bytes": 1126031,
+      "sha256": "1393feae0774608918a7bb8c582a78c61498da58976865e577f831071f7dbfc8"
+    },
+    "gpu-0048.png": {
+      "bytes": 1125164,
+      "sha256": "02e585ea9338eb78857bc23ccc8aaf2e5b0a6e40dc88f5fe7f04484dd7499122"
+    },
+    "gpu-0049.png": {
+      "bytes": 1122084,
+      "sha256": "b3709dfcac6c57386a37fe342b8f068b34b8d89371e5a580d8880c98dd6a4fe3"
+    },
+    "gpu-0050.png": {
+      "bytes": 1124774,
+      "sha256": "c0f1e08e603b4ce149e7a667332f1edf92c09692ed5bd65462217229dc1fd477"
+    },
+    "gpu-0051.png": {
+      "bytes": 1126985,
+      "sha256": "95d9e5f247fb3660382c6fdc86228c717318ea7b8718671a9f10118bcf5ff5b7"
+    },
+    "gpu-0052.png": {
+      "bytes": 1132049,
+      "sha256": "bd0bb46df112da32ab0afeca705a2c811dd074e9074447186f137a6142c42783"
+    },
+    "gpu-0053.png": {
+      "bytes": 1133526,
+      "sha256": "5f691dafe8dca55f5f343abcd115af4cc2775abc53fdb8c537e7ef50a2a68918"
+    },
+    "gpu-0054.png": {
+      "bytes": 1212519,
+      "sha256": "de116f54a180bcfd8e75d35b48bf3515dfa81a05bab84a053ab6c74e994de87b"
+    },
+    "gpu-0055.png": {
+      "bytes": 1219869,
+      "sha256": "38e104e93e2eb9fe729120da51d61e6675009e903b3d0193356a7a824722520b"
+    },
+    "gpu-0056.png": {
+      "bytes": 1218851,
+      "sha256": "fd540968cbe5f0f20cfaaf0135067490e3e97ff0b8bc53e198bf9c72fbeb02aa"
+    },
+    "gpu-0057.png": {
+      "bytes": 1214641,
+      "sha256": "123ba3e4e1fc94e587bddd7f1a7b0223b4ad859b79d8d366772fab1ffa431667"
+    },
+    "gpu-0058.png": {
+      "bytes": 1210717,
+      "sha256": "c684123b1dbffc34323a165cca46d287bf471395f72f731913106875451c3a94"
+    },
+    "gpu-0059.png": {
+      "bytes": 1205103,
+      "sha256": "077b04efb40eba08d82867e7b820cc650f306f681f9318ff80208cd7216430db"
+    },
+    "gpu-no-glow-0030.png": {
+      "bytes": 1198616,
+      "sha256": "313fcece1dfbd7d49789baecb34fa9a82cc46ead53e4e1494037b81559c9580e"
+    },
+    "gpu-no-glow-0031.png": {
+      "bytes": 1204968,
+      "sha256": "36c27afce5465f6f6ca769ddf66349abd0cffc341ccf1788ffed394136eb06fa"
+    },
+    "gpu-no-glow-0032.png": {
+      "bytes": 1205904,
+      "sha256": "ee256ad7759cbc078c5b52ba02bad8324e35ae258290ac86aeda23478a935867"
+    },
+    "gpu-no-glow-0033.png": {
+      "bytes": 1226509,
+      "sha256": "c52ae0487b5f247314c8a5041f2a13e540405008f0b3d8f62d6a1555f7fee4d1"
+    },
+    "gpu-no-glow-0034.png": {
+      "bytes": 1210504,
+      "sha256": "8f46c9d6275b59fe9892dcc349f4270c8c129ae8d8d9950f696c81bab8b0676c"
+    },
+    "gpu-no-glow-0035.png": {
+      "bytes": 1218345,
+      "sha256": "92c431b4f4b86b1e126b26afa567a48b126026e677033f17dbd211ac33ceb62a"
+    },
+    "gpu-no-glow-0036.png": {
+      "bytes": 1220387,
+      "sha256": "6f0d53aacfd2b7526c8686edb0135f900a4bf01c3c55ddd5c62a7d34e05c1e42"
+    },
+    "gpu-no-glow-0037.png": {
+      "bytes": 1233368,
+      "sha256": "a0a852160f92a15014d6b56740712dfb6551462b51e53422f64ff4605e0658ba"
+    },
+    "gpu-no-glow-0038.png": {
+      "bytes": 1248428,
+      "sha256": "bac8f03831d591f364541fa5438b92c736e41776d705de44b1928b5a581b7051"
+    },
+    "gpu-no-glow-0039.png": {
+      "bytes": 1279153,
+      "sha256": "6e851c75c62b15f7260e333301b228e245e79faec071297bbc2783ab0ff773ab"
+    },
+    "gpu-no-glow-0040.png": {
+      "bytes": 1306676,
+      "sha256": "d9bdee539611dca60319c573a32df21fc014f038347b29ed3b3c2735d25dd79f"
+    },
+    "gpu-no-glow-0041.png": {
+      "bytes": 1297080,
+      "sha256": "271881d1d3c7cc648c23b67d54a07e04a2e443ed883d64306c2691300a311629"
+    },
+    "gpu-no-glow-0042.png": {
+      "bytes": 1313701,
+      "sha256": "e515de840069b495ae01e8e5dc61f7eeb13e25be6e7f11d73c957f0f1b88081b"
+    },
+    "gpu-no-light-glow-0030.png": {
+      "bytes": 1178545,
+      "sha256": "3be837ce50a0072f8ee0fe5a71a6321f630a603378dcdb518392c4634713f310"
+    },
+    "gpu-no-light-glow-0031.png": {
+      "bytes": 1170683,
+      "sha256": "59df1b2c2d352059dc5b4ada81a014407632ee139ddcdb27bce1e3150042ab18"
+    },
+    "gpu-no-light-glow-0032.png": {
+      "bytes": 1166733,
+      "sha256": "6ba381919d2bc2ec6af1b2343d335c1aa88c0e5c723ab85d1f898687ea703a45"
+    },
+    "gpu-no-light-glow-0033.png": {
+      "bytes": 1144782,
+      "sha256": "2ad1f5d21bea8a335f9a4448fe702f276a74f75e216108082677c1d42b6029e5"
+    },
+    "gpu-no-light-glow-0034.png": {
+      "bytes": 1134516,
+      "sha256": "ec69b674559da2af072474fa476ee899ae359baa18cf62c76a3720831ee82942"
+    },
+    "gpu-no-light-glow-0035.png": {
+      "bytes": 1146509,
+      "sha256": "2f5e1c853107bf14c37a61bdccedaa90039ebb83b0f0cb313ba40b33b130e8d6"
+    },
+    "gpu-no-light-glow-0036.png": {
+      "bytes": 1179385,
+      "sha256": "8bf7dd41abcda930f77d6242ddaefd18aecac8c54d93803a4bcf890cdbbbc5cd"
+    },
+    "gpu-no-light-glow-0037.png": {
+      "bytes": 1217535,
+      "sha256": "d058151a29627c9fc9c458212860eca722478e7934cbd2aa148ba90e202a31d4"
+    },
+    "gpu-no-light-glow-0038.png": {
+      "bytes": 1250106,
+      "sha256": "5f4e48c02a44568b891786bd605c0afdcab3ccc149fdbeecccf8a72fd7d4d95d"
+    },
+    "gpu-no-light-glow-0039.png": {
+      "bytes": 1257981,
+      "sha256": "463a78ae094cba091b0f0e909913d7514e0c3e8dfc006d46a874e5dcd99b3af4"
+    },
+    "gpu-no-light-glow-0040.png": {
+      "bytes": 1276969,
+      "sha256": "fe26045a23edc2cc4d2ecb2134c496ce5f295e0b25d5e5be2ec8970be878b1bc"
+    },
+    "gpu-no-light-glow-0041.png": {
+      "bytes": 1287754,
+      "sha256": "19172525a6717780ae761ec9c23ab88a3e8880987c9b66cc00445867da7a9adb"
+    },
+    "gpu-no-light-glow-0042.png": {
+      "bytes": 1311749,
+      "sha256": "275fbaf64c67431612d20a7b3fe19e4c1045171b0d12d5bf3028f3220404411a"
+    }
+  },
+  "landscape": {
+    "cpu-0000.png": {
+      "bytes": 192603,
+      "sha256": "c9070ae81a05ee2d14f896e97b18c38432786e8a9f4a02e1e1a6bfe69aa2c0ca"
+    },
+    "gpu-0000.png": {
+      "bytes": 1012691,
+      "sha256": "d8ab0b3b58428d5aa236566d70e07ca23addfcef01dbfe89838c62ef1768c439"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "path": "images/renderer/v4/explosion-classic.mp4",
+    "bytes": 554491,
+    "sha256": "ecbfca2bd92db69db8a1c71c3eb5e171edb6e64b71c364bd96194f2c3595ae5c"
+  },
+  {
+    "path": "images/renderer/v4/explosion-classic.webp",
+    "bytes": 75872,
+    "sha256": "9a5e2bd244656ca7c9be6f7104afa9912dbaa96582e5fb7cf8c0bd0603d8548d"
+  },
+  {
+    "path": "images/renderer/v4/explosion-modern.mp4",
+    "bytes": 926395,
+    "sha256": "f5d8c3fe1c09344dac5744d0ba04b11a72c5c5d2582436b9b268ac1bbe0f995d"
+  },
+  {
+    "path": "images/renderer/v4/explosion-modern.webp",
+    "bytes": 739394,
+    "sha256": "022a602cd1d3e03db0677405f106deef4fcfb033e6ccf2262b93e5101a3180de"
+  },
+  {
+    "path": "images/renderer/v4/landscape-classic.webp",
+    "bytes": 68830,
+    "sha256": "f6435aa247195e7ea40308b2264cf428f66294b26ed5ade9ffd827df3bbb0de9"
+  },
+  {
+    "path": "images/renderer/v4/landscape-modern.webp",
+    "bytes": 232270,
+    "sha256": "a26339bd022438ec2de846597bda75ea8c5a67264a23d2da7caa504a81f5d64a"
+  }
+]

@@ -1,0 +1,195 @@
+{
+  "engine_source_revision": "ac32756e0caffbc37e0fb80b21c03d3c641f1d21",
+  "capture_harness_commit": "0ff16de52f9bdae852b2a128bd5cc59dd8ac9233",
+  "backend": "Metal; EBITENGINE_GRAPHICS_LIBRARY=metal",
+  "native_dimensions": [
+    960,
+    640
+  ],
+  "renderer_controls": {
+    "classic_anti_alias": true,
+    "modern_anti_alias": true,
+    "modern_effects": {
+      "WaterSurface": true,
+      "WaterMotion": true,
+      "WaterFoam": true,
+      "HovercraftLandWash": true,
+      "WaterReflections": true,
+      "ModelLight": true,
+      "GroundLight": true,
+      "WeaponGlowStrength": 100,
+      "ExplosionGlowStrength": 100,
+      "NanoGlowStrength": 100,
+      "Finish": true,
+      "Glint": true,
+      "BlastRings": true,
+      "FireShimmer": true,
+      "WreckGlow": true,
+      "WreckShimmer": true,
+      "Scorch": true,
+      "SoftShadows": true,
+      "ShadowSoftness": 100,
+      "Supersample": true
+    },
+    "modern_glow": true,
+    "modern_glow_strength": 100,
+    "modern_ground_light_strength": 100,
+    "modern_blast_ring_strength": 100,
+    "shadow_controls": {
+      "master": true,
+      "features": true,
+      "vehicles": true
+    }
+  },
+  "terrain_scope": {
+    "synthesized_terrain_tiles": true,
+    "synthesized_foliage_sprite_banks": false,
+    "foliage_path": "stock nearest-doubled feature sprites on both clients"
+  },
+  "selected_source_pngs": {
+    "explosion-classic.png": {
+      "raw_source": "/tmp/nanolathe-comparison-final-lighting/cpu-0042.png",
+      "sha256": "0b94d1aecbe3afab96c76028bca3ce196004524a56b9459827fcd3407b257f30"
+    },
+    "explosion-modern.png": {
+      "raw_source": "/tmp/nanolathe-comparison-final-lighting/gpu-0042.png",
+      "sha256": "84c8764178f446c4983a7460426abf0f9e9c03d1d0c6933a799343957a2e6b43"
+    },
+    "explosion-bright-classic.png": {
+      "raw_source": "/tmp/nanolathe-comparison-final-lighting/cpu-0038.png",
+      "sha256": "e2bd7c35f77e639fbd800c0ce8a203a620c6d8ea47dce446b1c38c2aa97af237"
+    },
+    "explosion-bright-modern.png": {
+      "raw_source": "/tmp/nanolathe-comparison-final-lighting/gpu-0038.png",
+      "sha256": "024b40f9f136f43ebcd3418c49cfc27635f6e879e4a6de019e83ff47fc606e73"
+    },
+    "landscape-classic.png": {
+      "raw_source": "/tmp/nanolathe-comparison-final-landscape/cpu-0000.png",
+      "sha256": "c9070ae81a05ee2d14f896e97b18c38432786e8a9f4a02e1e1a6bfe69aa2c0ca"
+    },
+    "landscape-modern.png": {
+      "raw_source": "/tmp/nanolathe-comparison-final-landscape/gpu-0000.png",
+      "sha256": "d8ab0b3b58428d5aa236566d70e07ca23addfcef01dbfe89838c62ef1768c439"
+    },
+    "control-modern-no-glow.png": {
+      "raw_source": "/tmp/nanolathe-comparison-final-lighting/gpu-no-glow-0042.png",
+      "sha256": "e515de840069b495ae01e8e5dc61f7eeb13e25be6e7f11d73c957f0f1b88081b"
+    },
+    "control-modern-no-light-glow.png": {
+      "raw_source": "/tmp/nanolathe-comparison-final-lighting/gpu-no-light-glow-0042.png",
+      "sha256": "275fbaf64c67431612d20a7b3fe19e4c1045171b0d12d5bf3028f3220404411a"
+    }
+  },
+  "files": {
+    "REPORT.md": {
+      "bytes": 7875,
+      "sha256": "a1c9c6bbc6b64ecfeaf085c816e524d2916a309c02b60bcd360323b71585ca68"
+    },
+    "binary-provenance.json": {
+      "bytes": 282,
+      "sha256": "bd5e54e2d510bef940f6265d5f699b8bdd8cd2f0b44e05c11ab8342bbe0d9fe1"
+    },
+    "build-info.txt": {
+      "bytes": 894,
+      "sha256": "b6ac35ee3b5355e772331adc07e6b39a1c87a5dc77a90006f202c81b136036b2"
+    },
+    "control-modern-no-glow.png": {
+      "bytes": 1313701,
+      "sha256": "e515de840069b495ae01e8e5dc61f7eeb13e25be6e7f11d73c957f0f1b88081b"
+    },
+    "control-modern-no-light-glow.png": {
+      "bytes": 1311749,
+      "sha256": "275fbaf64c67431612d20a7b3fe19e4c1045171b0d12d5bf3028f3220404411a"
+    },
+    "device.json": {
+      "bytes": 332,
+      "sha256": "083d5fbf25766eef070cde4b10850cd8dacabeece95c336f03edd18f43735593"
+    },
+    "explosion-bright-classic.png": {
+      "bytes": 211716,
+      "sha256": "e2bd7c35f77e639fbd800c0ce8a203a620c6d8ea47dce446b1c38c2aa97af237"
+    },
+    "explosion-bright-modern.png": {
+      "bytes": 1249182,
+      "sha256": "024b40f9f136f43ebcd3418c49cfc27635f6e879e4a6de019e83ff47fc606e73"
+    },
+    "explosion-classic.mp4": {
+      "bytes": 554491,
+      "sha256": "ecbfca2bd92db69db8a1c71c3eb5e171edb6e64b71c364bd96194f2c3595ae5c"
+    },
+    "explosion-classic.png": {
+      "bytes": 210919,
+      "sha256": "0b94d1aecbe3afab96c76028bca3ce196004524a56b9459827fcd3407b257f30"
+    },
+    "explosion-modern.mp4": {
+      "bytes": 926395,
+      "sha256": "f5d8c3fe1c09344dac5744d0ba04b11a72c5c5d2582436b9b268ac1bbe0f995d"
+    },
+    "explosion-modern.png": {
+      "bytes": 1334530,
+      "sha256": "84c8764178f446c4983a7460426abf0f9e9c03d1d0c6933a799343957a2e6b43"
+    },
+    "landscape-classic.png": {
+      "bytes": 192603,
+      "sha256": "c9070ae81a05ee2d14f896e97b18c38432786e8a9f4a02e1e1a6bfe69aa2c0ca"
+    },
+    "landscape-events.jsonl": {
+      "bytes": 10090,
+      "sha256": "382ce68645621be348755f75fe1a0085d24d60f10c3ea95532f0d1bb30d840bd"
+    },
+    "landscape-modern.png": {
+      "bytes": 1012691,
+      "sha256": "d8ab0b3b58428d5aa236566d70e07ca23addfcef01dbfe89838c62ef1768c439"
+    },
+    "landscape-synthesis.json": {
+      "bytes": 1372,
+      "sha256": "655680c30978419dd6d53cfd4fbdbc8f963228d6e1ad8637fc241833b1198225"
+    },
+    "landscape.log": {
+      "bytes": 295,
+      "sha256": "b2eaf3adb1c643aadd549017517a6c4fdf8a9a13503ff809a5c970829d614e17"
+    },
+    "lighting-events.jsonl": {
+      "bytes": 1782596,
+      "sha256": "be20d40374312cd37ece176c675e0f84f5ae04ace6592d9ccc6b7f73f4ededf0"
+    },
+    "lighting-synthesis.json": {
+      "bytes": 1372,
+      "sha256": "32d01f5dc54b427f1b087669dd591addfb24245f004ff0e30ce6c7925247a93f"
+    },
+    "lighting.log": {
+      "bytes": 397,
+      "sha256": "be5bcfe88c0ad2c47f11444f7bf6fe9eea7a78c2e36cda7b0a5339ae46dfbac8"
+    },
+    "raw-frame-hashes.json": {
+      "bytes": 20397,
+      "sha256": "28a7cde5edffd9a525b479529c21b1385801c32ff57b68b7940adbcb44a0b7bb"
+    },
+    "source/README.md": {
+      "bytes": 7875,
+      "sha256": "a1c9c6bbc6b64ecfeaf085c816e524d2916a309c02b60bcd360323b71585ca68"
+    },
+    "source/export.py": {
+      "bytes": 7485,
+      "sha256": "91e7b9ef0f4ec1f5f3c784d378003b6f379cc051d05c052518059568532d7ccf"
+    },
+    "source/main.go": {
+      "bytes": 12335,
+      "sha256": "51e619f51fd0749d1c75bbc799235773d4ed7766aed707a33625e8a49c28cf36"
+    },
+    "source/terrain.go": {
+      "bytes": 4759,
+      "sha256": "312a95735df46a7e1f8199f987f7d4486f3bb39fd6f9c78301800b6ba35ffa51"
+    },
+    "verification.json": {
+      "bytes": 81548,
+      "sha256": "a0644e516b3fde3ef9c4289a0970df9ed55bcb865c73269fd93f326dac807050"
+    },
+    "webp-export-verification.json": {
+      "bytes": 1599,
+      "sha256": "bfb2272129ce5ae12e2699c084f0f42cff75aca1e1153761bda4c0b6d09059a6"
+    }
+  },
+  "archive_files_packaged": [],
+  "derived_synthesis_cache_packaged": false
+}

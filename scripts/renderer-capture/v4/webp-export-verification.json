@@ -1,0 +1,42 @@
+[
+  {
+    "name": "explosion-classic",
+    "png_sha256": "0b94d1aecbe3afab96c76028bca3ce196004524a56b9459827fcd3407b257f30",
+    "webp_sha256": "9a5e2bd244656ca7c9be6f7104afa9912dbaa96582e5fb7cf8c0bd0603d8548d",
+    "decoded_rgb_sha256": "ca927f46c76672a289b33c10bf7abc31bab7f3f8df7dc0f9bb7224ee3b58466f",
+    "pixel_identical": true,
+    "width": 960,
+    "height": 640,
+    "webp_bytes": 75872
+  },
+  {
+    "name": "explosion-modern",
+    "png_sha256": "84c8764178f446c4983a7460426abf0f9e9c03d1d0c6933a799343957a2e6b43",
+    "webp_sha256": "022a602cd1d3e03db0677405f106deef4fcfb033e6ccf2262b93e5101a3180de",
+    "decoded_rgb_sha256": "09c451b99c8c828388ff3d9a72e50d7dfc635bca9b417f03f8bc88c597dc4f4b",
+    "pixel_identical": true,
+    "width": 960,
+    "height": 640,
+    "webp_bytes": 739394
+  },
+  {
+    "name": "landscape-classic",
+    "png_sha256": "c9070ae81a05ee2d14f896e97b18c38432786e8a9f4a02e1e1a6bfe69aa2c0ca",
+    "webp_sha256": "f6435aa247195e7ea40308b2264cf428f66294b26ed5ade9ffd827df3bbb0de9",
+    "decoded_rgb_sha256": "133b9b449b496ca83dc9330582f098bb449f18b6fb872bfff5d78d4559e8f7d9",
+    "pixel_identical": true,
+    "width": 960,
+    "height": 640,
+    "webp_bytes": 68830
+  },
+  {
+    "name": "landscape-modern",
+    "png_sha256": "d8ab0b3b58428d5aa236566d70e07ca23addfcef01dbfe89838c62ef1768c439",
+    "webp_sha256": "a26339bd022438ec2de846597bda75ea8c5a67264a23d2da7caa504a81f5d64a",
+    "decoded_rgb_sha256": "d919a7e62f1951ad8407fcbb0d3355ea10cfee7745225baff25fd998ac81e56a",
+    "pixel_identical": true,
+    "width": 960,
+    "height": 640,
+    "webp_bytes": 232270
+  }
+]

@@ -10,6 +10,17 @@ The metallic materials section also has a live WebGL study; `live-materials/`
 documents its single-pose display mesh, atlas, shader port, and differences from
 the game. The paired in-game material clips remain available below the viewer.
 
+## Beta redesign matched captures
+
+`v4/` records engine `ac32756e`: native 960×640 Classic CPU / Modern GPU
+explosion and landscape captures at the same 2× camera and committed state.
+Modern uses verified real 2× synthesized terrain, lighting and glow, with
+production CRT binding and full default presentation controls. Foliage is
+explicitly the nearest-doubled fallback. Lossless WebP exports exactly decode
+to raw captured pixels. The new homepage pair replaces the earlier enlarged
+1× explosion example; existing technical studies below retain their original
+provenance. See `v4/README.md` for exact reproduction and assertions.
+
 ## Current examples and source evidence
 
 - `v2/land/`, engine `9e61946`: approved terrain and foliage without units,

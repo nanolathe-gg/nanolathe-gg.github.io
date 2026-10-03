@@ -25,12 +25,43 @@ locally. Production builds use Hugo 0.160.0, pinned in the Pages workflow.
 make check
 ```
 
-The build packages the brand kit before running Hugo. All verification scripts use
-only the Python standard library. The check verifies required pages,
+The build packages the brand kit before running Hugo. Content and installer checks use the Python standard library. When Node is
+available, `make check` also runs the browser-platform selection assertions. The check verifies required pages,
 internal links, anchors, local assets, the custom-domain file, and every format's
 authored examples. Pull requests
 build and validate without deploying. Pushes to `main` deploy through GitHub
 Actions; generated `public/` output is not committed.
+
+## Local beta redesign review
+
+The beta redesign remains a Hugo site. Shared templates keep the existing
+technical reference pages, installer scripts, mod catalogue and brand kit.
+`assets/css/redesign.css` adapts the private prototype for marketing pages;
+`redesign-native.css` integrates the shared shell and existing Hugo components.
+`assets/js/platform.js` detects desktop OS hints locally, while `redesign.js`
+handles the ownership choices, manual override, copy command, matched slider,
+and explicitly nonplayable future-layout study. No commands execute in the page.
+
+The prototype source is Library item
+`libfile_ad4a04f3f9dc81919104b804d8d0c50c`,
+`Nanolathe-prototype-beta-handoff.zip`, received October 3, 2026. Its seven-route
+beta draft was the design reference. It was integrated into native Hugo routes;
+full technical docs and renderer studies remain available locally.
+
+Fresh captures and exact reproduction/settings evidence are documented in
+`scripts/renderer-capture/v4/README.md`. They compare Classic CPU and Modern GPU
+at the same committed state and 2× camera. Modern uses real 2× synthesized
+terrain, lighting and glow; foliage is explicitly the nearest-doubled fallback.
+Modern/default and beta are website positioning; the engine runtime was not
+modified. The future browser-demo toggle changes a layout study only.
+
+For a loopback-only preview:
+
+```sh
+hugo server --bind 127.0.0.1 --port 1313 --disableFastRender --renderToMemory
+```
+
+Do not push, merge, deploy, publish, or change DNS as part of this local review.
 
 ## Content and maintenance
 

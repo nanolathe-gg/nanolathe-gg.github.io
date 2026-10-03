@@ -8,6 +8,7 @@ build: brand
 
 check: build
 	python3 scripts/check-site.py
+	@if command -v node >/dev/null 2>&1; then node scripts/test-platform.cjs; else echo "Node unavailable; browser platform unit checks skipped."; fi
 	python3 scripts/check-format-examples.py
 	python3 scripts/check-installers.py
 	python3 scripts/check-mods.py

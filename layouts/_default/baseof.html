@@ -19,7 +19,7 @@
   <link rel="apple-touch-icon" href="{{ "brand/apple-touch-icon.png" | relURL }}">
   <link rel="preload" href="{{ "fonts/chakra-petch-semibold.ttf" | relURL }}" as="font" type="font/ttf" crossorigin>
   {{ $tokens := resources.Get "css/tokens.css" | resources.ExecuteAsTemplate "css/tokens.css" . }}
-  {{ $css := slice $tokens (resources.Get "css/site.css") (resources.Get "css/brand.css") | resources.Concat "css/site.css" | minify | fingerprint }}
+  {{ $css := slice $tokens (resources.Get "css/site.css") (resources.Get "css/brand.css") (resources.Get "css/redesign.css") (resources.Get "css/redesign-native.css") | resources.Concat "css/site.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
   {{ if or (eq .Layout "features") (eq .Layout "gameplay") }}
   {{ $featuresCSS := resources.Get "css/features.css" | minify | fingerprint }}
@@ -43,20 +43,25 @@
   {{ end }}
   {{ $js := resources.Get "js/site.js" | minify | fingerprint }}
   <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+  {{ $platformJS := resources.Get "js/platform.js" | minify | fingerprint }}
+  <script src="{{ $platformJS.RelPermalink }}" integrity="{{ $platformJS.Data.Integrity }}" defer></script>
+  {{ $redesignJS := resources.Get "js/redesign.js" | minify | fingerprint }}
+  <script src="{{ $redesignJS.RelPermalink }}" integrity="{{ $redesignJS.Data.Integrity }}" defer></script>
 </head>
-<body class="{{ if .IsHome }}home{{ else }}interior{{ end }}">
+<body class="{{ if .IsHome }}home{{ else }}interior{{ end }}{{ if or .IsHome (in (slice "start" "features" "about" "docs" "resources" "brand") .Layout) }} redesign{{ end }}">
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
+  <header class="site-header header">
     <div class="header-inner wrap">
       <a class="brand" href="{{ "/" | relURL }}" aria-label="Nanolathe home">{{ partial "mark.html" . }}<span>nanolathe</span></a>
       <button class="menu-toggle" aria-expanded="false" aria-controls="navigation">Menu <span aria-hidden="true">＋</span></button>
       <nav id="navigation" aria-label="Main navigation">
         {{ $current := .RelPermalink }}
-        {{ range slice (dict "url" "/get-started/" "title" "Get started") (dict "url" "/docs/" "title" "Documentation") (dict "url" "/features/" "title" "Features") (dict "url" "/about/" "title" "About") }}
+        {{ range slice (dict "url" "/features/" "title" "Features") (dict "url" "/docs/" "title" "Documentation") (dict "url" "/about/" "title" "About") (dict "url" "/resources/" "title" "Resources") }}
         <a href="{{ .url | relURL }}"{{ if eq $current (.url | relURL) }} aria-current="page"{{ else if and (eq .url "/docs/") (hasPrefix $current ("docs/" | relURL)) }} aria-current="true"{{ end }}>{{ .title }}</a>
         {{ end }}
         <a class="nav-github" href="{{ site.Params.engineRepo }}">GitHub <span aria-hidden="true">↗</span></a>
       </nav>
+      <a class="button primary nav-install" href="{{ "get-started/" | relURL }}">Install the beta</a>
     </div>
   </header>
   <main id="main">{{ block "main" . }}{{ end }}</main>

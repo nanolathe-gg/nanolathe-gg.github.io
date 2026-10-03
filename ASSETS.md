@@ -304,3 +304,23 @@ general Smacker reader.
 - **Reproduction:** run the generator with `--engine` pointing to the pinned
   checkout; `--check` compares all checked-in PNGs without changing them. A
   SHA-256 guard rejects changed geometry until its source is reviewed.
+
+## October 3, 2026 beta redesign capture update
+
+The new homepage and Features comparison uses actual Classic CPU / Modern GPU
+output from engine `ac32756e0caffbc37e0fb80b21c03d3c641f1d21` and local diagnostic
+harness `0ff16de52f9bdae852b2a128bd5cc59dd8ac9233`, on an Apple M3 Pro Metal
+context. Both use the same committed tick 132, ordinary staged Great Divide
+session, production presentation CRT binding, and 2× camera. Modern terrain
+uses 64×64 synthesized tiles from the map's original 32×32 artwork, with
+lighting, glow and default modern presentation effects. Foliage uses the
+nearest-doubled fallback.
+
+`static/images/renderer/v4/` contains native 960×640 lossless WebP captures
+and 2-second, 30 FPS H.264 clips. WebP decoded pixels exactly match the raw
+PNG captures. No screenshot cropping, resizing, recoloring, invented lighting
+or compositing was used. These are Nanolathe outputs using separately installed
+retail game data, not captures of the retail executable. Staging, exact
+controls, cold/warm synthesis evidence, source hashes, provenance and
+reproduction commands are in `scripts/renderer-capture/v4/README.md` and its
+JSON evidence. Retail archives and derived tile caches are excluded.

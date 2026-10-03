@@ -1,0 +1,8 @@
+{
+  "path": "/tmp/nanolathe-website-comparison",
+  "bytes": 23439906,
+  "sha256": "96b1d81bdd777e2d310f2253190a0b59eeaf9d508f7f3deaf41a1bbca85c8d0e",
+  "packaged": false,
+  "engine_base_revision": "ac32756e0caffbc37e0fb80b21c03d3c641f1d21",
+  "capture_harness_commit": "0ff16de5"
+}

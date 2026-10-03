@@ -1,0 +1,47 @@
+{
+  "algorithm_version": "nanolathe.upscale.terrain.2",
+  "cache_bytes": 11550741,
+  "cache_file": "/tmp/nanolathe-website-synthesis-cache-verified/5dcef375d0bbbf7f68ed5286fc0a3619bcb938e06960531b78bd89dc62bb4eec",
+  "cache_header_magic": "NLUPSCALE",
+  "cache_kind": 1,
+  "cache_payload_version": 1,
+  "cache_sha256": "7bffc7b898af496f85ff23699628d09acba37bb720f663a7794c5b76c29c1f79",
+  "cold_and_warm_output_identical": true,
+  "different_fraction": 0.711196618046321,
+  "feature_banks_synthesized": false,
+  "feature_sprites": "engine nearest-doubled fallback; this comparison specifically synthesizes terrain",
+  "first_call_cached": false,
+  "map_tile_dimensions": [
+    80,
+    128
+  ],
+  "output_tile_dimensions": [
+    64,
+    64
+  ],
+  "parameters": {
+    "Iterations": 8,
+    "Samples": 100000,
+    "Tone": 12,
+    "Spread": 16,
+    "Deadzone": 8,
+    "Seam": 0,
+    "SeamZone": -1,
+    "Coherence": 64,
+    "Settle": 2,
+    "Relax": true
+  },
+  "pixels_different_from_nearest_doubling": 8214833,
+  "second_call_cached": true,
+  "source_tile_dimensions": [
+    32,
+    32
+  ],
+  "source_tiles": 2820,
+  "synthesized_pixel_count": 11550720,
+  "synthesized_tiles": 2820,
+  "synthesizer": "internal/upscale.Cache.Tiles2x",
+  "texture_synthesis_scale": 2,
+  "tile_payload_sha256": "09671871a0eccb73a836456c05900379e1a5e0c2c2e6231cbf7c72a03ddc4b83",
+  "workers": 2
+}
