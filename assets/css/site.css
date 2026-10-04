@@ -758,20 +758,6 @@ nav{
   top:66px;
   border-color:#e7b66f55
 }
-.resource-teaser{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:45px
-}
-.resource-teaser h2{
-  margin-bottom:17px
-}
-.resource-teaser p{
-  max-width:550px;
-  margin-bottom:0;
-  font-size:.98rem
-}
 .site-footer{
   padding-block:36px 30px;
   border-top:1px solid var(--line)
@@ -1175,7 +1161,7 @@ nav{
 .diagram-paths>div:last-child::before{
   background:var(--amber)
 }
-.feature-band .text-link,.resource-teaser .text-link,.resource-empty .text-link{
+.feature-band .text-link{
   color:var(--amber)
 }
 .research-card:last-child .text-link,.behavior-list .item-number{
@@ -1222,45 +1208,6 @@ nav{
 }
 .feature-notes .muted{
   font-size:.8rem
-}
-.resource-empty{
-  display:grid;
-  grid-template-columns:260px 1fr;
-  gap:95px;
-  align-items:center;
-  padding-block:85px 115px;
-  min-height:500px
-}
-.empty-index{
-  border:1px solid var(--amber-line);
-  background:linear-gradient(135deg,#3a2c1f,#1c1c1a);
-  padding:25px 30px;
-  color:var(--dim);
-  font-family:var(--mono);
-  font-size:.75rem;
-  text-transform:uppercase;
-  letter-spacing:.08em
-}
-.empty-index strong{
-  display:block;
-  font:600 5rem var(--display);
-  color:var(--amber);
-  margin-block:20px;
-  letter-spacing:-.05em
-}
-.empty-index div{
-  height:10px;
-  margin-bottom:25px;
-  background:repeating-linear-gradient(135deg,var(--amber-line) 0px,var(--amber-line) 3px,transparent 3px,transparent 7px)
-}
-.resource-empty h2{
-  font-size:2.5rem
-}
-.resource-empty p{
-  max-width:670px
-}
-.resource-empty .text-link{
-  margin-top:12px
 }
 .not-found{
   min-height:60vh;
@@ -1340,9 +1287,6 @@ nav{
   }
   .renderer-copy{
     padding:37px 28px
-  }
-  .resource-empty{
-    gap:60px
   }
 }
 @media(max-width:820px){
@@ -1495,16 +1439,6 @@ nav{
   }
   .feature-notes{
     gap:30px
-  }
-  .resource-empty{
-    grid-template-columns:200px 1fr;
-    gap:35px
-  }
-  .resource-empty h2{
-    font-size:2rem
-  }
-  .empty-index{
-    padding:20px
   }
   .footer-top{
     gap:23px
@@ -1782,15 +1716,6 @@ nav{
   .experimental{
     font-size:.75rem
   }
-  .resource-teaser{
-    display:block
-  }
-  .resource-teaser h2{
-    font-size:2.3rem
-  }
-  .resource-teaser>.button{
-    margin-top:25px
-  }
   .footer-top{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -1909,31 +1834,6 @@ nav{
   }
   .feature-notes h3{
     font-size:1.8rem
-  }
-  .resource-empty{
-    grid-template-columns:1fr;
-    gap:34px;
-    padding-block:35px 65px
-  }
-  .empty-index{
-    max-width:180px;
-    padding:18px 22px
-  }
-  .empty-index strong{
-    font-size:3.5rem;
-    margin-block:8px
-  }
-  .empty-index div{
-    margin-bottom:15px
-  }
-  .empty-index>span{
-    font-size:.75rem
-  }
-  .resource-empty h2{
-    font-size:2rem
-  }
-  .resource-empty p{
-    font-size:.95rem
   }
 }
 .research-card{

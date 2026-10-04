@@ -347,12 +347,6 @@ body.redesign .reference-list:first-child{margin-top:0}
 body.redesign .reference-row{display:block;padding:17px 0;border-bottom:1px solid var(--line);font-size:1rem;line-height:1.6}
 body.redesign .reference-row:hover{color:var(--green)}
 body.redesign .reference-row:first-child{border-top:1px solid var(--line)}
-body.redesign .resource-empty{display:grid;grid-template-columns:.75fr 1.25fr;gap:80px;padding:65px;background:var(--surface);border:1px solid var(--line);border-radius:4px}
-body.redesign .archive-count{font-family:Chakra,sans-serif;font-size:7.5rem;line-height:1;color:#405230;letter-spacing:-.07em}
-body.redesign .resource-empty h2{font-size:2.5rem;margin-bottom:22px}
-body.redesign .resource-empty p:not(.eyebrow){max-width:550px}
-body.redesign .resource-kinds{display:flex;gap:9px;flex-wrap:wrap;margin-top:27px}
-body.redesign .resource-kinds span{font-size:.8125rem;padding:5px 10px;border:1px solid #45503f;border-radius:2px;color:var(--muted)}
 body.redesign .brand-download{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;padding-block:20px 65px}
 body.redesign .brand-preview{display:flex;align-items:center;justify-content:center;background:#1b2021;border:1px solid var(--line);padding:65px 40px;min-height:260px;border-radius:4px}
 body.redesign .brand-preview img{width:100%;height:auto}
@@ -382,7 +376,6 @@ body.redesign .header-inner{gap:20px}
 body.redesign .format-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 body.redesign .article-layout{gap:50px}
 body.redesign .media-feature{gap:38px}
-body.redesign .resource-empty{padding:45px;gap:40px}
 body.redesign .brand-download{gap:35px}
 body.redesign .footer-top nav{gap:16px}
 body.redesign .content-card{padding:24px}
@@ -427,10 +420,6 @@ body.redesign .format-card h3{font-size:1.2rem}
 body.redesign .format-card p{font-size:.875rem}
 body.redesign .sidebar-copy{max-width:none;font-size:.875rem;margin-top:20px}
 body.redesign .reference-row{font-size:.9375rem;padding-block:16px}
-body.redesign .resource-empty{grid-template-columns:1fr;gap:28px;padding:28px}
-body.redesign .archive-count{font-size:5rem}
-body.redesign .resource-empty h2{font-size:2.1rem}
-body.redesign .resource-empty p:not(.eyebrow){font-size:.9375rem}
 body.redesign .brand-download{grid-template-columns:1fr;gap:30px;padding-bottom:40px}
 body.redesign .brand-preview{min-height:185px;padding:45px 25px}
 body.redesign .brand-download h2{font-size:1.8rem}

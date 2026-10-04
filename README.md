@@ -137,9 +137,7 @@ compare generated assets. All 15 generators run in `make check`. They do not
 require retail game data or a checkout of the engine repository.
 
 
-The Resources page intentionally has no entries. Future curated metadata and
-release-hosted downloads can be added when the collection is ready. Signed
-engine downloads are deferred; Get started offers source installation commands.
+Signed engine downloads are deferred; Get started offers source installation commands.
 
 ### Source installer releases
 

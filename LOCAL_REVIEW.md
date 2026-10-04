@@ -11,7 +11,7 @@ Branch: `capture/private-beta-comparison`, diagnostic commit `0ff16de5`, based o
 
 The latest seven-route prototype bundle was integrated into Hugo, using its
 homepage, installation flow, dark/lime visual language and interaction design.
-Home, Features, Get started, About, Documentation, Resources and Brand share
+Home, Features, Get started, About, Documentation and Brand share
 the updated appearance and an obvious Install the beta action. The 15 native
 format guides, player references, renderer studies, installer scripts, mod
 catalogue and full brand kit remain in the existing architecture. Marketing
@@ -40,12 +40,12 @@ archives, derived tile cache or engine binary were bundled.
 
 ## Verification
 
-- `make check` passed with Hugo Extended 0.160.0. Checked 26 HTML pages, internal
+- Initial `make check` passed with Hugo Extended 0.160.0. Checked 26 HTML pages, internal
   routes/anchors/assets, CNAME, all 15 format generators, installer consistency,
   mod catalogue, 9 packaging tests, 4 multipart tests and 16 offline installer
   tests. All 34 platform detection/selection assertions passed. PowerShell is
   unavailable: native Windows offline tests were skipped by the repository gate.
-- Isolated Chrome 154.0.8037.97 tested nine routes at 1440×1000 and 390×844:
+- Initial isolated Chrome 154.0.8037.97 tested nine routes at 1440×1000 and 390×844:
   seven marketing routes, GAF reference and keyboard shortcuts. All returned
   200; no broken images, duplicate IDs, horizontal overflow or JavaScript errors.
 - Pointer and keyboard comparison controls, Classic/Split/Modern taps, dialog
@@ -63,6 +63,13 @@ archives, derived tile cache or engine binary were bundled.
   assertions, hashes and visual inspection passed. Whole-engine integration
   and performance gates were not run for this capture-only diagnostic, which
   is not being landed into engine main. No performance claim is made.
+- Daniel requested removing Resources. Its page, header/footer links and unused
+  styles were deleted. A clean Hugo build and the internal-link gate passed on
+  the remaining 25 HTML pages. Desktop/mobile browser checks passed on six
+  marketing routes plus GAF, including menu/back navigation and no overflow;
+  `/resources/` returns 404 after restarting the local preview. Evidence is in
+  `qa/resources-removal-browser-report.json` and `qa/resources-removed-*.png`
+  alongside the other QA artifacts below.
 
 Machine-readable browser results, build log, full-page/viewport screenshots,
 comparison close-ups, preview process details and restart logs are in
