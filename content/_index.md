@@ -1,4 +1,4 @@
 +++
-title = 'Nanolathe — Open-source 2.5D RTS engine for Total Annihilation'
-description = 'An independent, open-source 2.5D RTS engine in Go, reimplementing Total Annihilation. Install the beta on Windows, Mac or Linux with your original game data.'
+title = 'Nanolathe — Open-source RTS engine. Play the Total Annihilation demo.'
+description = 'Play the original Total Annihilation demo in your browser with Nanolathe, an open-source 2.5D RTS engine. Install the native beta, explore the code and build on it.'
 +++

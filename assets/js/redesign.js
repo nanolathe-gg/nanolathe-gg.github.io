@@ -67,14 +67,10 @@ $$('[data-redesign-comparison]').forEach(module => {
  range.addEventListener('input', e => setSplit(e.target.value));
  module.querySelectorAll('[data-split]').forEach(button => button.addEventListener('click',()=>setSplit(button.dataset.split)));
 });
-function setPreview(mode){const future=mode==='future';document.body.classList.toggle('future-mode',future);$$('[data-preview]').forEach(button=>{const active=button.dataset.preview===mode;button.classList.toggle('active',active);button.setAttribute('aria-pressed',String(active));});$$('.future-only').forEach(el=>el.hidden=!future);$('#hero-install').hidden=future;$('#beta-note').hidden=future;}
-$$('[data-preview]').forEach(button=>button.addEventListener('click',()=>setPreview(button.dataset.preview)));
 let previousFocus;
 function openDialog(dialog){previousFocus=document.activeElement;dialog.showModal();document.body.classList.add('modal-open');}
 function closeDialog(dialog){dialog.close();}
-$$('#video-dialog, #demo-dialog').forEach(dialog=>{dialog.querySelector('.dialog-close').addEventListener('click',()=>closeDialog(dialog));dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeDialog(dialog);}});dialog.addEventListener('close',()=>{document.body.classList.remove('modal-open');if(dialog.id==='video-dialog')$('#video-container').replaceChildren();previousFocus?.focus();});});
+$$('#video-dialog').forEach(dialog=>{dialog.querySelector('.dialog-close').addEventListener('click',()=>closeDialog(dialog));dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeDialog(dialog);}});dialog.addEventListener('close',()=>{document.body.classList.remove('modal-open');if(dialog.id==='video-dialog')$('#video-container').replaceChildren();previousFocus?.focus();});});
 $$('[data-watch]').forEach(button=>button.addEventListener('click',event=>{if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;if(typeof $('#video-dialog')?.showModal!=='function')return;event.preventDefault();const iframe=document.createElement('iframe');iframe.title='Nanolathe announcement reel, actual engine footage';iframe.src='https://www.youtube-nocookie.com/embed/bMWSCOY0dTc?autoplay=0&rel=0';iframe.allow='accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen';iframe.allowFullscreen=true;$('#video-container').replaceChildren(iframe);openDialog($('#video-dialog'));}));
-$('#demo-open')?.addEventListener('click',()=>openDialog($('#demo-dialog')));
-$('#return-beta')?.addEventListener('click',()=>{closeDialog($('#demo-dialog'));setPreview('beta');location.href='/get-started/';});
 
 })();

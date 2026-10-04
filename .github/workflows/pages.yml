@@ -4,6 +4,13 @@ on:
     branches: [main]
   pull_request:
   workflow_dispatch:
+  # The engine's CI sends this after publishing a new browser build
+  # (nanolathe/.github/workflows/ci.yml, job browser-publish).
+  repository_dispatch:
+    types: [browser-build]
+  # Without a dispatch token, new engine builds still arrive on this schedule.
+  schedule:
+    - cron: '23 */6 * * *'
 
 permissions:
   contents: read
@@ -13,10 +20,31 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # A scheduled run deploys only when the engine's browser build changed.
+  refresh:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.play.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v7
+      - name: Compare the released browser build with the live site
+        id: play
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            python3 scripts/fetch-play.py --compare-live
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
   build:
+    needs: refresh
+    if: needs.refresh.outputs.changed == 'true'
     runs-on: ubuntu-latest
     env:
       HUGO_VERSION: '0.160.0'
+      # The site promises a playable demo: every CI build requires verified
+      # engine and demo assets rather than publishing a placeholder.
+      PLAY_REQUIRED: '1'
     steps:
       - uses: actions/checkout@v7
       - name: Install Hugo
@@ -28,7 +56,7 @@ jobs:
           echo "$checksum  /tmp/hugo.tar.gz" | sha256sum --check --strict
           tar -xzf /tmp/hugo.tar.gz -C /tmp hugo
           echo /tmp >> "$GITHUB_PATH"
-      - name: Build and check site and format examples
+      - name: Build and check site, browser build and format examples
         run: make check
       - uses: actions/upload-pages-artifact@v5
         if: github.event_name != 'pull_request'

@@ -32,6 +32,39 @@ authored examples. Pull requests
 build and validate without deploying. Pushes to `main` deploy through GitHub
 Actions; generated `public/` output is not committed.
 
+## Browser build
+
+`/play/` is the engine's browser launcher, not a Hugo page. `make build` runs
+`scripts/fetch-play.py`, which downloads the engine's rolling
+[`browser-latest` release](https://github.com/nanolathe-gg/nanolathe/releases/tag/browser-latest)
+(an asset-free `tools/browser-build` output of every main commit), verifies the
+content-hashed Wasm against its `build.json`, adds the original demo archive
+and readme from this repository's `demo` release, checked against the digests
+pinned in `data/play.json`, and places everything under the ignored
+`static/play/`. `scripts/style-play.py` applies the website header and styles to
+the root launcher, preserving the content-hashed host modules and engine runtime.
+The website starts the demo directly at `/play/`, focuses the game and accepts
+local folder drops over the running viewport. `?launcher=1` opens the optional
+manual launcher; Back to launcher also exposes it without restarting the demo.
+Hugo serves the files at the same origin as the launcher requires. The one build
+that is live at nanolathe.gg/play/ is kept
+beside the new one so an open launcher can still restart. `make check` then
+runs `scripts/check-play.py` against `public/play`.
+
+The engine's CI sends a `browser-build` repository dispatch after each publish
+when its `WEBSITE_DISPATCH_TOKEN` secret is configured; otherwise the Pages
+workflow checks for a changed build every six hours and deploys only then. A
+CI build requires a verified engine build and demo assets (`PLAY_REQUIRED=1`),
+so a failed fetch cannot publish a demo button leading to a placeholder. Local
+builds can use a placeholder when no verified build is available.
+
+To preview a local engine build: `python3 scripts/fetch-play.py --local
+../nanolathe/build/browser --demo-root ~/TotalAnnihilationDemo`, then
+`make serve`; later builds keep that preview until `PLAY_REFRESH=1 make play`
+fetches the release again. Use `--required` when preparing a release preview.
+See `BROWSER_REVIEW.md` for the current local integration, build provenance and
+the engine publishing dependency.
+
 ## Local beta redesign review
 
 The beta redesign remains a Hugo site. Shared templates keep the existing
@@ -40,7 +73,7 @@ technical reference pages, installer scripts, mod catalogue and brand kit.
 `redesign-native.css` integrates the shared shell and existing Hugo components.
 `assets/js/platform.js` detects desktop OS hints locally, while `redesign.js`
 handles the ownership choices, manual override, copy command, matched slider,
-and explicitly nonplayable future-layout study. No commands execute in the page.
+and matched comparisons. No installation commands execute in the page.
 
 The prototype source is Library item
 `libfile_ad4a04f3f9dc81919104b804d8d0c50c`,
@@ -53,7 +86,7 @@ The homepage captures and exact reproduction/settings evidence are documented in
 at the same committed state and 2× camera. Modern uses real 2× synthesized
 terrain, lighting and glow; foliage is explicitly the nearest-doubled fallback.
 Modern/default and beta are website positioning; the engine runtime was not
-modified. The future browser-demo toggle changes a layout study only.
+modified. The playable browser demo now replaces the former future-layout study.
 
 The refreshed Features page reads `data/features.json` and uses native v5 engine
 captures for camera/tactical view, terrain synthesis, lighting, water, material
@@ -67,10 +100,10 @@ material study is retained as historical source but is not loaded by this page.
 For a loopback-only preview:
 
 ```sh
-hugo server --bind 127.0.0.1 --port 1313 --disableFastRender --renderToMemory
+hugo server --bind 127.0.0.1 --port 1313 --disableFastRender --disableLiveReload --renderToMemory
 ```
 
-Do not push, merge, deploy, publish, or change DNS as part of this local review.
+Do not push, merge into main, deploy, publish, or change DNS as part of this local review.
 
 ## Content and maintenance
 

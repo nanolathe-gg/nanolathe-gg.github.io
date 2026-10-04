@@ -154,13 +154,6 @@ body.redesign .dialog-heading .eyebrow{margin:0}
 body.redesign .dialog-close{border:1px solid var(--line);background:var(--surface);font-size:1.5rem;line-height:1;width:40px;height:40px;border-radius:3px;flex:none}
 body.redesign .media-dialog iframe,body.redesign .media-dialog video{width:100%;aspect-ratio:16/9;border:0;background:#000;display:block}
 body.redesign .media-dialog>p{font-size:.8125rem;margin-top:18px}
-body.redesign .demo-dialog{width:680px;padding:28px}
-body.redesign .demo-art{position:relative;aspect-ratio:2.2;overflow:hidden;border-radius:3px;margin-bottom:24px}
-body.redesign .demo-art img{width:100%;height:100%;object-fit:cover;filter:brightness(.4)}
-body.redesign .demo-art span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:Chakra,sans-serif;font-size:1.8rem}
-body.redesign .demo-dialog h2{font-size:2.2rem;margin-bottom:18px}
-body.redesign .demo-dialog>p{margin-bottom:25px}
-body.redesign .future-mode .hero h1 em{color:#b6ef63}
 @media(min-width:1600px){
 body.redesign .hero-picture{left:40%}
 body.redesign .hero{min-height:700px}
@@ -264,10 +257,7 @@ body.redesign .footer>a:last-child{font-size:.75rem;margin-top:4px}
 body.redesign .footer .brand{font-size:1.3rem}
 body.redesign dialog{padding:18px;max-width:calc(100% - 24px)}
 body.redesign .dialog-heading h2{font-size:1.125rem}
-body.redesign .demo-dialog h2{font-size:1.75rem}
-body.redesign .demo-art{aspect-ratio:1.8}
-body.redesign .demo-art span{font-size:1.3rem}
-body.redesign .demo-dialog>p{font-size:.9375rem}}
+}
 @media(max-width:360px){
 body.redesign .review-bar{padding-inline:10px}
 body.redesign .review-bar>span{font-size:.75rem}
