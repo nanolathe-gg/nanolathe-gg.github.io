@@ -1,0 +1,113 @@
+{
+  "sources": [
+    {
+      "upstream": {
+        "file": "TAT Drop in b91.zip",
+        "from": "https://sjc1.vultrobjects.com/mods/tatw/TAT%20Drop%20in%20b91.zip",
+        "size": 115227139,
+        "sha256": "52adb7cf335fb03d27c155564c4d786953275170c1fba8234a32a61cc671f319"
+      },
+      "include": [
+        "TADEMO.UFO",
+        "TA_Ais_2013.ccx",
+        "TA_Features_2013.ccx",
+        "Icon/*",
+        "Beta 91 Changes Summary.txt",
+        "TA Twilight Unit Guide (Beta 88)/*"
+      ]
+    },
+    {
+      "upstream": {
+        "file": "TAT-v2.0 Beta 98.zip",
+        "from": "https://sjc1.vultrobjects.com/mods/tatw/TAT-v2.0%20Beta%2098.zip",
+        "size": 60314519,
+        "sha256": "8671732cfd0e31eae07b392c1bde7a255bb938ac69a031ae3fabf4cc1eaca54f"
+      },
+      "include": [
+        "rev31.gp3",
+        "Beta 98 Changes Summary.txt",
+        "TAT-v2.0-Beta-Changelog.txt",
+        "LICENSE"
+      ]
+    }
+  ],
+  "metadata": {
+    "schema": 2,
+    "id": "twilight",
+    "name": "TA: Twilight",
+    "version": "2.0-beta98",
+    "summary": "Experimental TA: Twilight 2.0 Beta 98 compatibility. Historical patch gameplay and controls remain unverified.",
+    "homepage": "https://twilight.tauniverse.com/",
+    "requires": [],
+    "content": {
+      "detect": [
+        "units",
+        "weapons",
+        "gamedata",
+        "guis",
+        "unitpics",
+        "download"
+      ],
+      "limits": {
+        "units": 16000,
+        "weapons": 16000,
+        "tnt_bytes": 67108864,
+        "los_bytes": 8388608
+      }
+    },
+    "rules": {
+      "minimumGameplay": "community-3.9",
+      "gameplay": "community-3.9",
+      "communityFeatures": {
+        "constructionKickout": true,
+        "guardingBuildersHold": true,
+        "patrollingBuilderFilters": true,
+        "reclaimToggleKeepsBuild": true,
+        "structureRotation": true,
+        "areaDamageOverflow": true,
+        "areaDamageDedupCap": true,
+        "gridClaimTieBreak": true,
+        "transportedExplosions": true,
+        "buildWeaponSlotGuard": false,
+        "antinukeCircularCoverage": true,
+        "alliedJammingIgnored": true,
+        "resurrectionFinalization": true,
+        "weaponTargetKeys": true,
+        "veterancy": true,
+        "schemaUnits": true,
+        "airCorpseFall": false,
+        "scriptPorts": true,
+        "mexSnap": true,
+        "wreckSnap": true,
+        "aiDifficultyIncome": false,
+        "aiStockpileProducts": false,
+        "targetLockRelease": false,
+        "aiApplianceEnergy": false,
+        "aiBuilderStopThreshold": false,
+        "workingWeaponsAutonomous": false,
+        "attackSingleSlotTake": false,
+        "mapFeatureOwnerEleven": false,
+        "resurrectionTextFix": false,
+        "healTimeBitmask": false,
+        "aiBuilderPlacementLimit": 0,
+        "repairRate": {
+          "enabled": false,
+          "repairMultiplier": 1,
+          "selfHealMultiplier": 1
+        },
+        "offMapAircraftMarginTiles": 32,
+        "projectileCapacity": 3000,
+        "explosionCapacity": 3000,
+        "debrisCapacity": 1000,
+        "sfxLimit": 20480,
+        "pathStepAllowance": 66650,
+        "unitLimit": 1500,
+        "mexSnapRadius": 3,
+        "wreckSnapRadius": 1,
+        "mexSnapRadiusMax": 3,
+        "wreckSnapRadiusMax": 1
+      }
+    },
+    "locks": []
+  }
+}

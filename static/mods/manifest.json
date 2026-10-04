@@ -48,6 +48,18 @@
         "size": 21903460,
         "sha256": "9f6397229d26551bd2f8bc94ba05a9bec03ac451aa0f0bea353b0d2dd84579e2"
       }
+    },
+    {
+      "id": "twilight",
+      "name": "TA: Twilight",
+      "version": "2.0-beta98",
+      "summary": "Experimental TA: Twilight 2.0 Beta 98 compatibility. Historical patch gameplay and controls remain unverified.",
+      "homepage": "https://twilight.tauniverse.com/",
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/mods/twilight-2.0-beta98.zip",
+        "size": 145933195,
+        "sha256": "b19a68dec6d99e5d8efc92f6f441e4f274140c5dcd181749413c96c99d307d4b"
+      }
     }
   ]
 }
