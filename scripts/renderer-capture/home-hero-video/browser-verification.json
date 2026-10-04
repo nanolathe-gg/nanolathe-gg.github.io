@@ -1,0 +1,224 @@
+{
+  "origin": "http://127.0.0.1:1313",
+  "movie": "/images/renderer/hero-living-base-e2ac78cd.mp4",
+  "poster": "/images/renderer/hero-living-base-e2ac78cd.webp",
+  "layouts": [
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "video": {
+        "size": [
+          1280,
+          880
+        ],
+        "duration": 12,
+        "muted": true,
+        "loop": true,
+        "inline": true,
+        "paused": false,
+        "currentTime": 1.049659,
+        "opacity": "1",
+        "source": "/images/renderer/hero-living-base-e2ac78cd.mp4"
+      },
+      "poster": {
+        "src": "/images/renderer/hero-living-base-e2ac78cd.webp",
+        "natural": [
+          1280,
+          880
+        ]
+      },
+      "display": {
+        "x": 504,
+        "y": 90,
+        "width": 936,
+        "height": 652.140625
+      },
+      "objectPosition": "100% 50%",
+      "control": {
+        "hidden": false,
+        "text": "Pause video",
+        "focusable": 0
+      },
+      "broken": [],
+      "playLink": "/play/"
+    },
+    {
+      "width": 1024,
+      "scrollWidth": 1024,
+      "video": {
+        "size": [
+          1280,
+          880
+        ],
+        "duration": 12,
+        "muted": true,
+        "loop": true,
+        "inline": true,
+        "paused": false,
+        "currentTime": 0.559416,
+        "opacity": "1",
+        "source": "/images/renderer/hero-living-base-e2ac78cd.mp4"
+      },
+      "poster": {
+        "src": "/images/renderer/hero-living-base-e2ac78cd.webp",
+        "natural": [
+          1280,
+          880
+        ]
+      },
+      "display": {
+        "x": 256,
+        "y": 90,
+        "width": 768,
+        "height": 650
+      },
+      "objectPosition": "100% 50%",
+      "control": {
+        "hidden": false,
+        "text": "Pause video",
+        "focusable": 0
+      },
+      "broken": [],
+      "playLink": "/play/"
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "video": {
+        "size": [
+          1280,
+          880
+        ],
+        "duration": 12,
+        "muted": true,
+        "loop": true,
+        "inline": true,
+        "paused": false,
+        "currentTime": 0.560829,
+        "opacity": "1",
+        "source": "/images/renderer/hero-living-base-e2ac78cd.mp4"
+      },
+      "poster": {
+        "src": "/images/renderer/hero-living-base-e2ac78cd.webp",
+        "natural": [
+          1280,
+          880
+        ]
+      },
+      "display": {
+        "x": 192,
+        "y": 76,
+        "width": 576,
+        "height": 640
+      },
+      "objectPosition": "100% 50%",
+      "control": {
+        "hidden": false,
+        "text": "Pause video",
+        "focusable": 0
+      },
+      "broken": [],
+      "playLink": "/play/"
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "video": {
+        "size": [
+          1280,
+          880
+        ],
+        "duration": 12,
+        "muted": true,
+        "loop": true,
+        "inline": true,
+        "paused": false,
+        "currentTime": 0.556464,
+        "opacity": "1",
+        "source": "/images/renderer/hero-living-base-e2ac78cd.mp4"
+      },
+      "poster": {
+        "src": "/images/renderer/hero-living-base-e2ac78cd.webp",
+        "natural": [
+          1280,
+          880
+        ]
+      },
+      "display": {
+        "x": 0,
+        "y": 608.890625,
+        "width": 390,
+        "height": 320
+      },
+      "objectPosition": "100% 56%",
+      "control": {
+        "hidden": false,
+        "text": "Pause video",
+        "focusable": 0
+      },
+      "broken": [],
+      "playLink": "/play/"
+    },
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "video": {
+        "size": [
+          1280,
+          880
+        ],
+        "duration": 12,
+        "muted": true,
+        "loop": true,
+        "inline": true,
+        "paused": false,
+        "currentTime": 0.557876,
+        "opacity": "1",
+        "source": "/images/renderer/hero-living-base-e2ac78cd.mp4"
+      },
+      "poster": {
+        "src": "/images/renderer/hero-living-base-e2ac78cd.webp",
+        "natural": [
+          1280,
+          880
+        ]
+      },
+      "display": {
+        "x": 0,
+        "y": 751.671875,
+        "width": 320,
+        "height": 260
+      },
+      "objectPosition": "100% 56%",
+      "control": {
+        "hidden": false,
+        "text": "Pause video",
+        "focusable": 0
+      },
+      "broken": [],
+      "playLink": "/play/"
+    }
+  ],
+  "behaviors": [
+    "Actual media clock wraps at the loop boundary.",
+    "Offscreen pause.",
+    "In-view resume.",
+    "Manual pause survives leaving and re-entering the viewport.",
+    "Visibility handler pauses/resumes (synthetic document.hidden change).",
+    "Changing reduced-motion preference stops video and restores poster.",
+    "1440px: silent autoplay, actual decoding, mouse/keyboard pause/play.",
+    "1024px: silent autoplay, actual decoding, mouse/keyboard pause/play.",
+    "768px: silent autoplay, actual decoding, mouse/keyboard pause/play.",
+    "390px: silent autoplay, actual decoding, tap pause/play.",
+    "320px: silent autoplay, actual decoding, tap pause/play.",
+    "reduced-motion: no automatic movie request; explicit play works.",
+    "save-data: no automatic movie request; explicit play works.",
+    "No JavaScript: poster and direct demo link work; motion control remains hidden.",
+    "Autoplay refusal: poster stays visible and user can start playback.",
+    "Movie fetch failure: poster survives and unavailable motion control is hidden."
+  ],
+  "errors": [],
+  "browser": "154.0.8037.97",
+  "movie_sha256": "8b5fa6ae56013bf06cd697b7be4c37e492d823024cf5f393c298d6387a75b60c",
+  "poster_sha256": "25b3b9da0e9f74957a8b2432d8845abde76b7cc089796ef882173b09c7353aec"
+}

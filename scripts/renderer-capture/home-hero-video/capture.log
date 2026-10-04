@@ -1,0 +1,38 @@
+nanolathe: startup: 2026-10-04T22:53:35Z
+nanolathe: system: os=darwin arch=arm64 logical-cpus=12 gomaxprocs=12 go=go1.27.1
+nanolathe: build: profile=nanolathe-1.0 revision=02f9fa6b416542b23d1ae9071751663d5d00bb83 modified=true ebitengine=v2.10.4
+nanolathe: build manifest: unstamped (development build)
+nanolathe: content: profile=retail mod=none archives=30 loose-roots=1 indexed-file-entries=7964 load=21ms
+nanolathe: content providers (highest precedence first): loose root (mount 30) (75 files), rev31.gp3 (887 files), ccmiss.ccx (135 files), ccmaps.ccx (106 files), ccdata.ccx (1877 files), btmaps.ccx (12 files), btdata.ccx (1121 files), Mndsmars.ufo (2 files), floggen.ufo (2 files), Example.ufo (4 files), Evadrivd.ufo (2 files), corplas.ufo (9 files), CorNecro.ufo (14 files), Cormabm.ufo (11 files), Cometctr.ufo (2 files), AScarab.ufo (11 files), AFlea.ufo (9 files), AFark.ufo (9 files), worlds.hpi (837 files), totala4.hpi (309 files), totala3.hpi (25 files), totala2.hpi (160 files), totala1.hpi (1929 files), tactics8.hpi (26 files), tactics7.hpi (54 files), tactics6.hpi (82 files), tactics5.hpi (62 files), tactics4.hpi (22 files), tactics3.hpi (42 files), tactics2.hpi (70 files), tactics1.hpi (58 files)
+nanolathe: film: 720 frames, 360 ticks, 12.0s at 60 FPS, 1280x880 from a 1408x944 surface, 1 shots
+nanolathe: film: scene centre=4280,4230 terrain_relief=0 per_side=4
+nanolathe: hero: cleared 2 destructible feature anchors around armlab
+nanolathe: hero: placed armlab owner=0 at 4448,4144
+nanolathe: hero: cleared 1 destructible feature anchors around armsolar
+nanolathe: hero: placed armsolar owner=0 at 4312,4088
+nanolathe: hero: cleared 1 destructible feature anchors around armrad
+nanolathe: hero: placed armrad owner=0 at 4544,4080
+nanolathe: hero: cleared 1 destructible feature anchors around armllt
+nanolathe: hero: placed armllt owner=0 at 4464,4384
+nanolathe: hero: placed armcom owner=0 at 4515,4310
+nanolathe: hero: commander queued original wind generator at 4544,4208
+nanolathe: hero: cleared 1 destructible feature anchors around armbull
+nanolathe: hero: placed armbull owner=0 at 4396,4251
+nanolathe: hero: placed armstump owner=0 at 4290,4180
+nanolathe: hero: cleared 1 destructible feature anchors around armflash
+nanolathe: hero: placed armflash owner=0 at 4275,4330
+nanolathe: hero: placed armzeus owner=0 at 4360,4325
+nanolathe: hero: cleared 2 destructible feature anchors around corraid
+nanolathe: hero: placed corraid owner=1 at 4119,4165
+nanolathe: hero: placed corlevlr owner=1 at 4125,4275
+nanolathe: hero: placed correap owner=1 at 4100,4380
+nanolathe: hero: placed corstorm owner=1 at 4040,4245
+nanolathe: film: homepage base staged 14 units, skipped 0 unplaceable
+nanolathe: upscale: terrain 2347 tiles 4ms (cached)
+nanolathe: upscale: bank geotherm 1 frames 0s (cached)
+nanolathe: upscale: bank greenvents 6 frames 0s (cached)
+nanolathe: upscale: bank rocks 6 frames 1ms (cached)
+nanolathe: upscale: bank rockshurt 5 frames 1ms (cached)
+nanolathe: upscale: bank trees 19 frames 8ms (cached)
+nanolathe: film: shot "homepage-living-base" units=16 features=2963 burning=0 (mean offset 0,0) projectiles=0
+nanolathe: film: wrote 720 frames to /Users/daniel/Documents/Codex/2026-10-03/task/capture-home-hero/hero-video-frames

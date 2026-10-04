@@ -1,0 +1,320 @@
+diff --git a/cmd/nanolathe/film.go b/cmd/nanolathe/film.go
+index bdfffcf3..b15dbb95 100644
+--- a/cmd/nanolathe/film.go
++++ b/cmd/nanolathe/film.go
+@@ -234,7 +234,20 @@ func (g *filmGame) Update() error {
+ 	return nil
+ }
+ 
++// Local capture driver: hidden macOS windows may stop issuing Draw callbacks.
++// Batch the identical production frame body within the first callback; the
++// film cursor still owns every simulation tick and interpolation fraction.
+ func (g *filmGame) Draw(screen *ebiten.Image) {
++	if os.Getenv("NANOLATHE_HERO_BATCH") == "1" {
++		for !g.done {
++			g.drawFilmFrame(screen)
++		}
++		return
++	}
++	g.drawFilmFrame(screen)
++}
++
++func (g *filmGame) drawFilmFrame(screen *ebiten.Image) {
+ 	if g.done {
+ 		return
+ 	}
+@@ -306,6 +319,10 @@ func (g *filmGame) Draw(screen *ebiten.Image) {
+ 	}
+ 	screen.DrawImage(img, &ebiten.DrawImageOptions{})
+ 	img.ReadPixels(g.readback)
++	if err := g.heroCaptureProof(list); err != nil {
++		g.fail(err)
++		return
++	}
+ 
+ 	g.crop()
+ 	film.Letterbox(g.overlay, g.script.Letterbox)
+diff --git a/cmd/nanolathe/film_scene.go b/cmd/nanolathe/film_scene.go
+index 098bd1c8..e4cd7b9a 100644
+--- a/cmd/nanolathe/film_scene.go
++++ b/cmd/nanolathe/film_scene.go
+@@ -278,6 +278,16 @@ func stageFilmScene(scene film.Scene, s *session.Session) (cx, cz int32, err err
+ 	}
+ 	fixed := func(v int32) numeric.Fixed { return numeric.Fixed(int64(v) << 16) }
+ 
++	// Local website capture composition; the ordinary film fixture is unchanged
++	// unless this explicit diagnostic environment selector is supplied.
++	if os.Getenv("NANOLATHE_HERO_COMPOSITION") == "base" {
++		if err := stageHomepageBase(s, centreX, centreZ, create); err != nil {
++			return 0, 0, err
++		}
++		fmt.Fprintf(os.Stderr, "nanolathe: film: homepage base staged %d units, skipped %d unplaceable\n", placed, skipped)
++		return centreX, centreZ, nil
++	}
++
+ 	for side := 0; side < 2; side++ {
+ 		facing := int32(side*2 - 1) // -1 draws up from the left, +1 from the right
+ 		rows := int32((scene.PerSide + columns - 1) / columns)
+diff --git a/cmd/nanolathe/hero_capture_proof.go b/cmd/nanolathe/hero_capture_proof.go
+new file mode 100644
+index 00000000..ef3315c6
+--- /dev/null
++++ b/cmd/nanolathe/hero_capture_proof.go
+@@ -0,0 +1,103 @@
++package main
++
++// Local capture diagnostics only: observes the production film frame after GPU
++// readback without changing simulation, artwork or renderer controls.
++import (
++	"crypto/sha256"
++	"encoding/json"
++	"fmt"
++	"os"
++
++	"github.com/hajimehoshi/ebiten/v2"
++	"github.com/nanolathe-gg/nanolathe/formats"
++	"github.com/nanolathe-gg/nanolathe/internal/camera"
++	"github.com/nanolathe-gg/nanolathe/internal/drawlist"
++)
++
++func (g *filmGame) heroCaptureProof(list *drawlist.List) error {
++	var info ebiten.DebugInfo
++	ebiten.ReadDebugInfo(&info)
++	if info.GraphicsLibrary != ebiten.GraphicsLibraryMetal {
++		return fmt.Errorf("hero capture requires actual Metal, got %s", info.GraphicsLibrary)
++	}
++	art := g.cl.DetailArt()
++	if art == nil || len(art.Tiles) == 0 || !g.cl.Enhanced() || !g.cl.AntiAlias() {
++		return fmt.Errorf("hero capture requires genuine detail art and modern AA")
++	}
++	audit := &heroArtAudit{variants: map[*formats.GAFFrame]bool{}}
++	tileHash := sha256.New()
++	for _, tile := range art.Tiles {
++		tileHash.Write(tile[:])
++	}
++	for _, bank := range art.Banks {
++		for _, entry := range bank.Entries {
++			for _, ref := range entry.Frames {
++				if ref.Frame != nil {
++					audit.variants[ref.Frame] = true
++				}
++			}
++		}
++	}
++	list.Replay(audit)
++	if audit.DetailTiles != len(art.Tiles) || audit.Scale != camera.ViewScaleDetail || audit.SynthesizedSpriteCommands == 0 {
++		return fmt.Errorf("hero capture did not record genuine 2x terrain and sprites: %+v", audit)
++	}
++	cur := g.cl.Buffer().Current()
++	state, err := json.Marshal(cur)
++	if err != nil {
++		return err
++	}
++	stats := g.gpu.ModelStats()
++	if stats.GPU == 0 || stats.GlowPasses == 0 {
++		return fmt.Errorf("hero capture must contain GPU models and enabled glow: %+v", stats)
++	}
++	units := make([]map[string]any, 0, len(cur.Units))
++	for _, u := range cur.Units {
++		units = append(units, map[string]any{"slot": u.Slot, "name": u.DefName, "owner": u.Owner,
++			"x": u.X, "y": u.Y, "z": u.Z, "heading": u.Heading, "health": u.Health, "build_remaining": u.BuildRemaining})
++	}
++	return json.NewEncoder(os.Stderr).Encode(map[string]any{
++		"hero_capture_proof": true, "graphics_backend": info.GraphicsLibrary.String(),
++		"frame": g.drawn, "committed_tick": cur.Tick, "state_sha256": fmt.Sprintf("%x", sha256.Sum256(state)),
++		"surface_rgba_sha256":      fmt.Sprintf("%x", sha256.Sum256(g.readback)),
++		"synthesized_tiles_sha256": fmt.Sprintf("%x", tileHash.Sum(nil)),
++		"anti_alias":               g.cl.AntiAlias(), "enhanced": g.cl.Enhanced(),
++		"glow": g.cl.Glow(), "glow_strength": g.cl.GlowStrength(),
++		"ground_light_strength": g.cl.GroundLightStrength(), "blast_ring_strength": g.cl.BlastRingStrength(),
++		"effects": g.cl.Effects(), "art_audit": audit, "gpu_stats": stats,
++		"units": units, "builds": cur.Builds, "projectiles": len(cur.Projectiles), "effect_count": len(cur.Effects),
++	})
++}
++
++type heroArtAudit struct {
++	DetailTiles               int
++	Scale                     camera.ViewScale
++	Camera                    *camera.Camera
++	TotalSpriteCommands       int
++	SynthesizedSpriteCommands int
++	variants                  map[*formats.GAFFrame]bool
++}
++
++func (a *heroArtAudit) Terrain(t drawlist.Terrain) {
++	a.DetailTiles = len(t.Detail)
++	a.Scale = t.Scale
++	a.Camera = t.Cam
++}
++func (a *heroArtAudit) Sprite(s drawlist.Sprite) {
++	a.TotalSpriteCommands++
++	if a.variants[s.Frame] {
++		a.SynthesizedSpriteCommands++
++	}
++}
++func (*heroArtAudit) Clear()                   {}
++func (*heroArtAudit) Glyphs(drawlist.Glyphs)   {}
++func (*heroArtAudit) Fill(drawlist.Fill)       {}
++func (*heroArtAudit) Line(drawlist.Line)       {}
++func (*heroArtAudit) Points(drawlist.Points)   {}
++func (*heroArtAudit) Flash(drawlist.Flash)     {}
++func (*heroArtAudit) Halo(drawlist.Halo)       {}
++func (*heroArtAudit) Model(drawlist.Model)     {}
++func (*heroArtAudit) Fog(drawlist.Fog)         {}
++func (*heroArtAudit) Surface(drawlist.Surface) {}
++func (*heroArtAudit) Cursor(drawlist.Cursor)   {}
++func (*heroArtAudit) Expand()                  {}
+diff --git a/cmd/nanolathe/hero_capture_scene.go b/cmd/nanolathe/hero_capture_scene.go
+new file mode 100644
+index 00000000..11e5eec7
+--- /dev/null
++++ b/cmd/nanolathe/hero_capture_scene.go
+@@ -0,0 +1,148 @@
++package main
++
++// Local website composition only. Original definitions, COB scripts, placement
++// checks, normal factory/mobile construction and ordinary combat still produce
++// every visible unit, building and effect through the production film route.
++import (
++	"fmt"
++	"os"
++
++	"github.com/nanolathe-gg/nanolathe/internal/construction"
++	"github.com/nanolathe-gg/nanolathe/internal/features"
++	"github.com/nanolathe-gg/nanolathe/internal/session"
++	"github.com/nanolathe-gg/nanolathe/internal/sim/numeric"
++	"github.com/nanolathe-gg/nanolathe/internal/units"
++	"github.com/nanolathe-gg/nanolathe/internal/world"
++)
++
++func stageHomepageBase(s *session.Session, x, z int32, create func(string, int, int32, int32, bool) *units.Unit) error {
++	type placement struct {
++		name   string
++		owner  int
++		dx, dz int32
++	}
++	// The base sits behind the ARM line in screen depth rather than a distant
++	// horizontal rank. The hero's narrow viewport can therefore show its actual
++	// production buildings alongside combat without crowding model silhouettes.
++	placements := []placement{
++		{"armlab", 0, 170, -80},
++		{"armsolar", 0, 25, -150},
++		{"armrad", 0, 245, -145},
++		{"armllt", 0, 180, 160},
++		{"armcom", 0, 235, 80},
++		{"armbull", 0, 100, 5},
++		{"armstump", 0, 10, -50},
++		{"armflash", 0, -5, 100},
++		{"armzeus", 0, 80, 95},
++		{"corraid", 1, -145, -65},
++		{"corlevlr", 1, -155, 45},
++		{"correap", 1, -180, 150},
++		{"corstorm", 1, -240, 15},
++	}
++	fixed := func(v int32) numeric.Fixed { return numeric.Fixed(int64(v) << 16) }
++	var staged []*units.Unit
++	for _, p := range placements {
++		def, ok := s.Catalog.Unit(p.name)
++		if !ok {
++			return fmt.Errorf("homepage composition: no definition for %s", p.name)
++		}
++		var u *units.Unit
++		offsets := [][2]int32{{0, 0}}
++		for _, radius := range []int32{16, 32, 48, 64, 80} {
++			offsets = append(offsets, [2]int32{radius, 0}, [2]int32{-radius, 0}, [2]int32{0, radius}, [2]int32{0, -radius}, [2]int32{radius, radius}, [2]int32{-radius, radius}, [2]int32{radius, -radius}, [2]int32{-radius, -radius})
++		}
++		for _, offset := range offsets {
++			px, pz := x+p.dx+offset[0], z+p.dz+offset[1]
++			if !filmPlaceable(s, def, fixed(px), fixed(pz)) {
++				continue
++			}
++			crowded := false
++			for _, other := range staged {
++				padding := int32(32)
++				if def.BMCode == 0 && other.Def.BMCode == 0 {
++					padding = 16
++				}
++				marginX := (int32(def.FootprintX)+int32(other.Def.FootprintX))*8 + padding
++				marginZ := (int32(def.FootprintZ)+int32(other.Def.FootprintZ))*8 + padding
++				dx, dz := px-int32(other.X.Int()), pz-int32(other.Z.Int())
++				if dx < 0 {
++					dx = -dx
++				}
++				if dz < 0 {
++					dz = -dz
++				}
++				if dx < marginX && dz < marginZ {
++					crowded = true
++					break
++				}
++			}
++			if crowded {
++				continue
++			}
++			u = create(p.name, p.owner, px, pz, false)
++			if u != nil {
++				break
++			}
++		}
++		if u == nil {
++			return fmt.Errorf("homepage composition: no clear placement for %s near %d,%d", p.name, x+p.dx, z+p.dz)
++		}
++		// Prepare this fixture's small placement clearing through the feature
++		// lifecycle. Original surrounding foliage stays; indestructible map
++		// features (including deposits) are never removed. This is scene
++		// staging, not a claim about a game unit automatically clearing trees.
++		removed := 0
++		halfX, halfZ := int32(def.FootprintX)*8+16, int32(def.FootprintZ)*8+16
++		for cz := int32(u.Z.Int()-int64(halfZ)) / 16; cz <= int32(u.Z.Int()+int64(halfZ))/16; cz++ {
++			for cx := int32(u.X.Int()-int64(halfX)) / 16; cx <= int32(u.X.Int()+int64(halfX))/16; cx++ {
++				cell := s.World.PlotAt(cx, cz)
++				if cell == nil {
++					continue
++				}
++				feature, ok := s.World.FeatureDefAt(cell.Feature())
++				if !ok || feature == nil || feature.Indestructible {
++					continue
++				}
++				s.Features.RemoveFeatureAt(int(cx), int(cz), features.CauseBurnt)
++				s.Features.RemoveFeatureAt(int(cx), int(cz), features.CauseBurnt)
++				removed++
++			}
++		}
++		if removed > 0 {
++			fmt.Fprintf(os.Stderr, "nanolathe: hero: cleared %d destructible feature anchors around %s\n", removed, p.name)
++		}
++		staged = append(staged, u)
++		fmt.Fprintf(os.Stderr, "nanolathe: hero: placed %s owner=%d at %d,%d\n", p.name, p.owner, u.X.Int(), u.Z.Int())
++		// Short, ordinary patrol legs leave the base readable while showing
++		// actual locomotion, turret tracking and weapons, rather than animating
++		// models or moving the camera in post-production.
++		switch p.name {
++		case "armflash", "armstump", "armzeus":
++			filmOrder(s, u, 9, fixed(int32(u.X.Int())-95), fixed(int32(u.Z.Int())+45))
++			filmOrder(s, u, 9, fixed(int32(u.X.Int())+15), fixed(int32(u.Z.Int())-35))
++		case "corraid", "corlevlr", "correap", "corstorm":
++			filmOrder(s, u, 9, fixed(int32(u.X.Int())+130), fixed(int32(u.Z.Int())-30))
++			filmOrder(s, u, 9, fixed(int32(u.X.Int())-20), fixed(int32(u.Z.Int())+30))
++		case "armcom":
++			def, _ := s.Catalog.Unit("armwin")
++			bx, bz := fixed(x+270), fixed(z-15)
++			ax, az := world.PlacementAnchor(bx, bz, int32(def.FootprintX), int32(def.FootprintZ))
++			bx, bz = world.PlacementCenter(ax, az, int32(def.FootprintX), int32(def.FootprintZ))
++			if err := construction.QueueMobileBuild(u, "armwin", bx, bz, 1, s.Catalog); err != nil {
++				return err
++			}
++			fmt.Fprintf(os.Stderr, "nanolathe: hero: commander queued original wind generator at %d,%d\n", bx.Int(), bz.Int())
++		}
++		if p.name == "armlab" {
++			if err := construction.QueueFactoryBuild(u, "armpw", 12, s.Catalog); err != nil {
++				return err
++			}
++		}
++	}
++	// One fighter follows a normal patrol leg; no invented altitude or pose.
++	if plane := create("armfig", 0, x+15, z-90, true); plane != nil {
++		filmOrder(s, plane, 9, fixed(x-160), fixed(z+100))
++		filmOrder(s, plane, 9, fixed(x+150), fixed(z-150))
++	}
++	return nil
++}

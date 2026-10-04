@@ -5,15 +5,22 @@
     "801c8b2",
     "e2ac78cd"
   ],
-  "hero_provenance": "home-hero/manifest.json",
+  "hero_provenance": "home-hero-video/manifest.json",
   "files": [
     {
-      "path": "static/images/renderer/hero-modern-base-e2ac78cd.webp",
-      "bytes": 829644,
-      "sha256": "b2aa8a82b133a0fc6e0bca2e1e38a61d91e2cf80ac623d13c7829a12bf003b0f",
+      "path": "static/images/renderer/hero-living-base-e2ac78cd.mp4",
+      "bytes": 7079348,
+      "sha256": "8b5fa6ae56013bf06cd697b7be4c37e492d823024cf5f393c298d6387a75b60c",
+      "width": 1280,
+      "height": 880
+    },
+    {
+      "path": "static/images/renderer/hero-living-base-e2ac78cd.webp",
+      "bytes": 798832,
+      "sha256": "25b3b9da0e9f74957a8b2432d8845abde76b7cc089796ef882173b09c7353aec",
       "width": 1280,
       "height": 880,
-      "rgba_sha256": "c32eeb071060fffe08f2bc8cd12728c3f2ebd4535dbce27ea0f9b34fcbd41342"
+      "rgba_sha256": "eae270572a7283461dbac9429792ed3d10b7f1c52957a2d1e1e3f5af001994b7"
     },
     {
       "path": "static/images/renderer/v2/fire-off.mp4",

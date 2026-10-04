@@ -373,24 +373,32 @@ SoftShadows toggled. Source/drawlist/setting/restoration and PNG↔WebP pixel pr
 are in `scripts/renderer-capture/aircraft-shadows/`. They are a frozen altitude
 study, with native100% shadow softness; they are not simulated flight footage.
 
-## October 4, 2026 homepage hero refresh
+## October 4, 2026 animated homepage hero
 
-`static/images/renderer/hero-modern-base-e2ac78cd.webp` replaces the older benchmark
-hero with a production `--film` capture from engine
-`e2ac78cda2a19ff77fb8ee04a6ed32fc8f2e8819`. It shows a staged ARM base and battle on Greenhaven
-using ordinary units, orders and combat, actual Metal GPU execution, AA,
-lighting, glow and genuine synthesized 2× terrain and feature sprites. A local capture-only fixture spaces original units and buildings, queues normal
-factory production and prepares small footprint clearings through the feature
-lifecycle, preserving indestructible map features. Native strengths and engine
-rendering remain unchanged.
+`static/images/renderer/hero-living-base-e2ac78cd.mp4` and its lossless WebP still
+replace the previous static homepage hero. This is a 12-second, 720-frame, 60 FPS
+production `--film` capture from engine
+`e2ac78cda2a19ff77fb8ee04a6ed32fc8f2e8819`, with actual Metal execution, AA,
+lighting, glow and genuine synthesized 2× terrain and feature sprites.
 
-The film path writes the 1280×880 world viewport from its 1408×944 surface,
-removing interface chrome and messages through the existing capture controls.
-There is no additional crop, resampling, retouching or compositing. Lossless
-WebP decoded RGBA exactly matches the native PNG. The separately installed
-game-art content is outside the MIT license for website code. Retail archives,
-derived synthesis caches and the capture binary are excluded.
+The capture-only fixture spaces original ARM buildings and units on Greenhaven,
+queues ordinary patrols and construction, and prepares small footprint clearings
+through the feature lifecycle, preserving indestructible map features. The Kbot
+Lab produces Peewees; the commander builds an original wind generator. Movement,
+COB animation, projectiles, combat and effects follow normal engine paths.
+Production simulation, rendering controls, coefficients and defaults are unchanged.
 
-Exact script, frame/camera/settings, local diagnostic revision, source and
-binary hashes, and provenance are in `scripts/renderer-capture/home-hero/`.
-The prior hero's hash and crop remain in `initial-review/media-manifest.json`.
+The film copies the native 1280×880 world viewport from its 1408×944 surface,
+removing interface chrome and messages through existing capture controls. There
+is no further crop, resize, retouching, synthetic motion, compositing or optical
+frame interpolation. H.264/yuv420p encoding compresses the recording with normal
+lossy video compression, at native size and frame rate; there is no audio track.
+The lossless WebP still exactly matches decoded RGBA of native frame 120 (2 seconds).
+
+The separately installed game-art content is outside the website code’s MIT
+license. Retail archives, synthesis caches, capture binaries and raw sequences
+are excluded. Exact source/script, native frame hashes, export, settings and
+local browser evidence are in `scripts/renderer-capture/home-hero-video/`.
+The prior still's provenance is retained in `home-hero/` and Git history; its
+unused served image has been retired. Earlier hero metadata remains in
+`initial-review/media-manifest.json`.

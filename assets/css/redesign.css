@@ -41,8 +41,14 @@ body.redesign .secondary:hover{background:var(--raised);border-color:var(--muted
 body.redesign .hero{position:relative;min-height:650px;isolation:isolate;overflow:hidden}
 body.redesign .hero-picture{position:absolute;inset:0 0 0 35%;z-index:-1}
 body.redesign .hero-picture:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#121516 0%,#121516cc 8%,#12151624 40%,#12151600 75%),linear-gradient(0deg,#121516 0%,transparent 26%,#12151644 100%)}
-body.redesign .hero-picture>img{width:100%;height:100%;object-fit:cover;object-position:right center;filter:brightness(.83)}
-body.redesign .picture-caption{position:absolute;bottom:26px;right:48px;z-index:2;display:flex;flex-direction:column;align-items:flex-end;color:#e1e7d9;font-size:.75rem;text-shadow:0 1px 5px #000}
+body.redesign .hero-picture>img,body.redesign .hero-picture>video{width:100%;height:100%;object-fit:cover;object-position:right center;filter:brightness(.83)}
+body.redesign .picture-caption{display:flex;flex-direction:column;align-items:flex-end;color:#e1e7d9;font-size:.75rem;text-shadow:0 1px 5px #000}
+body.redesign .hero-picture>video{position:absolute;inset:0;opacity:0}
+body.redesign .hero-picture.has-video>video{opacity:1}
+body.redesign .hero-controls{position:absolute;bottom:26px;right:48px;z-index:2;display:flex;align-items:center;gap:14px}
+body.redesign .hero-motion{min-height:44px;padding:9px 13px;border:1px solid #687358;border-radius:3px;background:#121516d9;color:#e1e7d9;font:inherit;font-size:.75rem;cursor:pointer}
+body.redesign .hero-motion:hover{background:#273023;border-color:var(--green)}
+body.redesign .hero-motion:focus-visible{outline:2px solid var(--green);outline-offset:4px}
 body.redesign .picture-caption span+span{color:#abb99c}
 body.redesign .hero-inner{padding-top:75px;padding-bottom:72px}
 body.redesign .hero-copy{max-width:680px}
@@ -195,7 +201,7 @@ body.redesign .nav-install{min-height:38px;font-size:.75rem;margin-left:0;paddin
 body.redesign .hero{display:flex;flex-direction:column;min-height:0;overflow:visible}
 body.redesign .hero-inner{padding-top:44px;padding-bottom:32px;order:0}
 body.redesign .hero-picture{position:relative;inset:auto;order:1;height:320px;margin-top:0;z-index:0}
-body.redesign .hero-picture>img{object-position:right 56%;filter:brightness(.92)}
+body.redesign .hero-picture>img,body.redesign .hero-picture>video{object-position:right 56%;filter:brightness(.92)}
 body.redesign .hero-picture:after{background:linear-gradient(0deg,#1215168c,transparent 55%,#121516 100%)}
 body.redesign .hero-copy{max-width:100%}
 body.redesign .hero h1{font-size:clamp(2.55rem,9.4vw,4rem);letter-spacing:-.05em;line-height:1.04}
@@ -206,7 +212,7 @@ body.redesign .hero-actions .button{min-height:48px;font-size:.875rem;padding:12
 body.redesign .hero-actions .video-button{font-size:.8125rem;padding:12px 13px;gap:9px}
 body.redesign .hero-actions .duration{display:none}
 body.redesign .hero-note{font-size:.75rem;margin-top:13px;line-height:1.65}
-body.redesign .picture-caption{bottom:16px;right:20px;font-size:.75rem}
+body.redesign .hero-controls{bottom:16px;right:20px;gap:10px}
 body.redesign .status-inner{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:3px 15px;padding-block:17px;font-size:.75rem}
 body.redesign .status-inner>span:first-child{width:100%}
 body.redesign .status-inner>span:nth-child(2){padding-right:15px;border-right:1px solid var(--line)}

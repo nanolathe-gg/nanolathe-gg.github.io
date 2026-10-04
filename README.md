@@ -93,11 +93,15 @@ records exact scenes, controls, source/binary hashes and pixel/export verificati
 Modern/default and beta remain website positioning; engine runtime defaults are
 unchanged. The playable browser demo uses the independently verified Wasm build.
 
-The opening hero shows a separated ARM base and battle through native modern
-GPU film capture from engine
-`e2ac78cd`, with actual Metal, AA, lighting, glow and real synthesized 2× terrain
-and feature sprites. The exact script, source/binary hashes and lossless pixel
-verification are in `scripts/renderer-capture/home-hero/README.md`.
+The opening hero is a silent 12-second, 60 FPS native modern GPU film of a
+staged ARM base and battle from engine `e2ac78cd`. Actual Metal, AA, lighting,
+glow and genuinely synthesized 2× terrain and feature sprites accompany normal
+patrols, factory production, commander construction and combat. It plays in view,
+pauses offscreen or in a hidden tab, and includes a pause/play control. Reduced
+motion and data-saving preferences keep the lossless still until explicit play;
+JavaScript, video loading and autoplay failures retain the still fallback.
+The exact script, source/binary hashes, native frame evidence, export and browser
+verification are in `scripts/renderer-capture/home-hero-video/README.md`.
 
 The Features page reads `data/features.json`. Its nine chapters include a slider
 through 26 actual camera captures (starting at 1×), a larger original/synthesized

@@ -1,0 +1,398 @@
+{
+  "captured": "2026-10-04",
+  "production_revision": "e2ac78cda2a19ff77fb8ee04a6ed32fc8f2e8819",
+  "capture_revision": "51d69275731131b8d62a8a3865383ea1ff4fe78f",
+  "capture_branch": "capture/homepage-modern-hero",
+  "website_branch": "redesign/private-beta-local",
+  "current_main_checked": "33abd56e5cffc70352fad69d6efff247297d3c3e",
+  "current_main_renderer_client_detail_and_film_diff_from_production_pin": [],
+  "graphics_backend": "Metal",
+  "hardware": "Apple M3 Pro",
+  "go": "go1.27.1",
+  "ebitengine": "v2.10.4",
+  "scene": {
+    "width": 1280,
+    "height": 880,
+    "fps": 60,
+    "clean": true,
+    "letterbox": 0,
+    "messages": false,
+    "scene": {
+      "kind": "battle",
+      "map": "Greenhaven",
+      "seed": 7,
+      "pre_ticks": 60,
+      "roster": "armor",
+      "per_side": 4,
+      "buildings": 4,
+      "factories": true,
+      "fog": false,
+      "air": 1,
+      "builders": 0,
+      "columns": 2,
+      "pitch": 64,
+      "gap": 80,
+      "patrol": true,
+      "anchor": [
+        4280,
+        4230
+      ]
+    },
+    "shots": [
+      {
+        "name": "homepage-living-base",
+        "ticks": 360,
+        "camera": [
+          {
+            "tick": 0,
+            "x": 0,
+            "z": -75,
+            "zoom": 2,
+            "ease": "linear"
+          }
+        ],
+        "text": []
+      }
+    ]
+  },
+  "capture_environment": {
+    "EBITENGINE_GRAPHICS_LIBRARY": "metal",
+    "NANOLATHE_HERO_COMPOSITION": "base",
+    "NANOLATHE_HERO_BATCH": "1",
+    "XDG_CACHE_HOME": "/tmp/nanolathe-home-hero-cache",
+    "XDG_CONFIG_HOME": "/tmp/nanolathe-home-hero-config"
+  },
+  "native_frames": 720,
+  "fps": 60,
+  "duration_seconds": 12,
+  "first_committed_tick": 61,
+  "last_committed_tick": 420,
+  "presentation": "Ordinary 30 Hz authoritative simulation; each published interval supplies fractions 0 and 0.5. First publication is 61, presented from prior tick 60 at fraction 0. There is no optical/video frame interpolation or speed change.",
+  "camera": "Fixed camera at relative x=0,z=-75,zoom=2; same production film camera for every frame.",
+  "clean_crop": {
+    "composed": [
+      1408,
+      944
+    ],
+    "origin": [
+      128,
+      32
+    ],
+    "output": [
+      1280,
+      880
+    ],
+    "resampled": false,
+    "interface_removed": "production clean:true, messages:false"
+  },
+  "fixture": {
+    "staged_units": 14,
+    "notes": "Original buildings and units, ordinary patrols, original COB, queued factory armpw and commander armwin construction; nine small destructible-feature footprint clearings; indestructible features preserved. No Maverick.",
+    "default_commanders_and_ai": "Fresh session also contains its original commanders; offscreen CORE construction appears in the complete census."
+  },
+  "renderer_evidence": {
+    "every_frame_has_real_synthesis": true,
+    "detail_tiles": 2347,
+    "sprite_commands_range": [
+      38,
+      38
+    ],
+    "synthesized_tile_sha256": "a751878221dd3dc48ec1bef689ed7a20562fdc9a7cebe84411c9c34d56bff210",
+    "strengths": 100,
+    "aa_enhanced_glow": true,
+    "ground_light_frames": 626,
+    "projectile_frames": 692,
+    "distinct_native_pixel_hashes": 720
+  },
+  "movement_evidence": [
+    {
+      "slot": 1,
+      "unit": "armcom",
+      "owner": 0,
+      "distinct_committed_positions": 1,
+      "first_health": 3000,
+      "last_observed_health": 3000
+    },
+    {
+      "slot": 2,
+      "unit": "armlab",
+      "owner": 0,
+      "distinct_committed_positions": 1,
+      "first_health": 2690,
+      "last_observed_health": 2690
+    },
+    {
+      "slot": 3,
+      "unit": "armsolar",
+      "owner": 0,
+      "distinct_committed_positions": 1,
+      "first_health": 326,
+      "last_observed_health": 326
+    },
+    {
+      "slot": 4,
+      "unit": "armrad",
+      "owner": 0,
+      "distinct_committed_positions": 1,
+      "first_health": 51,
+      "last_observed_health": 51
+    },
+    {
+      "slot": 5,
+      "unit": "armllt",
+      "owner": 0,
+      "distinct_committed_positions": 1,
+      "first_health": 750,
+      "last_observed_health": 750
+    },
+    {
+      "slot": 6,
+      "unit": "armcom",
+      "owner": 0,
+      "distinct_committed_positions": 6,
+      "first_health": 3000,
+      "last_observed_health": 3000
+    },
+    {
+      "slot": 7,
+      "unit": "armbull",
+      "owner": 0,
+      "distinct_committed_positions": 1,
+      "first_health": 2102,
+      "last_observed_health": 1007
+    },
+    {
+      "slot": 8,
+      "unit": "armstump",
+      "owner": 0,
+      "distinct_committed_positions": 288,
+      "first_health": 992,
+      "last_observed_health": 992
+    },
+    {
+      "slot": 9,
+      "unit": "armflash",
+      "owner": 0,
+      "distinct_committed_positions": 360,
+      "first_health": 625,
+      "last_observed_health": 582
+    },
+    {
+      "slot": 10,
+      "unit": "armzeus",
+      "owner": 0,
+      "distinct_committed_positions": 118,
+      "first_health": 875,
+      "last_observed_health": 792
+    },
+    {
+      "slot": 11,
+      "unit": "armfig",
+      "owner": 0,
+      "distinct_committed_positions": 360,
+      "first_health": 196,
+      "last_observed_health": 196
+    },
+    {
+      "slot": 1501,
+      "unit": "corcom",
+      "owner": 1,
+      "distinct_committed_positions": 33,
+      "first_health": 3000,
+      "last_observed_health": 3000
+    },
+    {
+      "slot": 1502,
+      "unit": "corraid",
+      "owner": 1,
+      "distinct_committed_positions": 359,
+      "first_health": 1058,
+      "last_observed_health": 806
+    },
+    {
+      "slot": 1503,
+      "unit": "corlevlr",
+      "owner": 1,
+      "distinct_committed_positions": 61,
+      "first_health": 375,
+      "last_observed_health": -66
+    },
+    {
+      "slot": 1504,
+      "unit": "correap",
+      "owner": 1,
+      "distinct_committed_positions": 242,
+      "first_health": 2014,
+      "last_observed_health": 597
+    },
+    {
+      "slot": 1505,
+      "unit": "corstorm",
+      "owner": 1,
+      "distinct_committed_positions": 336,
+      "first_health": 576,
+      "last_observed_health": 474
+    }
+  ],
+  "construction_evidence": {
+    "armwin": {
+      "frames_with_active_build": 388,
+      "first": {
+        "frame": 6,
+        "Builder": 6,
+        "Product": 12,
+        "ProductKey": "armwin",
+        "Remaining": 1,
+        "Health": 0,
+        "MaxHealth": 176,
+        "QueueIndex": -1,
+        "Factory": false,
+        "FootX": 4,
+        "FootZ": 4
+      },
+      "last": {
+        "frame": 393,
+        "Builder": 6,
+        "Product": 12,
+        "ProductKey": "armwin",
+        "Remaining": 0.0018729893,
+        "Health": 176,
+        "MaxHealth": 176,
+        "QueueIndex": -1,
+        "Factory": false,
+        "FootX": 4,
+        "FootZ": 4
+      },
+      "first_completed_frame": 394
+    },
+    "armpw": {
+      "frames_with_active_build": 712,
+      "first": {
+        "frame": 8,
+        "Builder": 2,
+        "Product": 13,
+        "ProductKey": "armpw",
+        "Remaining": 1,
+        "Health": 0,
+        "MaxHealth": 250,
+        "QueueIndex": -1,
+        "Factory": true,
+        "FootX": 2,
+        "FootZ": 2
+      },
+      "last": {
+        "frame": 719,
+        "Builder": 2,
+        "Product": 13,
+        "ProductKey": "armpw",
+        "Remaining": 0.26652533,
+        "Health": 184,
+        "MaxHealth": 250,
+        "QueueIndex": -1,
+        "Factory": true,
+        "FootX": 2,
+        "FootZ": 2
+      }
+    }
+  },
+  "producer": {
+    "binary_sha256": "a112a508f78ee636ec59accc75c803b0e87f548178d770cd2241a0763e12ed64",
+    "binary_build_revision": "02f9fa6b416542b23d1ae9071751663d5d00bb83",
+    "binary_build_modified": true,
+    "source_files": [
+      {
+        "path": "cmd/nanolathe/film.go",
+        "sha256": "d244233378cadcd0df4043fcaa8ae12882efddb177ec08b91da3958671b51c23"
+      },
+      {
+        "path": "cmd/nanolathe/film_scene.go",
+        "sha256": "3232b027508816f85d4ab00fc40e51e3840ba53999a017f401b8fdc22af1472a"
+      },
+      {
+        "path": "cmd/nanolathe/detail_art.go",
+        "sha256": "6bd8a5e896f09786fa810d5062bbce6f5180c0f3512de5475bdeb5f0d2f101b8"
+      },
+      {
+        "path": "cmd/nanolathe/hero_capture_proof.go",
+        "sha256": "a2df09209475f045c81ed86bfd1a52702878a2a9e48489d2cb9528066b9d6ba6"
+      },
+      {
+        "path": "cmd/nanolathe/hero_capture_scene.go",
+        "sha256": "2fdc0e5e9da4ab2d485f1bc060cccd67debaf9252fac49ddcfa6c8c4cec06e55"
+      }
+    ],
+    "capture_patch_sha256": "70d6ee9819bba6b8ecf971f3aa936ae096f90e1ddccfb616a99950664a3deac9"
+  },
+  "export": {
+    "command": "ffmpeg -framerate 60 -i frame%06d.png -an -c:v libx264 -preset slow -crf 22 -pix_fmt yuv420p -movflags +faststart hero-living-base-e2ac78cd.mp4",
+    "codec": "H.264",
+    "pixel_format": "yuv420p",
+    "native_size_and_rate": true,
+    "lossy_video_compression": true,
+    "audio_tracks": 0,
+    "fast_start_atoms": [
+      {
+        "type": "ftyp",
+        "offset": 0,
+        "size": 32
+      },
+      {
+        "type": "moov",
+        "offset": 32,
+        "size": 9450
+      },
+      {
+        "type": "free",
+        "offset": 9482,
+        "size": 8
+      },
+      {
+        "type": "mdat",
+        "offset": 9490,
+        "size": 7069858
+      }
+    ],
+    "decoded_frame_hashes": "video-decoded.framemd5"
+  },
+  "poster": {
+    "native_frame": 120,
+    "time_seconds": 2,
+    "source_png_sha256": "91cb08a241bfbf70634fe70b3b49650dc36571a13d449173dbd952861df09d4c",
+    "rgba_sha256": "eae270572a7283461dbac9429792ed3d10b7f1c52957a2d1e1e3f5af001994b7",
+    "lossless_exact_native_pixels": true
+  },
+  "website_media": [
+    {
+      "path": "static/images/renderer/hero-living-base-e2ac78cd.mp4",
+      "bytes": 7079348,
+      "sha256": "8b5fa6ae56013bf06cd697b7be4c37e492d823024cf5f393c298d6387a75b60c",
+      "width": 1280,
+      "height": 880
+    },
+    {
+      "path": "static/images/renderer/hero-living-base-e2ac78cd.webp",
+      "bytes": 798832,
+      "sha256": "25b3b9da0e9f74957a8b2432d8845abde76b7cc089796ef882173b09c7353aec",
+      "width": 1280,
+      "height": 880,
+      "rgba_sha256": "eae270572a7283461dbac9429792ed3d10b7f1c52957a2d1e1e3f5af001994b7"
+    }
+  ],
+  "reproduction": {
+    "second_run_frames": 5,
+    "exact_png_surface_rgba_and_committed_state_match": true
+  },
+  "retail_data": {
+    "separately_installed": true,
+    "retail_archives_in_deliverable": false,
+    "synthesis_caches_in_deliverable": false,
+    "binaries_or_raw_sequences_in_deliverable": false
+  },
+  "verification": {
+    "browser": "browser-verification.json",
+    "full_make_check": "pass; PowerShell unavailable, Windows offline tests skipped",
+    "go_build_and_vet": "pass",
+    "physical_safari_and_mobile_hero_playback": "not repeated",
+    "preview": "http://127.0.0.1:1313/"
+  }
+}
