@@ -1,0 +1,10 @@
+<figure class="renderer-zoom" data-zoom-viewer data-zoom-frames="{{ .frames | jsonify }}">
+  <div class="zoom-stage"><img data-zoom-image src="{{ .src | relURL }}" width="{{ .width }}" height="{{ .height }}" alt="{{ .alt }}" loading="lazy" decoding="async"><span class="zoom-state" data-zoom-state>1× · Original scale</span></div>
+  <div class="zoom-controls" hidden>
+    <div class="zoom-presets" role="group" aria-label="Camera views"><button type="button" data-zoom-position="0">Whole map</button><button type="button" data-zoom-position="17" aria-pressed="true">1×</button><button type="button" data-zoom-position="25">2× detail</button></div>
+    <label for="camera-zoom">Zoom the camera <output data-zoom-output>1× · Original scale</output></label>
+    <input id="camera-zoom" type="range" min="0" max="25" step="1" value="17" aria-valuetext="1×, original scale">
+    <p data-zoom-status role="status">Move from the whole map to a 2× close-up.</p>
+  </div>
+  <figcaption>{{ .caption }}<span class="comparison-files"><a href="{{ .src | relURL }}">Open 1× view</a> · <a href="{{ .detail | relURL }}">Open 2× view</a> · <a href="{{ .overview | relURL }}">Open whole map</a></span></figcaption>
+</figure>

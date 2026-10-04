@@ -200,3 +200,73 @@ Current evidence in `../qa/`:
 
 The local preview is still available at http://127.0.0.1:1313/.
 Nothing was pushed, merged into main or published during this cleanup.
+
+## October 4 feedback pass
+
+Desktop Safari is now listed as supported based on Daniel's hands-on successful
+test. Its exact version and full test matrix were not supplied; this is user
+acceptance evidence, separate from the isolated Chromium automation below.
+Home, Get started, browser help and the game recovery text agree on Chrome,
+Edge and Safari. Firefox and mobile/tablet play remain unverified.
+
+The home comparison now uses a healthy-tree Greenhaven blast with real 2× terrain
+and foliage synthesis. Features restores fire distortion, real cooling wrecks
+and the original interactive WebGL material study. It adds a 26-stop camera
+slider that starts at 1×, a larger terrain/tree close-up switching both art
+families, combined transport/submarine water with five effect views, nine units
+in the edge comparison and a concise modern-renderer overview. The misplaced
+solar is on clear ground, and the metal extractor occupies the deposit.
+Documentation cards use a consistent icon/text grid with category illustrations
+and existing authored texture/terrain examples. Get started and About keep their
+accepted layout; only Get started's browser-support sentence changes.
+
+New native provenance: production engine 617540c587e1b75d6d8ba7bf5243d24bea3f3bc2,
+local diagnostic branch capture/features-feedback-v6 at
+33ee2ed83a21763f58668c39a2b4709e62179cb3. Actual Metal is required and logged.
+41 WebP exports match native PNG decoded pixels;11 MP4s retain native sizes and
+fully decode with expected frame counts. The synthesis audit verifies original
+versus actual synthesized tiles/sprites and identical cameras. The water census
+verifies two model commands, submerged-model commits, reflection geometry and
+off/on/off restoration. Fire has three actual heat plumes; the Stumpy's ordinary
+COB-selected corpse is born at tick 120 and the clip includes real cooling/expiry.
+Eight first-frame/poster replays match the final core binary byte-for-byte.
+No engine production file, simulation default or renderer coefficient changes.
+See scripts/renderer-capture/v6/README.md for exact controls and remaining limits.
+The interactive material study retains 801c8b2 browser-export provenance; its
+optional native recording remains v5/279f7af1. It is not claimed as a new native
+617540c5 capture. The playable Wasm remains independently pinned to browser-210.
+
+Validation passed:
+
+- `make check`: strict Hugo build,30 HTML internal-link/anchor/asset checks,
+  browser-build/demo integrity and shell regressions,34 platform assertions,
+  all 15 format generators, mod catalogue/packaging and 16 offline installer tests.
+  PowerShell is unavailable, so Windows offline tests remain skipped.
+- 27 non-play routes at 320/390/768/1024/1440: 135 layout checks, no broken images,
+  duplicate IDs, JavaScript errors, page overflow or viewport enlargement. Setup
+  commands/copy/ownership, documentation counts and navigation remain working.
+- Features: 10 layout/fallback checks, six mouse/touch/keyboard still comparisons,
+  ten movie checks (five figures on desktop and phone), 29 native media URL checks,
+  no-JavaScript/reduced-motion behavior, menu and navigation/back.
+- Camera: presets, keyboard, actual mouse/touch range dragging, rapid successive
+  requests, missing-image recovery preserving the last view and successful retry.
+- Material study: mouse/touch drag, keyboard, sliders, light orbit and reset;
+  actual rendered pixels change with finish/rotation/light. WebGL-disabled
+  browsers keep the poster and can open the native movie fallback.
+
+Evidence in `../qa/`: `features-feedback-make-check.log`,
+`features-feedback-export.log`, `features-feedback-site-check.log`,
+`site-cleanup-report.json` (refreshed for this pass),
+`features-feedback-browser-report.json`, `features-feedback-extra-report.json`,
+and their `features-feedback-*-check.cjs` scripts. Final review screenshots
+are indexed in `features-feedback-review-shots.json`: `feedback-home-comparison-*`,
+`feedback-camera-*`, and `feedback-docs-formats-*`. Screenshots are
+`features-v6-desktop-*`, `features-v6-mobile-*`, and refreshed
+`cleanup-docs-1440.png`/`cleanup-docs-390.png` and homepage captures.
+Capture source and compact verification live in the repository; raw data stays
+outside it under `../capture-features-v6/`. Prior physical-device/performance,
+full-folder-drop, long-play and save-roundtrip gaps remain as described above.
+
+The loopback preview remains running at http://127.0.0.1:1313/.
+All work remains on `redesign/private-beta-local`. No push, merge into main,
+deploy, DNS change or publication occurred.

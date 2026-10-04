@@ -324,3 +324,25 @@ retail game data, not captures of the retail executable. Staging, exact
 controls, cold/warm synthesis evidence, source hashes, provenance and
 reproduction commands are in `scripts/renderer-capture/v4/README.md` and its
 JSON evidence. Retail archives and derived tile caches are excluded.
+
+## October 4, 2026 feedback captures and documentation icons
+
+`static/images/renderer/v6/` contains 41 native lossless WebP images and 11 native
+H.264 movies from production engine `617540c587e1b75d6d8ba7bf5243d24bea3f3bc2`,
+with isolated diagnostic harness `33ee2ed83a21763f58668c39a2b4709e62179cb3`.
+They use original separately installed Total Annihilation data on actual Metal.
+Greenhaven comparisons use healthy native trees and real synthesized 2× terrain
+and feature sprites. Camera stops, transport/submarine water, nine-model edges,
+fire and actual cooling wrecks are identified as staged engine scenes.
+No images are composited, retouched or resampled. Lossless exports have matching
+RGBA hashes; all 11 native-size clips fully decode at their expected frame counts.
+Exact settings, source/binary hashes and reproduction are in
+`scripts/renderer-capture/v6/README.md`, `verification.json`, and
+`website-media.json`. Raw sequences, caches, executables and retail archives are
+excluded. These game-art captures are separate from the MIT-licensed code.
+The restored interactive material viewer keeps its existing 801c8b2 provenance.
+
+The documentation directory uses original inline SVG category icons in
+`layouts/partials/format-icon.html`, with texture and terrain thumbnails reused
+from the existing authored 3DO/TNT example guides. No retail art is added to
+these documentation icons; they remain original website illustration assets.

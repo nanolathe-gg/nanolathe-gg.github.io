@@ -117,3 +117,48 @@ document.querySelectorAll('[data-motion-demo]').forEach(figure => {
     syncPlay();
   }));
 });
+
+// Each stop is a freshly rendered engine camera view, not a resized screenshot.
+document.querySelectorAll('[data-zoom-viewer]').forEach(figure => {
+  const frames = JSON.parse(figure.dataset.zoomFrames);
+  const image = figure.querySelector('[data-zoom-image]');
+  const range = figure.querySelector('input[type="range"]');
+  const status = figure.querySelector('[data-zoom-status]');
+  const presets = [...figure.querySelectorAll('[data-zoom-position]')];
+  const cache = new Map();
+  let requested = 0;
+  function load(index) {
+    if (!frames[index]) return Promise.resolve();
+    if (!cache.has(index)) {
+      const capture = new Image();
+      capture.src = frames[index].src;
+      const decoded = capture.decode().then(() => capture);
+      cache.set(index, decoded);
+      decoded.catch(() => cache.delete(index));
+    }
+    return cache.get(index);
+  }
+  async function update() {
+    const index = Number(range.value), version = ++requested, frame = frames[index];
+    range.setAttribute('aria-valuetext', frame.label);
+    figure.querySelector('[data-zoom-output]').textContent = frame.label;
+    presets.forEach(button => button.setAttribute('aria-pressed', String(Number(button.dataset.zoomPosition) === index)));
+    figure.setAttribute('aria-busy', 'true');
+    try {
+      await load(index);
+      if (version !== requested) return;
+      image.src = frame.src;
+      image.alt = `Nanolathe Greenhaven outpost at ${frame.label}`;
+      figure.querySelector('[data-zoom-state]').textContent = frame.label;
+      status.textContent = 'Drag the slider or choose a camera view.';
+      [index - 1, index + 1].forEach(neighbor => load(neighbor).catch(() => {}));
+    } catch {
+      if (version === requested) status.textContent = 'This view could not load. Try another zoom level or open a full image below.';
+    } finally {
+      if (version === requested) figure.setAttribute('aria-busy', 'false');
+    }
+  }
+  range.addEventListener('input', update);
+  presets.forEach(button => button.addEventListener('click', () => { range.value = button.dataset.zoomPosition; update(); }));
+  figure.querySelector('.zoom-controls').hidden = false;
+});

@@ -103,3 +103,25 @@
   .features-refresh .features-lead-actions .button { padding-inline:14px; }
   .features-refresh .features-lead-actions .text-link { font-size:.8125rem; }
 }
+.features-refresh .renderer-zoom { margin:0; border:1px solid var(--line); border-radius:4px; background:var(--surface); overflow:hidden; }
+.zoom-stage { position:relative; }
+.zoom-stage img { display:block; width:100%; height:auto; }
+.zoom-state { position:absolute; top:12px; right:12px; background:#0d130ee6; padding:7px 10px; color:var(--green); font:11px/1.5 var(--mono); }
+.zoom-controls { padding:14px 16px; border-top:1px solid var(--line); }
+.zoom-controls[hidden] { display:none; }
+.zoom-presets { display:flex; gap:8px; margin-bottom:14px; }
+.zoom-presets button { color:var(--muted); background:transparent; border:1px solid var(--line); padding:8px 14px; min-height:44px; font:12px/1.4 var(--mono); cursor:pointer; }
+.zoom-presets button[aria-pressed="true"],.zoom-presets button:hover { color:var(--green); border-color:var(--green); }
+.zoom-controls label { display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; color:var(--muted); font-size:12px; }
+.zoom-controls output { color:var(--text); }
+.zoom-controls input { display:block; width:100%; accent-color:var(--green); margin:9px 0; min-height:32px; }
+.zoom-controls p { margin:0; font-size:12px; line-height:1.6; color:var(--muted); }
+.renderer-zoom figcaption { border-top:1px solid var(--line); padding:14px 16px; font-size:12px; line-height:1.8; color:var(--muted); }
+.features-refresh .material-viewer { border-radius:4px; overflow:hidden; }
+.features-refresh .material-toolbar { flex-wrap:wrap; }
+.features-refresh .material-toolbar>div { flex-wrap:wrap; }
+.features-refresh .material-controls button { min-height:44px; }
+.features-refresh .feature-chapter .comparison-stage > img,.features-refresh .feature-chapter .comparison-before img { image-rendering:pixelated; }
+.features-refresh .features-overview-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+@media(max-width:820px) { .features-refresh .features-overview-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:550px) { .features-refresh .features-overview-grid { grid-template-columns:1fr; } .zoom-state { font-size:10px; } .zoom-controls { padding:12px; } .zoom-presets button { padding-inline:10px; } }

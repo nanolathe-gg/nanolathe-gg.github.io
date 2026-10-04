@@ -83,21 +83,23 @@ The prototype source is Library item
 beta draft was the design reference. It was integrated into native Hugo routes;
 full technical docs and renderer studies remain available locally.
 
-The homepage captures and exact reproduction/settings evidence are documented in
-`scripts/renderer-capture/v4/README.md`. They compare Classic CPU and Modern GPU
-at the same committed state and 2× camera. Modern uses real 2× synthesized
-terrain, lighting and glow; foliage is explicitly the nearest-doubled fallback.
-Modern/default and beta are website positioning; the engine runtime was not
-modified. The playable browser demo now replaces the former future-layout study.
+The homepage and Features use real v6 native captures from production engine
+`617540c5`, with an isolated diagnostic harness at `33ee2ed8`. The matched
+Greenhaven blast includes healthy, genuinely synthesized tree sprites alongside
+2× synthesized terrain, lighting and glow. `scripts/renderer-capture/v6/README.md`
+records exact scenes, controls, source/binary hashes and pixel/export verification.
+Modern/default and beta remain website positioning; engine runtime defaults are
+unchanged. The playable browser demo uses the independently verified Wasm build.
 
-The refreshed Features page reads `data/features.json` and uses native v5 engine
-captures for camera/tactical view, terrain synthesis, lighting, water, material
-finishes and model edges. Its layout is in `assets/css/features-refresh.css`.
-`scripts/renderer-capture/v5/README.md` records the pinned source, capture settings
-and media evidence. Still comparisons support mouse/touch dragging, keyboard
-input and Original/Classic, Split and Modern presets. Paired movies preserve the
-playback position when switching; all motion is opt-in. The earlier browser
-material study is retained as historical source but is not loaded by this page.
+The Features page reads `data/features.json`. Its eight chapters include a slider
+through 26 actual camera captures (starting at 1×), a larger original/synthesized
+terrain-and-foliage comparison, matched lighting, combined transport/submarine
+water with separate effect controls, the restored live WebGL material study,
+a nine-model lineup, fire shimmer and real wreck cooling. Videos play on request
+and paired controls preserve playback position. The material study retains its
+801c8b2 provenance and a v5 native recording as fallback. Native captures and the
+browser study are explicitly distinguished. Historical v4/v5 evidence remains
+available but no longer supplies the home comparison or the refreshed scenes.
 
 For a loopback-only preview:
 
@@ -328,20 +330,19 @@ provenance is recorded in `ASSETS.md`. Keep status claims aligned with the engin
 
 ## Renderer features page
 
-`data/features.json` supplies six chapters and their native v5 capture metadata:
-camera, terrain, lighting, water, surfaces and model edges. The Features template
-uses lossless screenshots, accessible before/after sliders and opt-in animations.
-Paired movies preserve the same playback position when switching. Native controls
-and direct links remain available without JavaScript. `assets/css/features-refresh.css`
-scopes the new layout to this page.
+`data/features.json` supplies eight chapters and a concise renderer overview.
+Still comparisons support mouse/touch, keyboard and whole-view presets. The zoom
+slider chooses freshly rendered camera stops rather than scaling a screenshot;
+it fetches only requested/neighboring views. The live material study supports
+rotation, tilt, light orbit and finish controls, with poster/native-movie fallback.
+`assets/css/features-refresh.css` scopes the marketing layout to this page.
 
-`/gameplay/` remains the server-rendered player guide, with content supplied by
-`data/gameplay.json`. Media lives in `static/images/renderer/`;
-`scripts/renderer-capture/v5/README.md` records the engine pin, reproduction,
-scene controls and verification. Earlier captures and `data/renderer.json` retain
-their historical provenance; the earlier browser material study is no longer
-loaded by Features. The ordinary website build requires neither a GPU nor retail
-game data.
+`/gameplay/` remains the server-rendered player guide, supplied by
+`data/gameplay.json`. Current media lives in `static/images/renderer/v6/`;
+`scripts/renderer-capture/v6/README.md` records engine pins, reproduction and audit
+evidence. Material-study provenance remains in
+`scripts/renderer-capture/live-materials/README.md`. The ordinary website build
+requires neither a GPU nor retail game data.
 
 ## Brand assets
 

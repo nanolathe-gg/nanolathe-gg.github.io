@@ -1,3 +1,9 @@
+> Latest review: the October 4 feedback pass replaces the current homepage and
+> Features scenes with v6 captures, restores the interactive material study,
+> adds documentation icons and supports desktop Safari based on Daniel's test.
+> See the final section of BROWSER_REVIEW.md and scripts/renderer-capture/v6/README.md.
+> The v4/v5 descriptions below are historical.
+
 # Local beta redesign review — October 3, 2026
 
 October 4 update: see [BROWSER_REVIEW.md](BROWSER_REVIEW.md) for the current

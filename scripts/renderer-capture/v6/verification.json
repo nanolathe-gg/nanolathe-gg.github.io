@@ -1,0 +1,767 @@
+{
+  "terrain_and_foliage_switch": {
+    "same_camera_original_vs_synthesized_art": true,
+    "state_sha256": "3c504333a14f72bbe5583e16c2e4e349ca371c6a3a6ef7b72c503c590b583acc",
+    "terrain_original_audit": {
+      "Commands": 1,
+      "MarkersCount": 0,
+      "DetailTiles": 0,
+      "Scale": 4,
+      "Camera": {
+        "X": 4320,
+        "Z": 4008,
+        "ViewW": 480,
+        "ViewH": 320,
+        "MapW": 8192,
+        "MapH": 8192,
+        "Scale": 4,
+        "Zoom": 2048,
+        "ViewportZoomFloor": false,
+        "Follow": {
+          "Desired": {
+            "X": 0,
+            "Z": 0
+          },
+          "Gliding": false,
+          "Tracked": 0,
+          "Bookmarks": [
+            {
+              "Origin": {
+                "X": 0,
+                "Z": 0
+              },
+              "Valid": false
+            },
+            {
+              "Origin": {
+                "X": 0,
+                "Z": 0
+              },
+              "Valid": false
+            },
+            {
+              "Origin": {
+                "X": 0,
+                "Z": 0
+              },
+              "Valid": false
+            },
+            {
+              "Origin": {
+                "X": 0,
+                "Z": 0
+              },
+              "Valid": false
+            }
+          ]
+        }
+      },
+      "TotalSpriteCommands": 146,
+      "SynthesizedSpriteCommands": 0
+    },
+    "terrain_synthesized_audit": {
+      "Commands": 1,
+      "MarkersCount": 0,
+      "DetailTiles": 2347,
+      "Scale": 4,
+      "Camera": {
+        "X": 4320,
+        "Z": 4008,
+        "ViewW": 480,
+        "ViewH": 320,
+        "MapW": 8192,
+        "MapH": 8192,
+        "Scale": 4,
+        "Zoom": 2048,
+        "ViewportZoomFloor": false,
+        "Follow": {
+          "Desired": {
+            "X": 0,
+            "Z": 0
+          },
+          "Gliding": false,
+          "Tracked": 0,
+          "Bookmarks": [
+            {
+              "Origin": {
+                "X": 0,
+                "Z": 0
+              },
+              "Valid": false
+            },
+            {
+              "Origin": {
+                "X": 0,
+                "Z": 0
+              },
+              "Valid": false
+            },
+            {
+              "Origin": {
+                "X": 0,
+                "Z": 0
+              },
+              "Valid": false
+            },
+            {
+              "Origin": {
+                "X": 0,
+                "Z": 0
+              },
+              "Valid": false
+            }
+          ]
+        }
+      },
+      "TotalSpriteCommands": 146,
+      "SynthesizedSpriteCommands": 22
+    }
+  },
+  "zoom_stops": [
+    {
+      "name": "zoom-00.png",
+      "zoom": 0.078125,
+      "units": 39,
+      "icons": true,
+      "publication_sha256": "ad58fc854697b9a20eef6edc9e82eaef9d0fceaeaa35926512e9ea1f4350ce44"
+    },
+    {
+      "name": "zoom-01.png",
+      "zoom": 0.25,
+      "units": 39,
+      "icons": true,
+      "publication_sha256": "bd0dc2b142c1669bdad0d4a5b11ae203cc0497fc7ae3435aa6667b1995897349"
+    },
+    {
+      "name": "zoom-02.png",
+      "zoom": 0.2726269331663144,
+      "units": 39,
+      "icons": true,
+      "publication_sha256": "085e540b86687621d29ec4fa6edbc7d4a816312b196e73ee548785d0dccd27f7"
+    },
+    {
+      "name": "zoom-03.png",
+      "zoom": 0.29730177875068026,
+      "units": 39,
+      "icons": true,
+      "publication_sha256": "13d8093fe770422fa83024309362d5f4722a075916f91e1c4831ebe25745e63b"
+    },
+    {
+      "name": "zoom-04.png",
+      "zoom": 0.3242098886627524,
+      "units": 39,
+      "icons": true,
+      "publication_sha256": "5f82d58449cfd011f317dfe6e3a8b4d0cd445b93de1fef706692f512d88b5cb2"
+    },
+    {
+      "name": "zoom-05.png",
+      "zoom": 0.3535533905932738,
+      "units": 39,
+      "icons": true,
+      "publication_sha256": "0f8c571aa9f79e92e4e6ea6a085fc822d3783fadf4c8ecbf54d9230554544f6d"
+    },
+    {
+      "name": "zoom-06.png",
+      "zoom": 0.38555270635198524,
+      "units": 39,
+      "icons": true,
+      "publication_sha256": "884921dfb9348b59335486d570d515c187621faf6d9cbb5d1a2fb9a016a987ca"
+    },
+    {
+      "name": "zoom-07.png",
+      "zoom": 0.4204482076268573,
+      "units": 39,
+      "icons": true,
+      "publication_sha256": "8d5b2701facbf066d4c047f1ff15384cf3e56fbe87f739d8e4e0386f4b9bbd2e"
+    },
+    {
+      "name": "zoom-08.png",
+      "zoom": 0.4585020216023356,
+      "units": 39,
+      "icons": true,
+      "publication_sha256": "02f5f30008f2287ad51f066fef114ac1f7316f59df244d8ae31afe159867b7be"
+    },
+    {
+      "name": "zoom-09.png",
+      "zoom": 0.5,
+      "units": 39,
+      "icons": true,
+      "publication_sha256": "57a9a4b4844e36c7415a317ca2aa87daf0add3132e701ef3374ad41411fef8f1"
+    },
+    {
+      "name": "zoom-10.png",
+      "zoom": 0.5452538663326288,
+      "units": 39,
+      "icons": false,
+      "publication_sha256": "7ad5cbaf7b2f7344b06dfdeadf3b67bc6a7072f44990b33fd745bf08399dcdfc"
+    },
+    {
+      "name": "zoom-11.png",
+      "zoom": 0.5946035575013605,
+      "units": 39,
+      "icons": false,
+      "publication_sha256": "7b1ecf20aa35ffd8273ad6b2df4544f3c61f519eaf6003168b88cef1d05f76f1"
+    },
+    {
+      "name": "zoom-12.png",
+      "zoom": 0.6484197773255048,
+      "units": 39,
+      "icons": false,
+      "publication_sha256": "8caf579c32b168b81e59bae4c98fe7fe362605a24176cdfa8e02ee9e8d77f4f4"
+    },
+    {
+      "name": "zoom-13.png",
+      "zoom": 0.7071067811865475,
+      "units": 39,
+      "icons": false,
+      "publication_sha256": "13d4030e86193c1f7b916b6bc4e4f7884ae0ee11f6435d392aa348a4d705d0f5"
+    },
+    {
+      "name": "zoom-14.png",
+      "zoom": 0.7711054127039705,
+      "units": 39,
+      "icons": false,
+      "publication_sha256": "951e058a9666ef2cefa1fd959b8867e1a30e507a8bbfb0e3100fc3e51cf0ae63"
+    },
+    {
+      "name": "zoom-15.png",
+      "zoom": 0.8408964152537146,
+      "units": 39,
+      "icons": false,
+      "publication_sha256": "37afedab65ed990329b518cfc417dda95dc61a0993913b071e1429cc2134d413"
+    },
+    {
+      "name": "zoom-16.png",
+      "zoom": 0.9170040432046712,
+      "units": 39,
+      "icons": false,
+      "publication_sha256": "433ab0aed8cda6961a911cf1cdfb5e9c0b6131514f972757fb9082091511ffae"
+    },
+    {
+      "name": "zoom-17.png",
+      "zoom": 1,
+      "units": 39,
+      "icons": false,
+      "publication_sha256": "540d4f9c07b04c0670ad6ed42dd37cd34b007342e547635e27596155d35d525e"
+    },
+    {
+      "name": "zoom-18.png",
+      "zoom": 1.0905077326652577,
+      "units": 39,
+      "icons": false,
+      "publication_sha256": "36615a2f2de7845c0be3599e4572abc991367db29b06695939d900fbb258f51c"
+    },
+    {
+      "name": "zoom-19.png",
+      "zoom": 1.189207115002721,
+      "units": 39,
+      "icons": false,
+      "publication_sha256": "6e145e30b003ef0f22f5fc03ad64659c7c8aef44b4b78c1afb07fdc0435d1d3d"
+    },
+    {
+      "name": "zoom-20.png",
+      "zoom": 1.2968395546510096,
+      "units": 39,
+      "icons": false,
+      "publication_sha256": "fe600c26e33c25ddfac1c990a92e900cf485e878577bba3c78a88d4ba239a900"
+    },
+    {
+      "name": "zoom-21.png",
+      "zoom": 1.414213562373095,
+      "units": 39,
+      "icons": false,
+      "publication_sha256": "af8dc8162bd82f55c7f4bae820dddb68dff26a6ed9b3ad4ed4584d019a4f6579"
+    },
+    {
+      "name": "zoom-22.png",
+      "zoom": 1.542210825407941,
+      "units": 39,
+      "icons": false,
+      "publication_sha256": "2ecd122dc5ff5978392a934c50d57a73ff62f4f1cd0d369ebd9daaa4cf1f329e"
+    },
+    {
+      "name": "zoom-23.png",
+      "zoom": 1.6817928305074292,
+      "units": 39,
+      "icons": false,
+      "publication_sha256": "dfad51908f67b128ea9e2c7ff66fe215e10f93c87a016db423f1554e081cbd3f"
+    },
+    {
+      "name": "zoom-24.png",
+      "zoom": 1.8340080864093424,
+      "units": 39,
+      "icons": false,
+      "publication_sha256": "870f295c17fec0bc1cf8f34a1e74aa76a7e8321f53185794eaa693969b2a0a33"
+    },
+    {
+      "name": "zoom-25.png",
+      "zoom": 2,
+      "units": 39,
+      "icons": false,
+      "publication_sha256": "57e47371c6aa915e395ad5bc32cfcb2920e2be072f25df26991ef6526bbd6c39"
+    }
+  ],
+  "explosion": {
+    "frames": 90,
+    "matched_committed_inputs": true,
+    "peak_lit_faces": 48,
+    "peak_heat_plumes": 0,
+    "peak_wreck_plumes": 0
+  },
+  "aa": {
+    "frames": 1,
+    "matched_committed_inputs": true,
+    "peak_lit_faces": 0,
+    "peak_heat_plumes": 0,
+    "peak_wreck_plumes": 0
+  },
+  "heat": {
+    "frames": 150,
+    "matched_committed_inputs": true,
+    "peak_lit_faces": 0,
+    "peak_heat_plumes": 3,
+    "peak_wreck_plumes": 0
+  },
+  "wreck_birth": {
+    "frame": 30,
+    "tick": 120
+  },
+  "wrecks": {
+    "frames": 390,
+    "matched_committed_inputs": true,
+    "peak_lit_faces": 21,
+    "peak_heat_plumes": 1,
+    "peak_wreck_plumes": 1
+  },
+  "water": {
+    "frames": 180,
+    "models": 2,
+    "peak_reflection_vertices": 296,
+    "peak_underwater_commits": 1,
+    "five_effect_selections": true,
+    "off_on_off_exact": true
+  },
+  "engine_revision": "617540c587e1b75d6d8ba7bf5243d24bea3f3bc2",
+  "binary_sha256": {
+    "core": "3516c78b2750600077ca489ad7bbab11546128bbfefdd3ea49ef7d53fd9ea3e6",
+    "camera": "0bd0fb7df33b88d268c1ff16647ef096d87f717c486673885cdf08a825ee096a",
+    "water": "e8b8b94d714f2c808ebf34473960c9df953d9f7a477ff4eb52bfb76912d964ba"
+  },
+  "final_binary_replays": [
+    {
+      "scene": "heat",
+      "file": "gpu-0000.png",
+      "sha256": "f42ac9ea31c1a0c15b556889f2a0df9cb2db1f23ec83b2a26d3a64d076243453",
+      "final_binary_replay_exact": true
+    },
+    {
+      "scene": "heat",
+      "file": "gpu-0090.png",
+      "sha256": "a6ac599044a4a04e1924fe070b4e740c7b57bf028988a576c13de91749b3c9f7",
+      "final_binary_replay_exact": true
+    },
+    {
+      "scene": "heat",
+      "file": "off-0090.png",
+      "sha256": "6f77f82dbb64be923dac12df9a739fa94d8b35c2fd0085d3bf9d48e475dfcf3e",
+      "final_binary_replay_exact": true
+    },
+    {
+      "scene": "wrecks",
+      "file": "gpu-0000.png",
+      "sha256": "340a8f3b0b2dc42a0463d0e133b38b83f9c9750f417fa4f81142be95e51d2896",
+      "final_binary_replay_exact": true
+    },
+    {
+      "scene": "wrecks",
+      "file": "gpu-0080.png",
+      "sha256": "9520eee1b34b8741d4b346f2df7123f4cb4bf6629920b89701c1300b4301db89",
+      "final_binary_replay_exact": true
+    },
+    {
+      "scene": "wrecks",
+      "file": "off-0080.png",
+      "sha256": "d40568a865cdbe04792ffeab7034e5e5f6a809e9835ed500c21cf8d2ce0ed59a",
+      "final_binary_replay_exact": true
+    },
+    {
+      "scene": "terrain",
+      "file": "gpu-0000.png",
+      "sha256": "3f1d0f1fe53154d87c95f9c54af7cab69d30d30731a1e99f59a315dc21efbeae",
+      "final_binary_replay_exact": true
+    },
+    {
+      "scene": "terrain",
+      "file": "modern-original-0000.png",
+      "sha256": "62e84b5dc98d791dbcc2da8760d7cb4445f41bc4c8b244b0bf7f2036509769d8",
+      "final_binary_replay_exact": true
+    }
+  ],
+  "capture_log_sha256": {
+    "explosion.log": "6e73112ea23b3f291a51f5447ec766b168bee8f429c799f995211ca34797d6f7",
+    "vet.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "replay-terrain.log": "d9da6e998503767119b9615de11a6556e6223a5ae9d1082a7af764a0de7f1f09",
+    "heat.log": "a5dc9bf24408793a17ee89ec0991bf62b622dc51a2683d1ac602247e3549af7f",
+    "checks.log": "0a6459550f63616e8757a07f84dec7a7d74e7bda18c501d7cc9b48a9154d8ccd",
+    "water.log": "c852f55ec9ef0d6f381d684fac1224818a2249721472da1e7c880f15eecd64c4",
+    "replay-wrecks.log": "485b804af6b0857d88378ce1b12751b0bceb330d77d94743deceac45c84c1462",
+    "wrecks.log": "a89e36608b4e0ca90eb95401b80ae786e56e70218e623726adf0e4266450c397",
+    "replay-heat.log": "bf403474d8a819c36e5941395e312d1253c7bb8232927c53f0e18b6433602fb8",
+    "terrain.log": "b58857b380261e2e5d4abc9817e4c68e961236151fff7fba19839ec33f53bcb5",
+    "aa.log": "c4aff896269dbc103da725eba3b19e8671df945e73accf259df2264d86dd8bcc",
+    "zoom.log": "1fd70c33a700146a531f003bbd7bdbb56b7bb4f78231fb801905ed64b373e246"
+  },
+  "source_sha256": {
+    "source/core/main.go": "dc71288cf5fa3cde29fa6352fcd051ae05e567150d9f992e9d76f6e11f70064f",
+    "source/water/main.go": "f505a4f2b5151023603a2b9526d11074187690c08b6b1b213bcf55609b5a7a84",
+    "source/camera/pose.go": "b720f9259b777fb7c7c9c47c3276ca298ae355f8336cf6c35581ef51c98ab7c7",
+    "source/camera/main.go": "848371d474cfd7924d3832cc6aca739729ef5b44c06dab6d45045d373cbc5c51",
+    "source/common/detail_art.go": "2f600d153632186d304297277e08616d59c969f65dbbd8af2a32bf628ee8884c",
+    "source/common/terrain.go": "4699c798081bd7eb73dc6e0749b38d44cabe434be84cd818b404e995ec85dbf6",
+    "source/common/load.go": "748d6b01e2edc242bb58ca19fee49064652d8007ff92f2bce980c88e55093a8c"
+  },
+  "synthesis": {
+    "terrain": {
+      "algorithm_version": "nanolathe.upscale.terrain.2",
+      "cache_bytes": 9613333,
+      "cache_file": "/tmp/nanolathe-features-v5-cache/4e02bb053e1c8b45aad98a0317c27ec424e396312e2da02efff04162667d9417",
+      "cache_header_magic": "NLUPSCALE",
+      "cache_kind": 1,
+      "cache_payload_version": 1,
+      "cache_sha256": "a5ef2379c156abf66ff22be38006249afe42a873676655d765428646a6299f37",
+      "cold_and_warm_output_identical": true,
+      "different_fraction": 0.6710983685955475,
+      "feature_bank_proof": [
+        {
+          "anchor_offsets_2x_verified": true,
+          "bank": "geotherm",
+          "dimensions_2x_verified": true,
+          "first_cached": true,
+          "hash_scope": "synthesized indexed frame pixels in entry/frame order",
+          "payload_sha256": "69bf0bc46f51b33377c4f3d92caf876714f6bbbe99e7544487327920873f9820",
+          "pixels": 4,
+          "pixels_different_from_nearest_doubling": 0,
+          "second_cached": true,
+          "synthesized_frames": 1,
+          "warm_payload_sha256": "69bf0bc46f51b33377c4f3d92caf876714f6bbbe99e7544487327920873f9820"
+        },
+        {
+          "anchor_offsets_2x_verified": true,
+          "bank": "greenvents",
+          "dimensions_2x_verified": true,
+          "first_cached": true,
+          "hash_scope": "synthesized indexed frame pixels in entry/frame order",
+          "payload_sha256": "ec8d11c2d45a8920833848e895142358a44135435230371cdc9163c7968a9e9a",
+          "pixels": 38952,
+          "pixels_different_from_nearest_doubling": 7174,
+          "second_cached": true,
+          "synthesized_frames": 6,
+          "warm_payload_sha256": "ec8d11c2d45a8920833848e895142358a44135435230371cdc9163c7968a9e9a"
+        },
+        {
+          "anchor_offsets_2x_verified": true,
+          "bank": "rocks",
+          "dimensions_2x_verified": true,
+          "first_cached": true,
+          "hash_scope": "synthesized indexed frame pixels in entry/frame order",
+          "payload_sha256": "444a55e7ed265e8299681a867b3224061b64b97011c087fd8b6256b0bf7e737f",
+          "pixels": 61244,
+          "pixels_different_from_nearest_doubling": 30215,
+          "second_cached": true,
+          "synthesized_frames": 6,
+          "warm_payload_sha256": "444a55e7ed265e8299681a867b3224061b64b97011c087fd8b6256b0bf7e737f"
+        },
+        {
+          "anchor_offsets_2x_verified": true,
+          "bank": "rockshurt",
+          "dimensions_2x_verified": true,
+          "first_cached": true,
+          "hash_scope": "synthesized indexed frame pixels in entry/frame order",
+          "payload_sha256": "efea3d2ec201cd606ac0d27ba208aeb8b75bbeea2b758c7b2c00d61892f9878f",
+          "pixels": 26576,
+          "pixels_different_from_nearest_doubling": 11045,
+          "second_cached": true,
+          "synthesized_frames": 5,
+          "warm_payload_sha256": "efea3d2ec201cd606ac0d27ba208aeb8b75bbeea2b758c7b2c00d61892f9878f"
+        },
+        {
+          "anchor_offsets_2x_verified": true,
+          "bank": "trees",
+          "dimensions_2x_verified": true,
+          "first_cached": false,
+          "hash_scope": "synthesized indexed frame pixels in entry/frame order",
+          "payload_sha256": "c98655572ed10fa0ec2a18852c27ee65a8742b9d04f7b39b78896637ce690f5e",
+          "pixels": 174320,
+          "pixels_different_from_nearest_doubling": 36419,
+          "second_cached": true,
+          "synthesized_frames": 16,
+          "warm_payload_sha256": "c98655572ed10fa0ec2a18852c27ee65a8742b9d04f7b39b78896637ce690f5e"
+        }
+      ],
+      "feature_banks_synthesized": true,
+      "feature_sprites": "runtime named-bank synthesis; shadow/missing variants nearest-doubled by client",
+      "first_call_cached": true,
+      "map_tile_dimensions": [
+        256,
+        256
+      ],
+      "output_tile_dimensions": [
+        64,
+        64
+      ],
+      "parameters": {
+        "Iterations": 8,
+        "Samples": 100000,
+        "Tone": 12,
+        "Spread": 16,
+        "Deadzone": 8,
+        "Seam": 0,
+        "SeamZone": -1,
+        "Coherence": 64,
+        "Settle": 2,
+        "Relax": true
+      },
+      "pixels_different_from_nearest_doubling": 6451478,
+      "second_call_cached": true,
+      "source_tile_dimensions": [
+        32,
+        32
+      ],
+      "source_tiles": 2347,
+      "synthesized_pixel_count": 9613312,
+      "synthesized_tiles": 2347,
+      "synthesizer": "internal/upscale.Cache.Tiles2x",
+      "texture_synthesis_scale": 2,
+      "tile_payload_sha256": "a751878221dd3dc48ec1bef689ed7a20562fdc9a7cebe84411c9c34d56bff210",
+      "workers": 2
+    },
+    "explosion": {
+      "algorithm_version": "nanolathe.upscale.terrain.2",
+      "cache_bytes": 9613333,
+      "cache_file": "/tmp/nanolathe-features-v5-cache/4e02bb053e1c8b45aad98a0317c27ec424e396312e2da02efff04162667d9417",
+      "cache_header_magic": "NLUPSCALE",
+      "cache_kind": 1,
+      "cache_payload_version": 1,
+      "cache_sha256": "a5ef2379c156abf66ff22be38006249afe42a873676655d765428646a6299f37",
+      "cold_and_warm_output_identical": true,
+      "different_fraction": 0.6710983685955475,
+      "feature_bank_proof": [
+        {
+          "anchor_offsets_2x_verified": true,
+          "bank": "geotherm",
+          "dimensions_2x_verified": true,
+          "first_cached": true,
+          "hash_scope": "synthesized indexed frame pixels in entry/frame order",
+          "payload_sha256": "69bf0bc46f51b33377c4f3d92caf876714f6bbbe99e7544487327920873f9820",
+          "pixels": 4,
+          "pixels_different_from_nearest_doubling": 0,
+          "second_cached": true,
+          "synthesized_frames": 1,
+          "warm_payload_sha256": "69bf0bc46f51b33377c4f3d92caf876714f6bbbe99e7544487327920873f9820"
+        },
+        {
+          "anchor_offsets_2x_verified": true,
+          "bank": "greenvents",
+          "dimensions_2x_verified": true,
+          "first_cached": true,
+          "hash_scope": "synthesized indexed frame pixels in entry/frame order",
+          "payload_sha256": "ec8d11c2d45a8920833848e895142358a44135435230371cdc9163c7968a9e9a",
+          "pixels": 38952,
+          "pixels_different_from_nearest_doubling": 7174,
+          "second_cached": true,
+          "synthesized_frames": 6,
+          "warm_payload_sha256": "ec8d11c2d45a8920833848e895142358a44135435230371cdc9163c7968a9e9a"
+        },
+        {
+          "anchor_offsets_2x_verified": true,
+          "bank": "rocks",
+          "dimensions_2x_verified": true,
+          "first_cached": true,
+          "hash_scope": "synthesized indexed frame pixels in entry/frame order",
+          "payload_sha256": "444a55e7ed265e8299681a867b3224061b64b97011c087fd8b6256b0bf7e737f",
+          "pixels": 61244,
+          "pixels_different_from_nearest_doubling": 30215,
+          "second_cached": true,
+          "synthesized_frames": 6,
+          "warm_payload_sha256": "444a55e7ed265e8299681a867b3224061b64b97011c087fd8b6256b0bf7e737f"
+        },
+        {
+          "anchor_offsets_2x_verified": true,
+          "bank": "rockshurt",
+          "dimensions_2x_verified": true,
+          "first_cached": true,
+          "hash_scope": "synthesized indexed frame pixels in entry/frame order",
+          "payload_sha256": "efea3d2ec201cd606ac0d27ba208aeb8b75bbeea2b758c7b2c00d61892f9878f",
+          "pixels": 26576,
+          "pixels_different_from_nearest_doubling": 11045,
+          "second_cached": true,
+          "synthesized_frames": 5,
+          "warm_payload_sha256": "efea3d2ec201cd606ac0d27ba208aeb8b75bbeea2b758c7b2c00d61892f9878f"
+        },
+        {
+          "anchor_offsets_2x_verified": true,
+          "bank": "trees",
+          "dimensions_2x_verified": true,
+          "first_cached": true,
+          "hash_scope": "synthesized indexed frame pixels in entry/frame order",
+          "payload_sha256": "c98655572ed10fa0ec2a18852c27ee65a8742b9d04f7b39b78896637ce690f5e",
+          "pixels": 174320,
+          "pixels_different_from_nearest_doubling": 36419,
+          "second_cached": true,
+          "synthesized_frames": 16,
+          "warm_payload_sha256": "c98655572ed10fa0ec2a18852c27ee65a8742b9d04f7b39b78896637ce690f5e"
+        }
+      ],
+      "feature_banks_synthesized": true,
+      "feature_sprites": "runtime named-bank synthesis; shadow/missing variants nearest-doubled by client",
+      "first_call_cached": true,
+      "map_tile_dimensions": [
+        256,
+        256
+      ],
+      "output_tile_dimensions": [
+        64,
+        64
+      ],
+      "parameters": {
+        "Iterations": 8,
+        "Samples": 100000,
+        "Tone": 12,
+        "Spread": 16,
+        "Deadzone": 8,
+        "Seam": 0,
+        "SeamZone": -1,
+        "Coherence": 64,
+        "Settle": 2,
+        "Relax": true
+      },
+      "pixels_different_from_nearest_doubling": 6451478,
+      "second_call_cached": true,
+      "source_tile_dimensions": [
+        32,
+        32
+      ],
+      "source_tiles": 2347,
+      "synthesized_pixel_count": 9613312,
+      "synthesized_tiles": 2347,
+      "synthesizer": "internal/upscale.Cache.Tiles2x",
+      "texture_synthesis_scale": 2,
+      "tile_payload_sha256": "a751878221dd3dc48ec1bef689ed7a20562fdc9a7cebe84411c9c34d56bff210",
+      "workers": 2
+    },
+    "zoom": {
+      "algorithm_version": "nanolathe.upscale.terrain.2",
+      "cache_bytes": 9613333,
+      "cache_file": "/tmp/nanolathe-features-v5-cache/4e02bb053e1c8b45aad98a0317c27ec424e396312e2da02efff04162667d9417",
+      "cache_header_magic": "NLUPSCALE",
+      "cache_kind": 1,
+      "cache_payload_version": 1,
+      "cache_sha256": "a5ef2379c156abf66ff22be38006249afe42a873676655d765428646a6299f37",
+      "cold_and_warm_output_identical": true,
+      "different_fraction": 0.6710983685955475,
+      "feature_bank_proof": [
+        {
+          "anchor_offsets_2x_verified": true,
+          "bank": "geotherm",
+          "dimensions_2x_verified": true,
+          "first_cached": true,
+          "hash_scope": "synthesized indexed frame pixels in entry/frame order",
+          "payload_sha256": "69bf0bc46f51b33377c4f3d92caf876714f6bbbe99e7544487327920873f9820",
+          "pixels": 4,
+          "pixels_different_from_nearest_doubling": 0,
+          "second_cached": true,
+          "synthesized_frames": 1,
+          "warm_payload_sha256": "69bf0bc46f51b33377c4f3d92caf876714f6bbbe99e7544487327920873f9820"
+        },
+        {
+          "anchor_offsets_2x_verified": true,
+          "bank": "greenvents",
+          "dimensions_2x_verified": true,
+          "first_cached": true,
+          "hash_scope": "synthesized indexed frame pixels in entry/frame order",
+          "payload_sha256": "ec8d11c2d45a8920833848e895142358a44135435230371cdc9163c7968a9e9a",
+          "pixels": 38952,
+          "pixels_different_from_nearest_doubling": 7174,
+          "second_cached": true,
+          "synthesized_frames": 6,
+          "warm_payload_sha256": "ec8d11c2d45a8920833848e895142358a44135435230371cdc9163c7968a9e9a"
+        },
+        {
+          "anchor_offsets_2x_verified": true,
+          "bank": "rocks",
+          "dimensions_2x_verified": true,
+          "first_cached": true,
+          "hash_scope": "synthesized indexed frame pixels in entry/frame order",
+          "payload_sha256": "444a55e7ed265e8299681a867b3224061b64b97011c087fd8b6256b0bf7e737f",
+          "pixels": 61244,
+          "pixels_different_from_nearest_doubling": 30215,
+          "second_cached": true,
+          "synthesized_frames": 6,
+          "warm_payload_sha256": "444a55e7ed265e8299681a867b3224061b64b97011c087fd8b6256b0bf7e737f"
+        },
+        {
+          "anchor_offsets_2x_verified": true,
+          "bank": "rockshurt",
+          "dimensions_2x_verified": true,
+          "first_cached": true,
+          "hash_scope": "synthesized indexed frame pixels in entry/frame order",
+          "payload_sha256": "efea3d2ec201cd606ac0d27ba208aeb8b75bbeea2b758c7b2c00d61892f9878f",
+          "pixels": 26576,
+          "pixels_different_from_nearest_doubling": 11045,
+          "second_cached": true,
+          "synthesized_frames": 5,
+          "warm_payload_sha256": "efea3d2ec201cd606ac0d27ba208aeb8b75bbeea2b758c7b2c00d61892f9878f"
+        },
+        {
+          "anchor_offsets_2x_verified": true,
+          "bank": "trees",
+          "dimensions_2x_verified": true,
+          "first_cached": true,
+          "hash_scope": "synthesized indexed frame pixels in entry/frame order",
+          "payload_sha256": "62866e82ca21cf74ae5e940b19aa713eb7b128338b2ddf6c99e018e60094ce3d",
+          "pixels": 195116,
+          "pixels_different_from_nearest_doubling": 39957,
+          "second_cached": true,
+          "synthesized_frames": 19,
+          "warm_payload_sha256": "62866e82ca21cf74ae5e940b19aa713eb7b128338b2ddf6c99e018e60094ce3d"
+        }
+      ],
+      "feature_banks_synthesized": true,
+      "feature_sprites": "runtime named-bank synthesis; shadow/missing variants nearest-doubled by client",
+      "first_call_cached": true,
+      "map_tile_dimensions": [
+        256,
+        256
+      ],
+      "output_tile_dimensions": [
+        64,
+        64
+      ],
+      "parameters": {
+        "Iterations": 8,
+        "Samples": 100000,
+        "Tone": 12,
+        "Spread": 16,
+        "Deadzone": 8,
+        "Seam": 0,
+        "SeamZone": -1,
+        "Coherence": 64,
+        "Settle": 2,
+        "Relax": true
+      },
+      "pixels_different_from_nearest_doubling": 6451478,
+      "second_call_cached": true,
+      "source_tile_dimensions": [
+        32,
+        32
+      ],
+      "source_tiles": 2347,
+      "synthesized_pixel_count": 9613312,
+      "synthesized_tiles": 2347,
+      "synthesizer": "internal/upscale.Cache.Tiles2x",
+      "texture_synthesis_scale": 2,
+      "tile_payload_sha256": "a751878221dd3dc48ec1bef689ed7a20562fdc9a7cebe84411c9c34d56bff210",
+      "workers": 2
+    }
+  }
+}

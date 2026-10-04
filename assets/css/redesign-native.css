@@ -69,3 +69,15 @@ body.redesign .compare-base,body.redesign .compare-overlay img{image-rendering:a
 @media(max-width:760px){body.redesign .install-intro h2{font-size:2.25rem}body.redesign .install-intro>.beta-warning{margin-top:20px}body.redesign .install-layout{gap:28px}body.redesign .install-section{padding-block:35px}body.redesign .install-intro>.text-link{margin-top:10px}}
 
 body.redesign .native-motion-note .motion-stage{margin-top:18px}body.redesign .native-motion-note video{width:100%;height:auto}body.redesign .native-motion-note figcaption{margin-top:12px}
+
+/* Consistent icon and text columns keep format cards easy to scan. */
+body.redesign .format-grid { align-items:stretch; border-top:0; }
+body.redesign .format-grid>a { display:grid; grid-template-columns:48px minmax(0,1fr); gap:16px; align-items:start; }
+body.redesign .format-card-copy { min-width:0; }
+body.redesign .format-grid .format-tag { display:block; width:auto; height:auto; margin:0 0 9px; font-size:.6875rem; line-height:1.2; letter-spacing:.08em; }
+body.redesign .format-grid h3 { margin:0 0 9px; font-size:1.0625rem; line-height:1.4; }
+.format-icon { display:grid; place-items:center; width:48px; height:48px; color:var(--green); background:var(--surface); border:1px solid var(--line); border-radius:4px; overflow:hidden; }
+.format-icon svg { display:block; width:42px; height:42px; }
+.format-icon img { width:100%; height:100%; object-fit:cover; image-rendering:pixelated; }
+@media(prefers-reduced-motion:no-preference) { .format-grid>a:hover .format-icon-unit { animation:format-step .65s ease-in-out infinite alternate; } }
+@keyframes format-step { to { transform:translateY(-3px); } }

@@ -28,7 +28,7 @@ def decorate(text):
 <a class="browser-install" href="/get-started/">Install the beta <span aria-hidden="true">↗</span></a></header>'''
     welcome = '''<section id="welcome" aria-labelledby="demo-title">
 <p class="eyebrow">Nanolathe / Browser demo</p><h1 id="demo-title">Play the demo.</h1>
-<p id="browser-support">Desktop Chrome or Edge recommended, with a keyboard and mouse.</p>
+<p id="browser-support">Desktop Chrome, Edge or Safari recommended, with a keyboard and mouse.</p>
 <div class="demo-recovery-actions">
 <button id="demo" disabled>Checking demo availability…</button><span id="demo-info"></span>
 <button id="fallback-folder" type="button">Choose game folder</button><a href="/get-started/">Install the native beta <span aria-hidden="true">↗</span></a></div>

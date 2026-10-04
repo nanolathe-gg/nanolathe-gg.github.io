@@ -29,26 +29,21 @@
         <p>{{ .how }}</p>
         {{ with .look }}<p class="feature-look"><strong>Look for</strong> {{ . }}</p>{{ end }}
         {{ with .guide }}<a class="text-link" href="{{ .url | relURL }}">{{ .label }} <span aria-hidden="true">↗</span></a>{{ end }}
-        <details class="capture-details"><summary>About this capture</summary><p>{{ .capture }}</p><p>Engine {{ $captures.revision }} · {{ $captures.date }} · {{ $captures.backend }}. <a href="{{ site.Params.engineRepo }}/blob/main/{{ .source }}">Browse the published renderer source</a>.</p></details>
+        <details class="capture-details"><summary>About this capture</summary><p>{{ .capture }}</p><p>{{ if .interactive }}Browser material study · engine equations from {{ .revision }}.{{ else }}Engine {{ .revision | default $captures.revision }} · {{ $captures.date }} · {{ $captures.backend }}.{{ end }} <a href="{{ site.Params.engineRepo }}/blob/main/{{ .source }}">Browse the published renderer source</a>.</p></details>
       </div>
       <div class="feature-chapter-media">
-        {{ if .motion }}{{ partial "renderer-motion.html" .motion }}{{ else }}{{ partial "renderer-compare.html" . }}{{ end }}
+        {{ if .zoomViewer }}{{ partial "renderer-zoom.html" .zoomViewer }}{{ else if .interactive }}{{ partial "renderer-material.html" . }}{{ else if .motion }}{{ partial "renderer-motion.html" .motion }}{{ else }}{{ partial "renderer-compare.html" . }}{{ end }}
         {{ with .extraMotion }}<details class="feature-extra-motion"><summary>{{ .summary }}</summary>{{ partial "renderer-motion.html" . }}</details>{{ end }}
       </div>
     </section>
     {{ end }}
 
     <section class="features-more" id="beyond" aria-labelledby="more-features-title">
-      <p class="eyebrow">The details that add up</p><h2 id="more-features-title">A battlefield that feels alive.</h2>
-      <div class="features-more-grid">
-        <article id="heat"><h3>Heat in the air.</h3><p>Burning vegetation adds a rising shimmer to its original fire and smoke.</p></article>
-        <article id="wrecks"><h3>An aftermath that lingers.</h3><p>Fresh wrecks glow as they cool. A blast’s refractive shockwave gives impact a little more weight.</p></article>
-        <article id="trails"><h3>Movement leaves a trace.</h3><p>Walkers leave footsteps, tanks leave tracks, and the marks gradually fade into the terrain.</p></article>
-        <article><h3>Smoother movement.</h3><p>Modern presentation interpolates between committed game states. The simulation keeps its own 30-tick cadence.</p></article>
-        <article><h3>Information when you need it.</h3><p>Tactical icons and range guides help you read the battlefield as you pull back.</p></article>
-        <article><h3>Classic stays available.</h3><p>Switch rendering paths during a match with F10, or choose your preference in Options → Nanolathe.</p></article>
+      <p class="eyebrow">The modern renderer at a glance</p><h2 id="more-features-title">The details that add up.</h2>
+      <div class="features-more-grid features-overview-grid">
+        {{ range $captures.overview }}<article{{ with .id }} id="{{ . }}"{{ end }}><h3>{{ .title }}</h3><p>{{ .text }}</p></article>{{ end }}
       </div>
-      <p class="features-capture-note"><span class="capture-dot" aria-hidden="true"></span>These videos and comparisons are captured in Nanolathe using original game data. Scenes are staged to show the named features. Clips play when you choose; matched views keep the same camera and scene. Visual settings change presentation independently of gameplay rules.</p>
+      <p class="features-capture-note"><span class="capture-dot" aria-hidden="true"></span>The stills and videos are captured in Nanolathe using original game data. The live 3D viewer is a browser material study. Scenes are staged to show the named features. Clips play when you choose; matched views keep the same camera and scene. Visual settings change presentation independently of gameplay rules.</p>
     </section>
   </div>
 

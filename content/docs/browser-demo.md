@@ -12,8 +12,9 @@ The game starts directly: Nanolathe downloads the original demo files,
 verifies them and starts the first ARM campaign mission. Continue through the
 campaign using the normal in-game result screens.
 
-Desktop Chromium is the verified browser family. Chrome and Edge are
-recommended. Safari, Firefox, mobile and tablet play have not been verified.
+Desktop Chrome, Edge and Safari are supported. Safari support has been
+confirmed through hands-on play testing. Firefox, mobile and tablet play have
+not been verified.
 
 The browser demo contains three original single-player missions. No purchased
 game or installation is needed to try it. For full campaigns and skirmish,

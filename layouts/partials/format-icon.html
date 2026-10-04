@@ -1,0 +1,23 @@
+{{ $slug := .slug }}
+<span class="format-icon" aria-hidden="true">
+{{ if eq $slug "gaf" }}
+  <img src="{{ "docs/formats/3do/texture.svg" | relURL }}" width="48" height="48" alt="" loading="lazy">
+{{ else if eq $slug "tnt" }}
+  <img src="{{ "docs/formats/tnt/terrain.svg" | relURL }}" width="48" height="48" alt="" loading="lazy">
+{{ else }}
+  <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  {{ if eq $slug "3do" }}<path d="m8 28 16-9 16 9-16 9z" fill="currentColor" fill-opacity=".15"/><path d="M8 28v-9l16-9 16 9v9M24 19v18M8 19l16 9 16-9M24 10v9"/><path d="m19 17 8-5 8 4-8 5z"/>
+  {{ else if eq $slug "cob" }}<g class="format-icon-unit"><path d="M17 12h14v14H17z" fill="currentColor" fill-opacity=".15"/><path d="m17 16-7 6v8m21-14 7 6v8M20 26l-6 8-4 3m18-11 6 8 4 3M21 8h6v4"/><path d="M5 42h12m4 0h7m4 0h11"/></g>
+  {{ else if eq $slug "gui" }}<rect x="7" y="10" width="34" height="28" rx="3"/><path d="M7 16h34"/><rect x="12" y="22" width="20" height="9" rx="2" fill="currentColor" fill-opacity=".2"/><path d="m30 29 3 14 3-6 6-3z" fill="var(--surface)"/>
+  {{ else if eq $slug "hpi" }}<path d="M7 14h34v27H7zM10 8h28v6M21 14v27"/><path d="M25 18h4v4h-4m4 4h-4v4h4m-4 4h4v4h-4"/>
+  {{ else if eq $slug "pal" }}<path d="M8 8h32v32H8z"/><path d="M8 19h32M8 30h32M19 8v32m11-32v32"/><path d="M8 8h11v11H8zm22 22h10v10H30z" fill="currentColor" fill-opacity=".45"/><path d="M19 19h11v11H19z" fill="currentColor" fill-opacity=".2"/>
+  {{ else if eq $slug "wav" }}<path d="M5 24h4l3-12 5 24 5-29 5 34 5-27 4 18 3-8h4"/>
+  {{ else if eq $slug "pcx" }}<rect x="7" y="9" width="34" height="30" rx="2"/><circle cx="31" cy="18" r="4"/><path d="m8 33 10-12 8 9 5-4 10 11" fill="currentColor" fill-opacity=".2"/>
+  {{ else if eq $slug "zrb" }}<rect x="6" y="10" width="36" height="28" rx="2"/><path d="M12 10v28m24-28v28M7 17h5m-5 14h5m24-14h6m-6 14h6m-23-2 10-5-10-5z"/>
+  {{ else if eq $slug "tad" }}<path d="M7 13h34M7 24h34M7 35h34M17 8v32"/><circle cx="17" cy="13" r="3" fill="var(--surface)"/><path d="m26 19 9 5-9 5z" fill="currentColor" fill-opacity=".3"/>
+  {{ else if eq $slug "fnt" }}<path d="m11 35 10-25h6l10 25M16 26h16M8 39h32"/><path d="M10 6h3m4 0h3m4 0h3m4 0h3"/>
+  {{ else }}<path d="M12 6h17l8 8v28H12zM29 6v8h8M18 22h13m-13 6h13m-13 6h8"/><path d="m18 13-2 3 2 3m5-6 2 3-2 3"/>
+  {{ end }}
+  </svg>
+{{ end }}
+</span>

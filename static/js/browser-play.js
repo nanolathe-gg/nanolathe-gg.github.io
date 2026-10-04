@@ -47,8 +47,8 @@
     const title = mobile ? 'Play on a desktop computer.' : 'Use a supported browser.';
     if (heading.textContent !== title) heading.textContent = title;
     const message = mobile
-      ? 'Open this page on a desktop computer with a keyboard and mouse to play. Chrome or Edge is recommended.'
-      : 'This browser cannot start the demo here. Use desktop Chrome or Edge over HTTPS, or install the native beta.';
+      ? 'Open this page on a desktop computer with a keyboard and mouse to play. Chrome, Edge and Safari are supported.'
+      : 'This browser cannot start the demo here. Use desktop Chrome, Edge or Safari over HTTPS, or install the native beta.';
     if (support.textContent !== message) support.textContent = message;
   };
   update();
