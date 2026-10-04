@@ -163,7 +163,7 @@ under the same version.
 
 Each current package has a recipe, `mods/<id>-<version>.json`: the upstream
 archive's name, size and SHA-256, the members to keep, and the full config to
-embed. The four configs come from the engine repository's
+embed. The configs come from the engine repository's
 `modconfigs/<release>/nanolathe-mod.json`, preserving the curated summaries
 and homepages here. The configs carry the mod's content layout, limits,
 Community feature table, recommended rules, settings, keys and locks. The
@@ -175,7 +175,7 @@ packaging dependency only. An optional `stripPrefix` selects a content
 directory inside the source archive; include patterns match paths relative
 to that directory, which becomes the hosted ZIP root.
 
-To prepare the four current packages from their pinned upstream archives:
+To prepare the current packages from their pinned upstream archives:
 
 ```sh
 python3 scripts/package-mod.py mods/prota-4.8.json ~/Downloads/ProTA4.8.zip
@@ -184,6 +184,8 @@ python3 scripts/package-mod.py mods/ta-zero-alpha5-20241224.json \
   ~/Downloads/TA_Zero_Base.zip ~/Downloads/TA_Zero_Alpha_5.zip \
   ~/Downloads/TA_Zero_Map_Pack_v1f.zip
 python3 scripts/package-mod.py mods/mayhem-11.3.0.json ~/Downloads/TotalM1130.zip
+python3 scripts/package-mod.py mods/twilight-2.0-beta98.json \
+  ~/Downloads/"TAT Drop in b91.zip" ~/Downloads/"TAT-v2.0 Beta 98.zip"
 python3 scripts/test-package-mod.py
 python3 scripts/test-package-multipart.py
 make check
@@ -224,6 +226,17 @@ maps the renamed content directories and carries the Mayhem Community table.
 Compatibility remains experimental while full gameplay and controls parity
 with the shipped runtime is unverified. None of the hosted packages includes
 executables, libraries, wrappers, launcher settings or base-game archives.
+
+TA: Twilight 2.0 Beta 98 uses the TAF Base Beta 91 and Beta 98 ZIPs. The
+update replaces `rev31.gp3` entirely in the original installation. Its recipe
+keeps that replacement and the base's companion archives, icons and original
+unit guide, plus the summaries, updated changelog and license. Comparing the
+original installed directory with the cleaned package preserves all archive
+winners and the compiled catalog hash. Mounting the old archive as another
+root would introduce fallback content absent from the original installation.
+The complete config carries authored limits and the pinned source's Twilight
+Community profile. Historical patch gameplay and controls remain unverified,
+so compatibility is labelled experimental.
 
 Keep the recipes and catalogue on a branch until engine compatibility is
 verified. After review, append `--upload` to each preparation command to
