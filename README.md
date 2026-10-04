@@ -48,12 +48,21 @@ The prototype source is Library item
 beta draft was the design reference. It was integrated into native Hugo routes;
 full technical docs and renderer studies remain available locally.
 
-Fresh captures and exact reproduction/settings evidence are documented in
+The homepage captures and exact reproduction/settings evidence are documented in
 `scripts/renderer-capture/v4/README.md`. They compare Classic CPU and Modern GPU
 at the same committed state and 2× camera. Modern uses real 2× synthesized
 terrain, lighting and glow; foliage is explicitly the nearest-doubled fallback.
 Modern/default and beta are website positioning; the engine runtime was not
 modified. The future browser-demo toggle changes a layout study only.
+
+The refreshed Features page reads `data/features.json` and uses native v5 engine
+captures for camera/tactical view, terrain synthesis, lighting, water, material
+finishes and model edges. Its layout is in `assets/css/features-refresh.css`.
+`scripts/renderer-capture/v5/README.md` records the pinned source, capture settings
+and media evidence. Still comparisons support mouse/touch dragging, keyboard
+input and Original/Classic, Split and Modern presets. Paired movies preserve the
+playback position when switching; all motion is opt-in. The earlier browser
+material study is retained as historical source but is not loaded by this page.
 
 For a loopback-only preview:
 
@@ -284,20 +293,20 @@ provenance is recorded in `ASSETS.md`. Keep status claims aligned with the engin
 
 ## Renderer features page
 
-`data/renderer.json` supplies the visual feature explanations and capture metadata.
-The features template uses lossless screenshots, accessible before/after sliders,
-and opt-in camera/effect animations with matched off/on playback. The short TA
-introduction opens a detailed gameplay dialog; `/gameplay/` serves the same
-server-rendered guide for direct links, search and a no-JavaScript fallback.
-`data/gameplay.json` owns its content. Media lives in `static/images/renderer/`;
-`scripts/renderer-capture/README.md` records reproducible staged capture commands
-and per-scene validation evidence. The metallic materials section also includes
-a draggable WebGL study with finish toggles, tilt, and optional unit or light
-rotation. Reset restores the engine’s fixed light direction. Its
-single-pose display assets and shader provenance are documented in
-`scripts/renderer-capture/live-materials/`; the original clip remains available.
-The ordinary website build
-requires neither a GPU nor retail game data.
+`data/features.json` supplies six chapters and their native v5 capture metadata:
+camera, terrain, lighting, water, surfaces and model edges. The Features template
+uses lossless screenshots, accessible before/after sliders and opt-in animations.
+Paired movies preserve the same playback position when switching. Native controls
+and direct links remain available without JavaScript. `assets/css/features-refresh.css`
+scopes the new layout to this page.
+
+`/gameplay/` remains the server-rendered player guide, with content supplied by
+`data/gameplay.json`. Media lives in `static/images/renderer/`;
+`scripts/renderer-capture/v5/README.md` records the engine pin, reproduction,
+scene controls and verification. Earlier captures and `data/renderer.json` retain
+their historical provenance; the earlier browser material study is no longer
+loaded by Features. The ordinary website build requires neither a GPU nor retail
+game data.
 
 ## Brand assets
 

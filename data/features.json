@@ -1,0 +1,189 @@
+{
+  "revision": "279f7af1",
+  "fullRevision": "279f7af159a7d33ffd16358d1133434d9d48c7b9",
+  "date": "October 3, 2026",
+  "backend": "Modern GPU on Metal",
+  "hero": {
+    "src": "images/renderer/v5/explosion-modern.webp",
+    "width": 960,
+    "height": 640,
+    "alt": "A staged Great Divide battle scene in Nanolathe’s modern GPU renderer, with an explosion illuminating nearby units and detailed terrain.",
+    "caption": "Captured in Nanolathe · Modern GPU · staged Great Divide scene"
+  },
+  "sections": [
+    {
+      "id": "zoom",
+      "aliases": [
+        "tactical"
+      ],
+      "nav": "Camera",
+      "category": "From detail to tactics",
+      "title": "Your army. At every scale.",
+      "intro": "Inspect a moving part. Pull back and plan the next move.",
+      "how": "The modern camera moves from a close view of the original models to a broad battlefield overview. At tactical scale, readable team-colored icons take the place of tiny unit silhouettes.",
+      "look": "the base and opposing squads becoming clear groups of tactical icons as the camera pulls away.",
+      "guide": {
+        "url": "docs/strategic-icons/",
+        "label": "Understand the tactical icons"
+      },
+      "capture": "Thirty-eight staged units use original models and settled, activated COB poses. The real engine camera starts at 2× over the base and eases to 0.25× tactical view over 6 seconds, panning 400 world units toward the opposing force. Each frame is freshly rendered; unit placements stay fixed and fog is omitted. Native 960 × 640 at 30 FPS.",
+      "source": "docs/DESIGN_GPU_RENDERER.md",
+      "motion": {
+        "src": "images/renderer/v5/camera-tactical.mp4",
+        "poster": "images/renderer/v5/camera-tactical.webp",
+        "width": 960,
+        "height": 640,
+        "label": "The real Nanolathe camera pulls back from a detailed outpost to a tactical view of two forces",
+        "caption": "Greenhaven · staged 38-unit outpost · 2× detail → 0.25× tactical · 6 seconds.",
+        "playLabel": "Play camera capture"
+      }
+    },
+    {
+      "id": "upscaling",
+      "aliases": [],
+      "nav": "Terrain",
+      "category": "Original art, extra detail",
+      "title": "More than bigger pixels.",
+      "intro": "Get closer to the grass, rock and ground beneath your army.",
+      "how": "The detail view synthesizes 64 × 64 terrain tiles from the game’s own 32 × 32 artwork. Patch matching draws on nearby original patterns, and the result is cached locally for your next visit.",
+      "look": "the grass texture and rock edges. Both captures use the same 2× camera; the extra detail comes from the terrain tiles.",
+      "capture": "The same quiet Greenhaven view is rendered twice through the Modern GPU path, changing only original versus synthesized terrain. Both views retain the same synthesized feature artwork, with shadow or missing variants using the engine’s fallback. No units are in view. These are native 960 × 640 captures, scaled naturally to your screen.",
+      "source": "tools/mapupscale/patchmatchgo/README.md",
+      "before": "images/renderer/v5/terrain-original.webp",
+      "after": "images/renderer/v5/terrain-synthesized.webp",
+      "beforeLabel": "Original terrain",
+      "afterLabel": "2× synthesized",
+      "caption": "Greenhaven · same Modern renderer and 2× camera · original / synthesized terrain.",
+      "width": 960,
+      "height": 640,
+      "altBefore": "Original Greenhaven grass and rocks in the modern renderer at the 2× camera view",
+      "altAfter": "The same Greenhaven view using actual 2× synthesized terrain tiles"
+    },
+    {
+      "id": "lighting",
+      "aliases": [
+        "visuals",
+        "bloom",
+        "distortion"
+      ],
+      "nav": "Light & impact",
+      "category": "Same scene, new atmosphere",
+      "title": "The blast reaches the armor.",
+      "intro": "Colored light, soft glow and a sharper view of the battlefield.",
+      "how": "Visible effects cast colored light onto nearby surfaces. An emission layer adds a soft halo to bright effects, while the modern path renders unit geometry and terrain at detail scale.",
+      "look": "the nearby Bulldog’s armor catching the explosion. Tap a whole view or drag the divider across the same instant.",
+      "capture": "An ARM Jeffy self-destructs beside a surviving Bulldog in a staged Great Divide session. Both renderers read the same committed tick 132 with the same 2× camera. This compares the full Classic CPU and Modern GPU paths, including Modern’s real synthesized terrain and feature artwork, anti-aliasing, lighting and glow at native strengths. Shadow or missing sprite variants retain their normal fallback.",
+      "source": "docs/DESIGN_GPU_RENDERER.md",
+      "before": "images/renderer/v5/explosion-classic.webp",
+      "after": "images/renderer/v5/explosion-modern.webp",
+      "beforeLabel": "Classic CPU",
+      "afterLabel": "Modern GPU",
+      "caption": "Great Divide · the same explosion, committed tick and 2× camera · full renderer comparison.",
+      "width": 960,
+      "height": 640,
+      "altBefore": "A Jeffy explosion beside a Bulldog in Nanolathe’s Classic CPU renderer",
+      "altAfter": "The same explosion and Bulldog in the Modern GPU renderer with synthesized terrain, lighting and glow",
+      "extraMotion": {
+        "summary": "Watch the same scene move",
+        "src": "images/renderer/v5/explosion-modern.mp4",
+        "poster": "images/renderer/v5/explosion-modern.webp",
+        "beforeSrc": "images/renderer/v5/explosion-classic.mp4",
+        "beforePoster": "images/renderer/v5/explosion-classic.webp",
+        "beforeLabel": "Classic CPU",
+        "afterLabel": "Modern GPU",
+        "width": 960,
+        "height": 640,
+        "label": "Matched Classic and Modern engine footage of a Jeffy explosion beside a Bulldog",
+        "caption": "Great Divide · same staged timeline · 3 seconds at 30 FPS · switch views at the same instant.",
+        "playLabel": "Play matched capture"
+      }
+    },
+    {
+      "id": "water",
+      "aliases": [
+        "reflections"
+      ],
+      "nav": "Water",
+      "category": "Coastlines in motion",
+      "title": "A world beyond the shore.",
+      "intro": "Wind moves the water. A fleet leaves more than a wake.",
+      "how": "Moving wave layers and soft shoreline foam follow the map and its wind. Visible model geometry adds faint, rippled reflections, while the original ship scripts keep their own wake particles.",
+      "look": "the soft reflection of the transport’s deck and crane beneath its hull. Turn reflections off and on while paused to compare.",
+      "capture": "An ARM transport on Gods of War receives a normal movement order. Positions, heading and wake particles come from the session. Paired frames reuse the same recorded drawlist and toggle only reflections. Native opacity and model height are unchanged; hidden and off-screen surfaces are not reconstructed. Six seconds at 30 FPS, native 960 × 640; posters share frame 90.",
+      "source": "docs/DESIGN_GPU_RENDERER.md",
+      "motion": {
+        "src": "images/renderer/v5/reflection-on.mp4",
+        "poster": "images/renderer/v5/reflection-on.webp",
+        "beforeSrc": "images/renderer/v5/reflection-off.mp4",
+        "beforePoster": "images/renderer/v5/reflection-off.webp",
+        "beforeLabel": "Reflections off",
+        "afterLabel": "Reflections on",
+        "width": 960,
+        "height": 640,
+        "label": "An ARM transport moves across real Gods of War water with native rippled reflections",
+        "caption": "Gods of War · staged ARM transport · native reflections off / on.",
+        "playLabel": "Play water capture"
+      },
+      "extraMotion": {
+        "summary": "See wind-driven water and shoreline foam",
+        "src": "images/renderer/v5/water-on.mp4",
+        "poster": "images/renderer/v5/water-on.webp",
+        "beforeSrc": "images/renderer/v5/water-off.mp4",
+        "beforePoster": "images/renderer/v5/water-off.webp",
+        "beforeLabel": "Water effects off",
+        "afterLabel": "Water effects on",
+        "width": 960,
+        "height": 640,
+        "label": "An empty Gods of War coast with wind-driven water and soft shoreline foam",
+        "caption": "Gods of War · no units in view · the same committed wind and camera in each pair.",
+        "playLabel": "Play shoreline capture"
+      }
+    },
+    {
+      "id": "metal",
+      "aliases": [],
+      "nav": "Surfaces",
+      "category": "Metal, paint and light",
+      "title": "Armor with a little more life.",
+      "intro": "Turn a unit toward the light and see its surfaces respond.",
+      "how": "Recognized metal textures receive a broad highlight and directional glints. Painted panels have a softer response. The original colors, panel seams and model geometry remain the foundation.",
+      "look": "the mobile Annihilator’s sloped armor brightening as it turns. Switch the finish at the same angle to see the added response.",
+      "capture": "A staged 6-second turntable uses the original ARM mobile Annihilator on Comet Catcher. Its activated COB pose is frozen, and only the copied view heading rotates. Each pair shares recorded geometry and switches materials and glints together at their native strengths. Native 512 × 512 at the 2× camera, with no crop or image resampling. The poster pair uses the same frame 35.",
+      "source": "internal/platform/gpurender/model_finish.go",
+      "motion": {
+        "src": "images/renderer/v5/materials-on.mp4",
+        "poster": "images/renderer/v5/materials-on.webp",
+        "beforeSrc": "images/renderer/v5/materials-off.mp4",
+        "beforePoster": "images/renderer/v5/materials-off.webp",
+        "beforeLabel": "Finish off",
+        "afterLabel": "Finish on",
+        "width": 512,
+        "height": 512,
+        "label": "The original ARM mobile Annihilator rotates in the native engine to show materials and glints",
+        "caption": "Comet Catcher · staged turntable · materials and glints off / on.",
+        "playLabel": "Play surface capture"
+      }
+    },
+    {
+      "id": "antialiasing",
+      "aliases": [],
+      "nav": "Edges",
+      "category": "A clearer silhouette",
+      "title": "Smoother edges. Moving parts too.",
+      "intro": "Keep diagonals, turrets and small silhouettes readable.",
+      "how": "Modern anti-aliasing renders model subjects at twice the resolution in each direction. Four coverage samples resolve into each output pixel, blending mobile units and their live pieces into the scene beneath them.",
+      "look": "the diagonal armor plates and gun barrels. This compares whole rendering paths, including their normal shading and composition differences.",
+      "capture": "Bulldog, Maverick, Zeus, Reaper and Annihilator share committed poses and the 2× camera in Classic CPU and Modern GPU, both with anti-aliasing enabled. Classic retains structure anti-aliasing; Modern extends coverage to the mobile army. This compares full renderer paths. Native 960 × 640 captures are scaled naturally for this page.",
+      "source": "docs/DESIGN_GPU_RENDERER.md",
+      "before": "images/renderer/v5/aa-classic.webp",
+      "after": "images/renderer/v5/aa-modern.webp",
+      "beforeLabel": "Classic CPU",
+      "afterLabel": "Modern GPU",
+      "caption": "Matched model lineup · the same camera and poses · whole Classic / Modern rendering paths.",
+      "width": 960,
+      "height": 640,
+      "altBefore": "An original model lineup showing mobile units and a building in Nanolathe’s Classic CPU renderer",
+      "altAfter": "The same original models and camera with full-unit anti-aliasing in Nanolathe’s Modern GPU renderer"
+    }
+  ]
+}

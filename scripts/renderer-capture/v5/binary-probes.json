@@ -1,0 +1,30 @@
+{
+  "core": {
+    "path": "/tmp/nanolathe-features-v5-core",
+    "sha256": "ffeee44352b33954fd72e93f7da86a6af8231fbe5abf00f089c229b0f547dd5a",
+    "bytes": 23645794,
+    "build_info": "/tmp/nanolathe-features-v5-core: go1.27.1\n\tpath\tgithub.com/nanolathe-gg/nanolathe/cmd/website-features-capture/core\n\tmod\tgithub.com/nanolathe-gg/nanolathe\tv0.0.0-20261003213425-279f7af159a7+dirty\t\n\tdep\tgithub.com/ebitengine/hideconsole\tv1.0.0\th1:5J4U0kXF+pv/DhiXt5/lTz0eO5ogJ1iXb8Yj1yReDqE=\n\tdep\tgithub.com/ebitengine/purego\tv0.11.1\th1:2zpWRSQNVKN4eKsKO9eM1ILDgWfYMY9GwqRmK6XeQ/0=\n\tdep\tgithub.com/hajimehoshi/ebiten/v2\tv2.10.4\th1:9O8C98SB605F7gs8MHQQZIHTVpgIvatgdd19VCY6ZPg=\n\tdep\tgolang.org/x/sync\tv0.22.0\th1:SZjpbeLmrCk4xhRSZFNZW5gFUeCeFgjekvI/+gfScek=\n\tbuild\t-buildmode=exe\n\tbuild\t-compiler=gc\n\tbuild\tCGO_ENABLED=1\n\tbuild\tCGO_CFLAGS=\n\tbuild\tCGO_CPPFLAGS=\n\tbuild\tCGO_CXXFLAGS=\n\tbuild\tCGO_LDFLAGS=\n\tbuild\tGOARCH=arm64\n\tbuild\tGOOS=darwin\n\tbuild\tGOARM64=v8.0\n\tbuild\tvcs=git\n\tbuild\tvcs.revision=279f7af159a7d33ffd16358d1133434d9d48c7b9\n\tbuild\tvcs.time=2026-10-03T21:34:25Z\n\tbuild\tvcs.modified=true\n",
+    "scope": "post-capture backend-guard rebuild; used for positive bounded replay probes; not an asserted hash of the original movie-capture binary"
+  },
+  "camera": {
+    "path": "/tmp/nanolathe-features-v5-camera",
+    "sha256": "e8f96c1e270aaf2869471f0a32d2c0052137ee11f82610ee45045b7b44d5b69e",
+    "bytes": 18790226,
+    "build_info": "/tmp/nanolathe-features-v5-camera: go1.27.1\n\tpath\tgithub.com/nanolathe-gg/nanolathe/cmd/website-features-capture/camera\n\tmod\tgithub.com/nanolathe-gg/nanolathe\tv0.0.0-20261003213425-279f7af159a7+dirty\t\n\tdep\tgithub.com/ebitengine/hideconsole\tv1.0.0\th1:5J4U0kXF+pv/DhiXt5/lTz0eO5ogJ1iXb8Yj1yReDqE=\n\tdep\tgithub.com/ebitengine/purego\tv0.11.1\th1:2zpWRSQNVKN4eKsKO9eM1ILDgWfYMY9GwqRmK6XeQ/0=\n\tdep\tgithub.com/hajimehoshi/ebiten/v2\tv2.10.4\th1:9O8C98SB605F7gs8MHQQZIHTVpgIvatgdd19VCY6ZPg=\n\tdep\tgolang.org/x/sync\tv0.22.0\th1:SZjpbeLmrCk4xhRSZFNZW5gFUeCeFgjekvI/+gfScek=\n\tbuild\t-buildmode=exe\n\tbuild\t-compiler=gc\n\tbuild\tCGO_ENABLED=1\n\tbuild\tCGO_CFLAGS=\n\tbuild\tCGO_CPPFLAGS=\n\tbuild\tCGO_CXXFLAGS=\n\tbuild\tCGO_LDFLAGS=\n\tbuild\tGOARCH=arm64\n\tbuild\tGOOS=darwin\n\tbuild\tGOARM64=v8.0\n\tbuild\tvcs=git\n\tbuild\tvcs.revision=279f7af159a7d33ffd16358d1133434d9d48c7b9\n\tbuild\tvcs.time=2026-10-03T21:34:25Z\n\tbuild\tvcs.modified=true\n",
+    "scope": "post-capture backend-guard rebuild; used for positive bounded replay probes; not an asserted hash of the original movie-capture binary"
+  },
+  "water": {
+    "path": "/tmp/nanolathe-features-v5-water",
+    "sha256": "2a982bb1ea98973be441ef3af31e54e4e0dd079f8295b5f7ef00db3d2701fa26",
+    "bytes": 23218018,
+    "build_info": "/tmp/nanolathe-features-v5-water: go1.27.1\n\tpath\tgithub.com/nanolathe-gg/nanolathe/cmd/website-features-capture/water\n\tmod\tgithub.com/nanolathe-gg/nanolathe\tv0.0.0-20261003213425-279f7af159a7+dirty\t\n\tdep\tgithub.com/ebitengine/hideconsole\tv1.0.0\th1:5J4U0kXF+pv/DhiXt5/lTz0eO5ogJ1iXb8Yj1yReDqE=\n\tdep\tgithub.com/ebitengine/purego\tv0.11.1\th1:2zpWRSQNVKN4eKsKO9eM1ILDgWfYMY9GwqRmK6XeQ/0=\n\tdep\tgithub.com/hajimehoshi/ebiten/v2\tv2.10.4\th1:9O8C98SB605F7gs8MHQQZIHTVpgIvatgdd19VCY6ZPg=\n\tdep\tgolang.org/x/sync\tv0.22.0\th1:SZjpbeLmrCk4xhRSZFNZW5gFUeCeFgjekvI/+gfScek=\n\tbuild\t-buildmode=exe\n\tbuild\t-compiler=gc\n\tbuild\tCGO_ENABLED=1\n\tbuild\tCGO_CFLAGS=\n\tbuild\tCGO_CPPFLAGS=\n\tbuild\tCGO_CXXFLAGS=\n\tbuild\tCGO_LDFLAGS=\n\tbuild\tGOARCH=arm64\n\tbuild\tGOOS=darwin\n\tbuild\tGOARM64=v8.0\n\tbuild\tvcs=git\n\tbuild\tvcs.revision=279f7af159a7d33ffd16358d1133434d9d48c7b9\n\tbuild\tvcs.time=2026-10-03T21:34:25Z\n\tbuild\tvcs.modified=true\n",
+    "scope": "post-capture backend-guard rebuild; used for positive bounded replay probes; not an asserted hash of the original movie-capture binary"
+  },
+  "materials": {
+    "path": "/tmp/nanolathe-features-v5-materials",
+    "sha256": "0d77c3e2132b7b977ccf36e598cfae2b3ca98a6b528a7a23f86b20b2017c149b",
+    "bytes": 18275842,
+    "build_info": "/tmp/nanolathe-features-v5-materials: go1.27.1\n\tpath\tgithub.com/nanolathe-gg/nanolathe/cmd/website-features-capture/materials\n\tmod\tgithub.com/nanolathe-gg/nanolathe\tv0.0.0-20261003213425-279f7af159a7+dirty\t\n\tdep\tgithub.com/ebitengine/hideconsole\tv1.0.0\th1:5J4U0kXF+pv/DhiXt5/lTz0eO5ogJ1iXb8Yj1yReDqE=\n\tdep\tgithub.com/ebitengine/purego\tv0.11.1\th1:2zpWRSQNVKN4eKsKO9eM1ILDgWfYMY9GwqRmK6XeQ/0=\n\tdep\tgithub.com/hajimehoshi/ebiten/v2\tv2.10.4\th1:9O8C98SB605F7gs8MHQQZIHTVpgIvatgdd19VCY6ZPg=\n\tdep\tgolang.org/x/sync\tv0.22.0\th1:SZjpbeLmrCk4xhRSZFNZW5gFUeCeFgjekvI/+gfScek=\n\tbuild\t-buildmode=exe\n\tbuild\t-compiler=gc\n\tbuild\tCGO_ENABLED=1\n\tbuild\tCGO_CFLAGS=\n\tbuild\tCGO_CPPFLAGS=\n\tbuild\tCGO_CXXFLAGS=\n\tbuild\tCGO_LDFLAGS=\n\tbuild\tGOARCH=arm64\n\tbuild\tGOOS=darwin\n\tbuild\tGOARM64=v8.0\n\tbuild\tvcs=git\n\tbuild\tvcs.revision=279f7af159a7d33ffd16358d1133434d9d48c7b9\n\tbuild\tvcs.time=2026-10-03T21:34:25Z\n\tbuild\tvcs.modified=true\n",
+    "scope": "post-capture backend-guard rebuild; used for positive bounded replay probes; not an asserted hash of the original movie-capture binary"
+  }
+}

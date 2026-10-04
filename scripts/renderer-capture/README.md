@@ -6,9 +6,19 @@ Annihilation installation. No extracted playable game assets are bundled.
 Classic CPU examples use Nanolathe's indexed software renderer; none are captures
 of the retail executable. Captions identify exact controls and scene staging.
 
-The metallic materials section also has a live WebGL study; `live-materials/`
-documents its single-pose display mesh, atlas, shader port, and differences from
-the game. The paired in-game material clips remain available below the viewer.
+The Features page uses native engine captures throughout. `live-materials/`
+preserves the earlier browser material study and its provenance; that study is
+no longer loaded by the Features page.
+
+## Refreshed Features captures
+
+`v5/` records engine `279f7af1`, with fresh native camera, terrain, explosion,
+water, reflection, material and model-edge captures. The same-Modern terrain
+control changes only terrain detail; full Classic/Modern comparisons are
+labeled separately. Terrain and feature artwork use the actual runtime
+synthesis path. Captured PNGs export losslessly, and MP4s copy unchanged.
+`data/features.json` owns the six current page chapters; `v5/README.md` and its
+separate website-media inventory document reproduction and verification.
 
 ## Beta redesign matched captures
 
@@ -17,11 +27,10 @@ explosion and landscape captures at the same 2× camera and committed state.
 Modern uses verified real 2× synthesized terrain, lighting and glow, with
 production CRT binding and full default presentation controls. Foliage is
 explicitly the nearest-doubled fallback. Lossless WebP exports exactly decode
-to raw captured pixels. The new homepage pair replaces the earlier enlarged
-1× explosion example; existing technical studies below retain their original
-provenance. See `v4/README.md` for exact reproduction and assertions.
+to raw captured pixels. The homepage retains this pair; Features uses v5.
+See `v4/README.md` for exact reproduction and assertions.
 
-## Current examples and source evidence
+## Earlier capture studies retained for provenance
 
 - `v2/land/`, engine `9e61946`: approved terrain and foliage without units,
   actual camera zoom to 2× and out to 0.25× across a staged base and opposing
@@ -46,15 +55,16 @@ provenance. See `v4/README.md` for exact reproduction and assertions.
   comparison uses a magnified native 2× crop; other modern effect families are
   disabled. Paired raw pixels match after both treatments expire.
 
-The approved terrain images also offer 4× browser pixel inspection: CSS enlarges
-both 2× captures equally with nearest-neighbour sampling. The control is labelled
-separately from engine camera zoom, whose maximum is 2×. No screenshot pixels or
-engine zoom limits were changed for this inspection setting.
+The earlier v2 terrain study offered 4× browser pixel inspection: CSS enlarged
+both 2× captures equally with nearest-neighbor sampling. Its label distinguished
+inspection from that capture's engine camera zoom. The refreshed page presents
+the native images at their natural aspect ratio without this magnification.
 
-Site media lives in `static/images/renderer/v2/` and `v3/`. The root
-`media-manifest.json` records all shipped sizes and SHA256 hashes. Each capture
-folder has its harness, exact commands, controls and validation. Raw frames stay
-in the temporary outputs recorded by those manifests. The website build needs
+Site media lives in `static/images/renderer/`, including v2–v5. The root
+`media-manifest.json` inventories the earlier media; v4 and v5 have separate
+`website-media.json` inventories of the files they serve. Each capture folder
+has its harness, exact commands, controls and validation. Raw frames stay
+in the outputs recorded by those manifests. The website build needs
 neither a GPU nor retail data. Reproduction needs an isolated engine checkout at
 the listed revision and installed content; follow its GPU/headless instructions.
 
@@ -69,7 +79,7 @@ The opening `hero-battle.webp` remains an illustrative live Great Divide benchma
 capture from the initial review. Its original path, crop and hash are recorded
 in `initial-review/media-manifest.json`; it is not a toggle pair.
 
-`initial-review/`, the unused portions of `v2/`, and `v3/metal/` preserve earlier
-source evidence. Superseded screenshots and movies are no longer shipped.
-`v3/finishes/` replaces the initial glint-only turntable with current materials.
-Consult `data/renderer.json` for the twelve current examples and pinned sources.
+`initial-review/`, `v2/`, and `v3/` preserve earlier source evidence and media.
+`data/renderer.json` retains the prior twelve-study page inventory; the active
+Features page reads `data/features.json`. The old media is not labeled as a fresh
+capture. Retained player and format documentation keeps its substantive content.

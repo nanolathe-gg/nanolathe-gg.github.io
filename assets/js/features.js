@@ -6,7 +6,7 @@ document.querySelectorAll('[data-comparison]').forEach(figure => {
     const value = Number(range.value);
     stage.style.setProperty('--split', `${value}%`);
     stage.dataset.position = String(value);
-    range.setAttribute('aria-valuetext', `${value}% ${buttons[0].textContent}, ${100 - value}% ${buttons[1].textContent}`);
+    range.setAttribute('aria-valuetext', `${value}% ${figure.dataset.beforeLabel}, ${100 - value}% ${figure.dataset.afterLabel}`);
     buttons.forEach(button => button.setAttribute('aria-pressed', String(Number(button.dataset.position) === value)));
   }
   range.addEventListener('input', update);

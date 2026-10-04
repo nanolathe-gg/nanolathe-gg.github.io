@@ -1,0 +1,214 @@
+[
+  {
+    "path": "static/images/renderer/v5/explosion-classic.webp",
+    "sha256": "9a5e2bd244656ca7c9be6f7104afa9912dbaa96582e5fb7cf8c0bd0603d8548d",
+    "bytes": 75872,
+    "width": 960,
+    "height": 640,
+    "lossless": true
+  },
+  {
+    "path": "static/images/renderer/v5/explosion-modern.webp",
+    "sha256": "dadea4029290428669a0d9ba2d9f5584a86daf45d99f65b3d0e034802092d76b",
+    "bytes": 748510,
+    "width": 960,
+    "height": 640,
+    "lossless": true
+  },
+  {
+    "path": "static/images/renderer/v5/terrain-original.webp",
+    "sha256": "b93c51b6974a107aa89698bb70b5a331ffe25799ff16ec06fd1b837ae840f268",
+    "bytes": 87746,
+    "width": 960,
+    "height": 640,
+    "lossless": true
+  },
+  {
+    "path": "static/images/renderer/v5/terrain-synthesized.webp",
+    "sha256": "4e11b7fe5ceb0f58ede3b1fd5afa9b7d396bfac84a5c7bc966263352a05b9122",
+    "bytes": 243632,
+    "width": 960,
+    "height": 640,
+    "lossless": true
+  },
+  {
+    "path": "static/images/renderer/v5/camera-tactical.webp",
+    "sha256": "9f5339aee0155e188a2251c39280d6972976cd3b02db5598f664d1c190fdace5",
+    "bytes": 312386,
+    "width": 960,
+    "height": 640,
+    "lossless": true
+  },
+  {
+    "path": "static/images/renderer/v5/water-off.webp",
+    "sha256": "8af551cc5c74678c12d3b2db5bb140d07bcf11e744d1316a3b32d171aa160644",
+    "bytes": 61264,
+    "width": 960,
+    "height": 640,
+    "lossless": true
+  },
+  {
+    "path": "static/images/renderer/v5/water-on.webp",
+    "sha256": "4b1fd07b0dee1dff10dc9174483c33fd5757a6f6f6cae4cf5c0a9d0d528ddb63",
+    "bytes": 938178,
+    "width": 960,
+    "height": 640,
+    "lossless": true
+  },
+  {
+    "path": "static/images/renderer/v5/reflection-off.webp",
+    "sha256": "b1bb268ec301d1ac0767d49b62fb5652a846ab025cd485e4df3a6956c788d5ec",
+    "bytes": 929360,
+    "width": 960,
+    "height": 640,
+    "lossless": true
+  },
+  {
+    "path": "static/images/renderer/v5/reflection-on.webp",
+    "sha256": "0c3bbe554502bf25c5ee6eb746d2dae49aefc734a91ee84f990e91a94a56de84",
+    "bytes": 936500,
+    "width": 960,
+    "height": 640,
+    "lossless": true
+  },
+  {
+    "path": "static/images/renderer/v5/materials-off.webp",
+    "sha256": "3f1f46dbaad1a086c0e210e2ba33cd6a4ff78654724c0a0111a5d32a32defb78",
+    "bytes": 35486,
+    "width": 512,
+    "height": 512,
+    "lossless": true
+  },
+  {
+    "path": "static/images/renderer/v5/materials-on.webp",
+    "sha256": "599a76334f06d1e1324fc091ba22c69b54163ccd8c1e2e28dfadb0e2473f009f",
+    "bytes": 36060,
+    "width": 512,
+    "height": 512,
+    "lossless": true
+  },
+  {
+    "path": "static/images/renderer/v5/aa-classic.webp",
+    "sha256": "850a0bd9720d6fddfe4ab9dab9400902e7c93b37051e26ede9f6a56adeb762af",
+    "bytes": 60830,
+    "width": 960,
+    "height": 640,
+    "lossless": true
+  },
+  {
+    "path": "static/images/renderer/v5/aa-modern.webp",
+    "sha256": "7ed70074037ab0ca16380a0a45d54e2bd531438ad9e6dd00ce952db5278af67c",
+    "bytes": 242642,
+    "width": 960,
+    "height": 640,
+    "lossless": true
+  },
+  {
+    "path": "static/images/renderer/v5/explosion-classic.mp4",
+    "sha256": "6ffae631d0afad4cfb3db4d5d906788aae4550b6757f3d0470d55c08acc8e2a2",
+    "bytes": 670136,
+    "width": 960,
+    "height": 640,
+    "codec": "h264",
+    "frames": 90,
+    "fps": "30/1",
+    "duration": "3.000000",
+    "source_copy_identical": true
+  },
+  {
+    "path": "static/images/renderer/v5/explosion-modern.mp4",
+    "sha256": "2bdb1a92b20244260d72533a3b9afbb70816c5c5f9e91340534f6c758fca9bde",
+    "bytes": 1108166,
+    "width": 960,
+    "height": 640,
+    "codec": "h264",
+    "frames": 90,
+    "fps": "30/1",
+    "duration": "3.000000",
+    "source_copy_identical": true
+  },
+  {
+    "path": "static/images/renderer/v5/camera-tactical.mp4",
+    "sha256": "92c7401678b759fd6b494f051f2aa2fb401605c1f21a7b478d4f157cea27f174",
+    "bytes": 13556809,
+    "width": 960,
+    "height": 640,
+    "codec": "h264",
+    "frames": 180,
+    "fps": "30/1",
+    "duration": "6.000000",
+    "source_copy_identical": true
+  },
+  {
+    "path": "static/images/renderer/v5/water-off.mp4",
+    "sha256": "22105f0afc7f70086c67265e5f50ee6bb0f7b6a2d03202d4be5e8e8fec543518",
+    "bytes": 300373,
+    "width": 960,
+    "height": 640,
+    "codec": "h264",
+    "frames": 180,
+    "fps": "30/1",
+    "duration": "6.000000",
+    "source_copy_identical": true
+  },
+  {
+    "path": "static/images/renderer/v5/water-on.mp4",
+    "sha256": "ece16d431d16f7647a4e1da52590b1eabf7133ef3c89e75689cffbac75e84284",
+    "bytes": 8622218,
+    "width": 960,
+    "height": 640,
+    "codec": "h264",
+    "frames": 180,
+    "fps": "30/1",
+    "duration": "6.000000",
+    "source_copy_identical": true
+  },
+  {
+    "path": "static/images/renderer/v5/reflection-off.mp4",
+    "sha256": "db60899a4cebae608f17f307e9d794ce6179b08bfea0644635c7054369ed344a",
+    "bytes": 6734263,
+    "width": 960,
+    "height": 640,
+    "codec": "h264",
+    "frames": 180,
+    "fps": "30/1",
+    "duration": "6.000000",
+    "source_copy_identical": true
+  },
+  {
+    "path": "static/images/renderer/v5/reflection-on.mp4",
+    "sha256": "4163f5f0fd31b1d4e7d08ba17ad5e2b7fcc1b34737fff51db95070f46c03fe36",
+    "bytes": 6728321,
+    "width": 960,
+    "height": 640,
+    "codec": "h264",
+    "frames": 180,
+    "fps": "30/1",
+    "duration": "6.000000",
+    "source_copy_identical": true
+  },
+  {
+    "path": "static/images/renderer/v5/materials-off.mp4",
+    "sha256": "5f80f050a437becf5af6245e1581df407ff84beaaf14ba6303e65d552b0e5289",
+    "bytes": 693567,
+    "width": 512,
+    "height": 512,
+    "codec": "h264",
+    "frames": 180,
+    "fps": "30/1",
+    "duration": "6.000000",
+    "source_copy_identical": true
+  },
+  {
+    "path": "static/images/renderer/v5/materials-on.mp4",
+    "sha256": "760d7279ccc89e4c2650efa22661dbf2d76220d924292b1451718945b1b671ee",
+    "bytes": 697053,
+    "width": 512,
+    "height": 512,
+    "codec": "h264",
+    "frames": 180,
+    "fps": "30/1",
+    "duration": "6.000000",
+    "source_copy_identical": true
+  }
+]

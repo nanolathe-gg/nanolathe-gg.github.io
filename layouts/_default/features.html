@@ -1,33 +1,60 @@
 {{ define "main" }}
-{{ partial "page-heading.html" . }}
-<section class="wrap feature-intro"><figure class="feature-panorama"><img src="/images/renderer/hero-battle.webp" width="1280" height="880" alt="Blue and red armies fight amid glowing explosions in Nanolathe’s modern GPU renderer."><figcaption>Modern GPU renderer · Great Divide · live benchmark battle</figcaption></figure></section>
-<section class="section wrap benefits"><article><span class="benefit-number">01</span><h2>Closer to the action.</h2><p>Zoom in on the units and action, or pull out for a tactical view of the battlefield.</p></article><article><span class="benefit-number">02</span><h2>See it in a new light.</h2><p>Modern GPU rendering is the standard experience. Prefer the old look? Switch to Classic.</p></article><article><span class="benefit-number">03</span><h2>The game stays familiar.</h2><p>Lighting, glow and surface detail change the presentation. Simulation rules stay separate.</p></article></section>
-{{ partial "beta-comparison.html" . }}
-<nav class="wrap anchor-nav" aria-label="Explore renderer studies"><a href="#upscaling">Detail &amp; scale</a><a href="#lighting">Light &amp; impact</a><a href="#water">Water</a><a href="#beyond">More features</a></nav>
+{{ $captures := hugo.Data.features }}
+<div class="features-refresh">
+  <header class="wrap features-lead" id="gpu-renderer">
+    <div class="features-lead-copy">
+      <p class="eyebrow">Inside Nanolathe / Features</p>
+      <h1>Get closer.<br><em>See the whole battle.</em></h1>
+      <p class="features-lead-deck">Your army, from the smallest moving part to the widest tactical view. Nanolathe brings new detail, light and movement to Total Annihilation’s original artwork.</p>
+      <div class="features-lead-actions"><a class="button primary" href="{{ "get-started/" | relURL }}">Install the beta</a><a class="text-link" href="#zoom">Explore the captures <span aria-hidden="true">↓</span></a></div>
+      <p class="features-lead-note">Modern GPU is the default. Classic is always an option.<br>Original Total Annihilation game data required.</p>
+    </div>
+    <figure class="features-lead-image"><img src="{{ $captures.hero.src | relURL }}" width="{{ $captures.hero.width }}" height="{{ $captures.hero.height }}" alt="{{ $captures.hero.alt }}" fetchpriority="high"><figcaption><span class="capture-dot" aria-hidden="true"></span>{{ $captures.hero.caption }}</figcaption></figure>
+  </header>
 
-<dialog class="gameplay-dialog" aria-labelledby="gameplay-dialog-title"><div class="gameplay-dialog-header"><div><span class="eyebrow">The game behind the engine</span><h2 id="gameplay-dialog-title">Total Annihilation, rebuilt.</h2></div><button type="button" class="gameplay-close" aria-label="Close gameplay overview" autofocus>Close <span aria-hidden="true">×</span></button></div>{{ partial "gameplay-guide.html" . }}<a class="text-link" href="{{ "gameplay/" | relURL }}">Open the full gameplay guide <span aria-hidden="true">↗</span></a></dialog>
-<div class="wrap renderer-page">
-  <section class="ta-intro" aria-labelledby="ta-title">
-    <div><span class="eyebrow">New to Total Annihilation?</span><h2 id="ta-title">Build an army.<br> Leave a battlefield.</h2></div>
-    <div class="ta-intro-copy"><p>Total Annihilation is a 1997 real-time strategy game about a war between two machine factions: ARM and CORE. You begin with a Commander, build a base, and turn metal and energy into an army.</p><div class="ta-basics"><p><strong>Land, sea & air</strong>Tanks, walking robots, aircraft and fleets fight across terrain that shapes the battle.</p><p><strong>An economy in motion</strong>Construction draws resources continuously. Wreckage can be reclaimed for metal.</p><p><strong>A world that reacts</strong>Turrets track targets, projectiles cross the map, and trees burn amid smoke and debris.</p></div><a class="text-link gameplay-open" href="{{ "gameplay/" | relURL }}" data-open-gameplay>Explore gameplay & engine support <span aria-hidden="true">＋</span></a></div>
-  </section>
-  <section class="renderer-intro" id="gpu-renderer" aria-labelledby="renderer-title">
-    <div><span class="eyebrow">The modern GPU renderer</span><h2 id="renderer-title">Built on the original.<br><em>Rendered for today.</em></h2></div>
-    <div><p>Nanolathe is an independent, open-source 2.5D RTS engine in Go, rebuilding Total Annihilation from an understanding of its original behavior. The modern renderer gives that world room to breathe: closer views, clearer armies, light that reaches nearby units, and water that moves.</p><p class="muted">These are presentation improvements. They do not change weapon damage, resource costs or the simulation’s rules. The classic rendering path remains available.</p><p class="capture-key"><span></span>Actual engine captures using original game data. Staged scenes are identified. Examples compare Nanolathe’s classic CPU and modern GPU renderers, or toggle the named effect. They are not captures of the retail executable. The interactive material study renders live in your browser.</p></div>
-  </section>
-  <nav class="renderer-nav" aria-label="Renderer features"><a href="#upscaling">01 / Detail & scale</a><a href="#lighting">02 / Light & impact</a><a href="#water">03 / Water & atmosphere</a><a href="#beyond">04 / Beyond the pixels</a></nav>
-  {{ range $index, $feature := hugo.Data.renderer.features }}
-  {{ if eq .id "lighting" }}<span id="bloom" class="renderer-anchor" aria-hidden="true"></span>{{ end }}
-  <section class="renderer-showcase" id="{{ .id }}" aria-labelledby="title-{{ .id }}">
-    <div class="showcase-copy"><div class="showcase-index">{{ printf "%02d" (add $index 1) }} <span>{{ .category }}</span></div><h2 id="title-{{ .id }}">{{ .title }}</h2><p class="showcase-deck">{{ .intro }}</p></div><div class="showcase-details"><dl class="renderer-explanation"><dt>The original</dt><dd>{{ .original }}</dd><dt>What changes</dt><dd>{{ .how }}</dd></dl><p class="renderer-state">{{ .status }}</p>{{ with .look }}<p class="look-for"><strong>Look for</strong> {{ . }}</p>{{ end }}<details class="capture-details"><summary>About this example</summary><p>{{ .capture }}</p><a href="{{ site.Params.engineRepo }}/blob/{{ .revision }}/{{ .source }}">Renderer source at {{ .revision }} <span aria-hidden="true">↗</span></a></details></div>
-    <div class="showcase-media">{{ if .interactive }}{{ partial "renderer-material.html" . }}{{ else if .motion }}{{ partial "renderer-motion.html" .motion }}{{ else }}{{ partial "renderer-compare.html" . }}{{ end }}</div>
-  </section>
-  {{ end }}
-  <section class="renderer-beyond" id="beyond" aria-labelledby="beyond-title"><span class="eyebrow">Beyond the pixels</span><h2 id="beyond-title">A better view. A familiar game.</h2>
-    <div class="renderer-extras"><article><h3>Smoother movement</h3><p>Modern presentation interpolates between committed game states at the display’s refresh rate. Units can move through half-pixel positions with supersampling, while the simulation still advances at 30 ticks per second.</p></article><article><h3>True-color composition</h3><p>Original palette artwork feeds a true-color composite. Coverage, light and glow can blend with the scene without forcing the final image back into a palette lookup.</p></article><article><h3>More useful tactical information</h3><p>Hold Alt/Option to inspect tactical range guides, including weapon and sensor ranges where applicable. The wider view helps you read the battlefield while you plan your next move.</p></article></div>
-    <div class="renderer-try"><div><span class="eyebrow">Try it with your game data</span><h3>Choose the modern renderer.</h3><p>The modern GPU renderer is the standard experience in the beta; Classic remains optional. Nanolathe’s current gameplay focus is single-player skirmish and campaigns; multiplayer is outside the current scope.</p><a class="text-link" href="{{ "get-started/" | relURL }}">Build & run {{ partial "arrow.html" . }}</a></div><div><pre><code>go run ./cmd/nanolathe \
-  --root "/path/to/TotalAnnihilation" \
-  --renderer=modern</code></pre><p class="muted">Use the Anti-Alias and Glow display options for SSAA and bloom. Detail artwork is synthesized locally from your game data. Visual tuning continues during the beta.</p></div></div>
+  <div class="wrap features-principles"><p><strong>Your original artwork.</strong>Extra terrain detail is synthesized locally from your installed game data.</p><p><strong>Your choice of view.</strong>Modern and Classic present the same battlefield through different rendering paths.</p><p><strong>Your display preferences.</strong>Choose zoom, anti-aliasing and visual effects in Nanolathe’s display options.</p></div>
+
+  <nav class="wrap features-index" aria-label="Explore the visual features">
+    {{ range $captures.sections }}<a href="#{{ .id }}">{{ .nav }}</a>{{ end }}<a href="#beyond">More details</a>
+  </nav>
+
+  <div class="wrap features-studies renderer-page">
+    {{ range $index, $feature := $captures.sections }}
+    <section class="feature-chapter" id="{{ .id }}" aria-labelledby="title-{{ .id }}">
+      {{ range .aliases }}<span id="{{ . }}" class="renderer-anchor" aria-hidden="true"></span>{{ end }}
+      <div class="feature-chapter-copy">
+        <p class="eyebrow"><span>{{ printf "%02d" (add $index 1) }}</span> / {{ .category }}</p>
+        <h2 id="title-{{ .id }}">{{ .title }}</h2>
+        <p class="feature-chapter-deck">{{ .intro }}</p>
+        <p>{{ .how }}</p>
+        {{ with .look }}<p class="feature-look"><strong>Look for</strong> {{ . }}</p>{{ end }}
+        {{ with .guide }}<a class="text-link" href="{{ .url | relURL }}">{{ .label }} <span aria-hidden="true">↗</span></a>{{ end }}
+        <details class="capture-details"><summary>About this capture</summary><p>{{ .capture }}</p><p>Engine {{ $captures.revision }} · {{ $captures.date }} · {{ $captures.backend }}. <a href="{{ site.Params.engineRepo }}/blob/main/{{ .source }}">Browse the published renderer source</a>.</p></details>
+      </div>
+      <div class="feature-chapter-media">
+        {{ if .motion }}{{ partial "renderer-motion.html" .motion }}{{ else }}{{ partial "renderer-compare.html" . }}{{ end }}
+        {{ with .extraMotion }}<details class="feature-extra-motion"><summary>{{ .summary }}</summary>{{ partial "renderer-motion.html" . }}</details>{{ end }}
+      </div>
+    </section>
+    {{ end }}
+
+    <section class="features-more" id="beyond" aria-labelledby="more-features-title">
+      <p class="eyebrow">The details that add up</p><h2 id="more-features-title">A battlefield that feels alive.</h2>
+      <div class="features-more-grid">
+        <article id="heat"><h3>Heat in the air.</h3><p>Burning vegetation adds a rising shimmer to its original fire and smoke.</p></article>
+        <article id="wrecks"><h3>An aftermath that lingers.</h3><p>Fresh wrecks glow as they cool. A blast’s refractive shockwave gives impact a little more weight.</p></article>
+        <article id="trails"><h3>Movement leaves a trace.</h3><p>Walkers leave footsteps, tanks leave tracks, and the marks gradually fade into the terrain.</p></article>
+        <article><h3>Smoother movement.</h3><p>Modern presentation interpolates between committed game states. The simulation keeps its own 30-tick cadence.</p></article>
+        <article><h3>Information when you need it.</h3><p>Tactical icons and range guides help you read the battlefield as you pull back.</p></article>
+        <article><h3>Classic stays available.</h3><p>Switch rendering paths during a match with F10, or choose your preference in Options → Nanolathe.</p></article>
+      </div>
+      <p class="features-capture-note"><span class="capture-dot" aria-hidden="true"></span>These videos and comparisons are captured in Nanolathe using original game data. Scenes are staged to show the named features. Clips play when you choose; matched views keep the same camera and scene. Visual settings change presentation independently of gameplay rules.</p>
+    </section>
+  </div>
+
+  <section class="wrap features-next" aria-labelledby="features-next-title">
+    <div><p class="eyebrow">See it with your game data</p><h2 id="features-next-title">Your next skirmish,<br>in a new light.</h2><p>Install the beta and select your Total Annihilation folder.</p><a class="button primary" href="{{ "get-started/" | relURL }}">Install the beta</a></div>
+    <div class="features-next-links"><a href="{{ "gameplay/" | relURL }}"><strong>Build an army. Leave a battlefield.</strong><span>Explore the game and current engine support <span aria-hidden="true">↗</span></span></a><a href="{{ "docs/keyboard-shortcuts/" | relURL }}"><strong>Make the view your own.</strong><span>Camera controls, renderer switching and shortcuts <span aria-hidden="true">↗</span></span></a><a href="{{ "docs/" | relURL }}"><strong>Look under the hood.</strong><span>Player references and the original game’s formats <span aria-hidden="true">↗</span></span></a></div>
   </section>
 </div>
 {{ end }}

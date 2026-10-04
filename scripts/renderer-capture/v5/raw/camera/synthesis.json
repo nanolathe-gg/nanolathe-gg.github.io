@@ -1,0 +1,114 @@
+{
+  "algorithm_version": "nanolathe.upscale.terrain.2",
+  "cache_bytes": 9613333,
+  "cache_file": "/tmp/nanolathe-features-v5-cache/4e02bb053e1c8b45aad98a0317c27ec424e396312e2da02efff04162667d9417",
+  "cache_header_magic": "NLUPSCALE",
+  "cache_kind": 1,
+  "cache_payload_version": 1,
+  "cache_sha256": "a5ef2379c156abf66ff22be38006249afe42a873676655d765428646a6299f37",
+  "cold_and_warm_output_identical": true,
+  "different_fraction": 0.6710983685955475,
+  "feature_bank_proof": [
+    {
+      "anchor_offsets_2x_verified": true,
+      "bank": "geotherm",
+      "dimensions_2x_verified": true,
+      "first_cached": true,
+      "hash_scope": "synthesized indexed frame pixels in entry/frame order",
+      "payload_sha256": "69bf0bc46f51b33377c4f3d92caf876714f6bbbe99e7544487327920873f9820",
+      "pixels": 4,
+      "pixels_different_from_nearest_doubling": 0,
+      "second_cached": true,
+      "synthesized_frames": 1,
+      "warm_payload_sha256": "69bf0bc46f51b33377c4f3d92caf876714f6bbbe99e7544487327920873f9820"
+    },
+    {
+      "anchor_offsets_2x_verified": true,
+      "bank": "greenvents",
+      "dimensions_2x_verified": true,
+      "first_cached": true,
+      "hash_scope": "synthesized indexed frame pixels in entry/frame order",
+      "payload_sha256": "ec8d11c2d45a8920833848e895142358a44135435230371cdc9163c7968a9e9a",
+      "pixels": 38952,
+      "pixels_different_from_nearest_doubling": 7174,
+      "second_cached": true,
+      "synthesized_frames": 6,
+      "warm_payload_sha256": "ec8d11c2d45a8920833848e895142358a44135435230371cdc9163c7968a9e9a"
+    },
+    {
+      "anchor_offsets_2x_verified": true,
+      "bank": "rocks",
+      "dimensions_2x_verified": true,
+      "first_cached": true,
+      "hash_scope": "synthesized indexed frame pixels in entry/frame order",
+      "payload_sha256": "444a55e7ed265e8299681a867b3224061b64b97011c087fd8b6256b0bf7e737f",
+      "pixels": 61244,
+      "pixels_different_from_nearest_doubling": 30215,
+      "second_cached": true,
+      "synthesized_frames": 6,
+      "warm_payload_sha256": "444a55e7ed265e8299681a867b3224061b64b97011c087fd8b6256b0bf7e737f"
+    },
+    {
+      "anchor_offsets_2x_verified": true,
+      "bank": "rockshurt",
+      "dimensions_2x_verified": true,
+      "first_cached": true,
+      "hash_scope": "synthesized indexed frame pixels in entry/frame order",
+      "payload_sha256": "efea3d2ec201cd606ac0d27ba208aeb8b75bbeea2b758c7b2c00d61892f9878f",
+      "pixels": 26576,
+      "pixels_different_from_nearest_doubling": 11045,
+      "second_cached": true,
+      "synthesized_frames": 5,
+      "warm_payload_sha256": "efea3d2ec201cd606ac0d27ba208aeb8b75bbeea2b758c7b2c00d61892f9878f"
+    },
+    {
+      "anchor_offsets_2x_verified": true,
+      "bank": "trees",
+      "dimensions_2x_verified": true,
+      "first_cached": true,
+      "hash_scope": "synthesized indexed frame pixels in entry/frame order",
+      "payload_sha256": "62866e82ca21cf74ae5e940b19aa713eb7b128338b2ddf6c99e018e60094ce3d",
+      "pixels": 195116,
+      "pixels_different_from_nearest_doubling": 39957,
+      "second_cached": true,
+      "synthesized_frames": 19,
+      "warm_payload_sha256": "62866e82ca21cf74ae5e940b19aa713eb7b128338b2ddf6c99e018e60094ce3d"
+    }
+  ],
+  "feature_banks_synthesized": true,
+  "feature_sprites": "runtime named-bank synthesis; shadow/missing variants nearest-doubled by client",
+  "first_call_cached": true,
+  "map_tile_dimensions": [
+    256,
+    256
+  ],
+  "output_tile_dimensions": [
+    64,
+    64
+  ],
+  "parameters": {
+    "Iterations": 8,
+    "Samples": 100000,
+    "Tone": 12,
+    "Spread": 16,
+    "Deadzone": 8,
+    "Seam": 0,
+    "SeamZone": -1,
+    "Coherence": 64,
+    "Settle": 2,
+    "Relax": true
+  },
+  "pixels_different_from_nearest_doubling": 6451478,
+  "second_call_cached": true,
+  "source_tile_dimensions": [
+    32,
+    32
+  ],
+  "source_tiles": 2347,
+  "synthesized_pixel_count": 9613312,
+  "synthesized_tiles": 2347,
+  "synthesizer": "internal/upscale.Cache.Tiles2x",
+  "texture_synthesis_scale": 2,
+  "tile_payload_sha256": "a751878221dd3dc48ec1bef689ed7a20562fdc9a7cebe84411c9c34d56bff210",
+  "workers": 2
+}

@@ -1,0 +1,13 @@
+{
+  "SPDisplaysDataType" : [
+    {
+      "_name" : "Apple M3 Pro",
+      "spdisplays_metal" : "spdisplays_supported",
+      "spdisplays_vendor" : "sppci_vendor_Apple",
+      "sppci_bus" : "spdisplays_builtin",
+      "sppci_cores" : "18",
+      "sppci_device_type" : "spdisplays_gpu",
+      "sppci_model" : "Apple M3 Pro"
+    }
+  ]
+}

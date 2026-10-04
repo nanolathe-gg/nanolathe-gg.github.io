@@ -1,0 +1,16 @@
+SYNTHESIS tiles=2347 changed=6451478/9613312 first_cached=true warm_cached=true cache=/tmp/nanolathe-features-v5-final-cache/4e02bb053e1c8b45aad98a0317c27ec424e396312e2da02efff04162667d9417
+nanolathe: upscale: terrain 2347 tiles 5ms (cached)
+nanolathe: upscale: bank geotherm 1 frames 0s (cached)
+nanolathe: upscale: bank greenvents 6 frames 0s (cached)
+nanolathe: upscale: bank rocks 6 frames 2ms (cached)
+nanolathe: upscale: bank rockshurt 5 frames 1ms (cached)
+nanolathe: upscale: bank trees 19 frames 8ms (cached)
+nanolathe: upscale: terrain 2347 tiles 3ms (cached)
+nanolathe: upscale: bank geotherm 1 frames 0s (cached)
+nanolathe: upscale: bank greenvents 6 frames 0s (cached)
+nanolathe: upscale: bank rocks 6 frames 1ms (cached)
+nanolathe: upscale: bank rockshurt 5 frames 1ms (cached)
+nanolathe: upscale: bank trees 19 frames 8ms (cached)
+SCENE landscape center=4250,4040 tick=89
+BACKEND actual=Metal
+frame=0 CPU planes=0 GPU=0 SSAA=0 lights=0 litfaces=0

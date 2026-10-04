@@ -27,16 +27,44 @@ Windows, Mac or Linux. Ownership choices, installer text, copying and the
 unsigned beta notice remain visible and accurate. No installation command
 was executed during website/browser QA.
 
-The new comparison is a matched native 960×640 explosion pair at committed
+The homepage comparison is a matched native 960×640 explosion pair at committed
 tick 132 and the same 2× camera. Modern uses verified real 64×64 terrain tiles
 synthesized from original 32×32 tiles, default modern lighting/glow and other
 presentation effects. Foliage is explicitly nearest-doubled fallback. Both
 renderers bind the production presentation CRT and consume the same unchanged
 publication. Lossless WebP pixels equal the original PNG pixels exactly.
-Features also provides matched 2-second, 30 FPS opt-in clips. Exact settings,
+The initial Features revision used matched 2-second, 30 FPS opt-in clips. Exact settings,
 hashes, cold/warm cache proof and reproduction commands are in
 `scripts/renderer-capture/v4/README.md` and its JSON evidence. No retail
 archives, derived tile cache or engine binary were bundled.
+
+Features has now been rebuilt around six fresh chapters: camera, terrain,
+lighting, water, surfaces and model edges. Native captures pin current local
+engine source `279f7af159a7d33ffd16358d1133434d9d48c7b9`. Its isolated diagnostic
+worktree is `../nanolathe-features-capture`, branch `capture/features-refresh-v5`.
+The capture-only harness commit is `bd950b7a73165eb78e3fe7e5c380f7cccefe5295`.
+All production engine files and runtime defaults remain unchanged.
+
+The page uses 13 pixel-identical lossless WebP stills and nine unchanged MP4s.
+The runtime terrain cache and named-feature-bank loader provide actual 2×
+synthesized artwork; shadow and missing variants retain the normal fallback.
+The terrain control changes only terrain tiles through the same Modern path.
+Classic/Modern explosion and model-lineup comparisons identify the full rendering
+paths. Camera and material turntables identify their staging. Most images are
+native 960×640; the material turntable is native 512×512. Videos are 30 FPS,
+three seconds for the explosion and six seconds for the other scenes.
+No image was resampled, cropped, composited or retouched. Exact settings,
+source, controls and hashes are in `scripts/renderer-capture/v5/README.md`.
+Original capture binary hashes were not retained after diagnostic rebuilds.
+The final harness, pinned production sources, original frames and exports have
+hash evidence; later guarded binaries are explicitly identified as probes.
+Their Metal first-frame replays match the original bytes. The producer report
+documents this provenance limitation.
+The old browser material study is retained as historical source and no longer
+loaded by Features. The homepage retains v4 captures.
+The unpublished engine capture revision is recorded exactly in the evidence;
+page source links explicitly browse the published engine main to avoid dead
+links to a local commit.
 
 ## Verification
 
@@ -70,11 +98,23 @@ archives, derived tile cache or engine binary were bundled.
   `/resources/` returns 404 after restarting the local preview. Evidence is in
   `qa/resources-removal-browser-report.json` and `qa/resources-removed-*.png`
   alongside the other QA artifacts below.
+- Fresh Features `make check` passed: 25 HTML pages, all format generators,
+  platform assertions, installer consistency, mod catalogue and offline fixture
+  tests. PowerShell remains unavailable, so native Windows tests were skipped.
+- Isolated Chrome 154.0.8037.97 passed ten Features layouts, including 320–1920px,
+  desktop/mobile, JavaScript-disabled and reduced-motion contexts. All six
+  mouse/touch/keyboard comparison checks, ten actual movie playback checks,
+  variant switching, Replay, fallbacks, navigation/back and 22 media requests
+  passed. No overflow, duplicate IDs, broken images or JavaScript errors occurred.
+  `qa/features-refresh-browser-report.json`, `qa/features-refresh-make-check.log`
+  and `qa/features-v5-*.png` hold the evidence. Chrome emulation does not verify
+  Safari, Firefox or physical mobile devices.
 
 Machine-readable browser results, build log, full-page/viewport screenshots,
 comparison close-ups, preview process details and restart logs are in
 `/Users/daniel/Documents/Codex/2026-10-03/task/qa/`. Raw captures and controls
-remain in `../capture-output/`; no captures were retouched or composited.
+remain in `../capture-output/` (v4) and `../capture-features-v5/` (Features);
+no captures were retouched or composited.
 
 ## Review boundaries
 

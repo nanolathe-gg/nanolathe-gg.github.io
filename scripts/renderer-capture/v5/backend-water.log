@@ -1,0 +1,4 @@
+scene=reflection center={X:2719 Z:704} poses=[{X:2709 Z:649} {X:2814 Z:764}] sea=55
+unit armtship floater=true waterline=0 top=5406719 footprint=6x6 handle=2
+BACKEND actual=Metal
+frame=0 tick=31 models=1 wind={Heading:54134 Strength:3341}
