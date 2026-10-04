@@ -25,7 +25,7 @@ Click inside the game to focus it. Losing focus pauses play. Use **F2** to open
 battle options, including from a paused game. The [keyboard reference](/docs/keyboard-shortcuts/)
 describes Nanolathe's in-game controls; your browser may reserve some shortcuts.
 
-Use the launcher's **Fullscreen** button for browser fullscreen. Its **Exit
+Use the toolbar’s **Fullscreen** button for browser fullscreen. Its **Exit
 fullscreen** button remains visible; your browser's Escape shortcut can also
 leave fullscreen.
 
@@ -44,7 +44,7 @@ Drag your installed TotalA folder onto the running game, or use **Choose game
 folder** in the toolbar. Nanolathe closes the current demo session and starts
 your local game. Keep the original archives
 together; there is no need to unpack them. Your files remain local browser
-handles and are not uploaded. There is no separate launcher page.
+handles and are not uploaded.
 
 The imported full game uses its normal menus, campaigns and skirmish. Original
 game data is separate from the engine's MIT license.
@@ -60,7 +60,7 @@ Expand **Browser settings and saved games** to download stored files. Keep both
 a saved game's `.SAV` file and its Nanolathe sidecar when backing it up. Desktop
 save import into the browser is not implemented yet.
 
-If the launcher reports a browser storage failure, the newest changes have not
+If the game page reports a browser storage failure, the newest changes have not
 been stored. Try saving again before restarting; a previous browser save may be
 older. This warning also stays visible in fullscreen.
 
@@ -71,6 +71,6 @@ in this host. The native beta provides synthesized terrain and the full native
 experience. Browser memory and larger battles remain more constrained, and
 long sessions and other browsers still need further acceptance testing.
 
-If demo acquisition or startup fails, the launcher displays the error. Check
+If demo download or startup fails, the game page displays the error. Check
 your connection and retry, use a supported desktop browser, or install Nanolathe.
 No game files are uploaded when reporting an error.

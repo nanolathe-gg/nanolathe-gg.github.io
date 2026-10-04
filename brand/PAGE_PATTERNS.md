@@ -9,7 +9,7 @@ the current website structure and recommends how to extend it consistently.
 
 `content/` supplies front matter such as the title, description, eyebrow, and
 layout name. `layouts/_default/` contains the interior layouts. The homepage
-uses `layouts/index.html`. The first-release pages keep their detailed content
+uses `layouts/index.html`. Landing pages keep their detailed content
 in templates; adding Markdown body text will display it only if its selected
 layout renders `.Content`.
 
@@ -18,6 +18,12 @@ shell: metadata, local assets, header, navigation, skip link, `<main id="main">`
 and footer. An interior template defines `main`; it should not duplicate those
 elements. [`page-heading.html`](../layouts/partials/page-heading.html) renders
 the eyebrow, one `<h1>`, and description from the page's front matter.
+
+The beta landing-page appearance is selected by the `redesign` body class in
+`baseof.html`. Add a new landing layout to that template's layout list when it
+should share the beta styling. Shared header and navigation rules live in
+`assets/css/redesign-native.css`; landing components live in
+`assets/css/redesign.css`. Reuse these before adding a new page-specific style.
 
 For example, a contribution landing page can use
 `content/contribute.md`:
@@ -83,6 +89,12 @@ and pinned research citations. Its `format` archetype is ready to copy.
 
 ## Long reference or guide page
 
+For a player guide, use Markdown front matter with `type = 'guide'`. The shared
+`layouts/guide/single.html` renders the content, table of contents, breadcrumbs
+and related guide link. See `content/docs/native-installation.md` for setup help
+and `content/docs/browser-demo.md` for browser help. Player guides appear in the
+documentation directory automatically.
+
 Use `docs-layout wrap` for an anchor index beside an `article`. Match every
 navigation fragment with one unique section ID. This example is an alternative
 body for a page using the same front matter and shell:
@@ -137,7 +149,7 @@ second mobile navigation pattern.
 | Copyable command | `command-panel`, `command-title`, `copy-button` | Unique code ID plus matching `data-copy` value |
 | Short explanatory note | `inline-note` | Relevant context adjacent to the affected instruction |
 | Optional detail | Native `details` and `summary` inside `article` | Label the topic clearly; keep essential instructions visible |
-| Experimental state | `experimental` | Use with a positioned containing component, as in `feature-band` |
+| Beta status | `beta-warning` | Explain current limits next to the affected setup or feature |
 
 Example command panel for a website build:
 
@@ -183,7 +195,7 @@ copies of the repository URL through templates. Do not apply `safeURL` or
 canonical URL and metadata rather than adding competing tags in a page body.
 
 Make every action lead to a useful destination. Use concrete labels such as
-“Build & run,” “Engine source,” and “File formats.” Source links point to the
+“Play the demo,” “Install the beta,” “Engine source,” and “File formats.” Source links point to the
 available [engine repository](https://github.com/nanolathe-gg/nanolathe) and
 [website repository](https://github.com/nanolathe-gg/nanolathe-gg.github.io).
 Describe the actual current state of a feature or resource collection; do not

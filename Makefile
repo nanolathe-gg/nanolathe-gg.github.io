@@ -3,7 +3,7 @@
 brand:
 	python3 scripts/package-brand.py
 
-# The engine's rolling browser build and the pinned demo assets (README,
+# The engine's latest immutable browser release and the pinned demo assets (README,
 # "Browser build"). Network failures fall back to the live build or a
 # placeholder unless PLAY_REQUIRED=1.
 play:

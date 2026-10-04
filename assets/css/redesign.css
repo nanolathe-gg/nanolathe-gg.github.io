@@ -91,6 +91,14 @@ body.redesign .install-layout{display:grid;grid-template-columns:.82fr 1.18fr;ga
 body.redesign .install-intro{position:sticky;top:130px}
 body.redesign .install-intro>p:not(.eyebrow){max-width:315px;margin-top:25px}
 body.redesign .install-intro h2{font-size:clamp(2.8rem,4vw,3.8rem)}
+body.redesign .install-card [id]{scroll-margin-top:110px}
+body.redesign .setup-help{display:grid;grid-template-columns:1fr 1fr;gap:60px;padding-block:65px}
+body.redesign .setup-help h2{font-size:clamp(2rem,3vw,2.8rem)}
+body.redesign .setup-help p:not(.eyebrow){max-width:480px;margin-top:20px}
+body.redesign .setup-help-links{display:grid;align-content:start}
+body.redesign .setup-help-links a{display:flex;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid var(--line);scroll-margin-top:110px}
+body.redesign .setup-help-links a:hover{color:var(--green)}
+@media(max-width:650px){body.redesign .setup-help{grid-template-columns:1fr;gap:25px;padding-block:45px}}
 body.redesign .beta-warning{margin:34px 0 27px;border-left:2px solid var(--amber);padding:1px 0 1px 18px;max-width:340px}
 body.redesign .beta-warning strong{display:block;color:#e8c699;font-size:.875rem}
 body.redesign .beta-warning p{font-size:.875rem;line-height:1.65;margin-top:7px}

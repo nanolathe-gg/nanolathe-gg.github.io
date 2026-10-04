@@ -53,7 +53,7 @@ the site. Layout and component rules live in
 | `--dim` | `#78836e` | Subordinate labels and details |
 | `--green` | `#b6ef63` | Primary actions, links, mark, selected emphasis |
 | `--green-dark` | `#27381b` | Dark green support token |
-| `--amber` | `#e7b66f` | Eyebrows, secondary actions, experimental labels |
+| `--amber` | `#e7b66f` | Eyebrows, secondary actions, supporting labels |
 | `--amber-dark` | `#33281c` | Dark amber support surface |
 | `--amber-line` | `#715637` | Amber borders and diagrams |
 

@@ -19,6 +19,23 @@ navigation?.querySelectorAll('a').forEach(link => link.addEventListener('click',
 document.addEventListener('click', (event) => {
   if (!event.target.closest('.site-header')) closeMenu();
 });
+// Deep links into optional details should reveal the requested content.
+function revealHashDetails() {
+  let id;
+  try { id = decodeURIComponent(location.hash.slice(1)); } catch { return; }
+  const target = id && document.getElementById(id);
+  if (!target) return;
+  let opened = false;
+  for (let element = target; element; element = element.parentElement) {
+    if (element.tagName === 'DETAILS' && !element.open) {
+      element.open = true;
+      opened = true;
+    }
+  }
+  if (opened) requestAnimationFrame(() => target.scrollIntoView());
+}
+window.addEventListener('hashchange', revealHashDetails);
+revealHashDetails();
 document.querySelectorAll('[data-copy]').forEach(button => {
   if (!navigator.clipboard?.writeText) { button.hidden = true; return; }
   const initial = button.textContent;

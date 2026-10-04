@@ -56,21 +56,21 @@
       <h2>Why Go?</h2>
       <p>Go’s simplicity, speed, and quick compilation make it a good fit for a project built in spare time. Being able to change code and use <code>go run</code> to try it keeps iteration short and leaves more time for experimenting and testing.</p>
       <p>Garbage collection is a tradeoff to manage. Doing allocations during loading and reusing memory through pools can reduce allocation pressure during play. The aim is to keep the development benefits while paying attention to the work happening in each frame.</p>
-      <p>Ebitengine provides the window, graphics, and audio foundation, keeping GPU work accessible from Go. Its desktop support lets Nanolathe build without a C or C++ compiler, keeping setup simple and iteration quick. Platform prerequisites are covered in the <a href="{{ "get-started/#environment" | relURL }}">build guide</a>.</p>
+      <p>Ebitengine provides the window, graphics, and audio foundation, keeping GPU work accessible from Go. Its desktop support lets Nanolathe build without a C or C++ compiler, keeping setup simple and iteration quick. Platform prerequisites are covered in the <a href="{{ "docs/native-installation/#computer-requirements" | relURL }}">native setup guide</a>.</p>
     </section>
     <section id="future">
       <h2>Play today. Build what comes next.</h2><p>The browser beta plays the original three-mission demo without installation. The native beta runs on Windows, Mac and Linux with your own game data. <a href="{{ "play/" | relURL }}">Try the demo</a>, or <a href="{{ "get-started/" | relURL }}">install Nanolathe</a>.</p>
       <p>The single-player engine is broadly complete, with retail behavior as the primary focus. Expect bugs and smaller missing features that still need investigation. TA was an exceptionally complex engine for its time, and matching its many systems takes care.</p>
-      <p>Multiplayer is still missing and is the next major priority. Modern AI, optional movement improvements, and engine support for ambitious mods continue to evolve. Projects such as TA Escalation suggest how much room there is to grow when the engine itself can be changed directly.</p>
+      <p>Multiplayer is not available yet. Modern AI, optional movement improvements, and engine support for ambitious mods continue to evolve. Projects such as TA Escalation suggest how much room there is to grow when the engine itself can be changed directly.</p>
       <p>See the <a href="{{ site.Params.engineRepo }}/blob/{{ site.Params.engineBranch }}/README.md">current engine status</a> for the latest development details.</p>
     </section>
     <section id="contribute">
       <h2>Make it your own.</h2>
       <p>Nanolathe uses the permissive MIT license because freedom to build on the engine is part of the point. Make mods, experiment with a new RTS, or use it as the foundation for a commercial project. The hope is that others adopt it, play with it, and find their own uses for its features and retro feel.</p>
-      <p>The engine’s <a href="{{ site.Params.engineRepo }}/blob/{{ site.Params.engineBranch }}/LICENSE">MIT license</a> applies to the engine code; original Total Annihilation game assets are separate and are required to play TA. They are not included with Nanolathe.</p>
+      <p>The engine’s <a href="{{ site.Params.engineRepo }}/blob/{{ site.Params.engineBranch }}/LICENSE">MIT license</a> applies to Nanolathe’s code. Total Annihilation’s game assets retain their own terms: the browser demo uses the original demo files, while the full game requires your own installed game data.</p>
       <p>For now, this is one software engineer’s spare-time project. Contributions are welcome: research a behavior, report a reproducible bug, improve the engine, or help with documentation. Bring your curiosity and a love of classic RTS.</p>
       <div class="actions">
-        <a class="button primary" href="{{ "get-started/" | relURL }}">Build &amp; run {{ partial "arrow.html" . }}</a>
+        <a class="button primary" href="{{ "get-started/" | relURL }}">Get started {{ partial "arrow.html" . }}</a>
         <a class="button secondary" href="{{ site.Params.engineRepo }}">Contribute on GitHub <span aria-hidden="true">↗</span></a>
       </div>
     </section>

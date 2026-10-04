@@ -144,3 +144,59 @@ Browser acceptance scripts use Codex's bundled Playwright and an isolated Chrome
 process, with no user profile. Run them from this task's `qa` directory while the
 preview is active. They create test demo files and screenshots outside the website
 repository. Publishing is not part of the reproduction commands.
+
+## Follow-up site cleanup
+
+Get started now has one browser-demo entry and one three-step native setup flow.
+The repeated second installation article, duplicate command panels and obsolete
+alpha migration note are removed. Detailed requirements, folder selection,
+updates, saves, logs, troubleshooting and source builds live in the new
+`/docs/native-installation/` player guide. Existing step/help fragments remain
+usable; links to collapsed requirements automatically reveal that section.
+The native-install heading is visible on phones as well as desktop.
+
+The documentation directory discovers player guides and computes its counts.
+About and the homepage distinguish Nanolathe's MIT-licensed code from the demo
+and full-game assets, and avoid an unsupported multiplayer roadmap commitment.
+Browser help refers to the current game toolbar, and brand page patterns describe
+the beta layouts and Markdown player guides. Long technical-reference source
+URLs wrap, and narrow comparison diagrams stack, keeping the document viewport
+at the requested phone width. Technical reference text and evidence snapshots,
+installers, capture files and pinned engine modules are unchanged.
+
+`make check` passed again: 30 HTML files and their internal destinations,
+34 platform assertions, browser build/demo integrity and shell regressions,
+all 15 format example generators, catalogue/package checks and all 16 offline
+installer tests. The final strict build, site-link check and browser-integrity
+check passed after the CSS refinements. PowerShell remains unavailable, so
+native Windows offline tests remain skipped.
+
+Isolated Chrome 154 passed 135 layout checks: all 27 non-play HTML routes at
+320, 390, 768, 1024 and 1440 pixels, with eager image decoding, unique IDs,
+one H1, no broken images, no page overflow and no mobile viewport enlargement.
+Setup tests cover all platform commands and clipboard values, ownership changes,
+old anchors, details expansion, guide TOC/navigation/back, mobile navigation,
+brand copy controls and no-JavaScript commands. All eight OS-hint scenarios
+passed again, including phone/tablet/ChromeOS/unknown manual selection. There
+were no JavaScript errors. Focused checks at 320, 390 and 1440 pixels confirm
+the FBI yard preset still produces all 16 cells, the TDF assignment controls
+still give 9 → 7 → 9, and wide GAF tables can be scrolled with the keyboard on
+phones. These are Chromium layout emulations, not device
+performance measurements; the earlier playable-build acceptance and remaining
+manual gameplay gaps above still apply.
+
+Current evidence in `../qa/`:
+
+- `site-cleanup-make-check.log`, `site-cleanup-final-build.log`,
+  `site-cleanup-check.cjs`, `site-cleanup-report.json`, and
+  `site-cleanup-platform-check.log`; `site-cleanup-diagrams-check.cjs` and
+  `site-cleanup-diagrams-report.json` cover the interactive diagram checks.
+- `cleanup-get-started-1440.png` and `cleanup-get-started-390.png`;
+  `cleanup-docs-native-installation-1440.png` and
+  `cleanup-docs-native-installation-390.png`.
+- `cleanup-home-*`, `cleanup-about-*`, `cleanup-docs-*` screenshots with their
+  images decoded. Older overflow diagnosis logs are intermediate evidence;
+  the final layout report checks the actual requested viewport widths.
+
+The local preview is still available at http://127.0.0.1:1313/.
+Nothing was pushed, merged into main or published during this cleanup.

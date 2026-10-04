@@ -5,7 +5,7 @@ enableRobotsTXT = true
 disableKinds = ['taxonomy', 'term', 'RSS']
 
 [params]
-description = 'An independent, open-source 2.5D RTS engine in Go, reimplementing Total Annihilation. Build from source and explore game formats and clean-room research.'
+description = 'An independent, open-source RTS engine in Go, starting with Total Annihilation. Play the browser demo, install the native beta, or explore the code and research.'
 engineRepo = 'https://github.com/nanolathe-gg/nanolathe'
 engineBranch = 'main'
 websiteRepo = 'https://github.com/nanolathe-gg/nanolathe-gg.github.io'
