@@ -8,12 +8,12 @@
   "hero_provenance": "home-hero/manifest.json",
   "files": [
     {
-      "path": "static/images/renderer/hero-modern-e2ac78cd.webp",
-      "bytes": 1356560,
-      "sha256": "215e4835adc1a24d5b47eda36d52d722ea63534c8353c07cd9342e8fca4adac7",
+      "path": "static/images/renderer/hero-modern-base-e2ac78cd.webp",
+      "bytes": 829644,
+      "sha256": "b2aa8a82b133a0fc6e0bca2e1e38a61d91e2cf80ac623d13c7829a12bf003b0f",
       "width": 1280,
       "height": 880,
-      "rgba_sha256": "4380514ad6748c7f7d37497e6fe09189122e396bd893bd78c1da4bbd2f76a7e8"
+      "rgba_sha256": "c32eeb071060fffe08f2bc8cd12728c3f2ebd4535dbce27ea0f9b34fcbd41342"
     },
     {
       "path": "static/images/renderer/v2/fire-off.mp4",

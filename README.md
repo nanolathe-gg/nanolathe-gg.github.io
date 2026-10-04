@@ -93,7 +93,8 @@ records exact scenes, controls, source/binary hashes and pixel/export verificati
 Modern/default and beta remain website positioning; engine runtime defaults are
 unchanged. The playable browser demo uses the independently verified Wasm build.
 
-The opening hero is a fresh native modern GPU film capture from engine
+The opening hero shows a separated ARM base and battle through native modern
+GPU film capture from engine
 `e2ac78cd`, with actual Metal, AA, lighting, glow and real synthesized 2× terrain
 and feature sprites. The exact script, source/binary hashes and lossless pixel
 verification are in `scripts/renderer-capture/home-hero/README.md`.

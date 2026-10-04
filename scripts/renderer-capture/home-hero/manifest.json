@@ -1,7 +1,7 @@
 {
   "captured": "2026-10-04",
   "production_revision": "e2ac78cda2a19ff77fb8ee04a6ed32fc8f2e8819",
-  "diagnostic_revision": "25e956d1202fc097251f75958fa5fe8183a432b8",
+  "diagnostic_revision": "02f9fa6b416542b23d1ae9071751663d5d00bb83",
   "diagnostic_branch": "capture/homepage-modern-hero",
   "website_branch": "redesign/private-beta-local",
   "renderer": "Modern GPU",
@@ -19,17 +19,17 @@
       "kind": "battle",
       "map": "Greenhaven",
       "seed": 7,
-      "pre_ticks": 300,
-      "roster": "heavy",
-      "per_side": 24,
-      "buildings": 2,
+      "pre_ticks": 150,
+      "roster": "armor",
+      "per_side": 4,
+      "buildings": 4,
       "factories": true,
       "fog": false,
-      "air": 3,
-      "builders": 1,
-      "columns": 6,
-      "pitch": 36,
-      "gap": 160,
+      "air": 1,
+      "builders": 0,
+      "columns": 2,
+      "pitch": 64,
+      "gap": 80,
       "patrol": true,
       "anchor": [
         4280,
@@ -43,8 +43,8 @@
         "camera": [
           {
             "tick": 0,
-            "x": -55,
-            "z": -70,
+            "x": 0,
+            "z": -75,
             "zoom": 2,
             "ease": "linear"
           }
@@ -53,9 +53,9 @@
       }
     ]
   },
-  "committed_tick": 301,
+  "committed_tick": 151,
   "interpolation_fraction": 0,
-  "presented_state_note": "The production film presents the 300\u2013301 interval at fraction 0 after publishing tick 301; the census and state hash describe current publication 301. Camera blend is snapped at the cut.",
+  "presented_state_note": "Production film presents the 150\u2013151 interval at fraction 0 after publishing tick 151; census and state hash describe publication 151. Camera blend is snapped at the cut.",
   "clean_crop": {
     "composed": [
       1408,
@@ -78,8 +78,8 @@
       "DetailTiles": 2347,
       "Scale": 4,
       "Camera": {
-        "X": 3841,
-        "Z": 3924,
+        "X": 3896,
+        "Z": 3919,
         "ViewW": 1408,
         "ViewH": 944,
         "MapW": 8160,
@@ -126,11 +126,11 @@
           ]
         }
       },
-      "TotalSpriteCommands": 330,
-      "SynthesizedSpriteCommands": 45
+      "TotalSpriteCommands": 238,
+      "SynthesizedSpriteCommands": 38
     },
     "blast_ring_strength": 100,
-    "committed_tick": 301,
+    "committed_tick": 151,
     "effects": {
       "WaterSurface": true,
       "WaterMotion": true,
@@ -158,89 +158,89 @@
     "glow": true,
     "glow_strength": 100,
     "gpu_stats": {
-      "MaterialFaces": 501,
-      "ScorchQuads": 37,
-      "Phases": 7,
-      "Passes": 14,
-      "SubmittedVertices": 25424,
-      "SubmittedIndices": 37980,
-      "MaxSubmissionVertices": 8884,
+      "MaterialFaces": 242,
+      "ScorchQuads": 24,
+      "Phases": 6,
+      "Passes": 12,
+      "SubmittedVertices": 10008,
+      "SubmittedIndices": 15024,
+      "MaxSubmissionVertices": 3444,
       "PointPixels": 0,
       "PointQuads": 0,
       "PointPlanes": 0,
-      "Vertices": 6380,
-      "GlowQuads": 281,
+      "Vertices": 2584,
+      "GlowQuads": 121,
       "GlowPasses": 5,
-      "BattleLights": 34,
-      "LitModelFaces": 524,
-      "LitSmokeSprites": 68,
+      "BattleLights": 16,
+      "LitModelFaces": 149,
+      "LitSmokeSprites": 34,
       "BattleLightKinds": [
-        25,
-        2,
-        0,
-        4,
+        10,
         1,
-        2
+        0,
+        5,
+        0,
+        0
       ],
-      "GroundLights": 21,
+      "GroundLights": 4,
       "ReflectionVertices": 0,
-      "BlastWaves": 6,
+      "BlastWaves": 0,
       "UnderwaterCommits": 0,
-      "HeatPlumes": 1,
-      "WreckHeatPlumes": 1,
-      "DirectSubjects": 58,
-      "DirectShadows": 6,
-      "DirectFaces": 2234,
-      "DirectCulled": 1241,
+      "HeatPlumes": 0,
+      "WreckHeatPlumes": 0,
+      "DirectSubjects": 15,
+      "DirectShadows": 4,
+      "DirectFaces": 860,
+      "DirectCulled": 455,
       "DirectOverflow": 0,
       "DirectPasses": 4,
-      "DirectAtlasRows": 1020,
+      "DirectAtlasRows": 608,
       "DirectPages": 1,
-      "DirectOutlineRings": 200,
-      "DirectOutlineTexels": 241712,
+      "DirectOutlineRings": 162,
+      "DirectOutlineTexels": 59056,
       "DirectOutlineWalked": 0,
       "DirectCargoImages": 1,
       "DirectGroupMerges": 1,
-      "DirectGroupPixels": 36864,
-      "DirectGroupScratchBytes": 294912,
+      "DirectGroupPixels": 28160,
+      "DirectGroupScratchBytes": 225280,
       "DirectRetained": 0,
       "DirectWarm": 0,
       "DirectCaptured": 0,
       "DirectRetainedLive": 0,
       "DirectRetainedOutline": 0,
-      "DirectColdNoKey": 19,
+      "DirectColdNoKey": 0,
       "DirectColdNoKeyOutline": 0,
       "DirectColdNoKeyLive": 0,
       "DirectColdGroup": 2,
       "DirectColdReflect": 0,
-      "DirectColdPrimed": 44,
+      "DirectColdPrimed": 18,
       "DirectColdShape": 0,
       "DirectColdParams": 0,
       "DirectRetainEvicted": 0,
-      "DeviceDraws": 24,
-      "GPU": 57,
+      "DeviceDraws": 21,
+      "GPU": 14,
       "Skipped": 0,
-      "Shadows": 39,
+      "Shadows": 15,
       "ShadowsOmitted": 0,
       "NoBody": 0,
-      "Flashes": 24,
-      "Silhouettes": 33
+      "Flashes": 8,
+      "Silhouettes": 11
     },
     "graphics_backend": "Metal",
     "ground_light_strength": 100,
     "hero_capture_proof": true,
-    "state_sha256": "c77790b378237934eda3360d34354918b38f7301b9fa08a9b83d4939af9a0db5",
-    "surface_rgba_sha256": "8e45cbf2ee5fb8f4244de39b5d9310a52b4016faf3a8d00b9095fde8a908de9c",
+    "state_sha256": "bf7b516a12e34808f37fc4fbd8ba32c683385ca0f95af79e165480db2acdf932",
+    "surface_rgba_sha256": "5cfc50ac4462816cd633c52a8f671b07a3f1e09673e68b8fc63e5a807663c069",
     "synthesized_tiles_sha256": "a751878221dd3dc48ec1bef689ed7a20562fdc9a7cebe84411c9c34d56bff210"
   },
   "source_frame": {
-    "local_path": "/Users/daniel/Documents/Codex/2026-10-03/task/capture-home-hero/hero-300/frame000000.png",
-    "sha256": "e7f6fdbf7b6316289fba1452239fd5331adfa935f9fb672f47cf115e022af7a1",
-    "rgba_sha256": "4380514ad6748c7f7d37497e6fe09189122e396bd893bd78c1da4bbd2f76a7e8"
+    "local_path": "/Users/daniel/Documents/Codex/2026-10-03/task/capture-home-hero/base-final-150/frame000000.png",
+    "sha256": "e498ecf5f4a1b4b23871997decd1a3b0c03fa43ac60aea3c471d418328d4f8a5",
+    "rgba_sha256": "c32eeb071060fffe08f2bc8cd12728c3f2ebd4535dbce27ea0f9b34fcbd41342"
   },
   "producer": {
-    "binary_sha256": "31cadac0cc5314bc6d2c3600e7c7418e1f4e89700bca810910a1d96665822b91",
-    "binary_build_revision": "e2ac78cda2a19ff77fb8ee04a6ed32fc8f2e8819",
+    "binary_sha256": "e1e2da8a91380d7416402162001e07e7d2147c016f4838d0798e78e93f940dcb",
+    "binary_build_revision": "25e956d1202fc097251f75958fa5fe8183a432b8",
     "binary_build_modified": true,
     "source_files": [
       {
@@ -248,39 +248,43 @@
         "sha256": "7faa1b0a7122a8d728d20f071104d886bbb921ca0e0303234d14befee06e2738"
       },
       {
-        "path": "cmd/nanolathe/hero_capture_proof.go",
-        "sha256": "73545f8a3bd981e5c4c90e242f6df45d4d0b2ffb256be8e8dbf5d9d1a211c758"
+        "path": "cmd/nanolathe/film_scene.go",
+        "sha256": "3232b027508816f85d4ab00fc40e51e3840ba53999a017f401b8fdc22af1472a"
       },
       {
         "path": "cmd/nanolathe/detail_art.go",
         "sha256": "6bd8a5e896f09786fa810d5062bbce6f5180c0f3512de5475bdeb5f0d2f101b8"
       },
       {
-        "path": "cmd/nanolathe/film_scene.go",
-        "sha256": "142fb71b26e74c2fc3be5bee56bcdf993150d73ecc31312e1fe4d59e5352c016"
+        "path": "cmd/nanolathe/hero_capture_proof.go",
+        "sha256": "73545f8a3bd981e5c4c90e242f6df45d4d0b2ffb256be8e8dbf5d9d1a211c758"
+      },
+      {
+        "path": "cmd/nanolathe/hero_capture_scene.go",
+        "sha256": "90f4f104840be9c5748b3e09601a3e8801b6634447f1b1004051866718a49e21"
       }
     ],
-    "diagnostic_patch_sha256": "7b3ad72da4b9908e831c72f27b5868f707b015cee2b5bf5fa97d427ab394d356"
+    "diagnostic_patch_sha256": "6d90189b30221662b687f4f4ddb4b39d66eb48654d1baa9251c99126d3ac58b8"
   },
   "export": {
-    "command": "cwebp -lossless -exact -q 100 -m 6 <native PNG> -o hero-modern-e2ac78cd.webp",
+    "command": "cwebp -lossless -exact -q 100 -m 6 <native PNG> -o hero-modern-base-e2ac78cd.webp",
     "lossless_pixels_equal": true,
     "composited": false,
     "retouched": false
   },
   "website_media": {
-    "path": "static/images/renderer/hero-modern-e2ac78cd.webp",
-    "bytes": 1356560,
-    "sha256": "215e4835adc1a24d5b47eda36d52d722ea63534c8353c07cd9342e8fca4adac7",
+    "path": "static/images/renderer/hero-modern-base-e2ac78cd.webp",
+    "bytes": 829644,
+    "sha256": "b2aa8a82b133a0fc6e0bca2e1e38a61d91e2cf80ac623d13c7829a12bf003b0f",
     "width": 1280,
     "height": 880,
-    "rgba_sha256": "4380514ad6748c7f7d37497e6fe09189122e396bd893bd78c1da4bbd2f76a7e8"
+    "rgba_sha256": "c32eeb071060fffe08f2bc8cd12728c3f2ebd4535dbce27ea0f9b34fcbd41342"
   },
   "retail_data": {
     "separately_installed": true,
     "retail_archives_in_deliverable": false,
     "derived_synthesis_cache_in_deliverable": false,
-    "cache_note": "Production input-keyed cache reused local prior synthesis; the current drawlist audit confirms 2347 actual detail tiles and 45 synthesized feature-sprite commands. Shadow/missing variants retain ordinary fallback."
+    "cache_note": "Production input-keyed cache reused prior local synthesis; the current drawlist audit confirms 2347 actual detail tiles and 38 synthesized feature-sprite commands. Shadow/missing variants retain ordinary fallback."
   },
   "retired_hero": {
     "path": "static/images/renderer/hero-battle.webp",
@@ -298,7 +302,137 @@
       1440
     ],
     "browser_report": "browser-verification.json",
-    "site_gate": "make check passed with terminal access for offline PTY fixtures; Windows PowerShell tests skipped because pwsh is unavailable",
-    "engine_diagnostics": "go build ./cmd/nanolathe and go vet ./cmd/nanolathe passed"
+    "site_gate": "Strict Hugo build and 30-page internal destination/asset checks passed after refresh; full make check passed for the preceding hero change. Windows PowerShell tests were unavailable.",
+    "engine_diagnostics": "Capture-only build and go vet ./cmd/nanolathe passed."
+  },
+  "fixture": {
+    "environment": {
+      "NANOLATHE_HERO_COMPOSITION": "base"
+    },
+    "description": "Small ARM base defending against CORE units; original models, normal Session combat and active original factory production. No Maverick is staged.",
+    "formation_fields_note": "The diagnostic base selector overrides the standard film formation, roster and extra-unit fields; map, anchor, seed, pre_ticks, reveal and camera retain the production film controls.",
+    "placed_ground_units": [
+      {
+        "def": "armlab",
+        "owner": 0,
+        "world": [
+          4448,
+          4144
+        ]
+      },
+      {
+        "def": "armsolar",
+        "owner": 0,
+        "world": [
+          4312,
+          4088
+        ]
+      },
+      {
+        "def": "armrad",
+        "owner": 0,
+        "world": [
+          4544,
+          4080
+        ]
+      },
+      {
+        "def": "armllt",
+        "owner": 0,
+        "world": [
+          4464,
+          4384
+        ]
+      },
+      {
+        "def": "armcom",
+        "owner": 0,
+        "world": [
+          4515,
+          4310
+        ]
+      },
+      {
+        "def": "armbull",
+        "owner": 0,
+        "world": [
+          4396,
+          4251
+        ]
+      },
+      {
+        "def": "armstump",
+        "owner": 0,
+        "world": [
+          4290,
+          4180
+        ]
+      },
+      {
+        "def": "armflash",
+        "owner": 0,
+        "world": [
+          4275,
+          4330
+        ]
+      },
+      {
+        "def": "armzeus",
+        "owner": 0,
+        "world": [
+          4360,
+          4325
+        ]
+      },
+      {
+        "def": "corraid",
+        "owner": 1,
+        "world": [
+          4119,
+          4165
+        ]
+      },
+      {
+        "def": "corlevlr",
+        "owner": 1,
+        "world": [
+          4125,
+          4275
+        ]
+      },
+      {
+        "def": "correap",
+        "owner": 1,
+        "world": [
+          4100,
+          4380
+        ]
+      },
+      {
+        "def": "corstorm",
+        "owner": 1,
+        "world": [
+          4040,
+          4245
+        ]
+      }
+    ],
+    "additional_aircraft": "One original ARM fighter on ordinary patrol; its visibility depends on simulation/camera and is not required for this hero.",
+    "initial_staged_units": 14,
+    "cleared_destructible_feature_anchors": 9,
+    "clearing": "Small footprint clearings through Features.RemoveFeatureAt, including successors; indestructible features/deposits preserved. Surrounding original vegetation remains.",
+    "runtime_defaults_changed": false
+  },
+  "replaces_hero": {
+    "path": "static/images/renderer/hero-modern-e2ac78cd.webp",
+    "sha256": "215e4835adc1a24d5b47eda36d52d722ea63534c8353c07cd9342e8fca4adac7",
+    "website_commit": "98f5529731d5700e59f76504d3277e7299802cbb",
+    "removed_from_active_site": true,
+    "history": "Original battle capture and metadata remain in Git history and task capture directory."
+  },
+  "responsive_crop": {
+    "desktop": "right center",
+    "mobile": "right 56%",
+    "reason": "Keep the base buildings fully visible in narrower cover crops."
   }
 }

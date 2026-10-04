@@ -91,8 +91,9 @@ capture. Retained player and format documentation keeps its substantive content.
 
 `home-hero/` records the fresh October 4 production film capture from engine
 `e2ac78cd`, with actual Metal, supersampled units, battle lighting, glow and
-genuine synthesized 2× terrain and feature sprites. The scene uses ordinary
-combat in a staged Greenhaven battle. The production clean-film crop removes
+genuine synthesized 2× terrain and feature sprites. The smaller scene shows an ARM base and separated units during ordinary
+combat on Greenhaven. The production clean-film crop removes
 the interface and outputs native 1280×880 pixels without resampling.
-`hero-modern-e2ac78cd.webp` decodes exactly to that PNG. The capture script,
-read-only diagnostic patch, controls, hashes and reproduction are preserved.
+`hero-modern-base-e2ac78cd.webp` decodes exactly to that PNG. The capture script,
+capture-only fixture/diagnostic patch, controls, hashes and reproduction are
+preserved.

@@ -1,7 +1,7 @@
 {
   "origin": "http://127.0.0.1:1313",
-  "asset": "/images/renderer/hero-modern-e2ac78cd.webp",
-  "sha256": "215e4835adc1a24d5b47eda36d52d722ea63534c8353c07cd9342e8fca4adac7",
+  "asset": "/images/renderer/hero-modern-base-e2ac78cd.webp",
+  "sha256": "b2aa8a82b133a0fc6e0bca2e1e38a61d91e2cf80ac623d13c7829a12bf003b0f",
   "layouts": [
     {
       "width": 1440,
@@ -10,8 +10,8 @@
         1280,
         880
       ],
-      "src": "/images/renderer/hero-modern-e2ac78cd.webp",
-      "alt": "ARM and CORE forces exchange fire among synthesized trees in Nanolathe’s modern GPU renderer",
+      "src": "/images/renderer/hero-modern-base-e2ac78cd.webp",
+      "alt": "An ARM base, tanks and kbots during combat in Nanolathe’s modern GPU renderer",
       "fetchPriority": "high",
       "display": {
         "x": 504,
@@ -19,7 +19,7 @@
         "width": 936,
         "height": 652.140625
       },
-      "objectPosition": "54% 50%",
+      "objectPosition": "100% 50%",
       "broken": [],
       "h1": 1,
       "play": [
@@ -44,8 +44,8 @@
         1280,
         880
       ],
-      "src": "/images/renderer/hero-modern-e2ac78cd.webp",
-      "alt": "ARM and CORE forces exchange fire among synthesized trees in Nanolathe’s modern GPU renderer",
+      "src": "/images/renderer/hero-modern-base-e2ac78cd.webp",
+      "alt": "An ARM base, tanks and kbots during combat in Nanolathe’s modern GPU renderer",
       "fetchPriority": "high",
       "display": {
         "x": 256,
@@ -53,7 +53,7 @@
         "width": 768,
         "height": 650
       },
-      "objectPosition": "54% 50%",
+      "objectPosition": "100% 50%",
       "broken": [],
       "h1": 1,
       "play": [
@@ -78,8 +78,8 @@
         1280,
         880
       ],
-      "src": "/images/renderer/hero-modern-e2ac78cd.webp",
-      "alt": "ARM and CORE forces exchange fire among synthesized trees in Nanolathe’s modern GPU renderer",
+      "src": "/images/renderer/hero-modern-base-e2ac78cd.webp",
+      "alt": "An ARM base, tanks and kbots during combat in Nanolathe’s modern GPU renderer",
       "fetchPriority": "high",
       "display": {
         "x": 192,
@@ -87,7 +87,7 @@
         "width": 576,
         "height": 640
       },
-      "objectPosition": "54% 50%",
+      "objectPosition": "100% 50%",
       "broken": [],
       "h1": 1,
       "play": [
@@ -112,8 +112,8 @@
         1280,
         880
       ],
-      "src": "/images/renderer/hero-modern-e2ac78cd.webp",
-      "alt": "ARM and CORE forces exchange fire among synthesized trees in Nanolathe’s modern GPU renderer",
+      "src": "/images/renderer/hero-modern-base-e2ac78cd.webp",
+      "alt": "An ARM base, tanks and kbots during combat in Nanolathe’s modern GPU renderer",
       "fetchPriority": "high",
       "display": {
         "x": 0,
@@ -121,7 +121,7 @@
         "width": 390,
         "height": 320
       },
-      "objectPosition": "50% 56%",
+      "objectPosition": "100% 56%",
       "broken": [],
       "h1": 1,
       "play": [
@@ -146,8 +146,8 @@
         1280,
         880
       ],
-      "src": "/images/renderer/hero-modern-e2ac78cd.webp",
-      "alt": "ARM and CORE forces exchange fire among synthesized trees in Nanolathe’s modern GPU renderer",
+      "src": "/images/renderer/hero-modern-base-e2ac78cd.webp",
+      "alt": "An ARM base, tanks and kbots during combat in Nanolathe’s modern GPU renderer",
       "fetchPriority": "high",
       "display": {
         "x": 0,
@@ -155,7 +155,7 @@
         "width": 320,
         "height": 260
       },
-      "objectPosition": "50% 56%",
+      "objectPosition": "100% 56%",
       "broken": [],
       "h1": 1,
       "play": [

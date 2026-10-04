@@ -9,17 +9,17 @@
     "kind": "battle",
     "map": "Greenhaven",
     "seed": 7,
-    "pre_ticks": 300,
-    "roster": "heavy",
-    "per_side": 24,
-    "buildings": 2,
+    "pre_ticks": 150,
+    "roster": "armor",
+    "per_side": 4,
+    "buildings": 4,
     "factories": true,
     "fog": false,
-    "air": 3,
-    "builders": 1,
-    "columns": 6,
-    "pitch": 36,
-    "gap": 160,
+    "air": 1,
+    "builders": 0,
+    "columns": 2,
+    "pitch": 64,
+    "gap": 80,
     "patrol": true,
     "anchor": [
       4280,
@@ -33,8 +33,8 @@
       "camera": [
         {
           "tick": 0,
-          "x": -55,
-          "z": -70,
+          "x": 0,
+          "z": -75,
           "zoom": 2,
           "ease": "linear"
         }

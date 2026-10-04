@@ -375,12 +375,14 @@ study, with native100% shadow softness; they are not simulated flight footage.
 
 ## October 4, 2026 homepage hero refresh
 
-`static/images/renderer/hero-modern-e2ac78cd.webp` replaces the older benchmark
+`static/images/renderer/hero-modern-base-e2ac78cd.webp` replaces the older benchmark
 hero with a production `--film` capture from engine
-`e2ac78cda2a19ff77fb8ee04a6ed32fc8f2e8819`. It shows a staged Greenhaven battle
+`e2ac78cda2a19ff77fb8ee04a6ed32fc8f2e8819`. It shows a staged ARM base and battle on Greenhaven
 using ordinary units, orders and combat, actual Metal GPU execution, AA,
-lighting, glow and genuine synthesized 2× terrain and feature sprites. Native
-strengths and engine rendering remain unchanged.
+lighting, glow and genuine synthesized 2× terrain and feature sprites. A local capture-only fixture spaces original units and buildings, queues normal
+factory production and prepares small footprint clearings through the feature
+lifecycle, preserving indestructible map features. Native strengths and engine
+rendering remain unchanged.
 
 The film path writes the 1280×880 world viewport from its 1408×944 surface,
 removing interface chrome and messages through the existing capture controls.
