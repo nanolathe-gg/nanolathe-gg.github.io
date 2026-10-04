@@ -6,9 +6,9 @@ Annihilation installation. No extracted playable game assets are bundled.
 Classic CPU examples use Nanolathe's indexed software renderer; none are captures
 of the retail executable. Captions identify exact controls and scene staging.
 
-The Features page uses native engine captures throughout. `live-materials/`
-preserves the earlier browser material study and its provenance; that study is
-no longer loaded by the Features page.
+The Features page pairs native engine captures with clearly labeled browser
+material and water studies. Their provenance is retained in `live-materials/`
+and `live-water/`; the studies are illustrative WebGL views.
 
 ## Refreshed Features captures
 
@@ -17,7 +17,8 @@ water, reflection, material and model-edge captures. The same-Modern terrain
 control changes only terrain detail; full Classic/Modern comparisons are
 labeled separately. Terrain and feature artwork use the actual runtime
 synthesis path. Captured PNGs export losslessly, and MP4s copy unchanged.
-`data/features.json` owns the six current page chapters; `v5/README.md` and its
+These six earlier chapters are retained for provenance; the active page uses
+`data/features.json` and the nine v6 chapters. `v5/README.md` and its
 separate website-media inventory document reproduction and verification.
 
 ## Beta redesign matched captures
@@ -27,7 +28,8 @@ explosion and landscape captures at the same 2× camera and committed state.
 Modern uses verified real 2× synthesized terrain, lighting and glow, with
 production CRT binding and full default presentation controls. Foliage is
 explicitly the nearest-doubled fallback. Lossless WebP exports exactly decode
-to raw captured pixels. The homepage retains this pair; Features uses v5.
+to raw captured pixels. The pair is retained for provenance; the active
+homepage comparison and Features use v6.
 See `v4/README.md` for exact reproduction and assertions.
 
 ## Earlier capture studies retained for provenance
@@ -61,7 +63,8 @@ inspection from that capture's engine camera zoom. The refreshed page presents
 the native images at their natural aspect ratio without this magnification.
 
 Site media lives in `static/images/renderer/`, including v2–v5. The root
-`media-manifest.json` inventories the earlier media; v4 and v5 have separate
+`media-manifest.json` inventories the earlier media and current homepage hero;
+v4 and v5 have separate
 `website-media.json` inventories of the files they serve. Each capture folder
 has its harness, exact commands, controls and validation. Raw frames stay
 in the outputs recorded by those manifests. The website build needs
@@ -75,11 +78,21 @@ pause. Camera, effect, material and terrain staging is documented explicitly.
 
 ## Earlier capture history
 
-The opening `hero-battle.webp` remains an illustrative live Great Divide benchmark
-capture from the initial review. Its original path, crop and hash are recorded
-in `initial-review/media-manifest.json`; it is not a toggle pair.
+The earlier `hero-battle.webp` was an illustrative live Great Divide benchmark
+capture from the initial review. It has been retired from the active site. Its
+original path, crop and hash remain in `initial-review/media-manifest.json`.
 
 `initial-review/`, `v2/`, and `v3/` preserve earlier source evidence and media.
 `data/renderer.json` retains the prior twelve-study page inventory; the active
 Features page reads `data/features.json`. The old media is not labeled as a fresh
 capture. Retained player and format documentation keeps its substantive content.
+
+## Current homepage hero
+
+`home-hero/` records the fresh October 4 production film capture from engine
+`e2ac78cd`, with actual Metal, supersampled units, battle lighting, glow and
+genuine synthesized 2× terrain and feature sprites. The scene uses ordinary
+combat in a staged Greenhaven battle. The production clean-film crop removes
+the interface and outputs native 1280×880 pixels without resampling.
+`hero-modern-e2ac78cd.webp` decodes exactly to that PNG. The capture script,
+read-only diagnostic patch, controls, hashes and reproduction are preserved.

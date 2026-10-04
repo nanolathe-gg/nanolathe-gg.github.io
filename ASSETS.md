@@ -372,3 +372,23 @@ original Hurricane bombers at staged60/180-world-unit clearances, with only
 SoftShadows toggled. Source/drawlist/setting/restoration and PNG↔WebP pixel proof
 are in `scripts/renderer-capture/aircraft-shadows/`. They are a frozen altitude
 study, with native100% shadow softness; they are not simulated flight footage.
+
+## October 4, 2026 homepage hero refresh
+
+`static/images/renderer/hero-modern-e2ac78cd.webp` replaces the older benchmark
+hero with a production `--film` capture from engine
+`e2ac78cda2a19ff77fb8ee04a6ed32fc8f2e8819`. It shows a staged Greenhaven battle
+using ordinary units, orders and combat, actual Metal GPU execution, AA,
+lighting, glow and genuine synthesized 2× terrain and feature sprites. Native
+strengths and engine rendering remain unchanged.
+
+The film path writes the 1280×880 world viewport from its 1408×944 surface,
+removing interface chrome and messages through the existing capture controls.
+There is no additional crop, resampling, retouching or compositing. Lossless
+WebP decoded RGBA exactly matches the native PNG. The separately installed
+game-art content is outside the MIT license for website code. Retail archives,
+derived synthesis caches and the capture binary are excluded.
+
+Exact script, frame/camera/settings, local diagnostic revision, source and
+binary hashes, and provenance are in `scripts/renderer-capture/home-hero/`.
+The prior hero's hash and crop remain in `initial-review/media-manifest.json`.

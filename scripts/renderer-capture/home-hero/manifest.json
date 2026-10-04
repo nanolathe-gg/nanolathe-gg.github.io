@@ -1,0 +1,304 @@
+{
+  "captured": "2026-10-04",
+  "production_revision": "e2ac78cda2a19ff77fb8ee04a6ed32fc8f2e8819",
+  "diagnostic_revision": "25e956d1202fc097251f75958fa5fe8183a432b8",
+  "diagnostic_branch": "capture/homepage-modern-hero",
+  "website_branch": "redesign/private-beta-local",
+  "renderer": "Modern GPU",
+  "graphics_backend": "Metal",
+  "go": "go1.27.1",
+  "ebitengine": "v2.10.4",
+  "scene": {
+    "width": 1280,
+    "height": 880,
+    "fps": 30,
+    "clean": true,
+    "letterbox": 0,
+    "messages": false,
+    "scene": {
+      "kind": "battle",
+      "map": "Greenhaven",
+      "seed": 7,
+      "pre_ticks": 300,
+      "roster": "heavy",
+      "per_side": 24,
+      "buildings": 2,
+      "factories": true,
+      "fog": false,
+      "air": 3,
+      "builders": 1,
+      "columns": 6,
+      "pitch": 36,
+      "gap": 160,
+      "patrol": true,
+      "anchor": [
+        4280,
+        4230
+      ]
+    },
+    "shots": [
+      {
+        "name": "homepage-modern-battle",
+        "ticks": 1,
+        "camera": [
+          {
+            "tick": 0,
+            "x": -55,
+            "z": -70,
+            "zoom": 2,
+            "ease": "linear"
+          }
+        ],
+        "text": []
+      }
+    ]
+  },
+  "committed_tick": 301,
+  "interpolation_fraction": 0,
+  "presented_state_note": "The production film presents the 300\u2013301 interval at fraction 0 after publishing tick 301; the census and state hash describe current publication 301. Camera blend is snapped at the cut.",
+  "clean_crop": {
+    "composed": [
+      1408,
+      944
+    ],
+    "origin": [
+      128,
+      32
+    ],
+    "output": [
+      1280,
+      880
+    ],
+    "resampled": false,
+    "interface_and_messages_removed_by": "production --film clean:true, messages:false"
+  },
+  "capture_proof": {
+    "anti_alias": true,
+    "art_audit": {
+      "DetailTiles": 2347,
+      "Scale": 4,
+      "Camera": {
+        "X": 3841,
+        "Z": 3924,
+        "ViewW": 1408,
+        "ViewH": 944,
+        "MapW": 8160,
+        "MapH": 8064,
+        "Scale": 4,
+        "Zoom": 2048,
+        "ViewportZoomFloor": false,
+        "Follow": {
+          "Desired": {
+            "X": 3512,
+            "Z": 3758
+          },
+          "Gliding": false,
+          "Tracked": 0,
+          "Bookmarks": [
+            {
+              "Origin": {
+                "X": 0,
+                "Z": 0
+              },
+              "Valid": false
+            },
+            {
+              "Origin": {
+                "X": 0,
+                "Z": 0
+              },
+              "Valid": false
+            },
+            {
+              "Origin": {
+                "X": 0,
+                "Z": 0
+              },
+              "Valid": false
+            },
+            {
+              "Origin": {
+                "X": 0,
+                "Z": 0
+              },
+              "Valid": false
+            }
+          ]
+        }
+      },
+      "TotalSpriteCommands": 330,
+      "SynthesizedSpriteCommands": 45
+    },
+    "blast_ring_strength": 100,
+    "committed_tick": 301,
+    "effects": {
+      "WaterSurface": true,
+      "WaterMotion": true,
+      "WaterFoam": true,
+      "HovercraftLandWash": true,
+      "WaterReflections": true,
+      "ModelLight": true,
+      "GroundLight": true,
+      "WeaponGlowStrength": 100,
+      "ExplosionGlowStrength": 100,
+      "NanoGlowStrength": 100,
+      "Finish": true,
+      "Glint": true,
+      "BlastRings": true,
+      "FireShimmer": true,
+      "WreckGlow": true,
+      "WreckShimmer": true,
+      "Scorch": true,
+      "SoftShadows": true,
+      "ShadowSoftness": 100,
+      "Supersample": true
+    },
+    "enhanced": true,
+    "frame": 0,
+    "glow": true,
+    "glow_strength": 100,
+    "gpu_stats": {
+      "MaterialFaces": 501,
+      "ScorchQuads": 37,
+      "Phases": 7,
+      "Passes": 14,
+      "SubmittedVertices": 25424,
+      "SubmittedIndices": 37980,
+      "MaxSubmissionVertices": 8884,
+      "PointPixels": 0,
+      "PointQuads": 0,
+      "PointPlanes": 0,
+      "Vertices": 6380,
+      "GlowQuads": 281,
+      "GlowPasses": 5,
+      "BattleLights": 34,
+      "LitModelFaces": 524,
+      "LitSmokeSprites": 68,
+      "BattleLightKinds": [
+        25,
+        2,
+        0,
+        4,
+        1,
+        2
+      ],
+      "GroundLights": 21,
+      "ReflectionVertices": 0,
+      "BlastWaves": 6,
+      "UnderwaterCommits": 0,
+      "HeatPlumes": 1,
+      "WreckHeatPlumes": 1,
+      "DirectSubjects": 58,
+      "DirectShadows": 6,
+      "DirectFaces": 2234,
+      "DirectCulled": 1241,
+      "DirectOverflow": 0,
+      "DirectPasses": 4,
+      "DirectAtlasRows": 1020,
+      "DirectPages": 1,
+      "DirectOutlineRings": 200,
+      "DirectOutlineTexels": 241712,
+      "DirectOutlineWalked": 0,
+      "DirectCargoImages": 1,
+      "DirectGroupMerges": 1,
+      "DirectGroupPixels": 36864,
+      "DirectGroupScratchBytes": 294912,
+      "DirectRetained": 0,
+      "DirectWarm": 0,
+      "DirectCaptured": 0,
+      "DirectRetainedLive": 0,
+      "DirectRetainedOutline": 0,
+      "DirectColdNoKey": 19,
+      "DirectColdNoKeyOutline": 0,
+      "DirectColdNoKeyLive": 0,
+      "DirectColdGroup": 2,
+      "DirectColdReflect": 0,
+      "DirectColdPrimed": 44,
+      "DirectColdShape": 0,
+      "DirectColdParams": 0,
+      "DirectRetainEvicted": 0,
+      "DeviceDraws": 24,
+      "GPU": 57,
+      "Skipped": 0,
+      "Shadows": 39,
+      "ShadowsOmitted": 0,
+      "NoBody": 0,
+      "Flashes": 24,
+      "Silhouettes": 33
+    },
+    "graphics_backend": "Metal",
+    "ground_light_strength": 100,
+    "hero_capture_proof": true,
+    "state_sha256": "c77790b378237934eda3360d34354918b38f7301b9fa08a9b83d4939af9a0db5",
+    "surface_rgba_sha256": "8e45cbf2ee5fb8f4244de39b5d9310a52b4016faf3a8d00b9095fde8a908de9c",
+    "synthesized_tiles_sha256": "a751878221dd3dc48ec1bef689ed7a20562fdc9a7cebe84411c9c34d56bff210"
+  },
+  "source_frame": {
+    "local_path": "/Users/daniel/Documents/Codex/2026-10-03/task/capture-home-hero/hero-300/frame000000.png",
+    "sha256": "e7f6fdbf7b6316289fba1452239fd5331adfa935f9fb672f47cf115e022af7a1",
+    "rgba_sha256": "4380514ad6748c7f7d37497e6fe09189122e396bd893bd78c1da4bbd2f76a7e8"
+  },
+  "producer": {
+    "binary_sha256": "31cadac0cc5314bc6d2c3600e7c7418e1f4e89700bca810910a1d96665822b91",
+    "binary_build_revision": "e2ac78cda2a19ff77fb8ee04a6ed32fc8f2e8819",
+    "binary_build_modified": true,
+    "source_files": [
+      {
+        "path": "cmd/nanolathe/film.go",
+        "sha256": "7faa1b0a7122a8d728d20f071104d886bbb921ca0e0303234d14befee06e2738"
+      },
+      {
+        "path": "cmd/nanolathe/hero_capture_proof.go",
+        "sha256": "73545f8a3bd981e5c4c90e242f6df45d4d0b2ffb256be8e8dbf5d9d1a211c758"
+      },
+      {
+        "path": "cmd/nanolathe/detail_art.go",
+        "sha256": "6bd8a5e896f09786fa810d5062bbce6f5180c0f3512de5475bdeb5f0d2f101b8"
+      },
+      {
+        "path": "cmd/nanolathe/film_scene.go",
+        "sha256": "142fb71b26e74c2fc3be5bee56bcdf993150d73ecc31312e1fe4d59e5352c016"
+      }
+    ],
+    "diagnostic_patch_sha256": "7b3ad72da4b9908e831c72f27b5868f707b015cee2b5bf5fa97d427ab394d356"
+  },
+  "export": {
+    "command": "cwebp -lossless -exact -q 100 -m 6 <native PNG> -o hero-modern-e2ac78cd.webp",
+    "lossless_pixels_equal": true,
+    "composited": false,
+    "retouched": false
+  },
+  "website_media": {
+    "path": "static/images/renderer/hero-modern-e2ac78cd.webp",
+    "bytes": 1356560,
+    "sha256": "215e4835adc1a24d5b47eda36d52d722ea63534c8353c07cd9342e8fca4adac7",
+    "width": 1280,
+    "height": 880,
+    "rgba_sha256": "4380514ad6748c7f7d37497e6fe09189122e396bd893bd78c1da4bbd2f76a7e8"
+  },
+  "retail_data": {
+    "separately_installed": true,
+    "retail_archives_in_deliverable": false,
+    "derived_synthesis_cache_in_deliverable": false,
+    "cache_note": "Production input-keyed cache reused local prior synthesis; the current drawlist audit confirms 2347 actual detail tiles and 45 synthesized feature-sprite commands. Shadow/missing variants retain ordinary fallback."
+  },
+  "retired_hero": {
+    "path": "static/images/renderer/hero-battle.webp",
+    "sha256": "6a41b05f0b977c8a640510d4217f2854f31da8b0ece4067307469d664179fdda",
+    "provenance": "../initial-review/media-manifest.json",
+    "removed_from_active_site": true
+  },
+  "verification": {
+    "native_rgba_exact": true,
+    "homepage_widths": [
+      320,
+      390,
+      768,
+      1024,
+      1440
+    ],
+    "browser_report": "browser-verification.json",
+    "site_gate": "make check passed with terminal access for offline PTY fixtures; Windows PowerShell tests skipped because pwsh is unavailable",
+    "engine_diagnostics": "go build ./cmd/nanolathe and go vet ./cmd/nanolathe passed"
+  }
+}

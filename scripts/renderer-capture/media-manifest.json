@@ -2,14 +2,18 @@
   "renderer_revisions": [
     "9e61946",
     "774f79c",
-    "801c8b2"
+    "801c8b2",
+    "e2ac78cd"
   ],
-  "hero_provenance": "initial-review/media-manifest.json",
+  "hero_provenance": "home-hero/manifest.json",
   "files": [
     {
-      "path": "static/images/renderer/hero-battle.webp",
-      "bytes": 874922,
-      "sha256": "6a41b05f0b977c8a640510d4217f2854f31da8b0ece4067307469d664179fdda"
+      "path": "static/images/renderer/hero-modern-e2ac78cd.webp",
+      "bytes": 1356560,
+      "sha256": "215e4835adc1a24d5b47eda36d52d722ea63534c8353c07cd9342e8fca4adac7",
+      "width": 1280,
+      "height": 880,
+      "rgba_sha256": "4380514ad6748c7f7d37497e6fe09189122e396bd893bd78c1da4bbd2f76a7e8"
     },
     {
       "path": "static/images/renderer/v2/fire-off.mp4",
@@ -211,5 +215,6 @@
       "bytes": 17770,
       "sha256": "c1b5f3d7c047e1bfbe8849f1b73d02908fd11692eae91f64e87a7f27d0a682df"
     }
-  ]
+  ],
+  "retired_hero_provenance": "initial-review/media-manifest.json"
 }

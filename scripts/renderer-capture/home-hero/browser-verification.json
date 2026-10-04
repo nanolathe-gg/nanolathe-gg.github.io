@@ -1,0 +1,211 @@
+{
+  "origin": "http://127.0.0.1:1313",
+  "asset": "/images/renderer/hero-modern-e2ac78cd.webp",
+  "sha256": "215e4835adc1a24d5b47eda36d52d722ea63534c8353c07cd9342e8fca4adac7",
+  "layouts": [
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "natural": [
+        1280,
+        880
+      ],
+      "src": "/images/renderer/hero-modern-e2ac78cd.webp",
+      "alt": "ARM and CORE forces exchange fire among synthesized trees in Nanolathe’s modern GPU renderer",
+      "fetchPriority": "high",
+      "display": {
+        "x": 504,
+        "y": 90,
+        "width": 936,
+        "height": 652.140625
+      },
+      "objectPosition": "54% 50%",
+      "broken": [],
+      "h1": 1,
+      "play": [
+        {
+          "text": "Play the demo ↗",
+          "href": "/play/"
+        },
+        {
+          "text": "Install the beta",
+          "href": "/get-started/"
+        },
+        {
+          "text": "▶ Watch engine footage 0:43",
+          "href": "https://www.youtube.com/watch?v=bMWSCOY0dTc"
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "scrollWidth": 1024,
+      "natural": [
+        1280,
+        880
+      ],
+      "src": "/images/renderer/hero-modern-e2ac78cd.webp",
+      "alt": "ARM and CORE forces exchange fire among synthesized trees in Nanolathe’s modern GPU renderer",
+      "fetchPriority": "high",
+      "display": {
+        "x": 256,
+        "y": 90,
+        "width": 768,
+        "height": 650
+      },
+      "objectPosition": "54% 50%",
+      "broken": [],
+      "h1": 1,
+      "play": [
+        {
+          "text": "Play the demo ↗",
+          "href": "/play/"
+        },
+        {
+          "text": "Install the beta",
+          "href": "/get-started/"
+        },
+        {
+          "text": "▶ Watch engine footage 0:43",
+          "href": "https://www.youtube.com/watch?v=bMWSCOY0dTc"
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "natural": [
+        1280,
+        880
+      ],
+      "src": "/images/renderer/hero-modern-e2ac78cd.webp",
+      "alt": "ARM and CORE forces exchange fire among synthesized trees in Nanolathe’s modern GPU renderer",
+      "fetchPriority": "high",
+      "display": {
+        "x": 192,
+        "y": 76,
+        "width": 576,
+        "height": 640
+      },
+      "objectPosition": "54% 50%",
+      "broken": [],
+      "h1": 1,
+      "play": [
+        {
+          "text": "Play the demo ↗",
+          "href": "/play/"
+        },
+        {
+          "text": "Install the beta",
+          "href": "/get-started/"
+        },
+        {
+          "text": "▶ Watch engine footage 0:43",
+          "href": "https://www.youtube.com/watch?v=bMWSCOY0dTc"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "natural": [
+        1280,
+        880
+      ],
+      "src": "/images/renderer/hero-modern-e2ac78cd.webp",
+      "alt": "ARM and CORE forces exchange fire among synthesized trees in Nanolathe’s modern GPU renderer",
+      "fetchPriority": "high",
+      "display": {
+        "x": 0,
+        "y": 608.890625,
+        "width": 390,
+        "height": 320
+      },
+      "objectPosition": "50% 56%",
+      "broken": [],
+      "h1": 1,
+      "play": [
+        {
+          "text": "Play the demo ↗",
+          "href": "/play/"
+        },
+        {
+          "text": "Install the beta",
+          "href": "/get-started/"
+        },
+        {
+          "text": "▶ Watch engine footage 0:43",
+          "href": "https://www.youtube.com/watch?v=bMWSCOY0dTc"
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "natural": [
+        1280,
+        880
+      ],
+      "src": "/images/renderer/hero-modern-e2ac78cd.webp",
+      "alt": "ARM and CORE forces exchange fire among synthesized trees in Nanolathe’s modern GPU renderer",
+      "fetchPriority": "high",
+      "display": {
+        "x": 0,
+        "y": 751.671875,
+        "width": 320,
+        "height": 260
+      },
+      "objectPosition": "50% 56%",
+      "broken": [],
+      "h1": 1,
+      "play": [
+        {
+          "text": "Play the demo ↗",
+          "href": "/play/"
+        },
+        {
+          "text": "Install the beta",
+          "href": "/get-started/"
+        },
+        {
+          "text": "▶ Watch engine footage 0:43",
+          "href": "https://www.youtube.com/watch?v=bMWSCOY0dTc"
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "comparisons": [
+    {
+      "width": 1440,
+      "preset": 100,
+      "method": "mouse"
+    },
+    {
+      "width": 1440,
+      "preset": 0,
+      "method": "mouse"
+    },
+    {
+      "width": 1440,
+      "preset": 50,
+      "method": "mouse"
+    },
+    {
+      "width": 390,
+      "preset": 100,
+      "method": "touch"
+    },
+    {
+      "width": 390,
+      "preset": 0,
+      "method": "touch"
+    },
+    {
+      "width": 390,
+      "preset": 50,
+      "method": "touch"
+    }
+  ],
+  "browser": "154.0.8037.97"
+}

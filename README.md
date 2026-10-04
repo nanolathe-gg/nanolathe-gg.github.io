@@ -83,7 +83,8 @@ The prototype source is Library item
 beta draft was the design reference. It was integrated into native Hugo routes;
 full technical docs and renderer studies remain available locally.
 
-The homepage and Features use real v6 native captures from production engine
+The homepage comparison and Features use real v6 native captures from
+production engine
 `617540c5`, with the initial diagnostic harness at `33ee2ed8` and local follow-up at
 `6c0cfd98`. The matched
 Greenhaven blast includes healthy, genuinely synthesized tree sprites alongside
@@ -91,6 +92,11 @@ Greenhaven blast includes healthy, genuinely synthesized tree sprites alongside
 records exact scenes, controls, source/binary hashes and pixel/export verification.
 Modern/default and beta remain website positioning; engine runtime defaults are
 unchanged. The playable browser demo uses the independently verified Wasm build.
+
+The opening hero is a fresh native modern GPU film capture from engine
+`e2ac78cd`, with actual Metal, AA, lighting, glow and real synthesized 2× terrain
+and feature sprites. The exact script, source/binary hashes and lossless pixel
+verification are in `scripts/renderer-capture/home-hero/README.md`.
 
 The Features page reads `data/features.json`. Its nine chapters include a slider
 through 26 actual camera captures (starting at 1×), a larger original/synthesized

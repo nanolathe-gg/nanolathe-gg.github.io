@@ -1,0 +1,118 @@
+diff --git a/cmd/nanolathe/film.go b/cmd/nanolathe/film.go
+index bdfffcf3..8f0c9f24 100644
+--- a/cmd/nanolathe/film.go
++++ b/cmd/nanolathe/film.go
+@@ -306,6 +306,10 @@ func (g *filmGame) Draw(screen *ebiten.Image) {
+ 	}
+ 	screen.DrawImage(img, &ebiten.DrawImageOptions{})
+ 	img.ReadPixels(g.readback)
++	if err := g.heroCaptureProof(list); err != nil {
++		g.fail(err)
++		return
++	}
+ 
+ 	g.crop()
+ 	film.Letterbox(g.overlay, g.script.Letterbox)
+diff --git a/cmd/nanolathe/hero_capture_proof.go b/cmd/nanolathe/hero_capture_proof.go
+new file mode 100644
+index 00000000..5ccf02f2
+--- /dev/null
++++ b/cmd/nanolathe/hero_capture_proof.go
+@@ -0,0 +1,97 @@
++package main
++
++// Local capture diagnostics only: observes the production film frame after GPU
++// readback without changing simulation, artwork or renderer controls.
++import (
++	"crypto/sha256"
++	"encoding/json"
++	"fmt"
++	"os"
++
++	"github.com/hajimehoshi/ebiten/v2"
++	"github.com/nanolathe-gg/nanolathe/formats"
++	"github.com/nanolathe-gg/nanolathe/internal/camera"
++	"github.com/nanolathe-gg/nanolathe/internal/drawlist"
++)
++
++func (g *filmGame) heroCaptureProof(list *drawlist.List) error {
++	var info ebiten.DebugInfo
++	ebiten.ReadDebugInfo(&info)
++	if info.GraphicsLibrary != ebiten.GraphicsLibraryMetal {
++		return fmt.Errorf("hero capture requires actual Metal, got %s", info.GraphicsLibrary)
++	}
++	art := g.cl.DetailArt()
++	if art == nil || len(art.Tiles) == 0 || !g.cl.Enhanced() || !g.cl.AntiAlias() {
++		return fmt.Errorf("hero capture requires genuine detail art and modern AA")
++	}
++	audit := &heroArtAudit{variants: map[*formats.GAFFrame]bool{}}
++	tileHash := sha256.New()
++	for _, tile := range art.Tiles {
++		tileHash.Write(tile[:])
++	}
++	for _, bank := range art.Banks {
++		for _, entry := range bank.Entries {
++			for _, ref := range entry.Frames {
++				if ref.Frame != nil {
++					audit.variants[ref.Frame] = true
++				}
++			}
++		}
++	}
++	list.Replay(audit)
++	if audit.DetailTiles != len(art.Tiles) || audit.Scale != camera.ViewScaleDetail || audit.SynthesizedSpriteCommands == 0 {
++		return fmt.Errorf("hero capture did not record genuine 2x terrain and sprites: %+v", audit)
++	}
++	cur := g.cl.Buffer().Current()
++	state, err := json.Marshal(cur)
++	if err != nil {
++		return err
++	}
++	stats := g.gpu.ModelStats()
++	if stats.GPU == 0 || stats.GroundLights == 0 || stats.GlowPasses == 0 {
++		return fmt.Errorf("hero capture must contain GPU models, live lights and glow: %+v", stats)
++	}
++	return json.NewEncoder(os.Stderr).Encode(map[string]any{
++		"hero_capture_proof": true, "graphics_backend": info.GraphicsLibrary.String(),
++		"frame": g.drawn, "committed_tick": cur.Tick, "state_sha256": fmt.Sprintf("%x", sha256.Sum256(state)),
++		"surface_rgba_sha256":      fmt.Sprintf("%x", sha256.Sum256(g.readback)),
++		"synthesized_tiles_sha256": fmt.Sprintf("%x", tileHash.Sum(nil)),
++		"anti_alias":               g.cl.AntiAlias(), "enhanced": g.cl.Enhanced(),
++		"glow": g.cl.Glow(), "glow_strength": g.cl.GlowStrength(),
++		"ground_light_strength": g.cl.GroundLightStrength(), "blast_ring_strength": g.cl.BlastRingStrength(),
++		"effects": g.cl.Effects(), "art_audit": audit, "gpu_stats": stats,
++	})
++}
++
++type heroArtAudit struct {
++	DetailTiles               int
++	Scale                     camera.ViewScale
++	Camera                    *camera.Camera
++	TotalSpriteCommands       int
++	SynthesizedSpriteCommands int
++	variants                  map[*formats.GAFFrame]bool
++}
++
++func (a *heroArtAudit) Terrain(t drawlist.Terrain) {
++	a.DetailTiles = len(t.Detail)
++	a.Scale = t.Scale
++	a.Camera = t.Cam
++}
++func (a *heroArtAudit) Sprite(s drawlist.Sprite) {
++	a.TotalSpriteCommands++
++	if a.variants[s.Frame] {
++		a.SynthesizedSpriteCommands++
++	}
++}
++func (*heroArtAudit) Clear()                   {}
++func (*heroArtAudit) Glyphs(drawlist.Glyphs)   {}
++func (*heroArtAudit) Fill(drawlist.Fill)       {}
++func (*heroArtAudit) Line(drawlist.Line)       {}
++func (*heroArtAudit) Points(drawlist.Points)   {}
++func (*heroArtAudit) Flash(drawlist.Flash)     {}
++func (*heroArtAudit) Halo(drawlist.Halo)       {}
++func (*heroArtAudit) Model(drawlist.Model)     {}
++func (*heroArtAudit) Fog(drawlist.Fog)         {}
++func (*heroArtAudit) Surface(drawlist.Surface) {}
++func (*heroArtAudit) Cursor(drawlist.Cursor)   {}
++func (*heroArtAudit) Expand()                  {}
