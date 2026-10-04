@@ -1,8 +1,11 @@
 """Place the engine's browser build and the demo assets under static/play.
 
-The engine's rolling "browser-latest" release carries nanolathe-browser.tar.gz
-and its build.json; this repository's "demo" release carries the original
-demo archive and readme, pinned by digest in data/play.json. Hugo publishes
+The engine publishes every main commit as an immutable "browser-<run number>"
+release carrying nanolathe-browser.tar.gz, its build.json and SHA256SUMS; the
+highest run number whose three assets are present is the current build, and
+the archive and manifest must match SHA256SUMS. This repository's "demo"
+release carries the original demo archive and readme, pinned by digest in
+data/play.json. Hugo publishes
 static/play at https://nanolathe.gg/play/ unchanged, which keeps the demo
 same-origin as the launcher requires.
 
@@ -31,10 +34,16 @@ import urllib.request
 import playbuild as pb
 
 USER_AGENT = "nanolathe-website-play"
+API = "https://api.github.com/"
 
 
 def fetch(url, limit=pb.LIMIT):
-    request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    headers = {"User-Agent": USER_AGENT}
+    if url.startswith(API):
+        headers["Accept"] = "application/vnd.github+json"
+        if os.environ.get("GITHUB_TOKEN"):
+            headers["Authorization"] = "Bearer " + os.environ["GITHUB_TOKEN"]
+    request = urllib.request.Request(url, headers=headers)
     with urllib.request.urlopen(request, timeout=120) as response:
         data = response.read(limit + 1)
     if len(data) > limit:
@@ -47,20 +56,77 @@ def write(path, data):
     path.write_bytes(data)
 
 
-def release_manifest():
+def newest_release(releases, engine=None):
+    """The newest complete browser release in an API listing: (tag, asset URLs).
+
+    Complete means published, tagged "<prefix><run number>", with the archive,
+    manifest and SHA256SUMS all downloadable from the engine repository's own
+    release URL. The highest run number wins, whatever the listing's order.
+    """
+    engine = engine or pb.PINS["engine"]
+    names = (engine["archive"], engine["manifest"], engine["sums"])
+    download = f"https://github.com/{engine['repository']}/releases/download/"
+    best = None
+    for release in releases:
+        tag = release.get("tag_name", "")
+        number = tag[len(engine["prefix"]):] if tag.startswith(engine["prefix"]) else ""
+        if release.get("draft") or not number.isdigit():
+            continue
+        urls = {asset.get("name"): asset.get("browser_download_url") for asset in release.get("assets", [])}
+        if any(urls.get(name) != f"{download}{tag}/{name}" for name in names):
+            continue
+        if best is None or int(number) > best[0]:
+            best = (int(number), tag, {name: urls[name] for name in names})
+    if best is None:
+        raise LookupError(f"{engine['repository']} has no complete {engine['prefix']}* release")
+    return best[1], best[2]
+
+
+def engine_release():
     engine = pb.PINS["engine"]
-    return pb.check_manifest(json.loads(fetch(engine["release"] + engine["manifest"], 1 << 20)))
+    listing = fetch(f"{API}repos/{engine['repository']}/releases?per_page=100", 8 << 20)
+    return newest_release(json.loads(listing), engine)
+
+
+def parse_sums(text, names):
+    """The sha256sum lines naming each of names; anything else is rejected."""
+    sums = {}
+    for line in text.splitlines():
+        parts = line.split()
+        if len(parts) == 2 and pb.SHA256.fullmatch(parts[0]):
+            sums[parts[1].lstrip("*")] = parts[0]
+    missing = [name for name in names if name not in sums]
+    if missing:
+        raise ValueError(f"SHA256SUMS: no digest for {', '.join(missing)}")
+    return sums
+
+
+def release_sums(urls):
+    engine = pb.PINS["engine"]
+    text = fetch(urls[engine["sums"]], 1 << 16).decode("utf-8", "replace")
+    return parse_sums(text, (engine["archive"], engine["manifest"]))
+
+
+def release_manifest(urls, sums):
+    engine = pb.PINS["engine"]
+    data = fetch(urls[engine["manifest"]], 1 << 20)
+    if pb.sha256(data) != sums[engine["manifest"]]:
+        raise ValueError(f"{engine['manifest']}: digest differs from {engine['sums']}")
+    return pb.check_manifest(json.loads(data))
 
 
 def release_build(out):
-    """Download, verify and unpack the rolling release into out."""
+    """Download, verify and unpack the newest complete release into out."""
     engine = pb.PINS["engine"]
-    manifest = release_manifest()
-    cached = pb.CACHE / f"nanolathe-browser.{manifest['sha256'][:16]}.tar.gz"
-    if cached.is_file():
-        archive = cached.read_bytes()
-    else:
-        archive = fetch(engine["release"] + engine["archive"])
+    tag, urls = engine_release()
+    sums = release_sums(urls)
+    manifest = release_manifest(urls, sums)
+    digest = sums[engine["archive"]]
+    cached = pb.CACHE / f"nanolathe-browser.{digest[:16]}.tar.gz"
+    archive = cached.read_bytes() if cached.is_file() else fetch(urls[engine["archive"]])
+    if pb.sha256(archive) != digest:
+        raise ValueError(f"{engine['archive']}: digest differs from {engine['sums']}")
+    if not cached.is_file():
         write(cached, archive)
     expected = pb.members(manifest)
     seen = set()
@@ -80,7 +146,7 @@ def release_build(out):
     problems = pb.verify_build(out, manifest)
     if problems:
         raise ValueError("released build: " + "; ".join(problems))
-    print(f"play: engine build {manifest['version']} ({manifest['wasm']})")
+    print(f"play: engine build {manifest['version']} ({manifest['wasm']}) from {tag}")
     return manifest
 
 
@@ -179,7 +245,8 @@ def placeholder(out):
 
 def compare_live():
     try:
-        release = release_manifest()
+        tag, urls = engine_release()
+        release = release_manifest(urls, release_sums(urls))
     except Exception as error:  # noqa: BLE001
         print(f"play: release unavailable ({error}); nothing to compare")
         return "false"

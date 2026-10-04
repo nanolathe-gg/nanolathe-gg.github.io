@@ -19,6 +19,7 @@ check: build
 	python3 scripts/check-format-examples.py
 	python3 scripts/check-installers.py
 	python3 scripts/check-mods.py
+	python3 scripts/test-fetch-play.py
 	python3 scripts/test-package-mod.py
 	python3 scripts/test-package-multipart.py
 	python3 scripts/test-installers.py
