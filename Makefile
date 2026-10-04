@@ -1,13 +1,21 @@
-.PHONY: brand build check check-mods-remote serve
+.PHONY: brand play build check check-mods-remote serve
 
 brand:
 	python3 scripts/package-brand.py
 
-build: brand
-	hugo --gc --minify --panicOnWarning
+# The engine's rolling browser build and the pinned demo assets (README,
+# "Browser build"). Network failures fall back to the live build or a
+# placeholder unless PLAY_REQUIRED=1.
+play:
+	python3 scripts/fetch-play.py
+
+# public/ is generated: clean it so retired hashed browser files do not linger.
+build: brand play
+	hugo --gc --minify --panicOnWarning --cleanDestinationDir
 
 check: build
 	python3 scripts/check-site.py
+	python3 scripts/check-play.py
 	python3 scripts/check-format-examples.py
 	python3 scripts/check-installers.py
 	python3 scripts/check-mods.py
@@ -19,5 +27,5 @@ check: build
 check-mods-remote: build
 	python3 scripts/check-mods.py --remote
 
-serve: brand
+serve: brand play
 	hugo server

@@ -32,6 +32,33 @@ authored examples. Pull requests
 build and validate without deploying. Pushes to `main` deploy through GitHub
 Actions; generated `public/` output is not committed.
 
+## Browser build
+
+`/play/` is the engine's browser launcher, not a Hugo page. `make build` runs
+`scripts/fetch-play.py`, which downloads the engine's rolling
+[`browser-latest` release](https://github.com/nanolathe-gg/nanolathe/releases/tag/browser-latest)
+(an asset-free `tools/browser-build` output of every main commit), verifies the
+content-hashed Wasm against its `build.json`, adds the original demo archive
+and readme from this repository's `demo` release, checked against the digests
+pinned in `data/play.json`, and places everything under the ignored
+`static/play/`. Hugo publishes it unchanged, so the demo stays same-origin as
+the launcher requires. The one build that is live at nanolathe.gg/play/ is kept
+beside the new one so an open launcher can still restart. `make check` then
+runs `scripts/check-play.py` against `public/play`.
+
+The engine's CI sends a `browser-build` repository dispatch after each publish
+when its `WEBSITE_DISPATCH_TOKEN` secret is configured; otherwise the Pages
+workflow checks for a changed build every six hours and deploys only then. A
+run started for a new build fails rather than publishing a fallback; ordinary
+pushes fall back to mirroring the live build or to a placeholder page when the
+release cannot be reached.
+
+To preview a local engine build: `python3 scripts/fetch-play.py --local
+../nanolathe/build/browser --demo-root ~/TotalAnnihilationDemo`, then
+`make serve`; later builds keep that preview until `PLAY_REFRESH=1 make play`
+fetches the release again. Removing the `demo` release and the pins withdraws the demo; the
+browser launcher then offers local folder import only.
+
 ## Content and maintenance
 
 Use American English for site copy, including headings, captions, accessibility

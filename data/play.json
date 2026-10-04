@@ -1,0 +1,23 @@
+{
+  "engine": {
+    "release": "https://github.com/nanolathe-gg/nanolathe/releases/download/browser-latest/",
+    "archive": "nanolathe-browser.tar.gz",
+    "manifest": "build.json"
+  },
+  "live": "https://nanolathe.gg/play/",
+  "demo": {
+    "release": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/demo/",
+    "files": [
+      {
+        "path": "TADemo.hpi",
+        "size": 20474804,
+        "sha256": "fd53a2637ecf8fb5ca6d2c02a34b4ef783a4441f8be070137276afc4d5627e1e"
+      },
+      {
+        "path": "TADemoReadme.txt",
+        "size": 24279,
+        "sha256": "193b7e2a0aa3cce48d8554a4a101d55408817f821f184396266e764a0cc5fdfb"
+      }
+    ]
+  }
+}
