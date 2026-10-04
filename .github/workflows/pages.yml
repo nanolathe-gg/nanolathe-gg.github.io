@@ -29,6 +29,8 @@ jobs:
       - uses: actions/checkout@v7
       - name: Compare the released browser build with the live site
         id: play
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
           if [ "${{ github.event_name }}" = "schedule" ]; then
             python3 scripts/fetch-play.py --compare-live
@@ -45,6 +47,9 @@ jobs:
       # The site promises a playable demo: every CI build requires verified
       # engine and demo assets rather than publishing a placeholder.
       PLAY_REQUIRED: '1'
+      # fetch-play.py lists the engine's releases through the API; the token
+      # raises the rate limit shared by the runner's address.
+      GITHUB_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v7
       - name: Install Hugo

@@ -1,11 +1,12 @@
 """Shared rules for the published browser build under /play/.
 
 The engine repository builds an asset-free browser distribution of every main
-commit and publishes it as the rolling "browser-latest" release
-(nanolathe/tools/browser-build, docs/DESIGN_BROWSER_HOST.md §6). Its root
-build.json names the content-hashed Wasm, the matching Go runtime, the hashed
-host directory and that directory's files. data/play.json pins where the
-build and the demo assets come from and the demo files' digests.
+commit and publishes it as an immutable "browser-<run number>" release
+(nanolathe/tools/browser-build and tools/browser-publish,
+docs/DESIGN_BROWSER_HOST.md §6). Its root build.json names the content-hashed
+Wasm, the matching Go runtime, the hashed host directory and that directory's
+files. data/play.json pins where the build and the demo assets come from and
+the demo files' digests.
 """
 import gzip
 import hashlib

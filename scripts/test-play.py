@@ -68,7 +68,8 @@ class WebsiteShell(unittest.TestCase):
         other = ["game", "game-view", "controls", "status", "storage-error", "advanced", "saved", "future-engine-control"]
         return ('<html><head></head><body><header>Engine</header><section id="welcome">' +
                 ''.join(f'<div id="{name}"></div>' for name in controls) + '</section>' +
-                ''.join(f'<div id="{name}"></div>' for name in other) + '</body></html>')
+                ''.join(f'<div id="{name}"></div>' for name in other) +
+                '<button id="stop">Back to launcher</button></body></html>')
 
     def test_keeps_every_engine_control(self):
         original = self.fixture()
@@ -76,6 +77,14 @@ class WebsiteShell(unittest.TestCase):
         self.assertTrue(set(shell.Launcher(original).ids).issubset(shell.Launcher(result).ids))
         self.assertIn('class="browser-play"', result)
         self.assertIn('href="/get-started/"', result)
+
+    def test_removes_launcher_presentation(self):
+        result = shell.decorate(self.fixture())
+        self.assertNotIn('Back to launcher', result)
+        self.assertNotIn('class="own-game"', result)
+        self.assertIn('<button id="stop" hidden', result)
+        self.assertIn('<div id="drop" hidden>', result)
+        self.assertIn('id="fallback-folder"', result)
 
     def test_changed_engine_contract_fails(self):
         with self.assertRaises(ValueError):

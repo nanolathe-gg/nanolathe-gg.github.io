@@ -18,7 +18,7 @@ class Launcher(HTMLParser):
 
 def decorate(text):
     original = Launcher(text).ids
-    required = {"welcome", "demo", "demo-info", "drop", "folder", "game",
+    required = {"welcome", "demo", "demo-info", "drop", "folder", "game", "stop",
                 "game-view", "controls", "status", "storage-error", "advanced", "saved"}
     if not required.issubset(original):
         raise ValueError("The engine launcher contract changed; review the website shell before publishing")
@@ -27,20 +27,14 @@ def decorate(text):
 <nav aria-label="Main navigation"><a href="/features/">Features</a><a href="/docs/">Documentation</a><a href="/about/">About</a></nav>
 <a class="browser-install" href="/get-started/">Install the beta <span aria-hidden="true">↗</span></a></header>'''
     welcome = '''<section id="welcome" aria-labelledby="demo-title">
-<div class="demo-copy"><p class="eyebrow">Play Nanolathe / Open-source RTS engine</p>
-<h1 id="demo-title">Your first battle.<br><em>Right here.</em></h1>
-<p class="demo-deck">Try Total Annihilation’s original three-mission demo through Nanolathe’s modern engine. No installation or game folder needed.</p>
-<div class="demo-facts"><span>03 campaign missions</span><span>Keyboard + mouse</span><span>Free to try</span></div></div>
-<div class="demo-card"><p class="eyebrow">The original demo. A new engine.</p><h3>Ready, commander?</h3>
-<p>Start with the first ARM mission. Learn the controls, lead your units and continue the campaign.</p>
+<p class="eyebrow">Nanolathe / Browser demo</p><h1 id="demo-title">Play the demo.</h1>
+<p id="browser-support">Desktop Chrome or Edge recommended, with a keyboard and mouse.</p>
+<div class="demo-recovery-actions">
 <button id="demo" disabled>Checking demo availability…</button><span id="demo-info"></span>
-<p id="browser-support">Desktop Chrome or Edge recommended. Safari, Firefox and mobile have not been verified.</p>
-<noscript><p>Enable JavaScript to play in your browser, or <a href="/get-started/">install the native beta</a>.</p></noscript>
-</div>
-<details class="own-game"><summary>Have the full game? Bring your own folder.</summary>
-<div id="drop"><strong>Your game. Your computer.</strong><p>Drop your installed TotalA folder here for the normal game menus, skirmish and full campaigns. Files stay in this browser; they are not uploaded.</p>
-<input id="folder" type="file" webkitdirectory multiple><label for="folder" role="button" tabindex="0">Choose game folder</label></div></details>
-<p class="demo-limit">Browser beta · Click the game to focus it; losing focus pauses play. The browser uses original texture detail. <a href="/get-started/">Install Nanolathe</a> for synthesized terrain and the full native experience.</p>
+<button id="fallback-folder" type="button">Choose game folder</button><a href="/get-started/">Install the native beta <span aria-hidden="true">↗</span></a></div>
+<noscript><style>#controls,#advanced,#saved,#status,.demo-recovery-actions{display:none!important}</style><p>Enable JavaScript to play in your browser, or <a href="/get-started/">install the native beta</a>.</p></noscript>
+<div id="drop" hidden><input id="folder" type="file" webkitdirectory multiple></div>
+<p class="demo-limit">Three original demo missions. The browser uses original texture detail. <a href="/docs/browser-demo/">Browser controls &amp; saves</a>.</p>
 </section>'''
     head = '''<meta name="description" content="Play the original three-mission Total Annihilation demo in Nanolathe, an open-source RTS engine. Desktop browser, keyboard and mouse; no installation needed.">
 <meta name="theme-color" content="#121516"><link rel="canonical" href="https://nanolathe.gg/play/">
@@ -53,7 +47,9 @@ def decorate(text):
         raise ValueError("The engine launcher structure changed; review it before publishing")
     text = text.replace("</head>", head + "</head>", 1).replace("<body>", '<body class="browser-play">', 1)
     text = text.replace("<summary>Graphics and diagnostics</summary>", "<summary>Options and diagnostics</summary>")
-    text = text.replace('<button id="stop">', '<button id="choose-folder" type="button">Choose game folder</button><button id="stop">', 1)
+    # The pinned engine binds #stop during bootstrap. Keep an invisible hook
+    # until that binding completes; browser-play.js then removes it from the DOM.
+    text = re.sub(r'<button id="stop"[^>]*>.*?</button>', '<button id="choose-folder" type="button">Choose game folder</button><button id="stop" hidden aria-hidden="true" tabindex="-1"></button>', text, count=1, flags=re.S)
     text = text.replace('<div id="game-view" hidden>', '''<div id="game-view" hidden>
 <div id="demo-loading-panel"><p class="eyebrow">Nanolathe / Browser demo</p><h2>Preparing your first battle.</h2><p>The engine and original demo files are loading. Progress appears below.</p></div>
 <div id="game-folder-drop"><strong>Bring your own battlefield.</strong><span>Drop your installed TotalA folder here. Your files stay on your computer.</span></div>''', 1)

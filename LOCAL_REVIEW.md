@@ -1,5 +1,10 @@
 # Local beta redesign review — October 3, 2026
 
+October 4 update: see [BROWSER_REVIEW.md](BROWSER_REVIEW.md) for the current
+playable demo integration, direct launch, engine/source positioning and final
+verification. It supersedes the future-demo layout notes below. Resources was
+removed and Features retains the native v5 capture refresh.
+
 Preview: http://127.0.0.1:1313/ (loopback only; detached Hugo process).
 Website worktree: `/Users/daniel/Documents/Codex/2026-10-03/task/nanolathe-website`.
 Branch: `redesign/private-beta-local`, based on `907e1e2`.

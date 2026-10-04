@@ -1,8 +1,10 @@
 {
   "engine": {
-    "release": "https://github.com/nanolathe-gg/nanolathe/releases/download/browser-latest/",
+    "repository": "nanolathe-gg/nanolathe",
+    "prefix": "browser-",
     "archive": "nanolathe-browser.tar.gz",
-    "manifest": "build.json"
+    "manifest": "build.json",
+    "sums": "SHA256SUMS"
   },
   "live": "https://nanolathe.gg/play/",
   "demo": {

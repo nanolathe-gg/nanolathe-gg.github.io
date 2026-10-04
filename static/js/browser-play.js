@@ -7,13 +7,17 @@
   const support = document.getElementById('browser-support');
   const status = document.getElementById('status');
   const view = document.getElementById('game-view');
+  const heading = document.getElementById('demo-title');
+  const fallbackFolder = document.getElementById('fallback-folder');
   const mobile = navigator.userAgentData?.mobile === true || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ||
     (/Mac/i.test(navigator.platform) && navigator.maxTouchPoints > 1);
   const unsupported = mobile || !window.isSecureContext || !window.WebAssembly || !navigator.locks || !window.crypto?.subtle;
-  const automatic = !unsupported && !new URLSearchParams(location.search).has('launcher');
+  const automatic = !unsupported;
   let requested = false;
   if (automatic) document.body.classList.add('demo-starting');
   const update = () => {
+    const stop = document.getElementById('stop');
+    if (stop?.onclick) stop.remove();
     // A stopped or failed engine retires its viewport. Expose retry and local
     // folder controls without automatically launching the same failed source.
     if (welcome.hidden && view.hidden) welcome.hidden = false;
@@ -22,6 +26,12 @@
       document.body.classList.remove('demo-starting');
     }
     if (!unsupported) {
+      const unavailable = /unavailable/i.test(demo.textContent);
+      if (!welcome.hidden && (unavailable || (requested && !demo.disabled))) {
+        const title = unavailable ? 'The demo is unavailable.' : 'The demo couldn’t start.';
+        if (heading.textContent !== title) heading.textContent = title;
+        if (!demo.disabled && demo.textContent === 'Try the demo') demo.textContent = 'Retry demo';
+      }
       if (automatic && !requested && !demo.disabled) {
         requested = true;
         queueMicrotask(() => demo.click());
@@ -33,6 +43,9 @@
     const label = mobile ? 'Desktop computer required' : 'Supported browser required';
     if (demo.textContent !== label) demo.textContent = label;
     if (!folder.disabled) folder.disabled = true;
+    if (!fallbackFolder.disabled) fallbackFolder.disabled = true;
+    const title = mobile ? 'Play on a desktop computer.' : 'Use a supported browser.';
+    if (heading.textContent !== title) heading.textContent = title;
     const message = mobile
       ? 'Open this page on a desktop computer with a keyboard and mouse to play. Chrome or Edge is recommended.'
       : 'This browser cannot start the demo here. Use desktop Chrome or Edge over HTTPS, or install the native beta.';
@@ -43,17 +56,15 @@
   new MutationObserver(update).observe(status, {subtree: true, childList: true, characterData: true});
   if (unsupported) {
     for (const type of ['pointerover', 'focusin', 'dragenter', 'click', 'drop']) welcome.addEventListener(type, event => {
+      if (type === 'pointerover' || type === 'focusin' || type === 'dragenter') {
+        event.stopImmediatePropagation(); return;
+      }
       if (event.target.closest('a, summary')) return;
       event.stopImmediatePropagation();
       if (type === 'click' || type === 'drop') event.preventDefault();
     }, true);
   }
-  document.getElementById('choose-folder')?.addEventListener('click', () => { if (!folder.disabled) folder.click(); });
-  document.querySelector('label[for="folder"]').addEventListener('keydown', event => {
-    if ((event.key === 'Enter' || event.key === ' ') && !folder.disabled) {
-      event.preventDefault(); folder.click();
-    }
-  });
+  for (const id of ['choose-folder', 'fallback-folder']) document.getElementById(id)?.addEventListener('click', () => { if (!folder.disabled) folder.click(); });
   const parentEntry = entry => {
     if (!entry) return null;
     if (entry.isFile) return {isFile: true, isDirectory: false, name: entry.name,

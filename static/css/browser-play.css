@@ -9,26 +9,17 @@ body.browser-play{--bg:#121516;--line:#343d3d;--text:#edf0e7;--muted:#a8b09e;--g
 .browser-header nav a{margin:0;text-decoration:none}
 .browser-header a:hover{color:var(--green)}
 .browser-header .browser-install{margin-left:10px;padding:9px 14px;border:1px solid var(--line);border-radius:3px;font-size:13px;text-decoration:none;white-space:nowrap}
-.browser-play #welcome{width:min(1180px,calc(100% - 48px));max-width:none;display:grid;grid-template-columns:1.1fr 1fr;gap:38px 70px;margin:55px auto 26px;padding:0;text-align:left}
+.browser-play #welcome{width:min(720px,calc(100% - 48px));max-width:none;margin:55px auto 26px;padding:30px;text-align:left;border:1px solid var(--line);border-radius:4px;background:#1b2021}
 .browser-play .eyebrow{text-transform:uppercase;letter-spacing:.11em;font-size:10px;color:var(--green);margin:0 0 20px}
-.browser-play .demo-copy h1{font:600 clamp(40px,5vw,64px)/1.06 Chakra,system-ui;letter-spacing:-.025em;margin:0 0 24px}
-.browser-play .demo-copy h1 em{font-style:normal;color:var(--green)}
-.browser-play .demo-deck{font-size:17px;max-width:46ch;color:var(--muted);line-height:1.75}
-.browser-play .demo-facts{display:flex;gap:12px 20px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:24px}
-.browser-play .demo-card{padding:30px;border:1px solid #4a5d3a;background:linear-gradient(135deg,#25301e77,#1b2021);border-radius:4px}
-.browser-play .demo-card h3{font:600 28px Chakra,system-ui;margin:0 0 14px}
-.browser-play .demo-card>p:not(.eyebrow){font-size:14px;color:var(--muted)}
+.browser-play #demo-title{font:600 clamp(28px,4vw,38px)/1.15 Chakra,system-ui;letter-spacing:-.025em;margin:0 0 20px}
+.browser-play .demo-recovery-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:24px 0}
+.browser-play #fallback-folder{padding:12px;font-size:13px}
+.browser-play .demo-recovery-actions>a{font-size:13px}
 .browser-play #demo{background:var(--green);color:#15200e;border-color:var(--green);padding:13px 23px;font:600 15px Chakra,system-ui;min-height:48px;margin-top:8px;max-width:100%}
 .browser-play #demo:not(:disabled):hover{background:#ccff86}
-.browser-play #demo-info{color:var(--muted);font-size:11px;line-height:1.75;margin:13px 0}
-.browser-play #browser-support{font-size:11px;line-height:1.75;margin-bottom:0}
-.browser-play .own-game{grid-column:1/-1;border-block:1px solid var(--line);margin:0;max-height:none;padding:14px 0;overflow:visible}
-.browser-play .own-game summary{font-size:13px}
-.browser-play #drop{margin:15px 0 0;padding:22px;border:1px dashed #526044;border-radius:3px;color:var(--muted)}
-.browser-play #drop.over{border-color:var(--green);background:#27381b}
-.browser-play #drop strong{color:var(--text)}
-.browser-play #drop label{background:#27381b;border:1px solid #526044;border-radius:3px;color:var(--green);font-size:13px}
-.browser-play .demo-limit{grid-column:1/-1;color:var(--muted);font-size:11px;margin:0;max-width:105ch}
+.browser-play #demo-info{flex-basis:100%;order:3;color:var(--muted);font-size:11px;line-height:1.75;margin:8px 0}
+.browser-play #browser-support{color:var(--muted);font-size:14px;line-height:1.75;margin-bottom:0}
+.browser-play .demo-limit{color:var(--muted);font-size:11px;margin:0}
 .browser-play #status{color:var(--green);font-size:12px;line-height:1.7;margin:8px 24px;overflow-wrap:anywhere}
 .browser-play #controls{justify-content:flex-start;padding:12px 24px;border-bottom:1px solid var(--line);font-size:12px}
 .browser-play #content-name{margin-right:auto}
@@ -54,9 +45,8 @@ body.browser-play{--bg:#121516;--line:#343d3d;--text:#edf0e7;--muted:#a8b09e;--g
 .browser-play #storage-error{background:#33281c;border:1px solid #715637;color:#e7b66f;font-size:13px}
 .browser-play .browser-footer{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 24px;padding:14px 24px;border-top:1px solid var(--line);font-size:10px;color:var(--muted);margin-top:auto}
 .browser-play .browser-footer a{color:var(--muted)}
-.browser-play .unsupported-browser #drop{display:none}
-.browser-play.unsupported-browser #advanced,.browser-play.unsupported-browser #saved,.browser-play.unsupported-browser .own-game,.browser-play.unsupported-browser #status{display:none}
+.browser-play.unsupported-browser #advanced,.browser-play.unsupported-browser #saved,.browser-play.unsupported-browser #fallback-folder,.browser-play.unsupported-browser #demo,.browser-play.unsupported-browser #demo-info,.browser-play.unsupported-browser #status{display:none}
 .browser-play #leave-fullscreen{background:#121516e6;color:var(--text);border-color:var(--green);z-index:2}
-@media(max-width:900px){.browser-header nav{gap:15px}.browser-play #welcome{gap:28px;margin-top:36px}.browser-play .demo-card{padding:24px}}
-@media(max-width:760px){.browser-header nav{display:none}.browser-header .browser-install{margin-left:auto}.browser-play #welcome{grid-template-columns:1fr;width:calc(100% - 40px);margin-top:32px;gap:24px}.browser-play .demo-copy h1{font-size:42px}.browser-play .demo-deck{font-size:15px}.browser-play .demo-card{padding:24px}.browser-play .demo-limit{font-size:11px}}
-@media(max-width:400px){.browser-play .browser-header{padding:15px 16px;gap:10px}.browser-header .browser-brand{font-size:22px;gap:7px}.browser-brand img{width:29px;height:29px}.browser-header .browser-install{font-size:11px;padding:8px 10px}.browser-play .demo-copy h1{font-size:36px}.browser-play .demo-card{padding:20px}.browser-play #controls{padding:10px 16px}}
+@media(max-width:900px){.browser-header nav{gap:15px}}
+@media(max-width:760px){.browser-header nav{display:none}.browser-header .browser-install{margin-left:auto}.browser-play #welcome{width:calc(100% - 40px);margin-top:32px;padding:24px}}
+@media(max-width:400px){.browser-play .browser-header{padding:15px 16px;gap:10px}.browser-header .browser-brand{font-size:22px;gap:7px}.browser-brand img{width:29px;height:29px}.browser-header .browser-install{font-size:11px;padding:8px 10px}.browser-play #welcome{padding:20px}.browser-play #controls{padding:10px 16px}}

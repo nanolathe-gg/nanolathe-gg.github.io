@@ -29,10 +29,14 @@ Use the launcher's **Fullscreen** button for browser fullscreen. Its **Exit
 fullscreen** button remains visible; your browser's Escape shortcut can also
 leave fullscreen.
 
+With the modern renderer, two-finger trackpad scrolling pans the camera and
+pinch/spread zooms. A mouse wheel reported by the browser in pixels also pans;
+line-based wheel events zoom. This camera support does not provide a complete
+mobile control scheme.
+
 **Restart game** starts a fresh engine session. Save your progress in-game before
-restarting. **Back to launcher** closes the current game so you can choose a
-different content source. Only one Nanolathe game can run at a time at the same
-website address; close or stop another tab before starting here.
+restarting or switching to your own folder. Only one Nanolathe game can run at a time at the same
+website address; close the other game tab before starting here.
 
 ## Your own game folder
 
@@ -40,8 +44,7 @@ Drag your installed TotalA folder onto the running game, or use **Choose game
 folder** in the toolbar. Nanolathe closes the current demo session and starts
 your local game. Keep the original archives
 together; there is no need to unpack them. Your files remain local browser
-handles and are not uploaded. You can also choose a folder from **Back to
-launcher**, under **Have the full game? Bring your own folder**.
+handles and are not uploaded. There is no separate launcher page.
 
 The imported full game uses its normal menus, campaigns and skirmish. Original
 game data is separate from the engine's MIT license.

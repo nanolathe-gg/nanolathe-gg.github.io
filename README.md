@@ -35,17 +35,19 @@ Actions; generated `public/` output is not committed.
 ## Browser build
 
 `/play/` is the engine's browser launcher, not a Hugo page. `make build` runs
-`scripts/fetch-play.py`, which downloads the engine's rolling
-[`browser-latest` release](https://github.com/nanolathe-gg/nanolathe/releases/tag/browser-latest)
-(an asset-free `tools/browser-build` output of every main commit), verifies the
-content-hashed Wasm against its `build.json`, adds the original demo archive
+`scripts/fetch-play.py`, which downloads the engine's newest complete
+[`browser-<run>` release](https://github.com/nanolathe-gg/nanolathe/releases)
+(an asset-free `tools/browser-build` output of every main commit, published
+immutably per run), checks the archive and `build.json` against the release's
+`SHA256SUMS`, verifies the content-hashed Wasm against `build.json`, adds the original demo archive
 and readme from this repository's `demo` release, checked against the digests
 pinned in `data/play.json`, and places everything under the ignored
 `static/play/`. `scripts/style-play.py` applies the website header and styles to
 the root launcher, preserving the content-hashed host modules and engine runtime.
 The website starts the demo directly at `/play/`, focuses the game and accepts
-local folder drops over the running viewport. `?launcher=1` opens the optional
-manual launcher; Back to launcher also exposes it without restarting the demo.
+local folder drops over the running viewport. The launcher landing section and
+Back to launcher button are removed; a small recovery panel offers retry, folder
+selection and native installation if the demo cannot start.
 Hugo serves the files at the same origin as the launcher requires. The one build
 that is live at nanolathe.gg/play/ is kept
 beside the new one so an open launcher can still restart. `make check` then
@@ -53,7 +55,7 @@ runs `scripts/check-play.py` against `public/play`.
 
 The engine's CI sends a `browser-build` repository dispatch after each publish
 when its `WEBSITE_DISPATCH_TOKEN` secret is configured; otherwise the Pages
-workflow checks for a changed build every six hours and deploys only then. A
+workflow checks for a changed build every six hours and deploys only then. Every
 CI build requires a verified engine build and demo assets (`PLAY_REQUIRED=1`),
 so a failed fetch cannot publish a demo button leading to a placeholder. Local
 builds can use a placeholder when no verified build is available.
