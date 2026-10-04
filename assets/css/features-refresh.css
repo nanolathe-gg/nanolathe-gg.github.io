@@ -125,3 +125,33 @@
 .features-refresh .features-overview-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
 @media(max-width:820px) { .features-refresh .features-overview-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media(max-width:550px) { .features-refresh .features-overview-grid { grid-template-columns:1fr; } .zoom-state { font-size:10px; } .zoom-controls { padding:12px; } .zoom-presets button { padding-inline:10px; } }
+
+/* Independent live water treatments, with the native recording kept nearby. */
+.water-viewer { margin: 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--surface); }
+.water-stage { position: relative; aspect-ratio: 3 / 2; background: #10191c; }
+.water-stage img, .water-stage canvas { display: block; width: 100%; height: 100%; object-fit: contain; }
+.water-stage [hidden], .water-demo [hidden] { display: none; }
+.water-live-badge { position: absolute; top: 12px; left: 12px; right: 12px; display: flex; justify-content: space-between; gap: 8px; pointer-events: none; }
+.water-live-badge span { padding: 5px 9px; color: #edf5eb; background: #101915df; border: 1px solid #8faf864f; border-radius: 5px; font-size: .68rem; }
+.water-controls { padding: 16px; border-top: 1px solid var(--line); }
+.water-switches { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; padding: 0; margin: 0 0 14px; border: 0; min-width: 0; }
+.water-switches legend { margin-bottom: 10px; color: var(--text); font-size: .8rem; font-weight: 600; }
+.water-switches label { display: flex; align-items: flex-start; gap: 9px; padding: 9px; min-width: 0; border: 1px solid var(--line); border-radius: 6px; font-size: .8rem; cursor: pointer; }
+.water-switches input { accent-color: var(--green); flex: 0 0 auto; width: 16px; height: 16px; margin: 2px 0 0; }
+.water-switches small { display: block; color: var(--muted); font-size: .65rem; margin-top: 3px; line-height: 1.5; }
+.water-toolbar, .water-toolbar > div { display: flex; flex-wrap: wrap; gap: 7px; }
+.water-toolbar { justify-content: space-between; margin-bottom: 14px; }
+.features-refresh .water-toolbar button { border: 1px solid var(--line); background: transparent; color: var(--text); padding: 8px 10px; font: inherit; font-size: .74rem; border-radius: 5px; cursor: pointer; }
+.features-refresh .water-toolbar button:hover, .features-refresh .water-toolbar button[aria-pressed="true"] { color: var(--green); border-color: var(--green); background: #b7ef6810; }
+.water-phase { display: grid; grid-template-columns: 1fr auto; gap: 8px; color: var(--muted); font-size: .76rem; }
+.water-phase output { color: var(--green); font-variant-numeric: tabular-nums; }
+.water-phase input { grid-column: 1 / -1; width: 100%; margin: 0; accent-color: var(--green); cursor: pointer; }
+.water-viewer figcaption { display: grid; gap: 6px; padding: 14px 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: .72rem; line-height: 1.6; }
+.water-viewer figcaption strong { color: var(--text); font-weight: 500; }
+.water-recording { margin-top: 12px; }
+.water-recording > summary { padding: 9px 0; color: var(--muted); cursor: pointer; font-size: .8rem; }
+.water-recording[open] > summary { margin-bottom: 8px; }
+@media (max-width: 480px) { .water-controls { padding: 12px; } .water-switches { gap: 6px; } .water-switches label { padding: 8px 6px; gap: 6px; font-size: .72rem; } .water-switches small { font-size: .6rem; } .water-live-badge { top: 8px; left: 8px; right: 8px; } }
+
+.water-switches label { min-height: 52px; }
+.features-refresh .water-toolbar button { min-height: 44px; }

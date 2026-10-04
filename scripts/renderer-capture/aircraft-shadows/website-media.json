@@ -1,0 +1,22 @@
+[
+  {
+    "path": "static/images/renderer/v6/shadows-on.webp",
+    "width": 960,
+    "height": 640,
+    "bytes": 243082,
+    "sha256": "88ef52e51f737ecf4442c4707b0b5cbbbfe61d5c57d79ac5a713d2c7d7b3a1c9",
+    "source_sha256": "a01736ea0c0534b86221a5eee6936e52726813727aa988e05dcf3e4dfff62d5b",
+    "rgba_sha256": "44468310e1dde99294760ec9e9db3c5d2730a21407f7938c8ed16d4cab584f25",
+    "pixels_identical": true
+  },
+  {
+    "path": "static/images/renderer/v6/shadows-off.webp",
+    "width": 960,
+    "height": 640,
+    "bytes": 231106,
+    "sha256": "65584f33d7c51e5eaed83a1cecf21ac7758f62b7f517776c1853f9c9a94fdb73",
+    "source_sha256": "a4c5e1fb68f60d846f985955985cbaf0d73ad0c12b20b0bc2dc80db4497a55db",
+    "rgba_sha256": "f98cad866fca34b5c54f176f363855b2ae0737d582f06a20e4684743efbe5abf",
+    "pixels_identical": true
+  }
+]

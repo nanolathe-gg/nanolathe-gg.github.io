@@ -84,21 +84,23 @@ beta draft was the design reference. It was integrated into native Hugo routes;
 full technical docs and renderer studies remain available locally.
 
 The homepage and Features use real v6 native captures from production engine
-`617540c5`, with an isolated diagnostic harness at `33ee2ed8`. The matched
+`617540c5`, with the initial diagnostic harness at `33ee2ed8` and local follow-up at
+`6c0cfd98`. The matched
 Greenhaven blast includes healthy, genuinely synthesized tree sprites alongside
 2× synthesized terrain, lighting and glow. `scripts/renderer-capture/v6/README.md`
 records exact scenes, controls, source/binary hashes and pixel/export verification.
 Modern/default and beta remain website positioning; engine runtime defaults are
 unchanged. The playable browser demo uses the independently verified Wasm build.
 
-The Features page reads `data/features.json`. Its eight chapters include a slider
+The Features page reads `data/features.json`. Its nine chapters include a slider
 through 26 actual camera captures (starting at 1×), a larger original/synthesized
-terrain-and-foliage comparison, matched lighting, combined transport/submarine
-water with separate effect controls, the restored live WebGL material study,
-a nine-model lineup, fire shimmer and real wreck cooling. Videos play on request
-and paired controls preserve playback position. The material study retains its
+terrain-and-foliage comparison, matched lighting, a transport/submarine
+live water study with independent effect controls, the restored live WebGL material study,
+a nine-model lineup, fire shimmer, real wreck cooling and aircraft soft shadows. Native videos play on request
+and paired controls preserve playback position. Water animates continuously in
+view, pauses offscreen and starts still for reduced-motion preferences. The material study retains its
 801c8b2 provenance and a v5 native recording as fallback. Native captures and the
-browser study are explicitly distinguished. Historical v4/v5 evidence remains
+browser studies are explicitly distinguished. Historical v4/v5 evidence remains
 available but no longer supplies the home comparison or the refreshed scenes.
 
 For a loopback-only preview:
@@ -330,18 +332,23 @@ provenance is recorded in `ASSETS.md`. Keep status claims aligned with the engin
 
 ## Renderer features page
 
-`data/features.json` supplies eight chapters and a concise renderer overview.
+`data/features.json` supplies nine chapters and a concise renderer overview.
 Still comparisons support mouse/touch, keyboard and whole-view presets. The zoom
 slider chooses freshly rendered camera stops rather than scaling a screenshot;
 it fetches only requested/neighboring views. The live material study supports
 rotation, tilt, light orbit and finish controls, with poster/native-movie fallback.
+The live water study uses original transport/submarine geometry, textures, native
+terrain and the real shoreline field, with four independent WebGL treatments.
+The final aircraft chapter compares native ordinary/soft shadows at two heights.
 `assets/css/features-refresh.css` scopes the marketing layout to this page.
 
 `/gameplay/` remains the server-rendered player guide, supplied by
 `data/gameplay.json`. Current media lives in `static/images/renderer/v6/`;
 `scripts/renderer-capture/v6/README.md` records engine pins, reproduction and audit
 evidence. Material-study provenance remains in
-`scripts/renderer-capture/live-materials/README.md`. The ordinary website build
+`scripts/renderer-capture/live-materials/README.md`. Water and aircraft provenance
+live in `scripts/renderer-capture/live-water/README.md` and
+`scripts/renderer-capture/aircraft-shadows/README.md`. The ordinary website build
 requires neither a GPU nor retail game data.
 
 ## Brand assets

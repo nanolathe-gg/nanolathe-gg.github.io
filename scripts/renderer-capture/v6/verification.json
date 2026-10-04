@@ -123,182 +123,182 @@
       "zoom": 0.078125,
       "units": 39,
       "icons": true,
-      "publication_sha256": "ad58fc854697b9a20eef6edc9e82eaef9d0fceaeaa35926512e9ea1f4350ce44"
+      "publication_sha256": "3d7e4fbe3a8b80b18303320526af5b2e55f034688ed7914d623c0d55a224b807"
     },
     {
       "name": "zoom-01.png",
       "zoom": 0.25,
       "units": 39,
       "icons": true,
-      "publication_sha256": "bd0dc2b142c1669bdad0d4a5b11ae203cc0497fc7ae3435aa6667b1995897349"
+      "publication_sha256": "4adeadfff56be0558831d8257ee0fbc66ac7f30ec37cfe7bf015e9d54a999853"
     },
     {
       "name": "zoom-02.png",
       "zoom": 0.2726269331663144,
       "units": 39,
       "icons": true,
-      "publication_sha256": "085e540b86687621d29ec4fa6edbc7d4a816312b196e73ee548785d0dccd27f7"
+      "publication_sha256": "1cf16ff6aed6bc6afcdff320fb1c96cd662e0e3b13f716240f159a3ebeb7a8b0"
     },
     {
       "name": "zoom-03.png",
       "zoom": 0.29730177875068026,
       "units": 39,
       "icons": true,
-      "publication_sha256": "13d8093fe770422fa83024309362d5f4722a075916f91e1c4831ebe25745e63b"
+      "publication_sha256": "5ab64eb7aa4179fe0a75b0c79f26f3402ded21444d5a27dc0f94e8c4a12fc514"
     },
     {
       "name": "zoom-04.png",
       "zoom": 0.3242098886627524,
       "units": 39,
       "icons": true,
-      "publication_sha256": "5f82d58449cfd011f317dfe6e3a8b4d0cd445b93de1fef706692f512d88b5cb2"
+      "publication_sha256": "e9d35081c63be1c3c393796d5933d0a49b98ad2944db0e5f7cd09314eefdb7f8"
     },
     {
       "name": "zoom-05.png",
       "zoom": 0.3535533905932738,
       "units": 39,
       "icons": true,
-      "publication_sha256": "0f8c571aa9f79e92e4e6ea6a085fc822d3783fadf4c8ecbf54d9230554544f6d"
+      "publication_sha256": "2412bcb696199e5a4490051f875a7a2d3c4107c1194dba65676c778a280871a9"
     },
     {
       "name": "zoom-06.png",
       "zoom": 0.38555270635198524,
       "units": 39,
       "icons": true,
-      "publication_sha256": "884921dfb9348b59335486d570d515c187621faf6d9cbb5d1a2fb9a016a987ca"
+      "publication_sha256": "f72154193e908961e5b7fb9796cdff90e9a5b6faa2b4ac95f9ff9b2a57566570"
     },
     {
       "name": "zoom-07.png",
       "zoom": 0.4204482076268573,
       "units": 39,
       "icons": true,
-      "publication_sha256": "8d5b2701facbf066d4c047f1ff15384cf3e56fbe87f739d8e4e0386f4b9bbd2e"
+      "publication_sha256": "5c1495a69919dfb6b7064641a8a9af98da8b078031b991b664347def670789ad"
     },
     {
       "name": "zoom-08.png",
       "zoom": 0.4585020216023356,
       "units": 39,
       "icons": true,
-      "publication_sha256": "02f5f30008f2287ad51f066fef114ac1f7316f59df244d8ae31afe159867b7be"
+      "publication_sha256": "ce8a838e8d5370cad63573f7402cd257f2aa418d8dac0e074198cc41ca8bec40"
     },
     {
       "name": "zoom-09.png",
       "zoom": 0.5,
       "units": 39,
       "icons": true,
-      "publication_sha256": "57a9a4b4844e36c7415a317ca2aa87daf0add3132e701ef3374ad41411fef8f1"
+      "publication_sha256": "ebd584efbeee7ef1de94e92a723c7096d5410d9afeee570715739ed04deac1d8"
     },
     {
       "name": "zoom-10.png",
       "zoom": 0.5452538663326288,
       "units": 39,
       "icons": false,
-      "publication_sha256": "7ad5cbaf7b2f7344b06dfdeadf3b67bc6a7072f44990b33fd745bf08399dcdfc"
+      "publication_sha256": "f34ca3096c6afeefbff490370f70d21fa24e2208374e6ab0b9f03d758da574c6"
     },
     {
       "name": "zoom-11.png",
       "zoom": 0.5946035575013605,
       "units": 39,
       "icons": false,
-      "publication_sha256": "7b1ecf20aa35ffd8273ad6b2df4544f3c61f519eaf6003168b88cef1d05f76f1"
+      "publication_sha256": "37c50d849a863a75246be38ceccbd30e33207500559e4c4bedb8d7fa6eee9412"
     },
     {
       "name": "zoom-12.png",
       "zoom": 0.6484197773255048,
       "units": 39,
       "icons": false,
-      "publication_sha256": "8caf579c32b168b81e59bae4c98fe7fe362605a24176cdfa8e02ee9e8d77f4f4"
+      "publication_sha256": "52ebb75786205de2c0de3a5dd78c7f06855f2a50c17ee325e6f67a204e989506"
     },
     {
       "name": "zoom-13.png",
       "zoom": 0.7071067811865475,
       "units": 39,
       "icons": false,
-      "publication_sha256": "13d4030e86193c1f7b916b6bc4e4f7884ae0ee11f6435d392aa348a4d705d0f5"
+      "publication_sha256": "6e6f867672b47c9edbdd71e6c8c73d7401b3bf95ac186caa966c455c819791e5"
     },
     {
       "name": "zoom-14.png",
       "zoom": 0.7711054127039705,
       "units": 39,
       "icons": false,
-      "publication_sha256": "951e058a9666ef2cefa1fd959b8867e1a30e507a8bbfb0e3100fc3e51cf0ae63"
+      "publication_sha256": "47ca3ba8931b27c06c7e420f74e23f7a8c63374d9f714c8fec55d51b87f6da2e"
     },
     {
       "name": "zoom-15.png",
       "zoom": 0.8408964152537146,
       "units": 39,
       "icons": false,
-      "publication_sha256": "37afedab65ed990329b518cfc417dda95dc61a0993913b071e1429cc2134d413"
+      "publication_sha256": "0b8728331a927507897205ad95133161174ad471c977c98fd18958ba5ebace96"
     },
     {
       "name": "zoom-16.png",
       "zoom": 0.9170040432046712,
       "units": 39,
       "icons": false,
-      "publication_sha256": "433ab0aed8cda6961a911cf1cdfb5e9c0b6131514f972757fb9082091511ffae"
+      "publication_sha256": "e9e0c2d80e7bdde7ff1e87ac9be0f46e4a859275bae19795aa78a1d629acbbdc"
     },
     {
       "name": "zoom-17.png",
       "zoom": 1,
       "units": 39,
       "icons": false,
-      "publication_sha256": "540d4f9c07b04c0670ad6ed42dd37cd34b007342e547635e27596155d35d525e"
+      "publication_sha256": "6088ffed6c2787208e6a3f2a24ebab5f4ef2cfb1dd0afe5f05a04559288f473b"
     },
     {
       "name": "zoom-18.png",
       "zoom": 1.0905077326652577,
       "units": 39,
       "icons": false,
-      "publication_sha256": "36615a2f2de7845c0be3599e4572abc991367db29b06695939d900fbb258f51c"
+      "publication_sha256": "3aa2befece77282f5002c8d03cb2ca6c1a7e39543518e9a65599c7c1de8f3528"
     },
     {
       "name": "zoom-19.png",
       "zoom": 1.189207115002721,
       "units": 39,
       "icons": false,
-      "publication_sha256": "6e145e30b003ef0f22f5fc03ad64659c7c8aef44b4b78c1afb07fdc0435d1d3d"
+      "publication_sha256": "8f6eff8b72b1b7b053ad97f3fc91a094ad993e04bd2c574bc286201c5e7a3baa"
     },
     {
       "name": "zoom-20.png",
       "zoom": 1.2968395546510096,
       "units": 39,
       "icons": false,
-      "publication_sha256": "fe600c26e33c25ddfac1c990a92e900cf485e878577bba3c78a88d4ba239a900"
+      "publication_sha256": "ccc7e282de4ba13c792c21589a2dc2e47d233d7fc8b0963237c93654af4bdb18"
     },
     {
       "name": "zoom-21.png",
       "zoom": 1.414213562373095,
       "units": 39,
       "icons": false,
-      "publication_sha256": "af8dc8162bd82f55c7f4bae820dddb68dff26a6ed9b3ad4ed4584d019a4f6579"
+      "publication_sha256": "911357c558af6ea449e5b3708fde1688fa9912da7112064740e43162f0e710f0"
     },
     {
       "name": "zoom-22.png",
       "zoom": 1.542210825407941,
       "units": 39,
       "icons": false,
-      "publication_sha256": "2ecd122dc5ff5978392a934c50d57a73ff62f4f1cd0d369ebd9daaa4cf1f329e"
+      "publication_sha256": "e299d2bb276a949bd90aaa029d62b7daa65e664b8f491b2bbcd4aa35cf67bf2f"
     },
     {
       "name": "zoom-23.png",
       "zoom": 1.6817928305074292,
       "units": 39,
       "icons": false,
-      "publication_sha256": "dfad51908f67b128ea9e2c7ff66fe215e10f93c87a016db423f1554e081cbd3f"
+      "publication_sha256": "e54a3ac84bc87bcf6d7fee5a82c81a26f6ca02d5f9443c5f5ea436bf9693f6b2"
     },
     {
       "name": "zoom-24.png",
       "zoom": 1.8340080864093424,
       "units": 39,
       "icons": false,
-      "publication_sha256": "870f295c17fec0bc1cf8f34a1e74aa76a7e8321f53185794eaa693969b2a0a33"
+      "publication_sha256": "dd5e597878e433a753f42d84c0cf4e1130c5562175a924e6df029128b304cde4"
     },
     {
       "name": "zoom-25.png",
       "zoom": 2,
       "units": 39,
       "icons": false,
-      "publication_sha256": "57e47371c6aa915e395ad5bc32cfcb2920e2be072f25df26991ef6526bbd6c39"
+      "publication_sha256": "3f00b094d8cb9817206ea61a45b259a2b04d39da110a1f3ae2fbc12bf01cd6ed"
     }
   ],
   "explosion": {
@@ -345,7 +345,8 @@
   "binary_sha256": {
     "core": "3516c78b2750600077ca489ad7bbab11546128bbfefdd3ea49ef7d53fd9ea3e6",
     "camera": "0bd0fb7df33b88d268c1ff16647ef096d87f717c486673885cdf08a825ee096a",
-    "water": "e8b8b94d714f2c808ebf34473960c9df953d9f7a477ff4eb52bfb76912d964ba"
+    "water": "e8b8b94d714f2c808ebf34473960c9df953d9f7a477ff4eb52bfb76912d964ba",
+    "nanolathe-v6-camera": "2d9c10310d7e654094d33473e0a0f3980011a10347213000c07ae955a270f3bc"
   },
   "final_binary_replays": [
     {
@@ -404,18 +405,19 @@
     "heat.log": "a5dc9bf24408793a17ee89ec0991bf62b622dc51a2683d1ac602247e3549af7f",
     "checks.log": "0a6459550f63616e8757a07f84dec7a7d74e7bda18c501d7cc9b48a9154d8ccd",
     "water.log": "c852f55ec9ef0d6f381d684fac1224818a2249721472da1e7c880f15eecd64c4",
+    "mex-inspection.log": "8b6892454c63072bdd856cd156a33c0d263e3af36a2cd42924ae1f292146781d",
     "replay-wrecks.log": "485b804af6b0857d88378ce1b12751b0bceb330d77d94743deceac45c84c1462",
     "wrecks.log": "a89e36608b4e0ca90eb95401b80ae786e56e70218e623726adf0e4266450c397",
     "replay-heat.log": "bf403474d8a819c36e5941395e312d1253c7bb8232927c53f0e18b6433602fb8",
     "terrain.log": "b58857b380261e2e5d4abc9817e4c68e961236151fff7fba19839ec33f53bcb5",
     "aa.log": "c4aff896269dbc103da725eba3b19e8671df945e73accf259df2264d86dd8bcc",
-    "zoom.log": "1fd70c33a700146a531f003bbd7bdbb56b7bb4f78231fb801905ed64b373e246"
+    "zoom.log": "547089b262cdbf9c293910db0748250cb54932d50cbb6eee6aa1bf2dfe7ee043"
   },
   "source_sha256": {
     "source/core/main.go": "dc71288cf5fa3cde29fa6352fcd051ae05e567150d9f992e9d76f6e11f70064f",
     "source/water/main.go": "f505a4f2b5151023603a2b9526d11074187690c08b6b1b213bcf55609b5a7a84",
     "source/camera/pose.go": "b720f9259b777fb7c7c9c47c3276ca298ae355f8336cf6c35581ef51c98ab7c7",
-    "source/camera/main.go": "848371d474cfd7924d3832cc6aca739729ef5b44c06dab6d45045d373cbc5c51",
+    "source/camera/main.go": "60590b1fb5a660cb487b8d4b519aba4859f2ad303fc392b44d910543c9ababbb",
     "source/common/detail_art.go": "2f600d153632186d304297277e08616d59c969f65dbbd8af2a32bf628ee8884c",
     "source/common/terrain.go": "4699c798081bd7eb73dc6e0749b38d44cabe434be84cd818b404e995ec85dbf6",
     "source/common/load.go": "748d6b01e2edc242bb58ca19fee49064652d8007ff92f2bce980c88e55093a8c"
@@ -763,5 +765,6 @@
       "tile_payload_sha256": "a751878221dd3dc48ec1bef689ed7a20562fdc9a7cebe84411c9c34d56bff210",
       "workers": 2
     }
-  }
+  },
+  "camera_revision_note": "26 zoom views recaptured after moving the extractor down one 16-world-pixel map cell, from z-offset60 to76. Camera Go source hash identifies the revised producer."
 }

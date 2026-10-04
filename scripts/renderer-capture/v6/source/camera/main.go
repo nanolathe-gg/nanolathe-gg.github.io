@@ -183,7 +183,7 @@ func run() error {
 			x, z    float64
 			heading uint16
 		}{
-			{"armlab", -65, -15, 0}, {"armsolar", -175, -80, 0}, {"armsolar", -280, -80, 0}, {"armmex", -175, 60, 0}, {"armrad", 25, -65, 0}, {"armllt", 65, -105, 0}, {"armllt", 120, 95, 0}, {"armcom", -5, 40, 9200}, {"armck", -60, 95, 20000}, {"armbull", 85, -10, 15500}, {"armmav", 145, 35, 14000}, {"armzeus", 175, -35, 15500}, {"armzeus", 180, 20, 16500},
+			{"armlab", -65, -15, 0}, {"armsolar", -175, -80, 0}, {"armsolar", -280, -80, 0}, {"armmex", -175, 76, 0}, {"armrad", 25, -65, 0}, {"armllt", 65, -105, 0}, {"armllt", 120, 95, 0}, {"armcom", -5, 40, 9200}, {"armck", -60, 95, 20000}, {"armbull", 85, -10, 15500}, {"armmav", 145, 35, 14000}, {"armzeus", 175, -35, 15500}, {"armzeus", 180, 20, 16500},
 		} {
 			if e := add("base", p.name, p.x, p.z, p.heading, 0); e != nil {
 				return e

@@ -167,288 +167,288 @@
   {
     "path": "static/images/renderer/v6/zoom-00.webp",
     "source": "zoom/zoom-00.png",
-    "source_sha256": "3ef6b1ef555cf56088115cd2d9daabdacccab5a4f37291f44ba686f4cf666763",
-    "sha256": "d21c2fbf7f527c89b7f70a3051c3303edfa5441c551428b0968c8ee73d8357ef",
-    "rgba_sha256": "138d6c03a01146312e8e39a98dca0baaa506187308dac83739b8571837b44c3c",
+    "source_sha256": "eddfd54c39e461e935c5f5e97c5a1d9a02c4640480271b4f4338eb44c7e4a6c2",
+    "sha256": "ffacfddf62f8ad6293976590f392fc2b1fdaf1b63a627ad8f716920ecb15328d",
+    "rgba_sha256": "3523997bed0465622dc03e9a95dde9c01757b680242900509d3495b92935eaf9",
     "pixels_identical": true,
     "width": 960,
     "height": 640,
-    "bytes": 243698
+    "bytes": 271266
   },
   {
     "path": "static/images/renderer/v6/zoom-01.webp",
     "source": "zoom/zoom-01.png",
-    "source_sha256": "3dbdc241b902ca836de24c6ddac3d49e1a9583ceffa5d092719335b7f73cd7ba",
-    "sha256": "e1e79d2891c4aa6b44cf6940d0a23ac297abb80ab28a69649954c40aa7877c49",
-    "rgba_sha256": "0e0e1daa61bf11e8f5f46b8f5d075b0ed52cc5c88aa60d8e35fffc540b1c5129",
+    "source_sha256": "343ed71ff659ded950aac73942cf4a885626070743a91db0aebef6d0bd964df8",
+    "sha256": "0595895c16ce98b07e668a286d30b5caa4a20f9822563b196db1856747ba95a5",
+    "rgba_sha256": "1ebdda801002b8c5a1767ac558db735d2b48c1e32d1702f3de3bc7cfa911ada2",
     "pixels_identical": true,
     "width": 960,
     "height": 640,
-    "bytes": 308840
+    "bytes": 376018
   },
   {
     "path": "static/images/renderer/v6/zoom-02.webp",
     "source": "zoom/zoom-02.png",
-    "source_sha256": "7bd6a311e7853dfe01ff06036e626ee70ba2df8faa095a034e9108372f936eb2",
-    "sha256": "8af07005dc34b77025b4faefcbe9095845b6976973e6be4020f2a0be96222f01",
-    "rgba_sha256": "1c94b0e5efee36855f7c194f4e5c68c400c33d5c603874b50f1cb61805d12dea",
+    "source_sha256": "d716233271063564bdf641eb8adeefb2d1b0e0cef4eb00202c2037ae8b3b9d50",
+    "sha256": "471b5ff267d34483d4fff53ad28b95570e7d36a349793809d6416181f2097b13",
+    "rgba_sha256": "4b671cdc921d57004f2867c7fef853e36e0537e73b657aa4f108c37cbf96eddd",
     "pixels_identical": true,
     "width": 960,
     "height": 640,
-    "bytes": 1172280
+    "bytes": 1193122
   },
   {
     "path": "static/images/renderer/v6/zoom-03.webp",
     "source": "zoom/zoom-03.png",
-    "source_sha256": "e90447d39f4d015d9247e1417c37145365d6baaf9752b60e3f4224f33d446744",
-    "sha256": "8e5c51404ed174d619640c11ef2539394da053cd89aa3aa38899ee332786b067",
-    "rgba_sha256": "e6e311b53c8bcf3835c774ac604c92da3696d932d44ff85ae5090442fe5859f6",
+    "source_sha256": "50752f35a40c0067e4a97723a02af321913300d939772c0b88e880f18ad938bc",
+    "sha256": "ddb25bd3ba3fce3ca03f53dfbcb61fa5e7c171ed6eeff5be834a01f69bb37a06",
+    "rgba_sha256": "91082d42c2e04953a2ad83e81cda5e2ad904b5513cedc7acf00c8dd81ffcf746",
     "pixels_identical": true,
     "width": 960,
     "height": 640,
-    "bytes": 657512
+    "bytes": 715206
   },
   {
     "path": "static/images/renderer/v6/zoom-04.webp",
     "source": "zoom/zoom-04.png",
-    "source_sha256": "8ee5b24f0249441bac906008ed5bd19abb0f2a038902d1c8d6f1e821d0e1d5bc",
-    "sha256": "121020a1c3919f8a5181af0932ff152b8b3c253cb9477d701c509e76bf086614",
-    "rgba_sha256": "268bcca40d4430ca27466f507b7a8a0a832b446978a458e1a5c0d99e606ad2d8",
+    "source_sha256": "0dcbff22e80160135ce37c5f782f97c48e453c91773c6a0f897e836c4dffec60",
+    "sha256": "0d7373fdda39fd900918d0f53e85c25130d3890a548b26ccd971a5347a0285d4",
+    "rgba_sha256": "282efdd16234b5291a5fb6bf5233704c67c5ad91c3b7d6b9a630e951949fc909",
     "pixels_identical": true,
     "width": 960,
     "height": 640,
-    "bytes": 1004040
+    "bytes": 1040266
   },
   {
     "path": "static/images/renderer/v6/zoom-05.webp",
     "source": "zoom/zoom-05.png",
-    "source_sha256": "c3aaffac0565e6dddf79fedd6fd163a938c755c32b6841cfca532b3ba6591481",
-    "sha256": "1cdabeef45bdd9c4d30a32d3c79952ad4f49be8810221564efa09dbf5580f8b5",
-    "rgba_sha256": "aef99b53d48009fa6b026590d323d4c094cec45a0b91d302ec439f7cb0b647ed",
+    "source_sha256": "0094e69a2c1d24f209aef61305118dfb2ece5a57d4b55f0faf7817def228bb69",
+    "sha256": "96cc234183768cd60a18f94c2448316a424961798c7864d01099e926f6826f68",
+    "rgba_sha256": "7899a48022b37d99a90b2037e1c6b0402f3e0fc5efd36763204dd75a52710924",
     "pixels_identical": true,
     "width": 960,
     "height": 640,
-    "bytes": 1138770
+    "bytes": 1160402
   },
   {
     "path": "static/images/renderer/v6/zoom-06.webp",
     "source": "zoom/zoom-06.png",
-    "source_sha256": "f30d6bd600c049fbd2ae6aa5cfdc9118e55f5378bcc33a366cf7eedb6fa6aef7",
-    "sha256": "5f23b06523b998c9abd5128af4667dffc5f77f3c5ab3d97b01aba758faef292b",
-    "rgba_sha256": "de98e48e3a2208faaaed057cd160d00be26f6664ecfab98fbb725f602a6638b1",
+    "source_sha256": "65596dbc22ae13b07acdcaf788e749f5fb2779ac9a39bf77f4abae205f0e73f5",
+    "sha256": "8bee763bf6cf025b0c00706c6653c3bcb5fd7a316e60aa0ec2e77905233a1a3c",
+    "rgba_sha256": "72fb51a9606a41d6c36fea5d5dadcf618a634c88f83c102acd1aa27b1af6426c",
     "pixels_identical": true,
     "width": 960,
     "height": 640,
-    "bytes": 1183966
+    "bytes": 1195656
   },
   {
     "path": "static/images/renderer/v6/zoom-07.webp",
     "source": "zoom/zoom-07.png",
-    "source_sha256": "ecd0ffe98fcd6b6e31077c26a688c72ef19ea021e3f3c17f9c69c05913d5f18f",
-    "sha256": "5ce38b47db3d8d9aa3d4a03be26cd1f191e898f872da3c3d9a39bf5c8757589d",
-    "rgba_sha256": "d55408ad76fd7119b13dc12f9814a5ed2cf05483ede9a50eb90662ed45f4a834",
+    "source_sha256": "42a9f9d198631ada42966d4455b01e76c21445f5636a8a0b6e085e2451edb2a4",
+    "sha256": "bf408b68e5cd6185a808284d5e0cc092ab657373d5834a31bff7a01e26d82790",
+    "rgba_sha256": "1da7f1268856f2c4829386d5a5f0c39b71adc8a4ebd24d9dc461ab1f9ecedff6",
     "pixels_identical": true,
     "width": 960,
     "height": 640,
-    "bytes": 1183958
+    "bytes": 1194138
   },
   {
     "path": "static/images/renderer/v6/zoom-08.webp",
     "source": "zoom/zoom-08.png",
-    "source_sha256": "f48c37a7586265957d65b73cf02ecf6978f3d206c35a6854995bed3e2ab0e0ae",
-    "sha256": "740f9066f8b279f1b5cb49b992617d4a1c14c5c7e71325522b7db6fe1d487b26",
-    "rgba_sha256": "7e25b12f03c8597da4b04b552589764126c25472af1f89c0bafb1d30d81628a0",
+    "source_sha256": "4c56cdc1ad85f252a9a6518a8c50fcaffc96107e165e2f913c1fdc7c5ff0a197",
+    "sha256": "d32087e1bd35be36d343ad6ce2516b9176534f14cefcca5ca899a313c06ee15b",
+    "rgba_sha256": "3327e5a1f340e1df62d95533f6ea57594258d18233d5723e815fc365b54b7cd7",
     "pixels_identical": true,
     "width": 960,
     "height": 640,
-    "bytes": 1136320
+    "bytes": 1149908
   },
   {
     "path": "static/images/renderer/v6/zoom-09.webp",
     "source": "zoom/zoom-09.png",
-    "source_sha256": "878ccc9fd9e151d1cfe4cafedd54ef332e4a7a47afca8d68fa7577ab0d8beb15",
-    "sha256": "4ab9e8ad33e68780d080d6f9c02cc0ee5ddb83f7ec1a536b82b23c34bd00060a",
-    "rgba_sha256": "e1a3e579fa8081ee119ffef0f3aeddbc17aaac9c7f068100d1927ea729d3de8e",
+    "source_sha256": "c7621074527d471addd4b042ba954af393934d3ed65a5717e755c1eeecf8c34e",
+    "sha256": "c858a329f1a80821acd2c1e9d7fc53cf7803d79f6f1e221c10a41c40225f7cb7",
+    "rgba_sha256": "8d091c149d17060a7c5bffbd42acc344951863fd998bad98f62232bc20428bce",
     "pixels_identical": true,
     "width": 960,
     "height": 640,
-    "bytes": 370274
+    "bytes": 410730
   },
   {
     "path": "static/images/renderer/v6/zoom-10.webp",
     "source": "zoom/zoom-10.png",
-    "source_sha256": "84f94dcfd844f1e300b5a80b733d558df9b1fdd07e04f236d1dadabf25cb7e56",
-    "sha256": "9163e72fa8a7101b21f1137ba1017d87817a29c9542c651f2d10595156183221",
-    "rgba_sha256": "f26783fda0061b83be553216001464ba281a58e171f85270ccd18ec6709ac68e",
+    "source_sha256": "c15ec20fd1a3d4da6cac48b2ece4fe7e8f298043a8ef2509494096f8ad6f6714",
+    "sha256": "aace63b96cf284465cd82dfd5f4bbe2d6311b319584bf9c54f31fc3d91daca49",
+    "rgba_sha256": "5d70763cf73bc4132836c8c778b406f510492959d0310771190b9978adb857ce",
     "pixels_identical": true,
     "width": 960,
     "height": 640,
-    "bytes": 1158150
+    "bytes": 1189376
   },
   {
     "path": "static/images/renderer/v6/zoom-11.webp",
     "source": "zoom/zoom-11.png",
-    "source_sha256": "0a97491567232ac6df71ffb73c40913b913c4266d30f1ee99f75775c87dec6d6",
-    "sha256": "b0fb50871113a91ea4d9e8a1be2c3cb8e3ae7ed4c191bb6e83a57e8273273acc",
-    "rgba_sha256": "4fffd8cfbe917c3f72597e4eee72403a9ce73d30639d9ab51c4c97d479bf8bc7",
+    "source_sha256": "b6bcc26b4f6e8228abd05274839e80218f4f8372851f7942828730a9c865b251",
+    "sha256": "3714edca878f6998128c2e8883028fe7294988d44bdee87a0e5f9d1ca70aea72",
+    "rgba_sha256": "41d1aa796b4c6338a673a9eb6c2e68bd350fcb4b44512069d28a7b6c5fafc49b",
     "pixels_identical": true,
     "width": 960,
     "height": 640,
-    "bytes": 1182700
+    "bytes": 1192426
   },
   {
     "path": "static/images/renderer/v6/zoom-12.webp",
     "source": "zoom/zoom-12.png",
-    "source_sha256": "90feb8e06847fc910ef612b7b4ad4dbf3a33f46e1a7942682650c7be3f43d481",
-    "sha256": "6b681643cde4835a34c36ecebd02da799e4e18096e5fe80efb893f4a613faccb",
-    "rgba_sha256": "6691b91a774baecf152c59a89ffe6f54df49ebb2e8764cc1e10b1c0ed2581df3",
+    "source_sha256": "f83ab98b646e26eb9f30c5f761b4a6927c64c71bc05f0d0e7c4ef777b3f03baf",
+    "sha256": "6c78dd499410cd464d487b17cd5983e1995635d22dd961ee9dcc517930c97672",
+    "rgba_sha256": "381ab6fbb791f6a69e76622240ff791a3050c334e0f373da760c76f0a4f68342",
     "pixels_identical": true,
     "width": 960,
     "height": 640,
-    "bytes": 901784
+    "bytes": 942134
   },
   {
     "path": "static/images/renderer/v6/zoom-13.webp",
     "source": "zoom/zoom-13.png",
-    "source_sha256": "2c83c003be14faac9c696b3a79d32db720d0c221331acd3e7070e7236af2eeaa",
-    "sha256": "4c83dc4028a7475dc19155b772361f5d6591c327035ae7708ca94761735cd5fe",
-    "rgba_sha256": "c98a45b09687df60c56efea6ac7d61debc1a0baaef3f0bebc7a28d533273526f",
+    "source_sha256": "4d545748c8c42efcefc0d8f77c952d3a43d71059af406a0a92691df87f63c8eb",
+    "sha256": "138c44a70b865d216fa18d40f1de3639409aa05c1db37c8ec2d995795701945e",
+    "rgba_sha256": "3b686237c35068f67a8c7723e70213da815e5555d1dae8e859f8b39c74fcac08",
     "pixels_identical": true,
     "width": 960,
     "height": 640,
-    "bytes": 1107014
+    "bytes": 1137382
   },
   {
     "path": "static/images/renderer/v6/zoom-14.webp",
     "source": "zoom/zoom-14.png",
-    "source_sha256": "029363f0a6ecf2190a04ca1b79b289687f54626d1b4f64c85947169ce17050e0",
-    "sha256": "1c523bb9ace88cb7fb29e27a9e40c506dc830f35319cc9c9c46c6c5ae6511e3c",
-    "rgba_sha256": "5e1bd035f63e0d36320c2945b3aec07c2f640d033e736c1c565409c20b6edd22",
+    "source_sha256": "786e69cdc60429a7053a3519972ce6a465dbcb8bcfec9deed4dc7298fd1a5414",
+    "sha256": "16790ae252afe8558044f09400c6fe5065b1ede544336ad0902bc5d3a1ac8131",
+    "rgba_sha256": "6f15ba267f51545c2140dfb2ee1d96aaf0196c11addd35b86ef6c18f4e8e69fb",
     "pixels_identical": true,
     "width": 960,
     "height": 640,
-    "bytes": 1157932
+    "bytes": 1183374
   },
   {
     "path": "static/images/renderer/v6/zoom-15.webp",
     "source": "zoom/zoom-15.png",
-    "source_sha256": "defd1914c9cfad5db2880880070340b74e830b7f4786d71654ac4eaa08e2b07d",
-    "sha256": "a7c4e594eab58973613e42f816663054a9b31da66bf62095f82f29cef783d3d6",
-    "rgba_sha256": "5eb1e728a987232a70eff7b3340848e316bb0aec40d8456657fb2222f910a72c",
+    "source_sha256": "abe9274d7eea61c674e018ff47b9f8c593b3f1b20a669d65a74e50a157f225c0",
+    "sha256": "6fa080bd940dfef2dce470f2e0fc51d994c61abc279a6cbbf90d247aa9117bcb",
+    "rgba_sha256": "ebbaab54327f7866ea68957247c2e40dc63e5928f122be3c29e600fb35d35130",
     "pixels_identical": true,
     "width": 960,
     "height": 640,
-    "bytes": 1168254
+    "bytes": 1217470
   },
   {
     "path": "static/images/renderer/v6/zoom-16.webp",
     "source": "zoom/zoom-16.png",
-    "source_sha256": "c9623dca67fd63551a2e2611e56a9fa4c9b775073d4c17868669dfe8aaec2b75",
-    "sha256": "f98907a3bf983615c2505805edef57da8700089def1004d9dfae6222ce82658e",
-    "rgba_sha256": "b6be0c29e8c58c490a902091d6f818251eae461c015e45e7bb1738d517e977e3",
+    "source_sha256": "d44bdb50254abe42fc4a17fad8dc1e72727bea7bd9d780acc9bf99ba6824042e",
+    "sha256": "9e8eb73277691191b9255fdba3c4e6cffa9fc1ac8e0af1fc04b6801e8611bc16",
+    "rgba_sha256": "488ab4d222dbe53492b0cc1b413c5a1eca27d14cf115ec2c8c16cc62b7933339",
     "pixels_identical": true,
     "width": 960,
     "height": 640,
-    "bytes": 1147232
+    "bytes": 1185072
   },
   {
     "path": "static/images/renderer/v6/zoom-17.webp",
     "source": "zoom/zoom-17.png",
-    "source_sha256": "dcf75beeb516ab7114abd95c97b4ba893e96935c40299dd564cdff457e86d061",
-    "sha256": "057a5183047d64bebd58ced888234f127823b2fee0951843e6f58bfbb3a4b0dd",
-    "rgba_sha256": "ac048830966a2ae34ae0e6b55c07d4e5e38b8c63671ce5d2e1f9d81469438894",
+    "source_sha256": "498b693154e5e3336962177315184d52c21fd8e86b951502ca0d6119c853df0d",
+    "sha256": "e8ed5bf1d251e784bcaa7bc92c622769b2297e37c8e06538f7834a21cb601d13",
+    "rgba_sha256": "e3846aa7d21c1e71a04145e10d0467bb8aee494dfdf97c0f22f2c8f1a71d0405",
     "pixels_identical": true,
     "width": 960,
     "height": 640,
-    "bytes": 230042
+    "bytes": 257712
   },
   {
     "path": "static/images/renderer/v6/zoom-18.webp",
     "source": "zoom/zoom-18.png",
-    "source_sha256": "a52deef7f24e52dd15c613a898c985978d60a3b82747389ea4dd9c1dec0ca2bd",
-    "sha256": "138c8f1ac31a2864624e3e23308d624500a352c24ef245b066b46f074e655fcf",
-    "rgba_sha256": "4655dae279ba9ea2926a465d1cd264e1999e4de2b466a13d9efe9ae66976bef7",
+    "source_sha256": "42cb680779833acdb4c4e4500fe3fc0b1ed91e9cbd343ab7756447bf7874a1c3",
+    "sha256": "c9302392a265c1bff215661e1f370856193b28a8bd6b58b59f70e27591e90638",
+    "rgba_sha256": "95bda53bb23c99eef68377bcb2f22e6236c77e026d7580fef2e0161cc412d5cb",
     "pixels_identical": true,
     "width": 960,
     "height": 640,
-    "bytes": 1309906
+    "bytes": 1311038
   },
   {
     "path": "static/images/renderer/v6/zoom-19.webp",
     "source": "zoom/zoom-19.png",
-    "source_sha256": "5d80c863ee35ba25242afbe3b06a27c8b2a6b15d10bdbbe08a12d0f1458ff0bb",
-    "sha256": "feaf9ac1efbc17a5647bebfdd51b9a39ef44565cfbffe8c6aa74e940e591f21a",
-    "rgba_sha256": "8a70b9f5ec14fc0f779654b49490efa8cc1f0d52da085a85a7f3ec32a29ebf2b",
+    "source_sha256": "d29fa42d981429a2d448e0f8a86b199f729b6104642acbedb4f1cc108b9e4411",
+    "sha256": "0ded34c769d3b70b2fcb0799c0f529214ebb8be9a86bf7b1f81ef1c0466ed6f9",
+    "rgba_sha256": "7e6158f5e56ae626e8ede7b9879ef60a6853b1fe132aa2215ec3d23039ce64a9",
     "pixels_identical": true,
     "width": 960,
     "height": 640,
-    "bytes": 1304360
+    "bytes": 1306860
   },
   {
     "path": "static/images/renderer/v6/zoom-20.webp",
     "source": "zoom/zoom-20.png",
-    "source_sha256": "509d60528f3bd4eefbe497ff6bcd91a13cb13baa401271afed511d4a823842f3",
-    "sha256": "6b0dbc8859e5d8911d747219aa9b53bb3c72154361c5354f6cf97617724ec425",
-    "rgba_sha256": "605db17bec88c4aafd0764e57d692183bfff0cc10b0e01c4dfe3b229a8040b85",
+    "source_sha256": "423f0b2e276b001c8336da1c12368c51f93495828c27620985c6f979fbdea967",
+    "sha256": "38e231d94421b6c71f5410b4ec2cde611cf1d546af636ca9a5cb65b3f9666aff",
+    "rgba_sha256": "e96c959946ecc550e727fcba479fa1000b39ac94108584038a5faf0b0a49815a",
     "pixels_identical": true,
     "width": 960,
     "height": 640,
-    "bytes": 1107088
+    "bytes": 1289032
   },
   {
     "path": "static/images/renderer/v6/zoom-21.webp",
     "source": "zoom/zoom-21.png",
-    "source_sha256": "3a9681f63c11441f7029a9330002d5f8f366a40600e04a6a7447a9a6828df98c",
-    "sha256": "8c18e72126b9af9334e78ec57a6e24eb9237b54ad2dc18c2da5936bf26662479",
-    "rgba_sha256": "db008705b9943faf525ea5e058c979fd8a2e5ce4350943397c868e3be9d45d9b",
+    "source_sha256": "ef683eabb8eeaf20576f01993d0413f4ead495b1989d96b52279a2f013361a6d",
+    "sha256": "49bd6e8a1d35ba43a024a2baad334956af5281f45985fc5f41219fa291cacd56",
+    "rgba_sha256": "dca5436302aa8ba71c590e0d3658fe677041cc1a231c191fa1ee9135ad272397",
     "pixels_identical": true,
     "width": 960,
     "height": 640,
-    "bytes": 1202074
+    "bytes": 1285960
   },
   {
     "path": "static/images/renderer/v6/zoom-22.webp",
     "source": "zoom/zoom-22.png",
-    "source_sha256": "cde2205894249eeb4a778f01bf57fb5ff47b65cec9c7ec0c607a387e686eac3b",
-    "sha256": "eb4b7badc85b68a73b40bc72f336ecdc1de4d4305cd7966d76b5d51e34918ad5",
-    "rgba_sha256": "5a93bcb79f6f77caa0eed3b28d9a39fae848d2b550ba98c3895200719b403af1",
+    "source_sha256": "b3d4bf58ca2f31675f790c8605f4a168e05308160dc57da1645f7956e99eba7f",
+    "sha256": "aa79f299ec39664f52b44ccbe6d4009657785f1a5e9439273dc3d23bde0f7f5d",
+    "rgba_sha256": "ddabdb430e2f3420957dadb0d3d02cd726e8cc6d424a4ab47f560e9dbd4a0d88",
     "pixels_identical": true,
     "width": 960,
     "height": 640,
-    "bytes": 1278028
+    "bytes": 1280236
   },
   {
     "path": "static/images/renderer/v6/zoom-23.webp",
     "source": "zoom/zoom-23.png",
-    "source_sha256": "d886f23f5cb06b7c4865b496880e60d543cfc5ff5ea2f7427190ad64fec36482",
-    "sha256": "fbed49fd107b6e960b946fa257c68ff891749e1e5bfa94d4551703d2e62cd13f",
-    "rgba_sha256": "1b05e6ec02c874e6fd02fdb5dd3eecfea3d261fa7543a4c0d07f0387fd2af6cc",
+    "source_sha256": "82ab579b9459747cacacccebc862733fd60b5b17117556b2e9d16bf4ea6366fa",
+    "sha256": "e54cb4d7b4d24aef2d9615c544aa9c53a82797e048f2e1325662e32e88933d21",
+    "rgba_sha256": "c0015a6d25660adfa7bdf4dcc77df3add4284568f0b9b706bd98a8e75b782ef5",
     "pixels_identical": true,
     "width": 960,
     "height": 640,
-    "bytes": 1264458
+    "bytes": 1267300
   },
   {
     "path": "static/images/renderer/v6/zoom-24.webp",
     "source": "zoom/zoom-24.png",
-    "source_sha256": "b38cde18d862529c66e7b7580220fe3e234b94d3827cbefd5f277aa0bade9fb6",
-    "sha256": "bea9735c850c0009f2afb84e9924e2d58e72a7a1969fb3531798de9dd31e3d1b",
-    "rgba_sha256": "d5a6faaa441e9f797fdcd2dc99d537a6843dc6b77b03f816eba4cf28bde15378",
+    "source_sha256": "1767387684722503dde71c83c1ce79f21d6f3cdd30eaae4e9f68b4125c074c0f",
+    "sha256": "f5adb931d848be36585285be07076937f5d5d47680e08326556042a95840f0dd",
+    "rgba_sha256": "59fbdd9d9afe046d4709e1f23707f1d8fe6bb04993b20a24f419202fe2e599f1",
     "pixels_identical": true,
     "width": 960,
     "height": 640,
-    "bytes": 1248578
+    "bytes": 1250830
   },
   {
     "path": "static/images/renderer/v6/zoom-25.webp",
     "source": "zoom/zoom-25.png",
-    "source_sha256": "e5c8572a5dbd49ee0a8367ebfa86864ecc1a9cabb297c78d708b92e79da231c4",
-    "sha256": "cc61a879fe8a0747b15fa78b453186c3acef2423051305cbce4a1793cbf4cd9b",
-    "rgba_sha256": "fcb6bbf3f31ecd1ac5a6911ccc44bc87920ee15d1d2b7add0417a40bd9e9b9b7",
+    "source_sha256": "621a53840eea3de48780295fd333567ab1728aa6b8d1e5f441d0a8d544c45b5f",
+    "sha256": "84b222888e178fcb480cc685e4d522c8d0350a9bc2a167f4ff7aae652710c2ab",
+    "rgba_sha256": "9417b3a02e2fc788c605b087c443f4480551c4ef852e4a6806248e81eeb7715f",
     "pixels_identical": true,
     "width": 960,
     "height": 640,
-    "bytes": 320590
+    "bytes": 337522
   },
   {
     "path": "static/images/renderer/v6/explosion-classic.mp4",

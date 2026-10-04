@@ -327,9 +327,11 @@ JSON evidence. Retail archives and derived tile caches are excluded.
 
 ## October 4, 2026 feedback captures and documentation icons
 
-`static/images/renderer/v6/` contains 41 native lossless WebP images and 11 native
+`static/images/renderer/v6/` contains 43 native lossless WebP images and 11 native
 H.264 movies from production engine `617540c587e1b75d6d8ba7bf5243d24bea3f3bc2`,
-with isolated diagnostic harness `33ee2ed83a21763f58668c39a2b4709e62179cb3`.
+The initial diagnostic harness is `33ee2ed83a21763f58668c39a2b4709e62179cb3`;
+corrected camera and aircraft exports use local follow-up
+`6c0cfd983f2d082b69fbdda0027811432a07a10f`.
 They use original separately installed Total Annihilation data on actual Metal.
 Greenhaven comparisons use healthy native trees and real synthesized 2× terrain
 and feature sprites. Camera stops, transport/submarine water, nine-model edges,
@@ -346,3 +348,27 @@ The documentation directory uses original inline SVG category icons in
 `layouts/partials/format-icon.html`, with texture and terrain thumbnails reused
 from the existing authored 3DO/TNT example guides. No retail art is added to
 these documentation icons; they remain original website illustration assets.
+
+## Follow-up: corrected zoom, live water and aircraft shadows
+
+All26 zoom views were recaptured after moving the extractor down one16-world-pixel
+map cell to align its base with the actual metal patch. Native pixels remain
+unchanged by export; revised source/binary hashes are in the v6 evidence.
+
+`static/models/water/` contains two frozen presentation meshes and original palette
+atlases, Blue-table variants, native terrain/poster and the engine’s projected
+shoreline field. The browser study adapts617540c5 water equations at native
+strengths; its WebGL raster, flat SHD bake, reflection occlusion/height fading and
+filtering differ from the engine. It animates only presentation, with fixed wind
+and poses; the separate native recording retains session movement and COB wakes.
+Exact source, limitations, hashes and reproduction are in
+`scripts/renderer-capture/live-water/README.md` and `manifest.json`. These original
+game-art derivatives have the same separate ownership as the existing engine
+captures; they are not covered by the website code’s MIT license. No retail
+archive, complete unit/script bundle or terrain cache is included.
+
+`shadows-off.webp`/`shadows-on.webp` are native617540c5 Metal captures of two
+original Hurricane bombers at staged60/180-world-unit clearances, with only
+SoftShadows toggled. Source/drawlist/setting/restoration and PNG↔WebP pixel proof
+are in `scripts/renderer-capture/aircraft-shadows/`. They are a frozen altitude
+study, with native100% shadow softness; they are not simulated flight footage.

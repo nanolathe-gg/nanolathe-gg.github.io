@@ -1,0 +1,9 @@
+{
+  "binary_sha256": "c14854d8f89466f21bf9a39bf1b2c0b943617861d66dae146242d8a98fdc7c4c",
+  "source_sha256": {
+    "scripts/renderer-capture/aircraft-shadows/source/pose.go": "b720f9259b777fb7c7c9c47c3276ca298ae355f8336cf6c35581ef51c98ab7c7",
+    "scripts/renderer-capture/aircraft-shadows/source/main.go": "cb831a793c785e84d5fb6a58ec625ed462456f2e6a795ec5cd2b268497d1b422"
+  },
+  "log_sha256": "e341db9de0ed366e34c5c1f0901f4b62ee0188313db5434066cab9ad0b2c8880",
+  "diagnostic_commit": "6c0cfd983f2d082b69fbdda0027811432a07a10f"
+}

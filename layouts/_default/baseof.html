@@ -30,6 +30,8 @@
   {{ if eq .Layout "features" }}
   {{ $materialJS := resources.Get "js/material-viewer.js" | minify | fingerprint }}
   <script src="{{ $materialJS.RelPermalink }}" integrity="{{ $materialJS.Data.Integrity }}" defer></script>
+  {{ $waterJS := resources.Get "js/water-viewer.js" | minify | fingerprint }}
+  <script src="{{ $waterJS.RelPermalink }}" integrity="{{ $waterJS.Data.Integrity }}" defer></script>
   {{ $refreshCSS := resources.Get "css/features-refresh.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $refreshCSS.RelPermalink }}" integrity="{{ $refreshCSS.Data.Integrity }}">
   {{ end }}

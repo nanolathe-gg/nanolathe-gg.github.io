@@ -1,0 +1,97 @@
+{
+  "engine_revision": "617540c587e1b75d6d8ba7bf5243d24bea3f3bc2",
+  "export_backend": "Metal",
+  "tick": 31,
+  "publication_sha256": "f64f37d7cb85481ad4deed83a4f4da615dfedba026f566dab67308188283ba52",
+  "publication_unchanged": true,
+  "models": [
+    {
+      "unit": "armtship",
+      "exported_faces": 112,
+      "visible_faces": 62,
+      "triangles": 124,
+      "atlas_size": [
+        1225,
+        132
+      ],
+      "mesh_source_sha256": "00ec69a4ead77c13353cc77004427fbbba1188c604222c0652c8ca339b0300d7"
+    },
+    {
+      "unit": "armsub",
+      "exported_faces": 50,
+      "visible_faces": 31,
+      "triangles": 62,
+      "atlas_size": [
+        697,
+        68
+      ],
+      "mesh_source_sha256": "baf4b9c855ea01af038d6e02b0e9f297f254ba55e3b3eb4bef2e9ee2e49fd71e"
+    }
+  ],
+  "files": [
+    {
+      "path": "static/models/water/armsub-blue.png",
+      "bytes": 11780,
+      "sha256": "7d46fae640b30298bcc192466c39e0c1cb3e1361147308f0e68c8f465ad9a4b1"
+    },
+    {
+      "path": "static/models/water/armsub.json",
+      "bytes": 8671,
+      "sha256": "3a0ff45b2c50ffd99479007d5a425f566e9e025962783ff415ba701980eba15e"
+    },
+    {
+      "path": "static/models/water/armsub.png",
+      "bytes": 17057,
+      "sha256": "a7669f16dda603803fda1b178c8cebc0296667f98ea45b2e39c93f66983ad5ae"
+    },
+    {
+      "path": "static/models/water/armtship-blue.png",
+      "bytes": 52430,
+      "sha256": "703fbadee6e45d562278df01e75ee6c70103f2d1bbf0890822142bd4c3eee2a9"
+    },
+    {
+      "path": "static/models/water/armtship.json",
+      "bytes": 16653,
+      "sha256": "78ec8f3f5e3dd0dd2b3cfd8a582afe1359dad8b9e50beb33cea3f90c05948ede"
+    },
+    {
+      "path": "static/models/water/armtship.png",
+      "bytes": 67548,
+      "sha256": "b3e11ee29be3ab2d3f5230c85973b539fc60a12f5d5089089ee0900d8dd06f21"
+    },
+    {
+      "path": "static/models/water/damp.png",
+      "bytes": 955,
+      "sha256": "8a36d98b430f9ed67faaad515b6fce6309eb65061dafac73ae93a12e00f0fe7e"
+    },
+    {
+      "path": "static/models/water/mask.png",
+      "bytes": 1758,
+      "sha256": "14585242a4be16ea21b1f6cf90adb978fa9af9406deff9ee78d63713e691b2b2"
+    },
+    {
+      "path": "static/models/water/poster.webp",
+      "bytes": 957558,
+      "sha256": "26f7172bd21978d45b697ba7c49320bdc3ce2f05c94f95e5c695a76e90051c0b"
+    },
+    {
+      "path": "static/models/water/scene.json",
+      "bytes": 1371,
+      "sha256": "caa0a5fdae10396247071d53ee1ffaf12f9297fc569bc392f3836afaef6121d7"
+    },
+    {
+      "path": "static/models/water/terrain.png",
+      "bytes": 144480,
+      "sha256": "a714f0b9b710333899092587780690cbdbc8bea60c41dcd6afd249d3b77e6ab2"
+    }
+  ],
+  "source_sha256": {
+    "scripts/renderer-capture/live-water/source/mask_export.go": "cabd28a1348efac3c1bd5de0d42638479c7dc46bcadc1d229f7a6720d93d90d7",
+    "scripts/renderer-capture/live-water/source/client_export.go": "24aa52a123b337beae65f6c2472c3cdf54b3977fb3b0030dd8411037e8f3bf7f",
+    "scripts/renderer-capture/live-water/source/main.go": "1710349061db576138e3b5d24f2f7a58d5c7754ae3de5755378c60a8a749ae1b"
+  },
+  "binary_sha256": "dfb99492f1e7d696a16c0dbbbd2bc0ddf0adc9bdfe2fffbd360813198df6d94a",
+  "shader_js_sha256": "0928dbcf4cfe3e79a60a40baaa2b972c68dd7d7610b1c401331fb74d9f2f8a40",
+  "poster_native_pixel_match": true,
+  "diagnostic_commit": "6c0cfd983f2d082b69fbdda0027811432a07a10f"
+}

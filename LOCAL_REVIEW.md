@@ -1,3 +1,8 @@
+> Latest follow-up: extractor alignment corrected, live water animation/controls
+> added with native fallback, and a ninth aircraft soft-shadow chapter added.
+> See the latest section of [BROWSER_REVIEW.md](BROWSER_REVIEW.md) for current
+> checks, evidence and remaining gaps. The earlier sections below are history.
+
 > Latest review: the October 4 feedback pass replaces the current homepage and
 > Features scenes with v6 captures, restores the interactive material study,
 > adds documentation icons and supports desktop Safari based on Daniel's test.

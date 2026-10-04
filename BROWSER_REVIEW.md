@@ -270,3 +270,75 @@ full-folder-drop, long-play and save-roundtrip gaps remain as described above.
 The loopback preview remains running at http://127.0.0.1:1313/.
 All work remains on `redesign/private-beta-local`. No push, merge into main,
 deploy, DNS change or publication occurred.
+
+## Latest follow-up: extractor, live water and aircraft shadows
+
+Local preview: http://127.0.0.1:1313/features/. Website branch remains
+`redesign/private-beta-local`; no push, main merge, deployment or publication.
+
+The extractor is one map cell lower (16 world pixels, z-offset60→76). All26
+real zoom views were recaptured; its base was inspected against bare native
+terrain. The image/pixel/source/binary audit was updated.
+
+Water is now a live WebGL scene made from actual original transport/submarine
+geometry and textures, native terrain, and the unchanged engine shoreline field.
+Four independent switches cover surface shading, motion/refraction, foam and
+reflections. It animates continuously in view and suspends rendering/phase while
+offscreen or the tab is hidden. Pause/phase inspection, all-on/off presets and
+reset remain available. Reduced-motion starts paused. One real native recording
+is retained below. This is explicitly a browser adaptation with frozen poses and
+wind; raster/depth, filtering, flat SHD and reflected-mesh occlusion/height fading
+differ from the native renderer. Native recording includes actual unit motion,
+COB wakes and changing wind. Exact source/limits are in
+`scripts/renderer-capture/live-water/README.md`.
+
+A ninth, final aircraft chapter compares native ordinary/soft shadows on two
+Hurricane bombers at60/180-world-unit staged clearances, same drawlist, camera
+and native100% softness. Actual Metal on/off/on restores identical pixels;
+WebP exports match PNG pixels. See
+`scripts/renderer-capture/aircraft-shadows/README.md`.
+
+Final checks passed:
+
+- `make check`: strict build,30 HTML destinations, platform/install commands,
+  browser/demo asset integrity, shell/packaging/format/installer checks.
+  PowerShell is unavailable, so native Windows offline tests remain skipped.
+- Features regression:10 desktop/mobile/resize/fallback layouts,8 mouse/touch/
+  keyboard/preset comparisons,10 actual movie checks,23 native media URLs,
+  navigation/back and JavaScript-disabled/reduced-motion behavior.
+- Live water:320/390/768/1024/1440px layouts,20 independent rendered-pixel
+  comparisons with exact same-phase restoration, submarine/shore/reflection
+  region checks, keyboard, presets, pause/reset, automatic in-view animation,
+  offscreen pause/resume and continuous advancement beyond30seconds of phase.
+  Context loss/recovery recreates identical pixels. No-JS, no-WebGL and missing
+  mesh preserve native poster/recording; reduced-motion allows explicit play.
+  No JavaScript or GL errors were observed.
+- Diagnostic Go package compilation/vet, actual Metal scene assertions, native
+  pixel export checks and source/binary/file hashes passed. Whole-engine landing
+  and performance gates were not run for these isolated diagnostic commands.
+
+Evidence outside the repository in `../qa/`:
+`water-and-shadows-make-check.log`, `features-water-shadows-browser-report.json`,
+`water-study-browser-report.json`, `water-touch-report.json`,
+`water-shadows-go-check.log`, and their scripts.
+Actual phone-style touch checkboxes, presets, phase dragging, pause and reset
+also passed. Screenshots: `water-study-auto-mobile.png`,
+`water-study-390.png`/`water-study-1440.png`,
+`mex-corrected-390.png`/`mex-corrected-1440.png`,
+`features-current-mobile-shadows-comparison.png`/
+`features-current-desktop-shadows-comparison.png`, plus the full current Features
+views. Native raw exports are `../capture-water-study/` and
+`../capture-aircraft-shadows/`; no retail archives enter the website.
+
+Final diagnostic sources are saved locally at
+`6c0cfd983f2d082b69fbdda0027811432a07a10f`; no engine-main runtime/defaults changes.
+Production capture source stays pinned617540c5. Shared engine main advanced to
+a94a2bf5 during work; its intervening changes concern silo HUD glyphs and browser
+release retention, with no change to the captured water/aircraft shader math.
+Both shared main checkouts remain clean and untouched. The playable local demo
+continues using the verified browser-210 build; no engine push is needed to test
+this preview. A fresh public engine release would be a separate approval/action.
+Daniel confirmed Safari for the playable demo. Physical Safari/Firefox testing
+of this new WebGL study, mobile-device performance, full retail-folder drop,
+long-play and save roundtrip remain unverified. Chrome emulation is not proof of
+physical-device performance.

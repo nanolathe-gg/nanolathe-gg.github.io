@@ -15,7 +15,7 @@ def pixels(path):
 def events(path): return [json.loads(line) for line in path.read_text().splitlines()]
 
 def main():
- parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('captures',type=Path);args=parser.parse_args()
+ parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('captures',type=Path);parser.add_argument('--reuse-movies',action='store_true',help='Reuse movies whose SHA-256 matches the previous audited inventory');args=parser.parse_args()
  evidence=Path(__file__).resolve().parent;website=evidence.parents[2];raw=args.captures/'raw';dest=website/'static/images/renderer/v6';dest.mkdir(parents=True,exist_ok=True)
  stills={ 'terrain-original':'terrain/modern-original-0000.png','terrain-synthesized':'terrain/gpu-0000.png','aa-classic':'aa/cpu-0000.png','aa-modern':'aa/gpu-0000.png','explosion-classic':'explosion/cpu-0042.png','explosion-modern':'explosion/gpu-0042.png' }
  movies={ 'explosion-classic':('explosion/cpu-%04d.png',90), 'explosion-modern':('explosion/gpu-%04d.png',90) }
@@ -25,17 +25,19 @@ def main():
    stills[f'{name}-{mode}']=f'{name}/{prefix}-{poster:04d}.png'
    movies[f'{name}-{mode}']=(f'{name}/{prefix}-%04d.png',count)
  for i in range(26): stills[f'zoom-{i:02d}']=f'zoom/zoom-{i:02d}.png'
+ previous={r['path']:r['sha256'] for r in json.loads((evidence/'website-media.json').read_text())} if args.reuse_movies else {}
  inventory=[]
  for name,rel in stills.items():
   source=raw/rel;out=dest/f'{name}.webp'
   if not out.exists() or pixels(source)!=pixels(out):
-   run('cwebp','-quiet','-lossless','-exact','-z','9',str(source),'-o',str(out))
+   run('cwebp','-quiet','-lossless','-exact','-z','6',str(source),'-o',str(out))
   assert pixels(source)==pixels(out),name
   with Image.open(source) as im: size=im.size
   inventory.append(dict(path=str(out.relative_to(website)),source=rel,source_sha256=sha(source),sha256=sha(out),rgba_sha256=pixels(out),pixels_identical=True,width=size[0],height=size[1],bytes=out.stat().st_size))
  for name,(pattern,count) in movies.items():
   out=dest/f'{name}.mp4'
-  run('ffmpeg','-v','error','-y','-threads','2','-framerate','30','-i',str(raw/pattern),'-frames:v',str(count),'-c:v','libx264','-threads','2','-preset','slow','-crf','18','-pix_fmt','yuv420p','-movflags','+faststart',str(out))
+  if not (args.reuse_movies and out.exists() and previous.get(str(out.relative_to(website)))==sha(out)):
+   run('ffmpeg','-v','error','-y','-threads','2','-framerate','30','-i',str(raw/pattern),'-frames:v',str(count),'-c:v','libx264','-threads','2','-preset','slow','-crf','18','-pix_fmt','yuv420p','-movflags','+faststart',str(out))
   probe=json.loads(run('ffprobe','-v','error','-count_frames','-show_streams','-show_format','-of','json',str(out)))
   stream=probe['streams'][0];assert len(probe['streams'])==1 and int(stream['nb_read_frames'])==count and stream['avg_frame_rate']=='30/1',name
   # A full independent decode fails on corrupt or incomplete clips.

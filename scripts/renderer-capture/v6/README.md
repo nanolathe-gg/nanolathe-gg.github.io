@@ -6,7 +6,7 @@ is `../nanolathe-features-v6`, branch `capture/features-feedback-v6`.
 The final diagnostic harness is committed locally at
 `33ee2ed83a21763f58668c39a2b4709e62179cb3`. Binaries were built before that
 source-only save; their recorded hashes and Go source hashes identify the exact
-producer. Only `cmd/website-features-capture` is added; production simulation, renderer,
+producer. That initial batch adds only `cmd/website-features-capture`; production simulation, renderer,
 shaders, coefficients, defaults and game data are untouched.
 
 The harness adapts v5, retaining the actual Session/Classic/Modern paths and
@@ -104,3 +104,25 @@ performance gates and benchmarks are outside this media-only task.
 No retail archives, raw sequences, synthesized banks or executable binaries are
 included in the website or source deliverables. No push, merge to main, deploy
 or publication is authorized by this capture work.
+
+## Latest local follow-up
+
+The final follow-up diagnostic sources are saved locally at
+`6c0cfd983f2d082b69fbdda0027811432a07a10f`. The two read-only export helpers are isolated and
+called only by the capture command.
+
+The extractor in the zoom tableau was moved from z-offset60 to76 (one map cell
+down); all26 native camera views were regenerated and pixel-audited. The revised
+Go source hash and camera binary hash are in `verification.json`. Historical
+core/water movies retain their original producers. `--reuse-movies` skips encoding
+only when a movie’s SHA-256 matches the previous audited inventory, then still
+fully decodes and verifies its frames/dimensions. Lossless WebP compression now
+uses level6; decoded pixel equality remains mandatory.
+
+Water’s primary widget is now the independent, automatically animated WebGL
+study documented in `../live-water/README.md`, with one native recording retained
+as a disclosure/fallback. Four older water variant movies remain as capture
+evidence but are no longer the primary controls. Two new native aircraft stills
+are documented separately in `../aircraft-shadows/README.md`. Its command and
+water export helpers exist only in the isolated diagnostic engine worktree. No
+production shader arithmetic, runtime defaults or simulation behavior changed.
