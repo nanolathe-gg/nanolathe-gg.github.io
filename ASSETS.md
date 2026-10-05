@@ -402,3 +402,19 @@ local browser evidence are in `scripts/renderer-capture/home-hero-video/`.
 The prior still's provenance is retained in `home-hero/` and Git history; its
 unused served image has been retired. Earlier hero metadata remains in
 `initial-review/media-manifest.json`.
+
+## October 5, 2026 community map previews
+
+`static/maps/previews/*.png` contains twenty minimaps extracted from the exact
+community-map ZIPs identified by `static/maps/manifest.json`. The engine's
+`tools/map-previews` verifies each source ZIP's size and SHA-256, parses its
+authored TNT minimap, removes the same padding rectangle as the map chooser,
+and resolves its palette indices through the reference install's base palette.
+It preserves native pixels without resampling or synthesized terrain.
+
+The twenty PNGs total 191,537 bytes. The manifest records every image hash,
+size and published URL. Map ZIPs remain unchanged. Original map credits,
+notices and source identities are preserved in the release packages and
+`inventory.json` at the [Maps release](https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/tag/maps).
+These previews retain the underlying assets' terms and are outside the website
+code's MIT license.

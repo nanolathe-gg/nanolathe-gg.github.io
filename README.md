@@ -440,11 +440,18 @@ included and must be obtained separately. See `ASSETS.md` for capture provenance
 
 ## Community map catalogue
 
-`static/maps/manifest.json` is the desktop **Get more maps** catalogue. Its
+`static/maps/manifest.json` is the desktop **More maps** catalogue. Its
 individual ZIPs are hosted on this repository's separate `maps` GitHub release,
 not committed to the website. `maps` entries identify a canonical OTA and
 reference shared `dependencies` by ID; each archive carries its exact byte
 count and SHA-256. The map library does not select or replace a gameplay mod.
+
+Every map also has a `preview` object with a URL, byte count and SHA-256 for
+its PNG under `static/maps/previews/`. These small authored minimaps can be
+fetched independently before downloading a map. The engine's
+`tools/map-previews` generates them from the verified release ZIPs and the
+reference palette; see `ASSETS.md`. Map ZIP identities do not change when a
+preview is added. The engine accepts older catalogues without previews.
 
 The engine repository's `research/extensions/community-map-packages.md` records
 source editions, authors, feature requirements and acceptance. Original credits
@@ -457,6 +464,7 @@ published release as well:
 ```sh
 python3 scripts/check-maps.py --archives /path/to/map-packages
 python3 scripts/check-maps.py --remote
+python3 scripts/check-maps.py --previews-remote
 ```
 
 Publish verified archive assets before publishing a manifest that refers to
