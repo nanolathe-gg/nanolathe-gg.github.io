@@ -1,0 +1,305 @@
+{
+  "schema": 1,
+  "maps": [
+    {
+      "id": "gods-of-war-2",
+      "name": "Gods of War 2",
+      "version": "original",
+      "summary": "Original six-player 13 × 13 battlefield.",
+      "homepage": "https://tadg.tauniverse.com/downloads.htm",
+      "map": "maps/gods of war 2.ota",
+      "requires": [],
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/gods-of-war-2-original.zip",
+        "size": 3551960,
+        "sha256": "de64c299cf1a55f8e78365658589b4b64c02823217a52a9ec61f1a981cd7c7e0"
+      }
+    },
+    {
+      "id": "great-divide-2",
+      "name": "Great Divide 2",
+      "version": "original",
+      "summary": "Balanced 6 × 8 divide for two or four players.",
+      "homepage": "https://tadg.tauniverse.com/downloads.htm",
+      "map": "maps/great divide 2.ota",
+      "requires": [],
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/great-divide-2-original.zip",
+        "size": 859484,
+        "sha256": "dc8d202fd027e83070c2c5123d5a06e5fc526dcd686de6e737e7b4a3034e3e74"
+      }
+    },
+    {
+      "id": "johns-pass-redux",
+      "name": "John’s Pass Redux",
+      "version": "original",
+      "summary": "Narrow navigable channels across a 10 × 15 battlefield.",
+      "homepage": "https://tadg.tauniverse.com/downloads.htm",
+      "map": "maps/john's pass redux.ota",
+      "requires": [],
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/johns-pass-redux-original.zip",
+        "size": 4356923,
+        "sha256": "7e9104a41da61d04b2b875509aeaeedaccf160a76ddbd1b87e9f65367e24cd1c"
+      }
+    },
+    {
+      "id": "johns-pond",
+      "name": "John’s Pond",
+      "version": "original",
+      "summary": "An 11 × 10 water map for six players.",
+      "homepage": "https://tadg.tauniverse.com/downloads.htm",
+      "map": "maps/john's pond.ota",
+      "requires": [],
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/johns-pond-original.zip",
+        "size": 2494605,
+        "sha256": "41f5b5ae802b2cd275d43d6c2f937315a8b5a9ee6e35028a44dd77dc64abd5aa"
+      }
+    },
+    {
+      "id": "metal-heck-2",
+      "name": "Metal Heck 2",
+      "version": "original",
+      "summary": "Original 20 × 20 metal battlefield for up to ten players.",
+      "homepage": "https://tadg.tauniverse.com/downloads.htm",
+      "map": "maps/metal heck 2.ota",
+      "requires": [],
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/metal-heck-2-original.zip",
+        "size": 389090,
+        "sha256": "09f5fc797f312c0b46bc2f8c9e7b0f802b2d8b7c0943b44bab1535326e87c20d"
+      }
+    },
+    {
+      "id": "pd-marathon",
+      "name": "PD Marathon",
+      "version": "original",
+      "summary": "An 18 × 18 divided desert battlefield.",
+      "homepage": "https://tadg.tauniverse.com/downloads.htm",
+      "map": "maps/pd_marathon.ota",
+      "requires": [],
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/pd-marathon-original.zip",
+        "size": 3799578,
+        "sha256": "57adad6e059da8930578868b9acb7587480fe1fd594f0e3e23ddd6b588607e1b"
+      }
+    },
+    {
+      "id": "coast-to-coast-2",
+      "name": "Coast to Coast 2",
+      "version": "original",
+      "summary": "The TA multiplayer-pack coast-to-coast edition.",
+      "homepage": "https://tadg.tauniverse.com/downloads.htm",
+      "map": "maps/coast to coast 2.ota",
+      "requires": [],
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/coast-to-coast-2-original.zip",
+        "size": 1220105,
+        "sha256": "f3bffd50e26e41b3e4e4c08d635dba4609f61525dbf5ccbdd534a46998b5a9cd"
+      }
+    },
+    {
+      "id": "tetra",
+      "name": "Tetra",
+      "version": "original",
+      "summary": "A 10 × 10 map with amphibious routes.",
+      "homepage": "https://tadg.tauniverse.com/downloads.htm",
+      "map": "maps/tetra.ota",
+      "requires": [],
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/tetra-original.zip",
+        "size": 3270719,
+        "sha256": "00acb995a21816727c9d5d28a710af805417915b2a661f7b36840227050f6a54"
+      }
+    },
+    {
+      "id": "friction",
+      "name": "Friction",
+      "version": "original",
+      "summary": "An 8 × 12 battlefield for large team games.",
+      "homepage": "https://tadg.tauniverse.com/downloads.htm",
+      "map": "maps/friction.ota",
+      "requires": [],
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/friction-original.zip",
+        "size": 1960358,
+        "sha256": "239d6326093a5c0663fc4a39d8a8712ac716030492588044c41cc1dbd513358e"
+      }
+    },
+    {
+      "id": "alien-desert-2",
+      "name": "Alien Desert 2",
+      "version": "original",
+      "summary": "Alien Desert II: mesas, high winds and acid water.",
+      "homepage": "https://tadg.tauniverse.com/downloads.htm",
+      "map": "maps/alien desert ii.ota",
+      "requires": [],
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/alien-desert-2-original.zip",
+        "size": 1082622,
+        "sha256": "d33822ed185660908f164c92fa89a5c06fa115a4f88b2498a8e2493007bd9cf3"
+      }
+    },
+    {
+      "id": "metal-picnic-v2",
+      "name": "Metal Picnic V2",
+      "version": "2",
+      "summary": "Seven starts on a 22 × 40 metal and woodland map.",
+      "homepage": "https://thepack.tauniverse.com/Maps.shtml",
+      "map": "maps/metal picnic_v2.ota",
+      "requires": [
+        "ta-features-2013"
+      ],
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/metal-picnic-v2-2.zip",
+        "size": 4965578,
+        "sha256": "4abbf118d720f87a14b857145007b323ba0f4ae5ac7bfd373e2dbe5758639b0d"
+      }
+    },
+    {
+      "id": "burning-woods-v5",
+      "name": "Burning Woods V5",
+      "version": "5",
+      "summary": "Five starts across a 16 × 40 wooded metal map.",
+      "homepage": "https://thepack.tauniverse.com/Maps.shtml",
+      "map": "maps/burning woods v6.ota",
+      "requires": [
+        "ta-features-2013"
+      ],
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/burning-woods-v5-5.zip",
+        "size": 5532878,
+        "sha256": "c0f943dc486ece9cc1c02e2c17b086aab9e02cdc9a8a9d8c9718dd9a9c146b66"
+      }
+    },
+    {
+      "id": "hot-pot",
+      "name": "Hot Pot",
+      "version": "original",
+      "summary": "Eight starts around a 12 × 12 lava caldera.",
+      "homepage": "https://thepack.tauniverse.com/Maps.shtml",
+      "map": "maps/hot pot.ota",
+      "requires": [],
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/hot-pot-original.zip",
+        "size": 6645176,
+        "sha256": "cf157f8c90118c75865f46f97b5f5c412f8b9cfc9b9728dbfc6f5980e91e5e96"
+      }
+    },
+    {
+      "id": "winter-canyon",
+      "name": "Winter Canyon",
+      "version": "original",
+      "summary": "A 20 × 35 snow canyon with ten starts; default no-snowfall edition.",
+      "homepage": "https://thepack.tauniverse.com/Maps.shtml",
+      "map": "maps/winter canyon.ota",
+      "requires": [
+        "ta-features-2013"
+      ],
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/winter-canyon-original.zip",
+        "size": 16479951,
+        "sha256": "f3fb76d6671c6c073035060dd5eedd51ad8533036876cf30e231cffdcf8457ef"
+      }
+    },
+    {
+      "id": "supreme-conflict",
+      "name": "Supreme Conflict",
+      "version": "original",
+      "summary": "Original OTA-tileset 36 × 36 edition of Supreme Conflict.",
+      "homepage": "https://taesc.tauniverse.com/?p=maps",
+      "map": "maps/supreme conflict revised.ota",
+      "requires": [],
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/supreme-conflict-original.zip",
+        "size": 15911850,
+        "sha256": "e6ba21e4d5708df471d36722c48a26483428de25864caa2dd9d77ac5248de50d"
+      }
+    },
+    {
+      "id": "seven-arms",
+      "name": "Seven Arms",
+      "version": "original",
+      "summary": "Seven starts and land or sea routes across a 36 × 36 map.",
+      "homepage": "https://taesc.tauniverse.com/?p=maps",
+      "map": "maps/tawp_seven arms.ota",
+      "requires": [],
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/seven-arms-original.zip",
+        "size": 22918874,
+        "sha256": "6adae8fa3b0b5fcd4ed556b9fe946fcad569a11222f8f9915d3437450bf0f1a7"
+      }
+    },
+    {
+      "id": "wet-and-dry",
+      "name": "Wet and Dry",
+      "version": "original",
+      "summary": "An 18 × 18 mixed-desert expansion of Riverside.",
+      "homepage": "https://taesc.tauniverse.com/?p=maps",
+      "map": "maps/taesc_wet and dry.ota",
+      "requires": [],
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/wet-and-dry-original.zip",
+        "size": 6305563,
+        "sha256": "a778bee0eb872a6172dcb9db5095dc0f9193f7938f67335a187b4a9378bb7972"
+      }
+    },
+    {
+      "id": "double-crossing",
+      "name": "Double Crossing",
+      "version": "original",
+      "summary": "A 24 × 24 island battlefield for up to six players.",
+      "homepage": "https://taesc.tauniverse.com/?p=maps",
+      "map": "maps/tawp_double crossing.ota",
+      "requires": [],
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/double-crossing-original.zip",
+        "size": 9546760,
+        "sha256": "d571b1c5562d7d7991e5494e2586996df497a8caa36e198bb50a9b356facd680"
+      }
+    },
+    {
+      "id": "rude-country",
+      "name": "Rude Country",
+      "version": "original",
+      "summary": "Large grassy battlefield with rolling hills and ten starts.",
+      "homepage": "https://taesc.tauniverse.com/?p=maps",
+      "map": "maps/taesc_rude country.ota",
+      "requires": [],
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/rude-country-original.zip",
+        "size": 13727643,
+        "sha256": "490b4fc5047d34b5a3ed54c3152be0b10b8e997bf03246ccceab216c3496c692"
+      }
+    },
+    {
+      "id": "the-last-divide",
+      "name": "The Last Divide",
+      "version": "original",
+      "summary": "A 21 × 21 divide for up to ten players.",
+      "homepage": "https://taesc.tauniverse.com/?p=maps",
+      "map": "maps/taesc_the last divide.ota",
+      "requires": [],
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/the-last-divide-original.zip",
+        "size": 11429981,
+        "sha256": "5e4accd9adf6406766c3b0374916fb29fb12f75ccffce5cfa0b5109d6985f50f"
+      }
+    }
+  ],
+  "dependencies": [
+    {
+      "id": "ta-features-2013",
+      "name": "Community map feature sprites",
+      "version": "2013",
+      "summary": "Seven original TA Features 2013 sprite banks required by the curated maps.",
+      "homepage": "https://files.tauniverse.com/files/ta/features/",
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/ta-features-2013-2013.zip",
+        "size": 167793,
+        "sha256": "6464c3b84b594050483aea3be42cc9625982c7476a8efbf4764237c67bb3f7bb"
+      }
+    }
+  ]
+}

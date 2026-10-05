@@ -437,3 +437,28 @@ page includes engine screenshots and clips displaying original Total Annihilatio
 artwork; those underlying game assets remain the property of their respective
 owners and are not covered by the website code license. Playable game data is not
 included and must be obtained separately. See `ASSETS.md` for capture provenance.
+
+## Community map catalogue
+
+`static/maps/manifest.json` is the desktop **Get more maps** catalogue. Its
+individual ZIPs are hosted on this repository's separate `maps` GitHub release,
+not committed to the website. `maps` entries identify a canonical OTA and
+reference shared `dependencies` by ID; each archive carries its exact byte
+count and SHA-256. The map library does not select or replace a gameplay mod.
+
+The engine repository's `research/extensions/community-map-packages.md` records
+source editions, authors, feature requirements and acceptance. Original credits
+and distribution notices travel inside the packages; the website's source
+license does not relicense those assets.
+
+`make check` validates the catalogue. To verify all local packages or the
+published release as well:
+
+```sh
+python3 scripts/check-maps.py --archives /path/to/map-packages
+python3 scripts/check-maps.py --remote
+```
+
+Publish verified archive assets before publishing a manifest that refers to
+them. Treat each package version as immutable; changed bytes get a new version
+and filename so an installed edition remains reproducible.
