@@ -51,7 +51,7 @@ def decorate(text):
     # until that binding completes; browser-play.js then removes it from the DOM.
     text = re.sub(r'<button id="stop"[^>]*>.*?</button>', '<button id="choose-folder" type="button">Choose game folder</button><button id="stop" hidden aria-hidden="true" tabindex="-1"></button>', text, count=1, flags=re.S)
     text = text.replace('<div id="game-view" hidden>', '''<div id="game-view" hidden>
-<div id="demo-loading-panel"><p class="eyebrow">Nanolathe / Browser demo</p><h2>Preparing your first battle.</h2><p>The engine and original demo files are loading. Progress appears below.</p></div>
+<div id="demo-loading-panel" aria-labelledby="demo-loading-title"><p class="eyebrow">Nanolathe / Browser demo</p><span class="demo-loading-spinner" aria-hidden="true"></span><h2 id="demo-loading-title">Loading the demo…</h2><p>Your battle will start automatically when it’s ready.<br>Slower connections may take a little longer. Keep this tab open.</p><p id="demo-loading-progress" aria-hidden="true">Preparing the engine and original demo files…</p></div>
 <div id="game-folder-drop"><strong>Bring your own battlefield.</strong><span>Drop your installed TotalA folder here. Your files stay on your computer.</span></div>''', 1)
     text = text.replace("</body>", footer + "</body>", 1)
     final = Launcher(text).ids

@@ -17,6 +17,7 @@ build: brand play
 check: build
 	python3 scripts/check-site.py
 	@if command -v node >/dev/null 2>&1; then node scripts/test-platform.cjs; else echo "Node unavailable; browser platform unit checks skipped."; fi
+	@if command -v node >/dev/null 2>&1; then node scripts/test-browser-play.cjs; else echo "Node unavailable; browser demo unit checks skipped."; fi
 	python3 scripts/check-play.py
 	python3 scripts/test-play.py
 	python3 scripts/check-format-examples.py

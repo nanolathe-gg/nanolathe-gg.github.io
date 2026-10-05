@@ -9,12 +9,19 @@
   const view = document.getElementById('game-view');
   const heading = document.getElementById('demo-title');
   const fallbackFolder = document.getElementById('fallback-folder');
+  const loadingProgress = document.getElementById('demo-loading-progress');
   const mobile = navigator.userAgentData?.mobile === true || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ||
     (/Mac/i.test(navigator.platform) && navigator.maxTouchPoints > 1);
   const unsupported = mobile || !window.isSecureContext || !window.WebAssembly || !navigator.locks || !window.crypto?.subtle;
   const automatic = !unsupported;
-  let requested = false;
+  let requested = false, sawBusy = false;
   if (automatic) document.body.classList.add('demo-starting');
+  demo.addEventListener('click', () => {
+    if (unsupported || demo.disabled) return;
+    requested = true; sawBusy = false;
+    heading.textContent = 'Play the demo.';
+    document.body.classList.add('demo-starting');
+  }, true);
   const update = () => {
     const stop = document.getElementById('stop');
     if (stop?.onclick) stop.remove();
@@ -22,12 +29,19 @@
     // folder controls without automatically launching the same failed source.
     if (welcome.hidden && view.hidden) welcome.hidden = false;
     document.body.classList.toggle('is-running', welcome.hidden);
-    if (welcome.hidden || (requested && !demo.disabled) || /unavailable|failed|already running/i.test(demo.textContent + status.textContent)) {
-      document.body.classList.remove('demo-starting');
-    }
+    if (loadingProgress && loadingProgress.textContent !== status.textContent) loadingProgress.textContent = status.textContent;
     if (!unsupported) {
+      // Availability enables the button before the queued automatic click.
+      // Only a completed busy cycle can fail; an enabled button alone cannot.
+      if (requested && demo.disabled) sawBusy = true;
       const unavailable = /unavailable/i.test(demo.textContent);
-      if (!welcome.hidden && (unavailable || (requested && !demo.disabled))) {
+      const failed = requested && sawBusy && !demo.disabled && !document.getElementById('start').disabled && !welcome.hidden;
+      // The host exposes its iframe before Wasm finishes downloading. Keep
+      // the loading panel until the engine reports its first running sample.
+      if (unavailable || failed || (!view.hidden && /^Running /i.test(status.textContent))) {
+        document.body.classList.remove('demo-starting');
+      }
+      if (!welcome.hidden && (unavailable || failed)) {
         const title = unavailable ? 'The demo is unavailable.' : 'The demo couldn’t start.';
         if (heading.textContent !== title) heading.textContent = title;
         if (!demo.disabled && demo.textContent === 'Try the demo') demo.textContent = 'Retry demo';

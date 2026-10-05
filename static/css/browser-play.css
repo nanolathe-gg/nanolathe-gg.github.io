@@ -33,7 +33,12 @@ body.browser-play{--bg:#121516;--line:#343d3d;--text:#edf0e7;--muted:#a8b09e;--g
 .browser-play #demo-loading-panel{display:none;position:absolute;inset:0;align-items:center;justify-content:center;flex-direction:column;padding:30px;text-align:center;background:var(--bg);z-index:1}
 .browser-play.demo-starting #demo-loading-panel{display:flex}
 .browser-play #demo-loading-panel h2{font:600 clamp(26px,4vw,46px)/1.2 Chakra,system-ui;margin:0 0 18px}
-.browser-play #demo-loading-panel>p:last-child{color:var(--muted);font-size:13px;max-width:45ch}
+.browser-play #demo-loading-panel>p{color:var(--muted);font-size:14px;max-width:48ch}
+.browser-play #demo-loading-panel .eyebrow{color:var(--green);font-size:10px}
+.browser-play #demo-loading-panel #demo-loading-progress{color:var(--green);font-size:13px;overflow-wrap:anywhere;min-height:1.7em}
+.browser-play .demo-loading-spinner{width:48px;height:48px;border:3px solid var(--line);border-top-color:var(--green);border-radius:50%;margin:0 0 26px;animation:demo-loading-spin 1s linear infinite}
+@keyframes demo-loading-spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.browser-play .demo-loading-spinner{animation:none}}
 .browser-play #game-folder-drop{display:none;position:absolute;inset:16px;border:2px dashed var(--green);background:#121516ee;align-items:center;justify-content:center;flex-direction:column;padding:24px;text-align:center;z-index:3}
 .browser-play #game-folder-drop strong{font:600 26px Chakra,system-ui;margin-bottom:15px}
 .browser-play #game-folder-drop span{color:var(--muted);font-size:13px;max-width:45ch}
