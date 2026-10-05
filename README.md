@@ -207,6 +207,12 @@ release's `source-revision` file. Launchers compare that commit with current
 `main` and offer an update; failed checks or builds preserve the installed game.
 Existing users should rerun the install command once to adopt main tracking.
 
+The Mac app in `~/Applications` and Windows Start Menu shortcut use the green N
+icon and are refreshed on every successful update. Mac app updates show a native
+progress window with the current installation stage. The public scripts are
+byte-for-byte copies of the engine's `tools/installer/install.sh` and
+`install.ps1`; keep their mirrored offline tests and source fixtures aligned.
+
 `static/install/release.txt` still supplies pinned official Go toolchain and
 public installer checksums. Its source revision and archive hashes describe a
 legacy snapshot for older installers; they do not select or verify current-main

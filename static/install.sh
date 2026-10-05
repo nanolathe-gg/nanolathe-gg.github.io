@@ -40,6 +40,13 @@ exec 3>&1 4>&2
 printf 'Installing Nanolathe. Build and download log: %s\n' "$log"
 
 fetch() { curl --proto '=https' --tlsv1.2 --fail --location --silent --show-error --retry 2 --output "$2" "$1"; }
+progress() {
+    printf '%s\n' "$1" >&3
+    # A failed presentation write must not prevent installation or rollback.
+    if [ -n "${NANOLATHE_UPDATE_STATUS:-}" ]; then
+        { printf '%s\n' "$1" > "$NANOLATHE_UPDATE_STATUS.next" && mv -f "$NANOLATHE_UPDATE_STATUS.next" "$NANOLATHE_UPDATE_STATUS"; } || true
+    fi
+}
 verify() {
     local actual
     actual=$("${hash_cmd[@]}" "$1"); actual=${actual%% *}
@@ -61,6 +68,7 @@ latest_revision() {
 }
 install_release() {
     stage=$(mktemp -d "$base/.install-XXXXXXXX")
+    progress 'Checking the latest release…'
     fetch https://nanolathe.gg/install/release.txt "$stage/release.txt"
     local line key value seen='|' version= revision= source_hash= go_version= go_da= go_dx= go_la= go_lx= zip_hash= go_wx= go_wa=
     while IFS= read -r line || [ -n "$line" ]; do
@@ -93,16 +101,18 @@ install_release() {
     case "$os-$arch" in darwin-arm64) go_hash=$go_da ;; darwin-amd64) go_hash=$go_dx ;; linux-arm64) go_hash=$go_la ;; linux-amd64) go_hash=$go_lx ;; esac
     toolchain="$base/toolchains/go$go_version-$os-$arch-$go_hash"
     if [ ! -x "$toolchain/bin/go" ]; then
-        printf 'Downloading private Go %s toolchain…\n' "$go_version" >&3
+        progress "Downloading Go ${go_version}…"
         fetch "https://go.dev/dl/go$go_version.$os-$arch.tar.gz" "$stage/go.tar.gz"
         verify "$stage/go.tar.gz" "$go_hash"
         tar -xzf "$stage/go.tar.gz" -C "$stage"
         [ -x "$stage/go/bin/go" ] || fail 'Go archive is missing its executable'
         mv "$stage/go" "$toolchain"
     fi
+    progress 'Downloading Nanolathe…'
     fetch "https://codeload.github.com/nanolathe-gg/nanolathe/tar.gz/$revision" "$stage/source.tar.gz"
-    # The release manifest's source hashes describe its legacy pinned commit.
-    # Current main is fetched over HTTPS by the resolved immutable commit ID.
+    progress 'Unpacking the download…'
+    # The source hashes describe the legacy snapshot. Current main is downloaded
+    # over HTTPS using the immutable commit resolved above.
     mkdir "$stage/source" "$stage/release"
     tar -xzf "$stage/source.tar.gz" -C "$stage/source"
     local source="$stage/source/nanolathe-$revision"
@@ -110,8 +120,22 @@ install_release() {
     export CGO_ENABLED=0 GOTOOLCHAIN=local GOPATH="$base/cache/gopath" GOMODCACHE="$base/cache/gopath/pkg/mod" GOCACHE="$base/cache/go-build" GOENV=off
     export GOROOT="$toolchain" GOWORK=off GOFLAGS= GOPROXY=https://proxy.golang.org GOSUMDB=sum.golang.org GOPRIVATE= GONOSUMDB= GONOPROXY=
     unset GOOS GOARCH GOAMD64 GOARM64 GOEXPERIMENT
-    printf 'Building Nanolathe %s (the first build can take several minutes)…\n' "$version" >&3
-    (cd "$source" && "$toolchain/bin/go" build -mod=readonly -trimpath -buildvcs=false -ldflags='-s -w' -o "$stage/release/nanolathe" ./cmd/nanolathe)
+    # The common build manifest (docs/DESIGN_MULTIPLAYER.md §8.7) is stamped
+    # into the resolved source before the build. It is read from the downloaded
+    # archive, so every platform's install of this release names one build,
+    # and it records exactly the build arguments below, the cleared
+    # environment's cgo setting and the six admitted toolchain archives.
+    local build_args=(-mod=readonly -trimpath -buildvcs=false '-ldflags=-s -w' ./cmd/nanolathe) stamp_args=() arg
+    for arg in "${build_args[@]}"; do stamp_args+=("-arg=$arg"); done
+    stamp_args+=(-source "$stage/source.tar.gz" -prefix "nanolathe-$revision/" -write "$source" -cgo 0
+        -variant "darwin/amd64/v1=$go_dx" -variant "darwin/arm64/v8.0=$go_da"
+        -variant "linux/amd64/v1=$go_lx" -variant "linux/arm64/v8.0=$go_la"
+        -variant "windows/amd64/v1=$go_wx" -variant "windows/arm64/v8.0=$go_wa")
+    progress "Preparing Nanolathe ${version}…"
+    (cd "$source" && "$toolchain/bin/go" run -mod=readonly -trimpath -buildvcs=false ./internal/version/stampgen "${stamp_args[@]}")
+    progress 'Building Nanolathe…'
+    (cd "$source" && "$toolchain/bin/go" build -o "$stage/release/nanolathe" "${build_args[@]}")
+    progress 'Checking the new build…'
     "$stage/release/nanolathe" --help
     if [ -n "$root_arg" ]; then
         root_arg=$(cd -- "$root_arg" && pwd -P)
@@ -119,6 +143,11 @@ install_release() {
     fi
     cp "$stage/release.txt" "$stage/release/release.txt"
     printf '%s\n' "$revision" > "$stage/release/source-revision"
+    if [ "$os" = darwin ]; then
+        # Both resources come from the resolved source commit archive.
+        cp "$source/tools/installer/macos/Nanolathe.icns" "$stage/release/Nanolathe.icns"
+        cp "$source/tools/installer/macos/update-progress.js" "$stage/release/update-progress.js"
+    fi
     # A unique directory avoids modifying the running release when reinstalling.
     release="$base/releases/$version-$revision-$(date +%Y%m%d%H%M%S)-$$"
     write_launcher "$stage/release/launch.sh"
@@ -134,7 +163,8 @@ exec /bin/bash "$base/current/launch.sh" "$base" "$@"
 ENTRY
     chmod +x "$stage/launch.sh"
     mv -f "$stage/launch.sh" "$base/launch.sh"
-    create_shortcut
+    progress 'Installing the application shortcut…'
+    create_shortcut "$release"
     replace_pointer "$stage/current" "$base/current"
     printf 'Installed %s. Launcher: %s\n' "$version" "$base/launch.sh" >&3
 }
@@ -186,7 +216,15 @@ read_update_manifest() {
 offer_update() (
     # A subshell owns temporary files and terminal descriptors, including on failure.
     update_stage=$(mktemp -d "$base/.update-XXXXXXXX") || return 1
-    trap 'rm -rf "$update_stage"' EXIT
+    progress_pid=
+    cleanup_update() {
+        if [ -n "$progress_pid" ]; then
+            kill "$progress_pid" 2>/dev/null || true
+            wait "$progress_pid" 2>/dev/null || true
+        fi
+        rm -rf "$update_stage"
+    }
+    trap cleanup_update EXIT
     curl --disable --proto '=https' --proto-redir '=https' --tlsv1.2 --fail --location --silent \
         --connect-timeout 2 --max-time 3 --max-filesize 16384 \
         --output "$update_stage/release.txt" https://nanolathe.gg/install/release.txt 2>/dev/null || return 1
@@ -201,7 +239,7 @@ offer_update() (
     manifest_revision=$(latest_revision 3) || return 1
     [ "$manifest_revision" != "$installed_revision" ] || return 1
     manifest_version="main-${manifest_revision:0:12}"
-    answer=
+    answer= gui_update=false
     if { exec 6<> /dev/tty; } 2>/dev/null; then
         printf '\nNanolathe %s has an update. Update & play? [y/N] (N: Play current version): ' "$manifest_version" >&6
         IFS= read -r answer <&6 || return 1
@@ -216,8 +254,16 @@ end run
 APPLE
 ) || return 1
         [ "$answer" = 'Update & play' ] || return 1
+        gui_update=true
     else
         return 1
+    fi
+    if [ "$gui_update" = true ]; then
+        export NANOLATHE_UPDATE_STATUS="$update_stage/status"
+        printf '%s\n' 'Downloading the updater…' > "$NANOLATHE_UPDATE_STATUS"
+        /usr/bin/osascript -l JavaScript "$release/update-progress.js" "$NANOLATHE_UPDATE_STATUS" "$release/Nanolathe.icns" \
+            > "$update_stage/progress.log" 2>&1 &
+        progress_pid=$!
     fi
     printf 'Downloading the Nanolathe updater…\n'
     if ! curl --disable --proto '=https' --proto-redir '=https' --tlsv1.2 --fail --location --silent --show-error \
@@ -336,8 +382,9 @@ LAUNCHER
 
 create_shortcut() {
     if [ "$os" = darwin ]; then
-        local app="$HOME/Applications/Nanolathe.app"
+        local app="$HOME/Applications/Nanolathe.app" release=$1
         mkdir -p "$app/Contents/MacOS" "$app/Contents/Resources"
+        cp "$release/Nanolathe.icns" "$app/Contents/Resources/Nanolathe.icns"
         printf '%s\n' "$base" > "$app/Contents/Resources/install-dir"
         cat > "$app/Contents/Info.plist" <<'PLIST'
 <?xml version="1.0" encoding="UTF-8"?>
@@ -346,6 +393,7 @@ create_shortcut() {
 <key>CFBundleIdentifier</key><string>gg.nanolathe.game</string>
 <key>CFBundleName</key><string>Nanolathe</string>
 <key>CFBundleExecutable</key><string>Nanolathe</string>
+<key>CFBundleIconFile</key><string>Nanolathe.icns</string>
 <key>CFBundlePackageType</key><string>APPL</string>
 <key>CFBundleVersion</key><string>1</string>
 <key>NSHighResolutionCapable</key><true/>
@@ -360,6 +408,7 @@ exec /bin/bash "$base/launch.sh"
 APP
         chmod +x "$app/Contents/MacOS/Nanolathe"
         if command -v codesign >/dev/null; then codesign --force --deep --sign - "$app" || printf 'Shortcut signing failed; use %s directly.\n' "$base/launch.sh" >&3; fi
+        touch "$app"
         printf 'Application shortcut: %s\n' "$app" >&3
     else
         local menu="${XDG_DATA_HOME:-$HOME/.local/share}/applications" escaped

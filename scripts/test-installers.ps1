@@ -84,14 +84,51 @@ try {
     Assert-Throws { Publish-NanolatheRelease $base $stage 'new-release' {} { throw 'shortcut creation failed' } } 'failed shortcut preparation'
     Assert-Equal ([IO.File]::ReadAllText((Join-Path $base 'current.txt'))) 'old-release' 'Shortcut failure preserves active release'
     Assert-Equal ([IO.File]::ReadAllText((Join-Path $old 'nanolathe.exe'))) 'working binary' 'Shortcut failure preserves old binary'
-    $published = Publish-NanolatheRelease $base $stage 'new-release' {
-        param($candidate)
-        if ([IO.File]::ReadAllText($candidate) -cne 'unverified binary') { throw 'Wrong candidate' }
-        Write-Output 'Authored --help output'
-    }
+    $iconSource = Join-Path $PSScriptRoot 'installer-fixtures\windows\Nanolathe.ico'
+    [IO.File]::Copy($iconSource, (Join-Path $stage 'Nanolathe.ico'))
+    $shortcut = [pscustomobject]@{ TargetPath = ''; Arguments = ''; WorkingDirectory = ''; Description = ''; IconLocation = '' }
+    $systemRootBefore = $env:SystemRoot
+    if ([string]::IsNullOrEmpty($env:SystemRoot)) { $env:SystemRoot = Join-Path $base 'authored Windows' }
+    try {
+        $published = Publish-NanolatheRelease $base $stage 'new-release' {
+            param($candidate)
+            if ([IO.File]::ReadAllText($candidate) -cne 'unverified binary') { throw 'Wrong candidate' }
+            Write-Output 'Authored --help output'
+        } {
+            param($destination)
+            Set-NanolatheShortcutProperties $shortcut $base $destination
+        }
+    } finally { $env:SystemRoot = $systemRootBefore }
     Assert-Equal ([IO.File]::ReadAllText((Join-Path $base 'current.txt'))) 'new-release' 'Success switches active release'
     Assert-Equal ([IO.File]::ReadAllText((Join-Path $old 'nanolathe.exe'))) 'working binary' 'Success retains previous binary'
     Assert-Equal $published (Join-Path (Join-Path $base 'releases') 'new-release') 'Published directory'
+    $iconPath = $shortcut.IconLocation.Substring(0, $shortcut.IconLocation.LastIndexOf(','))
+    Assert-Equal ([IO.Path]::GetDirectoryName($iconPath)) $published 'Shortcut icon belongs to the published release'
+    Assert-Equal $shortcut.IconLocation.Substring($shortcut.IconLocation.LastIndexOf(',')) ',0' 'Shortcut selects the ICO image'
+    Assert-Equal (Test-Path -LiteralPath $stage) $false 'Temporary stage was removed by promotion'
+    Test-NanolatheChecksum $iconPath (Get-FileHash -LiteralPath $iconSource -Algorithm SHA256).Hash
+    # On native Windows, prove WSH persists the icon on the actual shortcut,
+    # and that recreating it points to the updated release's surviving icon.
+    if ([Environment]::OSVersion.Platform -eq [PlatformID]::Win32NT) {
+        Add-Type -AssemblyName System.Drawing
+        $nativeIcon = New-Object Drawing.Icon($iconPath)
+        try { if ($nativeIcon.Width -le 0) { throw 'Windows could not load the icon.' } }
+        finally { $nativeIcon.Dispose() }
+        $shell = New-Object -ComObject WScript.Shell
+        try {
+            $shortcutPath = Join-Path $base 'Nanolathe.lnk'
+            $nativeShortcut = $shell.CreateShortcut($shortcutPath)
+            Set-NanolatheShortcutProperties $nativeShortcut $base $published
+            $nativeShortcut.Save()
+            Assert-Equal ($shell.CreateShortcut($shortcutPath)).IconLocation $shortcut.IconLocation 'Saved Start Menu icon'
+            $next = Join-Path (Join-Path $base 'releases') 'next-release'
+            [void][IO.Directory]::CreateDirectory($next)
+            [IO.File]::Copy($iconSource, (Join-Path $next 'Nanolathe.ico'))
+            Set-NanolatheShortcutProperties $nativeShortcut $base $next
+            $nativeShortcut.Save()
+            Assert-Equal ($shell.CreateShortcut($shortcutPath)).IconLocation ((Join-Path $next 'Nanolathe.ico') + ',0') 'Update refreshes the same shortcut icon'
+        } finally { [void][Runtime.InteropServices.Marshal]::ReleaseComObject($shell) }
+    }
 
     $launcher = Get-NanolatheLauncher
     [void][Management.Automation.Language.Parser]::ParseInput($launcher, [ref]$tokens, [ref]$errors)
@@ -99,7 +136,7 @@ try {
     # Run the encoded shortcut command against an authored launcher, proving the
     # base path survives spaces, apostrophes, brackets and shell metacharacters.
     [IO.File]::WriteAllText((Join-Path $published 'launch.ps1'), 'param($Base); $Base')
-    $arguments = Get-NanolatheLaunchCommand $base
+    $arguments = $shortcut.Arguments
     $encoded = ($arguments -split ' ')[-1]
     $command = [Text.Encoding]::Unicode.GetString([Convert]::FromBase64String($encoded))
     Assert-Equal (& ([scriptblock]::Create($command))) $base 'Shortcut literal path round trip'

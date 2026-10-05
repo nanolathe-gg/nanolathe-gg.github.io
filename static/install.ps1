@@ -333,6 +333,15 @@ try {
     return '-NoProfile -STA -EncodedCommand ' + [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($command))
 }
 
+function Set-NanolatheShortcutProperties($Shortcut, [string]$Base, [string]$Release) {
+    $Shortcut.TargetPath = Join-Path $env:SystemRoot 'System32\WindowsPowerShell\v1.0\powershell.exe'
+    $Shortcut.Arguments = Get-NanolatheLaunchCommand $Base
+    $Shortcut.WorkingDirectory = $Base
+    $Shortcut.Description = 'Play Nanolathe using your Total Annihilation game assets'
+    # The icon lives beside the selected release, outside the temporary build.
+    $Shortcut.IconLocation = (Join-Path $Release 'Nanolathe.ico') + ',0'
+}
+
 function Invoke-NanolatheInstaller {
     # Windows PowerShell 5.1 renders progress for each download chunk. Suppress
     # that overhead only in this invocation; explicit stage messages remain.
@@ -413,11 +422,28 @@ Builds the latest commit on main with a checksum-verified private Go compiler. O
         $name = $version + '-' + $revision + '-' + [guid]::NewGuid().ToString('N')
         $stage = Join-Path $base ('stage-' + [guid]::NewGuid().ToString('N'))
         [void][IO.Directory]::CreateDirectory($stage)
+        # The common build manifest (docs/DESIGN_MULTIPLAYER.md section 8.7) is stamped
+        # into the resolved source before the build, from the downloaded archive,
+        # so every platform's install of this release names one build. These
+        # build arguments are the Unix installer's: one common manifest needs
+        # one argument list. Each is passed to the stamp as an -arg value,
+        # since Windows PowerShell can drop a bare "--" before a native command.
+        $buildArgs = @('-mod=readonly', '-trimpath', '-buildvcs=false', '-ldflags=-s -w', './cmd/nanolathe')
+        $stampArgs = @($buildArgs | ForEach-Object { '-arg=' + $_ }) + @(
+            '-source', (Join-Path $work 'source.zip'), '-prefix', ('nanolathe-' + $revision + '/'), '-write', $source, '-cgo', '0',
+            '-variant', ('darwin/amd64/v1=' + $manifest.go_darwin_amd64_sha256), '-variant', ('darwin/arm64/v8.0=' + $manifest.go_darwin_arm64_sha256),
+            '-variant', ('linux/amd64/v1=' + $manifest.go_linux_amd64_sha256), '-variant', ('linux/arm64/v8.0=' + $manifest.go_linux_arm64_sha256),
+            '-variant', ('windows/amd64/v1=' + $manifest.go_windows_amd64_sha256), '-variant', ('windows/arm64/v8.0=' + $manifest.go_windows_arm64_sha256))
         Push-Location -LiteralPath $source
         try {
             Write-Host 'Building Nanolathe (the first build can take several minutes)...'
             $ErrorActionPreference = 'Continue'
-            & $go build -mod=readonly -trimpath -buildvcs=false -o (Join-Path $stage 'nanolathe.exe') ./cmd/nanolathe
+            & $go run -mod=readonly -trimpath -buildvcs=false ./internal/version/stampgen @stampArgs
+            $stampExit = $LASTEXITCODE
+            $ErrorActionPreference = 'Stop'
+            if ($stampExit -ne 0) { throw "Build stamp failed with code $stampExit." }
+            $ErrorActionPreference = 'Continue'
+            & $go build -o (Join-Path $stage 'nanolathe.exe') @buildArgs
             $buildExit = $LASTEXITCODE
             $ErrorActionPreference = 'Stop'
             if ($buildExit -ne 0) { throw "Go build failed with code $buildExit." }
@@ -433,6 +459,8 @@ Builds the latest commit on main with a checksum-verified private Go compiler. O
         [IO.File]::WriteAllText((Join-Path $stage 'launch.ps1'), (Get-NanolatheLauncher), (New-Object Text.UTF8Encoding($false)))
         [IO.File]::WriteAllText((Join-Path $stage 'release.txt'), $manifestText, (New-Object Text.UTF8Encoding($false)))
         [IO.File]::WriteAllText((Join-Path $stage 'source-revision'), $revision, (New-Object Text.UTF8Encoding($false)))
+        # The icon is part of the resolved source commit archive.
+        [IO.File]::Copy((Join-Path $source 'tools\installer\windows\Nanolathe.ico'), (Join-Path $stage 'Nanolathe.ico'))
         $release = Publish-NanolatheRelease $base $stage $name {
             param($exe)
             $ErrorActionPreference = 'Continue'
@@ -448,11 +476,7 @@ Builds the latest commit on main with a checksum-verified private Go compiler. O
             try {
                 $temporaryShortcut = Join-Path $work 'Nanolathe.lnk'
                 $shortcut = $shell.CreateShortcut($temporaryShortcut)
-                $shortcut.TargetPath = Join-Path $env:SystemRoot 'System32\WindowsPowerShell\v1.0\powershell.exe'
-                $shortcut.Arguments = Get-NanolatheLaunchCommand $base
-                $shortcut.WorkingDirectory = $base
-                $shortcut.Description = 'Play Nanolathe using your Total Annihilation game assets'
-                $shortcut.IconLocation = (Join-Path $destination 'nanolathe.exe') + ',0'
+                Set-NanolatheShortcutProperties $shortcut $base $destination
                 $shortcut.Save()
                 [IO.File]::Copy($temporaryShortcut, (Join-Path ([Environment]::GetFolderPath('Programs')) 'Nanolathe.lnk'), $true)
             } finally { [void][Runtime.InteropServices.Marshal]::ReleaseComObject($shell) }
