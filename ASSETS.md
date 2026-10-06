@@ -418,3 +418,20 @@ notices and source identities are preserved in the release packages and
 `inventory.json` at the [Maps release](https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/tag/maps).
 These previews retain the underlying assets' terms and are outside the website
 code's MIT license.
+
+## October 5, 2026 second community map batch
+
+Ten additional authored minimaps accompany the expanded thirty-map catalogue:
+Beta Tropics (Coasts), Blazters Beach, Center Command, PRO54 Tempest, Sail Here,
+The Pass II, Capricorn Isles, Micro-TA-Machines, Crooked Creek and Thin Air.
+They use the same verified TNT export described above. The new PNGs total
+70,610 bytes; all thirty total 262,147 bytes. Existing map ZIPs and previews
+retain their exact identities.
+
+The new maps add 35,770,658 download bytes and 99,931,386 expanded bytes, with
+no new shared feature dependency. The combined release inventory records
+172,388,149 download bytes and 424,034,275 expanded bytes. Historical popularity
+and recommendation sources, edition uncertainties, original notices and
+engine acceptance are recorded in the engine's
+`research/extensions/community-map-packages.md` and release provenance files.
+The PNGs retain the original maps' asset terms; they are not website MIT assets.

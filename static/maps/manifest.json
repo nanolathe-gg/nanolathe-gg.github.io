@@ -399,6 +399,196 @@
       "requires": [],
       "summary": "A 21 × 21 divide for up to ten players.",
       "version": "original"
+    },
+    {
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/beta-tropics-coasts-original.zip",
+        "size": 766654,
+        "sha256": "bc8b3bb6e9a38a0e335b02ffd28d5234296d489b72cb7b6d8a6793097ea52897"
+      },
+      "homepage": "https://www.ta-archive.com/maps/",
+      "id": "beta-tropics-coasts",
+      "map": "maps/beta tropics (coasts).ota",
+      "name": "Beta Tropics (Coasts)",
+      "preview": {
+        "url": "https://nanolathe.gg/maps/previews/beta-tropics-coasts-original.png",
+        "size": 2385,
+        "sha256": "548fca9823fb29d4f86ebc0b4f0265e078a659209ef2cc3fbeae630d93acab12"
+      },
+      "requires": [],
+      "summary": "A compact coastal battlefield with opposing beach starts.",
+      "version": "original"
+    },
+    {
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/blazters-beach-original.zip",
+        "size": 2549300,
+        "sha256": "bd9a612e0ac6e0224fd382d8004a570cc39e33c23ef0749be7ff35726de1e4ee"
+      },
+      "homepage": "https://tadg.tauniverse.com/downloads.htm",
+      "id": "blazters-beach",
+      "map": "maps/blazters beach.ota",
+      "name": "Blazters Beach",
+      "preview": {
+        "url": "https://nanolathe.gg/maps/previews/blazters-beach-original.png",
+        "size": 6438,
+        "sha256": "9200d092889bdf06640bcbc22ac67680cbae3d525b6756faacb765c090d30b97"
+      },
+      "requires": [],
+      "summary": "Six beach starts for amphibious assaults on a 10 × 10 map.",
+      "version": "original"
+    },
+    {
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/center-command-original.zip",
+        "size": 1184356,
+        "sha256": "b78fe0354ab7acfa7b5d1e4aa1970ebff03056e29d60ac9987b45ee58e489971"
+      },
+      "homepage": "https://tadg.tauniverse.com/downloads.htm",
+      "id": "center-command",
+      "map": "maps/center command.ota",
+      "name": "Center Command",
+      "preview": {
+        "url": "https://nanolathe.gg/maps/previews/center-command-original.png",
+        "size": 3767,
+        "sha256": "8aa0e61abb70c0c7f48b44bb84f58bbee93782f039b1a81e169ee8df721730a4"
+      },
+      "requires": [],
+      "summary": "Opposing ends of a lush battlefield with strong tidal ponds.",
+      "version": "original"
+    },
+    {
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/pro54-tempest-original.zip",
+        "size": 2596708,
+        "sha256": "4984673074baaf7931c07360e73153de82c8a7e4488f46c3a7ac5a1d0a2f1f17"
+      },
+      "homepage": "https://tadg.tauniverse.com/downloads.htm",
+      "id": "pro54-tempest",
+      "map": "maps/tempest.ota",
+      "name": "PRO54 Tempest",
+      "preview": {
+        "url": "https://nanolathe.gg/maps/previews/pro54-tempest-original.png",
+        "size": 6736,
+        "sha256": "83877ca558312c996180fad6e2466a15727dd041d883c35fe4ab24d79eefb247"
+      },
+      "requires": [],
+      "summary": "Ten island starts for naval and air battles on a 10 × 10 map.",
+      "version": "original"
+    },
+    {
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/sail-here-original.zip",
+        "size": 1239688,
+        "sha256": "bf90eff222245f7cc843671a815278a87b35d1c547c77d05a1231bc5ea77229c"
+      },
+      "homepage": "https://tadg.tauniverse.com/downloads.htm",
+      "id": "sail-here",
+      "map": "maps/sail here.ota",
+      "name": "Sail Here",
+      "preview": {
+        "url": "https://nanolathe.gg/maps/previews/sail-here-original.png",
+        "size": 5497,
+        "sha256": "fc9c0cdcaa846aad42602792f62742ea634e387c6e2108b12682121eca7a9ff6"
+      },
+      "requires": [],
+      "summary": "Four starts across an island and sea battlefield.",
+      "version": "original"
+    },
+    {
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/the-pass-ii-original.zip",
+        "size": 1199139,
+        "sha256": "ae1d936081d41be1138be8bf1e95006ec5aff81c9faa3719cf0950f6f071c79b"
+      },
+      "homepage": "https://tadg.tauniverse.com/downloads.htm",
+      "id": "the-pass-ii",
+      "map": "maps/the pass ii.ota",
+      "name": "The Pass II",
+      "preview": {
+        "url": "https://nanolathe.gg/maps/previews/the-pass-ii-original.png",
+        "size": 3587,
+        "sha256": "5d9e7b0fe732c196bf3c2c526e348182ef2f835dc237826365ba795f2a669839"
+      },
+      "requires": [],
+      "summary": "Two winding mountain passes on a compact green battlefield.",
+      "version": "original"
+    },
+    {
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/capricorn-isles-original.zip",
+        "size": 5959702,
+        "sha256": "ad09541db5ced04b2e75419e8e3ec00f12e057484d90b685e50a67bc679b42d7"
+      },
+      "homepage": "https://taguide.tauniverse.com/downloads.html",
+      "id": "capricorn-isles",
+      "map": "maps/capricorn isles.ota",
+      "name": "Capricorn Isles",
+      "preview": {
+        "url": "https://nanolathe.gg/maps/previews/capricorn-isles-original.png",
+        "size": 8374,
+        "sha256": "ee2abc87f8fcad7cfd6681f210de468d157b8b482791c87e14df99fd4433d2d4"
+      },
+      "requires": [],
+      "summary": "Two large islands surrounded by shallow marsh water.",
+      "version": "original"
+    },
+    {
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/micro-ta-machines-original.zip",
+        "size": 2128936,
+        "sha256": "f3d1f27d8c34db292d9c2cb50c6b012fc39dbbb0e40afb44a171de9ab860d5c2"
+      },
+      "homepage": "https://taguide.tauniverse.com/downloads.html",
+      "id": "micro-ta-machines",
+      "map": "maps/micro-ta-machines.ota",
+      "name": "Micro-TA-Machines",
+      "preview": {
+        "url": "https://nanolathe.gg/maps/previews/micro-ta-machines-original.png",
+        "size": 10412,
+        "sha256": "9681e9738aa322d5e6f895803441ec82c6d193044ba85dacb7d319a108836a22"
+      },
+      "requires": [],
+      "summary": "A tabletop battlefield where miniature armies leave the board.",
+      "version": "original"
+    },
+    {
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/crooked-creek-original.zip",
+        "size": 10616253,
+        "sha256": "5af847a9d93864bb90fed4255e7b5711826c76437e9cece5179d1bd2386bbc27"
+      },
+      "homepage": "https://thepack.tauniverse.com/Maps.shtml",
+      "id": "crooked-creek",
+      "map": "maps/crooked creek.ota",
+      "name": "Crooked Creek",
+      "preview": {
+        "url": "https://nanolathe.gg/maps/previews/crooked-creek-original.png",
+        "size": 16650,
+        "sha256": "a82711456767fc95cc03fa2e74f2a315d2ea830925786f8c2c03ca1bfedf5537"
+      },
+      "requires": [],
+      "summary": "Ten starts around a river-crossed impact crater and open fields.",
+      "version": "original"
+    },
+    {
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/thin-air-original.zip",
+        "size": 7529922,
+        "sha256": "c38671e469ce5c397201f38047ab55556fdcf94e02dfe0ea89d2040a484ef1ec"
+      },
+      "homepage": "https://thepack.tauniverse.com/Maps.shtml",
+      "id": "thin-air",
+      "map": "maps/thin air.ota",
+      "name": "Thin Air",
+      "preview": {
+        "url": "https://nanolathe.gg/maps/previews/thin-air-original.png",
+        "size": 6764,
+        "sha256": "ab9f0254b19ce834f181c01f202e558544ee87925f4623c513d74ba27e7500b4"
+      },
+      "requires": [],
+      "summary": "Nine starts across lunar craters, with no wind generation.",
+      "version": "original"
     }
   ],
   "schema": 1
