@@ -1,5 +1,5 @@
 {
-  "revision": "9e61946",
+  "revision": "3e691e43a",
   "intro": "Total Annihilation is a real-time strategy game about building and commanding a machine army. Nanolathe reimplements its single-player systems, from a Commander’s first extractor to air, land and naval warfare. These mechanics come from the installed game data; individual units have their own abilities, and expansion units require the corresponding content.",
   "groups": [
     {
