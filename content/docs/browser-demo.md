@@ -17,12 +17,15 @@ confirmed through hands-on play testing. Firefox, mobile and tablet play have
 not been verified.
 
 The browser demo contains three original single-player missions. No purchased
-game or installation is needed to try it. For full campaigns and skirmish,
-provide your own installed game folder or [install the native beta](/get-started/).
+game or installation is needed to try it. For full campaigns, skirmish and
+[online games](/docs/multiplayer/), provide your own installed game folder or
+[install the native beta](/get-started/). The demo has no skirmish maps, so
+**MULTI** stays grayed out until you import a folder.
 
 ## Focus and fullscreen
 
-Click inside the game to focus it. Losing focus pauses play. Use **F2** to open
+Click inside the game to focus it. Losing focus pauses play, except in an
+online match, which keeps running in a background tab. Use **F2** to open
 battle options, including from a paused game. The [keyboard reference](/docs/keyboard-shortcuts/)
 describes Nanolathe's in-game controls; your browser may reserve some shortcuts.
 
@@ -47,8 +50,9 @@ your local game. Keep the original archives
 together; there is no need to unpack them. Your files remain local browser
 handles and are not uploaded.
 
-The imported full game uses its normal menus, campaigns and skirmish. Original
-game data is separate from the engine's MIT license.
+The imported full game uses its normal menus, campaigns, skirmish and
+[online play](/docs/multiplayer/#in-a-browser). Original game data is separate
+from the engine's MIT license.
 
 ## Settings and saved games
 
@@ -71,6 +75,8 @@ The browser uses original texture detail; runtime terrain synthesis is disabled
 in this host. The native beta provides synthesized terrain and the full native
 experience. Browser memory and larger battles remain more constrained, and
 long sessions and other browsers still need further acceptance testing.
+Online play has been tested in desktop Chrome and Edge, and the browser can’t
+use mods yet, so it joins only games without a mod.
 
 If demo download or startup fails, the game page displays the error. Check
 your connection and retry, use a supported desktop browser, or install Nanolathe.

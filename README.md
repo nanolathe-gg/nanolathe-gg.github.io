@@ -160,6 +160,15 @@ This optional regeneration check requires Go and a matching engine checkout;
 ordinary builds use the checked-in images. Update the source revision, geometry
 hash, descriptions, and examples together when the icon vocabulary changes.
 
+`content/docs/multiplayer.md` (“Playing online”) uses the same layout. Keep it,
+the homepage FAQ and the gameplay page’s online group aligned with the engine’s
+`docs/DESIGN_MULTIPLAYER.md` §16.6–§16.7 and the “Online games” section of
+`docs/DESIGN_INTERFACE_HUD_INPUT.md`, and its browser notes with
+`docs/DESIGN_BROWSER_HOST.md`. Online play works natively and in the browser
+with an imported game folder (tested in desktop Chrome and Edge; no mods in the
+browser yet). The three-mission demo has no skirmish maps and cannot play
+online.
+
 ### Format documentation
 
 All 15 researched formats have illustrated references at `/docs/formats/<slug>/`,

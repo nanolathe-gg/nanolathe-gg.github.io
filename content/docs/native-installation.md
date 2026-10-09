@@ -12,9 +12,10 @@ install command. The installer downloads a private Go compiler, builds the
 latest commit on the engine’s main branch, and creates a shortcut. You do not
 need to install Go or Git separately. Keep the terminal open until it finishes.
 
-The native beta supports single-player campaigns and skirmish. Multiplayer is
-not available yet. To try Nanolathe without installing it or buying game data,
-use the [three-mission browser demo](/play/).
+The native beta supports campaigns, skirmish and
+[online games with friends](/docs/multiplayer/). To try Nanolathe without
+installing it or buying game data, use the
+[three-mission browser demo](/play/).
 
 ## Computer requirements
 

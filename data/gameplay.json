@@ -1,6 +1,6 @@
 {
   "revision": "3e691e43a",
-  "intro": "Total Annihilation is a real-time strategy game about building and commanding a machine army. Nanolathe reimplements its single-player systems, from a Commander’s first extractor to air, land and naval warfare. These mechanics come from the installed game data; individual units have their own abilities, and expansion units require the corresponding content.",
+  "intro": "Total Annihilation is a real-time strategy game about building and commanding a machine army. Nanolathe reimplements its battle systems, from a Commander’s first extractor to air, land and naval warfare. These mechanics come from the installed game data; individual units have their own abilities, and expansion units require the corresponding content.",
   "groups": [
     {
       "id": "locomotion",
@@ -120,7 +120,20 @@
         "Use game sound effects and the locally installed soundtrack. The GOG MP3 music folder is supported on Windows, Linux and macOS."
       ],
       "source": "docs/DESIGN_SESSIONS_AI_SAVE.md"
+    },
+    {
+      "id": "online",
+      "title": "Online with friends",
+      "lead": "Play skirmish or Survival over the Internet, in the native beta or in a desktop browser with your own game files.",
+      "items": [
+        "Create a game from MULTI on the main menu and send its six-character room code. Friends join with the code.",
+        "Skirmish takes 2 to 10 players, map permitting. Each player picks a team, side and color; teammates win together and share sight and radar.",
+        "In Survival, 2 or 3 players form one side against waves of attackers, sharing sight, radar and income.",
+        "Every player’s computer runs the whole battle, and only orders travel. A short check before the start confirms that every game computes the same battle.",
+        "Online battles run at normal speed with no pause. Saves, replays, reconnecting and computer players are not available online yet."
+      ],
+      "source": "docs/DESIGN_MULTIPLAYER.md"
     }
   ],
-  "scope": "These are implemented engine systems, not a promise of perfect retail compatibility for every mission or content pack. Nanolathe is under active development. Multiplayer is outside the current scope. A separate local Total Annihilation installation is required; game data is not bundled."
+  "scope": "These are implemented engine systems, not a promise of perfect retail compatibility for every mission or content pack. Nanolathe is under active development. Online play connects Nanolathe players only, not the original game or other engines. A separate local Total Annihilation installation is required; game data is not bundled."
 }
