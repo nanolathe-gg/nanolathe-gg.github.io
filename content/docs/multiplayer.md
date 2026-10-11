@@ -98,8 +98,10 @@ Until you press **Ready**, you can click your own:
 
 The host picks the gameplay rules, the game type (**Skirmish** or
 **Survival**), the map with **Select Map**, and the Commander, Location,
-Mapping and Line of Sight options. The rules are **Modern** (the default),
-**Community 3.9** or **Strict 3.1**. Survival adds Wave Pace, Air Waves and
+Mapping and Line of Sight options. **Rules** steps through **Strict 3.1**,
+**Community 3.9** and **Modern**; a new game starts with the rules you play
+single-player, and a mod that needs newer rules leaves out the older ones.
+Survival adds Wave Pace, Air Waves and
 Naval Waves. Other players see these
 settings but can’t change them. Hover over a control to see what it does.
 
@@ -186,8 +188,12 @@ and F2 opens the strip instead.
 
 ### Chat
 
-In the lobby and in battle, press Enter to open the message line, type, and
-press Enter to send. A line goes to everyone unless it starts with:
+In the lobby, press Enter to open the message line under the chat, type,
+and press Enter to send it to everyone in the room. Escape or a right click
+drops the line.
+
+In battle, press Enter to open the message line. A line goes to everyone
+unless it starts with:
 
 - `a,` to send it to your allies;
 - `e,` to send it to your enemies;
