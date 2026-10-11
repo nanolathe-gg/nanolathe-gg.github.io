@@ -7,7 +7,7 @@ url = '/docs/formats/tdf/'
 format = 'TDF'
 extension = '.tdf'
 sourcePath = 'research/formats/tdf.md'
-sourceRevision = '23332234bf03c8f0fd9a90d6b12b03323fbd3a13'
+sourceRevision = '1b7310d43bacfcd91bd9231cfdae3d51c11f93e1'
 demoScript = 'js/formats/tdf.js'
 demoCSS = 'css/tdf.css'
 [[facts]]

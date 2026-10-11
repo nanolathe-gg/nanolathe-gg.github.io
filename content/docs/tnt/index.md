@@ -7,7 +7,7 @@ url = '/docs/formats/tnt/'
 format = 'TNT'
 extension = '.tnt'
 sourcePath = 'research/formats/tnt.md'
-sourceRevision = '23332234bf03c8f0fd9a90d6b12b03323fbd3a13'
+sourceRevision = 'b2cd53fa7d13d67f81360cec370dee99a8ce7224'
 demoScript = 'js/formats/tnt.js'
 demoCSS = 'css/tnt.css'
 [[facts]]

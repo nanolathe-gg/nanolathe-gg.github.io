@@ -7,7 +7,7 @@ url = '/docs/formats/pcx/'
 format = 'PCX'
 extension = '.pcx'
 sourcePath = 'research/formats/pcx.md'
-sourceRevision = 'c1b934071e15fc3156d9aa92ba91db26368768ac'
+sourceRevision = '40c0e814bad5b08015958ab9fec4af0af59b446c'
 [[facts]]
 label = 'Stock profile'
 value = 'Version 5 · 8-bit · one plane'

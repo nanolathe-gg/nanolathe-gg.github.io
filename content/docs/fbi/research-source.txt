@@ -351,7 +351,8 @@ not select an absent-key default.
 The compiler retains `armoredstate` without seeding runtime armor, matching
 `[06 R-DMG-01 §2]`. The implementation's `Wacky` field is retained without a
 consumer; the documented retail consumers are in the multiplayer restriction
-UI, outside the current single-player scope. Unknown source-field retention
+UI, whose seeded `wacky` state Nanolathe's restriction editor does not
+reproduce (DESIGN_MODS_MUTATORS §15). Unknown source-field retention
 must not imply that the engine acts on those values.
 
 The catalog retains every compatible record in retail sort order, including

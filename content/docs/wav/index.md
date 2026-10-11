@@ -7,7 +7,7 @@ url = '/docs/formats/wav/'
 format = 'WAV'
 extension = '.wav'
 sourcePath = 'research/formats/wav.md'
-sourceRevision = 'c1b934071e15fc3156d9aa92ba91db26368768ac'
+sourceRevision = '40c0e814bad5b08015958ab9fec4af0af59b446c'
 demoCSS = 'css/wav.css'
 [[facts]]
 label = 'Main container'
@@ -177,6 +177,6 @@ The actual DirectSound implementation's behavior for zero-byte buffers or unusua
 
 ## Sources and example files {#sources}
 
-Adapted from the [owning WAV research]({{< research >}}) at the pinned sidebar revision. The [complete source snapshot](research-source.txt) retains its upstream bibliography and evidence labels. Numeric PCM field offsets are also reflected in the same revision's [shared audio parser](https://github.com/nanolathe-gg/nanolathe/blob/c1b934071e15fc3156d9aa92ba91db26368768ac/formats/wav.go).
+Adapted from the [owning WAV research]({{< research >}}) at the pinned sidebar revision. The [complete source snapshot](research-source.txt) retains its upstream bibliography and evidence labels. Numeric PCM field offsets are also reflected in the same revision's [shared audio parser](https://github.com/nanolathe-gg/nanolathe/blob/40c0e814bad5b08015958ab9fec4af0af59b446c/formats/wav.go).
 
 All four audio files and the waveform were authored for this guide. `scripts/wav-example.py --check` reproduces them and independently reads both RIFF files with Python's standard-library WAVE parser to verify rate, sample width, frame count, and payload. No retail sound recording is included.

@@ -7,7 +7,7 @@ url = '/docs/formats/gaf/'
 format = 'GAF'
 extension = '.gaf'
 sourcePath = 'research/formats/gaf.md'
-sourceRevision = '23332234bf03c8f0fd9a90d6b12b03323fbd3a13'
+sourceRevision = 'd90e250343971c8a8f58e9309585c97e9dafcd22'
 demoScript = 'js/formats/gaf.js'
 [[facts]]
 label = 'Pixel format'

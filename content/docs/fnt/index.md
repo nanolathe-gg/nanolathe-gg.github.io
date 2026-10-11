@@ -7,7 +7,7 @@ url = '/docs/formats/fnt/'
 format = 'FNT'
 extension = '.fnt'
 sourcePath = 'research/formats/fnt.md'
-sourceRevision = '23332234bf03c8f0fd9a90d6b12b03323fbd3a13'
+sourceRevision = '40c0e814bad5b08015958ab9fec4af0af59b446c'
 [[facts]]
 label = 'Pixels'
 value = '1 bit · MSB first'

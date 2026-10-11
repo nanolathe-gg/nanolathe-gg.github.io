@@ -7,7 +7,7 @@ url = '/docs/formats/cob/'
 format = 'COB'
 extension = '.cob'
 sourcePath = 'research/formats/cob.md'
-sourceRevision = '23332234bf03c8f0fd9a90d6b12b03323fbd3a13'
+sourceRevision = '40c0e814bad5b08015958ab9fec4af0af59b446c'
 demoScript = 'js/formats/cob.js'
 demoCSS = 'css/cob.css'
 [[facts]]

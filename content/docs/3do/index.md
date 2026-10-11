@@ -7,7 +7,7 @@ url = '/docs/formats/3do/'
 format = '3DO'
 extension = '.3do'
 sourcePath = 'research/formats/3do.md'
-sourceRevision = '1ef7b9193452752fca3e8ea75da8c38dfa318268'
+sourceRevision = '40c0e814bad5b08015958ab9fec4af0af59b446c'
 demoScript = 'js/formats/3do.js'
 demoCSS = 'css/3do.css'
 [[facts]]

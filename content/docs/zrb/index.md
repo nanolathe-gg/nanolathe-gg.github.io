@@ -7,7 +7,7 @@ url = '/docs/formats/zrb/'
 format = 'ZRB'
 extension = '.zrb'
 sourcePath = 'research/formats/zrb.md'
-sourceRevision = '23332234bf03c8f0fd9a90d6b12b03323fbd3a13'
+sourceRevision = '40c0e814bad5b08015958ab9fec4af0af59b446c'
 demoScript = 'js/formats/zrb.js'
 demoCSS = 'css/zrb.css'
 [[facts]]

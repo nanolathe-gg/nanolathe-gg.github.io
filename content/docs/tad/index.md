@@ -7,7 +7,7 @@ url = '/docs/formats/tad/'
 format = 'TAD'
 extension = '.tad'
 sourcePath = 'research/formats/tad.md'
-sourceRevision = '72dcc024de8e6abb3b2f83137a292f566f13b63f'
+sourceRevision = '40c0e814bad5b08015958ab9fec4af0af59b446c'
 demoScript = 'js/formats/tad.js'
 demoCSS = 'css/tad.css'
 [[facts]]

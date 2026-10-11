@@ -7,7 +7,7 @@ url = '/docs/formats/hpi/'
 format = 'HPI'
 extension = '.hpi'
 sourcePath = 'research/formats/hpi.md'
-sourceRevision = '23332234bf03c8f0fd9a90d6b12b03323fbd3a13'
+sourceRevision = 'cee5bbe17a876bfde41e6b1b8e34e1a6c13ecf36'
 demoScript = 'js/formats/hpi.js'
 [[facts]]
 label = 'Header'

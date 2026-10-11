@@ -7,7 +7,7 @@ url = '/docs/formats/ota/'
 format = 'OTA'
 extension = '.ota'
 sourcePath = 'research/formats/ota.md'
-sourceRevision = '72dcc024de8e6abb3b2f83137a292f566f13b63f'
+sourceRevision = 'cee5bbe17a876bfde41e6b1b8e34e1a6c13ecf36'
 demoScript = 'js/formats/ota.js'
 demoCSS = 'css/ota.css'
 [[facts]]
