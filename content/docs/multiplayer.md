@@ -1,6 +1,6 @@
 +++
 title = 'Playing online'
-description = 'Create or join an online game with friends, set up the lobby, play skirmish or Survival together, and know the current limits.'
+description = 'Create or join an online game, set up the lobby and computer players, play skirmish or Survival together, and watch replays.'
 type = 'guide'
 related = '/docs/native-installation'
 +++
@@ -57,17 +57,20 @@ grayed out. In the native beta, download community maps beforehand from
 1. On the main menu, choose **MULTI**, then **Create Game**.
 2. The lobby opens right away. Its six-character room code appears next to the
    title.
-3. Send the code to your friends. On a Mac or in a browser, **Copy** puts it
-   on your clipboard. The native beta on Windows and Linux can’t copy it yet.
+3. Send the code to your friends. **Copy** puts it on your clipboard.
 
 The code is an invitation, so share it only with the people you want to play
 with. A lobby stays open for up to 30 minutes before the game starts.
 
+On Linux, copying and pasting use a clipboard program: `wl-clipboard` under
+Wayland, or `xclip` or `xsel` under X11. Without one, **Copy** is hidden, and
+you can read the code out instead.
+
 ## Join a game
 
 1. On the main menu, choose **MULTI**, then **Join Game**.
-2. Type the code and press **Join** or Enter. On a Mac or in a browser, you
-   can also paste it with Ctrl+V or Cmd+V, or with the browser’s Paste menu.
+2. Type or paste the code and press **Join** or Enter. Paste with Ctrl+V,
+   Cmd+V on a Mac, or Shift+Insert. In a browser, its Paste menu works too.
 
 Letter case, spaces and dashes don’t matter. Codes never contain 0, 1, O, I,
 L, D or Q, and a typed S, Z, B or G counts as 5, 2, 8 or 6.
@@ -95,6 +98,19 @@ The mod, mutators and unit restrictions come from the host’s setup when the
 game is created, and they can’t change in the lobby. To use a different mod,
 the host creates a new game.
 
+### Computer players
+
+The host can add computer players with **Add computer**, below the last row.
+A new computer is played by the Modern AI at the host’s skirmish difficulty,
+with no team. Click its name to switch it to the Classic AI, and click again
+to remove it. The host sets each computer’s side, team and color the same way
+as their own, and its difficulty (Easy, Medium or Hard) in the **Difficulty**
+column. Other players see the computers but can’t change them.
+
+A skirmish can have up to eight computers, as long as the map has a start
+position for every player, computers included. In Survival, two players can
+add one computer as the third survivor.
+
 ### Ready and Start
 
 Press **Ready** when you’re set. Any change clears everyone’s Ready, so press
@@ -104,9 +120,10 @@ color changes. When everyone is ready, the host presses **Start**.
 Ready stays grayed out, with the reason shown, while:
 
 - fewer than two players are in the lobby;
-- a skirmish has more players than the map has start positions;
-- everyone in a skirmish is on the same team;
-- Survival has more than three players.
+- a skirmish has more players, computers included, than the map has start
+  positions;
+- everyone in a skirmish, computers included, is on the same team;
+- Survival has more than three players, computers included.
 
 ### The pre-game check
 
@@ -123,12 +140,13 @@ comparing results, and the match stops if they ever disagree.
 
 ## Skirmish online
 
-A skirmish takes 2 to 10 players, up to the number of start positions on the
-map. Players on the same team are allies: they win together and share what
-their units see, radar included. Players with no team fight for themselves.
+A skirmish takes 2 to 10 players, computers included, up to the number of
+start positions on the map. At least two players are people. Players on the
+same team are allies: they win together and share what their units see, radar
+included. Players with no team fight for themselves.
 
 Teams are fixed for the whole battle. Changing alliances and sharing
-resources or maps aren’t available online.
+resources, units or maps aren’t available online yet.
 
 ## Survival online
 
@@ -138,16 +156,18 @@ are one side, sharing sight, radar and income, so there are no teams to
 choose.
 
 There’s no victory. Hold out as long as you can; each player then sees the
-Survival result. Online Survival has no computer allies, saves or best scores.
+Survival result. Survival battles can’t be saved.
 
 ## During the battle
 
 - Online battles run at normal speed. There’s no pause, and the game-speed keys
   don’t apply.
+- Online games use Nanolathe’s default Modern gameplay.
 - Cheat commands are turned off.
 - There’s no chat between players yet, so use a voice or messaging app.
 - Press Enter, type `+net` and press Enter again to show network figures,
-  including each player’s ping and lag.
+  including each player’s ping and how far behind they are. The `+fps` display
+  shows them too.
 
 ## Leaving and disconnects
 
@@ -161,6 +181,40 @@ isn’t possible yet, and a server restart also ends games in progress.
 
 Afterward, you return to the online menu. It says whether the game ended,
 stopped or was left.
+
+## If a match stops
+
+When a match stops unexpectedly, the online menu shows the reason. To report
+it, [open an issue](https://github.com/nanolathe-gg/nanolathe/issues) with the
+message you saw, what was happening, and your operating system or browser.
+Attach your [replay](#replays) of that battle, and ask the other players to
+send theirs too: comparing every player’s replay shows where the games
+differed. Online replays end in `_online.nlreplay`.
+
+## Replays
+
+Nanolathe records every skirmish and Survival battle you play, single-player
+and online, as a replay on your own computer. In an online game, each
+player’s game records its own copy. Campaign missions and battles loaded from
+a saved game aren’t recorded.
+
+To watch one, choose **REPLAYS** on the main menu, pick a battle and choose
+**Watch**. The screen shows each battle’s map, game type, players and length.
+A replay needs the game files, map and mod it was recorded with; if it used a
+mod you have installed, Nanolathe switches to it first. If your version of
+Nanolathe plays the battle differently, for example after an update, playback
+stops where the two differ.
+
+You can’t give orders while watching. The buttons at the top left pause,
+change speed from ¼× to 8×, skip ahead a minute, switch between each
+player’s view and the whole map, and exit. The
+[keyboard reference](/docs/keyboard-shortcuts/#watching-a-replay) lists their
+keys.
+
+Nanolathe keeps your newest 100 replays. The
+[native setup guide](/docs/native-installation/#settings-saves-and-logs) shows
+where they’re stored. In a browser, they’re kept with your
+[browser settings](/docs/browser-demo/#settings-and-saved-games).
 
 ## Server and status
 
@@ -177,11 +231,15 @@ they ended. It never shows room codes or player addresses.
 
 Online play is new, and some things aren’t available yet:
 
-- Computer players can’t take part in online games.
-- Online games use Nanolathe’s default Modern gameplay. Strict 3.1 isn’t
-  offered online.
-- There’s no saving, replays, reconnecting or spectating.
-- There are no player names or list of open games. Friends join with a code.
+- Only the host can add computer players.
+- Online games use Nanolathe’s default Modern gameplay. Strict 3.1 and
+  Community 3.9 aren’t offered online yet.
+- There’s no chat, no player names and no list of open games. Friends join
+  with a code.
+- Teams are fixed: you can’t change alliances or share resources, units or
+  maps.
+- There’s no pausing, saving, reconnecting or spectating.
+- Browser players can’t use mods.
 - Online play connects Nanolathe players only. It doesn’t work with the
   original game or other engines.
 

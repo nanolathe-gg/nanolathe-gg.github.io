@@ -162,7 +162,8 @@ hash, descriptions, and examples together when the icon vocabulary changes.
 
 `content/docs/multiplayer.md` (“Playing online”) uses the same layout. Keep it,
 the homepage FAQ and the gameplay page’s online group aligned with the engine’s
-`docs/DESIGN_MULTIPLAYER.md` §16.6–§16.7 and the “Online games” section of
+`docs/DESIGN_MULTIPLAYER.md` §6.6 (computer players), §10 (replays) and
+§16.6–§16.7, the “Online games” and “Replays” sections of
 `docs/DESIGN_INTERFACE_HUD_INPUT.md`, and its browser notes with
 `docs/DESIGN_BROWSER_HOST.md`. Online play works natively and in the browser
 with an imported game folder (tested in desktop Chrome and Edge; no mods in the

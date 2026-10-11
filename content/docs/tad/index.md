@@ -43,11 +43,14 @@ session, not by deterministic re-simulation.
 behavior. They are not an authoritative engine state format.
 
 {{< callout kind="established" title="A community recording format" >}}
-The retail executable neither reads nor writes TAD. The wrapper and Smartpak transformations belong to third-party recorders; underlying retail network behavior has separate evidence in doc 08. Nanolathe does not contain a TAD parser, recorder or replay engine.
+The retail executable neither reads nor writes TAD. The wrapper and Smartpak transformations belong to third-party recorders; underlying retail network behavior has separate evidence in doc 08. Nanolathe does not contain a TAD parser, recorder or replay engine; its own replays use a separate format.
 {{< /callout >}}
 
 **Scope:** single-player saves use the retail save-bank contract in doc 08,
 not this format. Nanolathe contains no TAD parser, recorder or replay engine.
+Its own skirmish and Survival replays (`.nlreplay`) are a different,
+Nanolathe-specific format: they record each battle's settings and orders and
+play it back by re-simulating it, and they neither read nor write TAD.
 References below to a corpus analyzer (including its Rust implementation)
 describe external tooling, not repository packages or checks in this Go engine.
 The nine-file private corpus was located; framing, encrypted status records
@@ -955,4 +958,5 @@ This page adapts the [owning research]({{< research >}}) at the pinned engine re
   (subpacket names/sizes, bin2int, PLAYER_INFO offsets),
   `libs/tapacket/notes/`, `apps/gpgnet4ta/GameMonitor2.cpp` (tick usage).
 - Facts taken from these sources are format documentation only. This project
-  does not ship a TAD reader, recorder, or replay engine.
+  does not ship a TAD reader, recorder, or replay engine; Nanolathe's own
+  replays use a different format.

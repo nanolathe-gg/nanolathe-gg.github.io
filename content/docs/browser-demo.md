@@ -61,9 +61,13 @@ demo and imported full game have separate save lists. A different browser,
 domain or local preview port uses different storage. Clearing site data can
 remove browser saves and cached demo files.
 
-Expand **Browser settings and saved games** to download stored files. Keep both
-a saved game's `.SAV` file and its Nanolathe sidecar when backing it up. Desktop
-save import into the browser is not implemented yet.
+Skirmish and Survival [replays](/docs/multiplayer/#replays) from your own
+game folder are stored with your browser settings, and the main menu's
+**REPLAYS** button plays them back.
+
+Expand **Browser settings and saved games** to download stored files, replays
+included. Keep both a saved game's `.SAV` file and its Nanolathe sidecar when
+backing it up. Desktop save import into the browser is not implemented yet.
 
 If the game page reports a browser storage failure, the newest changes have not
 been stored. Try saving again before restarting; a previous browser save may be

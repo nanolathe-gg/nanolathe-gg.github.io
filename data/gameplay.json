@@ -111,13 +111,15 @@
     },
     {
       "id": "singleplayer",
-      "title": "Skirmish and campaigns",
+      "title": "Skirmish, Survival and campaigns",
       "lead": "Play locally against the computer or through authored missions.",
       "items": [
         "Configure single-player skirmishes with the available sides, maps and computer players. The AI uses its economy, production and combat planner.",
+        "In Survival, you and up to two computer allies hold out against waves of attackers that arrive from the map edges and grow stronger over time. There’s no victory; the result is a score.",
         "Campaign play loads mission content, initial units, objectives and triggers from the installed game data.",
         "Save and load games, including in-battle restoration through the retail save-account format. Compatibility work remains ongoing.",
-        "Use game sound effects and the locally installed soundtrack. The GOG MP3 music folder is supported on Windows, Linux and macOS."
+        "Use game sound effects and the locally installed soundtrack. The GOG MP3 music folder is supported on Windows, Linux and macOS.",
+        "Each new skirmish and Survival battle is recorded as a replay. Watch it from REPLAYS on the main menu, through a player’s eyes or across the whole map."
       ],
       "source": "docs/DESIGN_SESSIONS_AI_SAVE.md"
     },
@@ -128,9 +130,10 @@
       "items": [
         "Create a game from MULTI on the main menu and send its six-character room code. Friends join with the code.",
         "Skirmish takes 2 to 10 players, map permitting. Each player picks a team, side and color; teammates win together and share sight and radar.",
+        "The host can add computer players, played by the Classic or Modern AI, each with its own difficulty, side, team and color.",
         "In Survival, 2 or 3 players form one side against waves of attackers, sharing sight, radar and income.",
         "Every player’s computer runs the whole battle, and only orders travel. A short check before the start confirms that every game computes the same battle.",
-        "Online battles run at normal speed with no pause. Saves, replays, reconnecting and computer players are not available online yet."
+        "Online battles use Modern gameplay and run at normal speed with no pause. Every player keeps a replay of the battle. Saving and reconnecting are not available online yet."
       ],
       "source": "docs/DESIGN_MULTIPLAYER.md"
     }

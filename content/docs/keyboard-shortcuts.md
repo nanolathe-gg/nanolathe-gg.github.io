@@ -26,7 +26,7 @@ Key names refer to the physical keyboard: **Ctrl means Control, including on mac
 | F9 | Cycle zoom. Classic: 1× → 1.5× → 2× → 1×. For modern’s different cycle, see [below](#modern-gpu-mode-only). |
 | Ctrl + Shift + F11 | Pause and write a diagnostic bundle under `~/Nanolathe/diagnostics`. Works while paused and in battle dialogs; resume manually afterward. This is a development capture, not a saved game. |
 
-The `+` and `−` characters can also come from the numeric keypad. Options and other modal dialogs own input while open; ordinary battle shortcuts do not bypass them.
+The `+` and `−` characters can also come from the numeric keypad. Options and other modal dialogs own input while open; ordinary battle shortcuts do not bypass them. [Online battles](#online-battles) cannot be paused or sped up.
 
 ## Selection and categories
 
@@ -166,7 +166,32 @@ For the symbols visible at tactical zoom, see [Strategic icons]({{< relref "/doc
 | Alt + F4 | Quit during an intro movie. Other OS window-close shortcuts depend on the platform. |
 | Any key | Skip a supported post-battle tally/transition when its input gate opens. |
 
-Chat accepts text and a bounded set of `+` commands; these are typed commands, not keyboard shortcuts. Text entry currently supports the ASCII character range. **Insert and Ctrl+V do not paste yet** in the portable host.
+Chat accepts text and a bounded set of `+` commands; these are typed commands, not keyboard shortcuts. Text entry currently supports the ASCII character range.
+
+**Ctrl+V, Cmd+V on macOS, or Shift+Insert pastes** into a focused text field, such as a room code, a save name or chat, on Windows, macOS, Linux and in the browser. A paste replaces the field’s text, and clipboard text with characters outside the ASCII range leaves the field unchanged. On Linux, paste needs a clipboard program: `wl-clipboard` under Wayland, or `xclip` or `xsel` under X11.
+
+## Online battles
+
+[Online games](/docs/multiplayer/) use the controls above, with these differences:
+
+| Key | Online action |
+| --- | --- |
+| Pause, + or =, − or _ | No effect. Online battles always run at normal speed. |
+| Tab or F2 | Open or close battle options. The battle keeps running. |
+| Enter, then `+net` | Show network figures, including each player’s ping and how far behind they are. The `+fps` display shows them too. |
+
+## Watching a replay
+
+A [replay](/docs/multiplayer/#replays) takes no orders. The camera, minimap, selection and unit information work as in a battle, and these keys control playback:
+
+| Key | Action |
+| --- | --- |
+| Pause | Pause or resume. During a skip, stop there, paused. |
+| − or _ / + or = | Slower or faster, from ¼× to 8×. |
+| ] | Skip ahead one minute of game time; during a skip, one more minute. |
+| [ | Stop a skip where it is. |
+| Home | Switch to the next view: each recorded player’s, then the whole map. |
+| Backspace | Leave the playback for the Replays screen. |
 
 ## Unavailable retail bindings
 

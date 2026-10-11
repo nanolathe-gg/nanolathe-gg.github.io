@@ -67,6 +67,13 @@ The default installation folders are:
 Each contains `settings.json`, a `saves` folder and a `logs` folder. Native saves
 are separate from browser saves and from your retail Total Annihilation folder.
 
+Skirmish and Survival [replays](/docs/multiplayer/#replays) use the same
+location on every platform: a `nanolathe/replays` folder under
+`$XDG_DATA_HOME`, or under `~/.local/share` if that variable is unset. On Linux
+that is inside the folder above. On Mac it is usually
+`~/.local/share/nanolathe/replays`, and on Windows
+`%USERPROFILE%\.local\share\nanolathe\replays`.
+
 To try an existing retail save, copy its `.SAV` file into Nanolathe’s `saves`
 folder while the game is closed. Save compatibility is still a work in progress.
 Back up Nanolathe saves with their accompanying `.nanolathe.json` files when
@@ -103,7 +110,8 @@ and rerun the install command. A failed update keeps the previous build selected
 [Report an issue](https://github.com/nanolathe-gg/nanolathe/issues) with your
 operating system, the installed revision from `current/source-revision` on Mac
 or Linux (or `releases/<selected release>/source-revision` on Windows), and the
-relevant log or error. Keep retail game archives out of the report.
+relevant log or error. For a skirmish or Survival battle, attach its replay too.
+Keep retail game archives out of the report.
 
 ## Build from source
 
