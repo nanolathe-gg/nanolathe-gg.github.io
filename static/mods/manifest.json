@@ -60,6 +60,18 @@
         "size": 145933195,
         "sha256": "b19a68dec6d99e5d8efc92f6f441e4f274140c5dcd181749413c96c99d307d4b"
       }
+    },
+    {
+      "id": "balanced-annihilation-skin-refresh",
+      "name": "Balanced Annihilation Skin Refresh",
+      "version": "0.3",
+      "summary": "Experimental OTA visual refresh: selected BA models, textures and compatible animations fitted to original size, retaining TA stats and footprints.",
+      "homepage": "https://gitlab.com/balanced-annihilation/Balanced-Annihilation/",
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/mods/balanced-annihilation-skin-refresh-0.3.zip",
+        "size": 9685682,
+        "sha256": "81aa30297568fa39407b1655c51aec1e669092eba1eef8be42eef801d8070ad4"
+      }
     }
   ]
 }

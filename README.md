@@ -332,6 +332,26 @@ The complete config carries authored limits and the pinned source's Twilight
 Community profile. Historical patch gameplay and controls remain unverified,
 so compatibility is labelled experimental.
 
+Balanced Annihilation Skin Refresh 0.3 backports selected BA V15.9.8 models,
+textures and compatible animation scripts for 159 existing OTA unit entries
+(78 ARM, 81 CORE). Geometrically identical entries are omitted. The artwork
+is fitted to the original OTA size; unit definitions, footprints, weapons and
+other gameplay values remain supplied by the user's original TA installation.
+This experimental art pack can still change model-derived bounds and attachment
+points, and some dark trusses currently show a red/pink tint. Its scope is a
+modest visual refresh with compatible motion for existing OTA units.
+
+Its recipe pins the self-contained converted release artifact. `sources.json` inside the ZIP records pinned model and script
+revisions, source hashes, transformation decisions and literal author notices;
+`CREDITS.md` credits Cavedog, the BA contributors and the broader TA/Spring art
+community, and records the incomplete asset-specific license information.
+Repackaging the released artifact with the recipe produces identical bytes:
+
+```sh
+python3 scripts/package-mod.py mods/balanced-annihilation-skin-refresh-0.3.json \
+  ~/Downloads/balanced-annihilation-skin-refresh-0.3.zip
+```
+
 Keep the recipes and catalogue on a branch until engine compatibility is
 verified. After review, append `--upload` to each preparation command to
 publish its ZIP with the GitHub CLI, logged in with write access. Upload all
