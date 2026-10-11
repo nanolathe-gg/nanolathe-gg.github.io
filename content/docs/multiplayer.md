@@ -191,8 +191,9 @@ press Enter to send. A line goes to everyone unless it starts with:
 
 - `a,` to send it to your allies;
 - `e,` to send it to your enemies;
-- a player’s number followed by `,`, `:` or `;` to send it to that player
-  only, for example `3:` for player 3.
+- a player’s slot number followed by `,`, `:` or `;` to send it to that
+  player only. Slots count from 0, so `0:` sends to Player 1 and `2:` to
+  Player 3.
 
 Defeated players who stay to watch the battle can’t chat.
 
@@ -200,8 +201,8 @@ Defeated players who stay to watch the battle can’t chat.
 
 Press H to open the **Share** screen, and pick any player. Use the sliders to
 give them metal and energy, tick **Units** to give them the units you have
-selected, and tick **Map info** to give them your explored map. Commanders and
-units inside transports stay with you.
+selected, and tick **Map info** to give them your explored map. Commanders,
+aircraft in flight and units in or carrying a transport stay with you.
 
 You can also share with your allies automatically, using typed commands:
 

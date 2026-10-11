@@ -180,7 +180,7 @@ Chat accepts text and a bounded set of `+` commands; these are typed commands, n
 | Tab | Open or close the multiplayer strip: Options, Share, Control and Allies. The battle keeps running. If Tab is set to show the overview, it keeps doing that. |
 | F2 | With Tab set to show the overview, open or close the multiplayer strip. |
 | H | Open the Share screen to give metal, energy, selected units or your explored map to any player. |
-| Enter | Open the message line, in the lobby too. A line goes to everyone unless it starts with `a,` (allies), `e,` (enemies) or a player’s number followed by `,`, `:` or `;` (that player only, for example `3:`). |
+| Enter | Open the message line, in the lobby too. A line goes to everyone unless it starts with `a,` (allies), `e,` (enemies) or a player’s slot number, counting from 0, followed by `,`, `:` or `;` (that player only, for example `0:` for Player 1). |
 | Enter, then `+net` | Show network figures, including each player’s ping and how far behind they are. The `+fps` display shows them too. |
 
 ## Watching a replay
