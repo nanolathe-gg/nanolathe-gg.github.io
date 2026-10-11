@@ -232,9 +232,10 @@ alliance doesn’t make the other player your ally in return; they declare
 theirs separately. Teams chosen in the lobby can’t be broken, so a teammate’s
 button is grayed out.
 
-**Allied Victory** lets you win together with the players you’re allied with.
-It’s grayed out for players on a lobby team of two or more, whose team
-already wins together.
+**Allied Victory** lets allies win together: the battle is won when every
+player still standing has it turned on and all of them have declared
+alliances with each other. It’s grayed out for players on a lobby team of two
+or more, who already have it.
 
 ## Leaving and disconnects
 
