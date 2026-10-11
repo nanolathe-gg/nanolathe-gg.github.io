@@ -177,7 +177,7 @@ Chat accepts text and a bounded set of `+` commands; these are typed commands, n
 | Key | Online action |
 | --- | --- |
 | Pause, + or =, − or _ | No effect. Online battles always run at normal speed. |
-| Tab | Open or close the multiplayer strip: Options, Share, Control and Allies. The battle keeps running. If Tab is set to show the overview, it keeps doing that. |
+| Tab | Open or close the multiplayer strip: Options Menu, Allies, Share and Control. The battle keeps running. If Tab is set to show the overview, it keeps doing that. |
 | F2 | With Tab set to show the overview, open or close the multiplayer strip. |
 | H | Open the Share screen to give metal, energy, selected units or your explored map to any player. |
 | Enter | Open the message line. In the lobby a line goes to everyone; in battle it goes to everyone unless it starts with `a,` (allies), `e,` (enemies) or a player’s slot number, counting from 0, followed by `,`, `:` or `;` (that player only, for example `0:` for Player 1). |

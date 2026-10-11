@@ -181,9 +181,11 @@ Survival result. Survival battles can’t be saved.
   including each player’s ping and how far behind they are. The `+fps` display
   shows them too.
 
-In an online battle, Tab opens the multiplayer strip, with **Options**,
-**Share**, **Control** and **Allies**, when Tab is set to open options, as it
-is by default. If you’ve set Tab to show the overview, Tab keeps doing that,
+In an online battle, Tab opens the multiplayer strip at the bottom of the
+screen, with **Options Menu**, **Allies**, **Share** and **Control**, when Tab
+is set to open options, as it is by default. **Control** is the original
+game's host controls, which online games don't offer, so it stays grayed
+out. If you’ve set Tab to show the overview, Tab keeps doing that,
 and F2 opens the strip instead.
 
 ### Chat
@@ -206,8 +208,9 @@ Defeated players who stay to watch the battle can’t chat.
 ### Sharing
 
 Press H to open the **Share** screen, and pick any player. Use the sliders to
-give them metal and energy, tick **Units** to give them the units you have
-selected, and tick **Map info** to give them your explored map. Commanders,
+give them metal and energy, tick **Chosen Units** to give them the units you
+have selected, and tick **Map Info** to give them your explored map, then
+choose **OK**. Commanders,
 aircraft in flight and units in or carrying a transport stay with you.
 
 You can also share with your allies automatically, using typed commands:
@@ -222,10 +225,16 @@ You can also share with your allies automatically, using typed commands:
 
 ### Alliances
 
-The **Allies** window declares or breaks an alliance with another person
-outside your lobby team, and sets shared victory, so allies can win together.
-Declaring an alliance doesn’t make the other player your ally in return; they
-declare theirs separately. Teams chosen in the lobby can’t be broken.
+In the **Allies** window, click the button beside another person to declare
+or break an alliance with them; everyone sees a message when you do. The
+button shows whether you, they or both of you have declared. Declaring an
+alliance doesn’t make the other player your ally in return; they declare
+theirs separately. Teams chosen in the lobby can’t be broken, so a teammate’s
+button is grayed out.
+
+**Allied Victory** lets you win together with the players you’re allied with.
+It’s grayed out for players on a lobby team of two or more, whose team
+already wins together.
 
 ## Leaving and disconnects
 
