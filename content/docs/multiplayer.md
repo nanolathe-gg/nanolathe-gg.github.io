@@ -1,6 +1,6 @@
 +++
 title = 'Playing online'
-description = 'Create or join an online game, set up the lobby and computer players, play skirmish or Survival together, and watch replays.'
+description = 'Create or join an online game, set up the lobby and computer players, chat, share and ally in skirmish or Survival, and watch replays.'
 type = 'guide'
 related = '/docs/native-installation'
 +++
@@ -52,6 +52,13 @@ If the host picks a map you don’t have, the lobby names it and **Ready** stays
 grayed out. In the native beta, download community maps beforehand from
 **More maps** on the map selection screen.
 
+## Your name
+
+On the online menu that **MULTI** opens, choose **Name** to set the name other
+players see, up to 16 characters. Nanolathe remembers it. Your name appears in
+the lobby, in chat, on the results and in the `+net` figures. Without one,
+you appear as Player 1, Player 2 and so on.
+
 ## Create a game
 
 1. On the main menu, choose **MULTI**, then **Create Game**.
@@ -81,17 +88,19 @@ be reached.
 
 ## The lobby
 
-Each player has a row: Player 1, Player 2 and so on, with **(You)** and
-**(Host)** marked. Until you press **Ready**, you can click your own:
+Each player has a row showing their name, with **(You)** and **(Host)** marked.
+Until you press **Ready**, you can click your own:
 
 - **Side** to switch sides.
 - **Team** symbol to choose no team or one of teams 1–5.
 - **Color** to step to the next free color. Right-click steps back. Every
   player has a color of their own.
 
-The host picks the game type (**Skirmish** or **Survival**), the map with
-**Select Map**, and the Commander, Location, Mapping and Line of Sight options.
-Survival adds Wave Pace, Air Waves and Naval Waves. Other players see these
+The host picks the gameplay rules, the game type (**Skirmish** or
+**Survival**), the map with **Select Map**, and the Commander, Location,
+Mapping and Line of Sight options. The rules are **Modern** (the default),
+**Community 3.9** or **Strict 3.1**. Survival adds Wave Pace, Air Waves and
+Naval Waves. Other players see these
 settings but can’t change them. Hover over a control to see what it does.
 
 The mod, mutators and unit restrictions come from the host’s setup when the
@@ -109,7 +118,8 @@ column. Other players see the computers but can’t change them.
 
 A skirmish can have up to eight computers, as long as the map has a start
 position for every player, computers included. In Survival, two players can
-add one computer as the third survivor.
+add one computer as the third survivor. Under Strict 3.1, a room can have only
+one computer player.
 
 ### Ready and Start
 
@@ -145,8 +155,9 @@ start positions on the map. At least two players are people. Players on the
 same team are allies: they win together and share what their units see, radar
 included. Players with no team fight for themselves.
 
-Teams are fixed for the whole battle. Changing alliances and sharing
-resources, units or maps aren’t available online yet.
+Teams chosen in the lobby last the whole battle. During the battle you can
+also [share](#sharing) with any player and make or break
+[alliances](#alliances) with players outside your team.
 
 ## Survival online
 
@@ -162,12 +173,52 @@ Survival result. Survival battles can’t be saved.
 
 - Online battles run at normal speed. There’s no pause, and the game-speed keys
   don’t apply.
-- Online games use Nanolathe’s default Modern gameplay.
+- Everyone plays by the gameplay rules the host chose.
 - Cheat commands are turned off.
-- There’s no chat between players yet, so use a voice or messaging app.
 - Press Enter, type `+net` and press Enter again to show network figures,
   including each player’s ping and how far behind they are. The `+fps` display
   shows them too.
+
+In an online battle, Tab opens the multiplayer strip, with **Options**,
+**Share**, **Control** and **Allies**, when Tab is set to open options, as it
+is by default. If you’ve set Tab to show the overview, Tab keeps doing that,
+and F2 opens the strip instead.
+
+### Chat
+
+In the lobby and in battle, press Enter to open the message line, type, and
+press Enter to send. A line goes to everyone unless it starts with:
+
+- `a,` to send it to your allies;
+- `e,` to send it to your enemies;
+- a player’s number followed by `,`, `:` or `;` to send it to that player
+  only, for example `3:` for player 3.
+
+Defeated players who stay to watch the battle can’t chat.
+
+### Sharing
+
+Press H to open the **Share** screen, and pick any player. Use the sliders to
+give them metal and energy, tick **Units** to give them the units you have
+selected, and tick **Map info** to give them your explored map. Commanders and
+units inside transports stay with you.
+
+You can also share with your allies automatically, using typed commands:
+
+- `+ShareMetal` and `+ShareEnergy` turn sharing of surplus metal or energy on
+  or off.
+- `+ShareMapping` does the same for your explored map, and `+ShareRadar` for
+  your radar.
+- `+ShareAll` switches all four.
+- `+SetShareMetal n` and `+SetShareEnergy n` share metal or energy above `n`,
+  for example `+SetShareMetal 500`.
+
+### Alliances
+
+The **Allies** window declares or breaks an alliance with another person
+outside your lobby team, and sets shared victory, so allies can win together.
+Declaring an alliance doesn’t make the other player your ally in return; they
+declare theirs separately. Teams chosen in the lobby can’t be broken.
 
 ## Leaving and disconnects
 
@@ -195,8 +246,8 @@ differed. Online replays end in `_online.nlreplay`.
 
 Nanolathe records every skirmish and Survival battle you play, single-player
 and online, as a replay on your own computer. In an online game, each
-player’s game records its own copy. Campaign missions and battles loaded from
-a saved game aren’t recorded.
+player’s game records its own copy, without the chat. Campaign missions and
+battles loaded from a saved game aren’t recorded.
 
 To watch one, choose **REPLAYS** on the main menu, pick a battle and choose
 **Watch**. The screen shows each battle’s map, game type, players and length.
@@ -231,14 +282,12 @@ they ended. It never shows room codes or player addresses.
 
 Online play is new, and some things aren’t available yet:
 
-- Only the host can add computer players.
-- Online games use Nanolathe’s default Modern gameplay. Strict 3.1 and
-  Community 3.9 aren’t offered online yet.
-- There’s no chat, no player names and no list of open games. Friends join
-  with a code.
-- Teams are fixed: you can’t change alliances or share resources, units or
-  maps.
+- Only the host can add computer players, and under Strict 3.1 a room can
+  have only one.
+- There’s no list of open games. Friends join with a code.
+- Teams chosen in the lobby can’t be broken.
 - There’s no pausing, saving, reconnecting or spectating.
+- Chat isn’t saved in replays.
 - Browser players can’t use mods.
 - Online play connects Nanolathe players only. It doesn’t work with the
   original game or other engines.

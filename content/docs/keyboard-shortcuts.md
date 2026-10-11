@@ -177,7 +177,10 @@ Chat accepts text and a bounded set of `+` commands; these are typed commands, n
 | Key | Online action |
 | --- | --- |
 | Pause, + or =, − or _ | No effect. Online battles always run at normal speed. |
-| Tab or F2 | Open or close battle options. The battle keeps running. |
+| Tab | Open or close the multiplayer strip: Options, Share, Control and Allies. The battle keeps running. If Tab is set to show the overview, it keeps doing that. |
+| F2 | With Tab set to show the overview, open or close the multiplayer strip. |
+| H | Open the Share screen to give metal, energy, selected units or your explored map to any player. |
+| Enter | Open the message line, in the lobby too. A line goes to everyone unless it starts with `a,` (allies), `e,` (enemies) or a player’s number followed by `,`, `:` or `;` (that player only, for example `3:`). |
 | Enter, then `+net` | Show network figures, including each player’s ping and how far behind they are. The `+fps` display shows them too. |
 
 ## Watching a replay
@@ -199,7 +202,6 @@ For completeness, these familiar or reserved keys do **not** currently provide t
 
 | Key | Status |
 | --- | --- |
-| H | Multiplayer sharing dialog is not implemented. |
 | Shift + F2 | Retail Unit Builder Probe is not implemented. |
 | Backslash, Ctrl + F10, F11 | Retail developer controls are not implemented. |
 | Ctrl + F9 | Retail screenshot binding has no capture writer; use Ctrl+Shift+F11 for a diagnostic capture. |
