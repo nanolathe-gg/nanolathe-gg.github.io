@@ -138,13 +138,16 @@ try {
     $launcher = Get-NanolatheLauncher
     [void][Management.Automation.Language.Parser]::ParseInput($launcher, [ref]$tokens, [ref]$errors)
     if ($errors.Count) { throw ($errors | Out-String) }
-    # Run the encoded shortcut command against an authored launcher, proving the
-    # base path survives spaces, apostrophes, brackets and shell metacharacters.
+    # The installed bootstrap retains the literal Base argument and pointer
+    # validation. test-shortcut.ps1 exercises the encoded loader in a child host.
     [IO.File]::WriteAllText((Join-Path $published 'launch.ps1'), 'param($Base); $Base')
-    $arguments = $shortcut.Arguments
-    $encoded = ($arguments -split ' ')[-1]
-    $command = [Text.Encoding]::Unicode.GetString([Convert]::FromBase64String($encoded))
-    Assert-Equal (& ([scriptblock]::Create($command))) $base 'Shortcut literal path round trip'
+    $bootstrap = [scriptblock]::Create((Get-NanolatheBootstrap))
+    Assert-Equal (& $bootstrap -Base $base) $base 'Bootstrap literal path round trip'
+    foreach ($invalidPointer in @('../new-release', "`$(throw 'must stay inert')")) {
+        Write-NanolatheData (Join-Path $base 'current.txt') $invalidPointer
+        Assert-Throws { & $bootstrap -Base $base } 'Bootstrap rejects invalid release pointers as data'
+    }
+    Write-NanolatheData (Join-Path $base 'current.txt') 'new-release'
     # A real child host with -NonInteractive must never display an update UI.
     $installerLiteral = "'" + $installer.Replace("'", "''") + "'"
     $noninteractiveCommand = ". $installerLiteral; if (Confirm-NanolatheUpdate 'alpha-1') { throw 'Noninteractive update accepted.' }"
@@ -319,7 +322,8 @@ if (`$updateTest.Mode -eq 'new-game-failed') { throw 'Authored new game failed.'
         $selectionLauncher = (Get-NanolatheLauncher).Replace('& $exe ', '& Invoke-SelectionGame ')
         [IO.File]::WriteAllText((Join-Path $old 'launch.ps1'), $selectionLauncher)
         Write-NanolatheData (Join-Path $base 'current.txt') 'old-release'
-        $shortcutCommand = [Text.Encoding]::Unicode.GetString([Convert]::FromBase64String(((Get-NanolatheLaunchCommand $base) -split ' ')[-1]))
+        Write-NanolatheData (Join-Path $base 'launch.ps1') (Get-NanolatheBootstrap)
+        $shortcutCommand = [Text.Encoding]::Unicode.GetString([Convert]::FromBase64String(((Get-NanolatheLaunchCommand) -split ' ')[-1]))
         $skipBefore = $env:NANOLATHE_SKIP_UPDATE_CHECK
         $settingsBefore = $env:NANOLATHE_SETTINGS
         $env:NANOLATHE_SKIP_UPDATE_CHECK = '1'
@@ -347,7 +351,13 @@ if (`$updateTest.Mode -eq 'new-game-failed') { throw 'Authored new game failed.'
                     Prompts = @(); Messages = @(); Checks = @(); Launches = @(); Discoveries = 0; Dialogs = 0
                 }
                 foreach ($answer in $case.Answers) { $selection.Answers.Enqueue($answer) }
-                if ($case.ContainsKey('Shortcut')) { & ([scriptblock]::Create($shortcutCommand)) }
+                if ($case.ContainsKey('Shortcut')) {
+                    $directoryBefore = [Environment]::CurrentDirectory
+                    try {
+                        [Environment]::CurrentDirectory = $base
+                        & ([scriptblock]::Create($shortcutCommand))
+                    } finally { [Environment]::CurrentDirectory = $directoryBefore }
+                }
                 else { & ([scriptblock]::Create($selectionLauncher)) -Base $base }
                 if ($case.ContainsKey('Shortcut')) { Assert-Equal $selection.Messages[0] 'Opening Nanolathe...' "$($case.Name): shortcut announces startup" }
                 Assert-Equal $selection.Prompts.Count $case.Answers.Count "$($case.Name): consumes expected choices"
@@ -373,6 +383,7 @@ if (`$updateTest.Mode -eq 'new-game-failed') { throw 'Authored new game failed.'
             $env:NANOLATHE_SETTINGS = $settingsBefore
         }
     }
+    & (Join-Path $PSScriptRoot 'test-shortcut.ps1')
     Write-Host 'Windows installer offline tests: OK'
 } finally {
     if ([IO.Directory]::Exists($base)) { Remove-Item -LiteralPath $base -Recurse -Force }
