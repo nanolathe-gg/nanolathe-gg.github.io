@@ -136,6 +136,7 @@ function Confirm-NanolatheUpdate([string]$Version) {
     if (![Environment]::UserInteractive -or
         @([Environment]::GetCommandLineArgs() | Where-Object { $_ -match '^-noni' }).Count -gt 0) { return $false }
     try {
+        Write-Host 'An update is available. Choose Update & play or Play current version in the Nanolathe update window.'
         Add-Type -AssemblyName System.Windows.Forms
         $dialog = New-Object Windows.Forms.Form
         try {
@@ -175,6 +176,7 @@ function Confirm-NanolatheUpdate([string]$Version) {
 
 function Invoke-NanolatheUpdate([string]$Base, [string]$Release) {
     if ($env:NANOLATHE_SKIP_UPDATE_CHECK -eq '1') { return $null }
+    Write-Host 'Checking for Nanolathe updates...'
     $temporary = $null
     $installDirBefore = [Environment]::GetEnvironmentVariable('NANOLATHE_INSTALL_DIR', 'Process')
     $ProgressPreference = 'SilentlyContinue'
@@ -230,6 +232,7 @@ $ErrorActionPreference = 'Stop'
 $settingsBefore = [Environment]::GetEnvironmentVariable('NANOLATHE_SETTINGS', 'Process')
 $log = Join-Path $Base ('logs\game-' + (Get-Date -Format 'yyyyMMdd-HHmmss') + '.log')
 try {
+    Write-Host "Preparing Nanolathe. Log: $log"
     $release = [IO.File]::ReadAllText((Join-Path $Base 'current.txt'))
     if ($release -cnotmatch '^[A-Za-z0-9][A-Za-z0-9._-]+$') { throw 'Invalid current release pointer.' }
     $exe = Join-Path (Join-Path (Join-Path $Base 'releases') $release) 'nanolathe.exe'
@@ -248,6 +251,7 @@ try {
     if (!$explicitRoot -and [IO.File]::Exists($remembered)) { $Root = [IO.File]::ReadAllText($remembered) }
     function Test-GameRoot([string]$Candidate) {
         if ([string]::IsNullOrWhiteSpace($Candidate) -or !(Test-Path -LiteralPath $Candidate -PathType Container)) { return $false }
+        Write-Host "Checking Total Annihilation game data: $Candidate"
         $ErrorActionPreference = 'Continue'
         & $exe --check-install --root $Candidate 2>&1 | ForEach-Object {
             [IO.File]::AppendAllText($log, $_.ToString() + [Environment]::NewLine)
@@ -257,6 +261,7 @@ try {
     if (!(Test-GameRoot $Root)) {
         if ($explicitRoot) { throw "The selected Total Annihilation folder is not usable: $Root. See $log" }
         $Root = ''
+        Write-Host 'Searching for Total Annihilation installations...'
         $ErrorActionPreference = 'Continue'
         $discovery = @(& $exe --list-installs 2>&1)
         $discoveryExit = $LASTEXITCODE
@@ -338,6 +343,7 @@ function Get-NanolatheLaunchCommand([string]$Base) {
     $command = @'
 $ErrorActionPreference = 'Stop'
 try {
+    Write-Host 'Opening Nanolathe...'
     $base = BASE_LITERAL
     $release = [IO.File]::ReadAllText((Join-Path $base 'current.txt'))
     if ($release -cnotmatch '^[A-Za-z0-9][A-Za-z0-9._-]+$') { throw 'Invalid current release pointer.' }
@@ -346,13 +352,14 @@ try {
 } catch { Write-Host $_ -ForegroundColor Red; [void](Read-Host 'Press Enter to close'); exit 1 }
 '@
     $command = $command.Replace('BASE_LITERAL', $literal)
-    return '-NoProfile -STA -EncodedCommand ' + [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($command))
+    return '-NoProfile -STA -WindowStyle Normal -EncodedCommand ' + [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($command))
 }
 
 function Set-NanolatheShortcutProperties($Shortcut, [string]$Base, [string]$Release) {
     $Shortcut.TargetPath = Join-Path $env:SystemRoot 'System32\WindowsPowerShell\v1.0\powershell.exe'
     $Shortcut.Arguments = Get-NanolatheLaunchCommand $Base
     $Shortcut.WorkingDirectory = $Base
+    $Shortcut.WindowStyle = 1
     $Shortcut.Description = 'Play Nanolathe using your Total Annihilation game assets'
     # The icon lives beside the selected release, outside the temporary build.
     $Shortcut.IconLocation = (Join-Path $Release 'Nanolathe.ico') + ',0'
