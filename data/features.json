@@ -8,7 +8,7 @@
     "width": 960,
     "height": 640,
     "alt": "A Jeffy blast lights a Bulldog among healthy synthesized trees on Greenhaven in Nanolathe\u2019s Modern GPU renderer.",
-    "caption": "Captured in Nanolathe \u00b7 Modern GPU \u00b7 staged Greenhaven scene"
+    "caption": "A staged battle on Greenhaven, rendered in Nanolathe."
   },
   "sections": [
     {
@@ -16,17 +16,14 @@
       "aliases": [
         "tactical"
       ],
-      "nav": "Camera",
-      "category": "From detail to tactics",
-      "title": "Your army. At every scale.",
-      "intro": "Inspect a moving part. Pull back and plan the next move.",
-      "how": "The modern camera moves from a close view of the original models to a broad battlefield overview. At tactical scale, readable team-colored icons take the place of tiny unit silhouettes.",
-      "look": "the extractor sitting on the metal deposit, normal-size base at 1\u00d7, closer models at 2\u00d7, and team icons across the whole map.",
+      "nav": "Camera zoom",
+      "title": "Zoom out to plan a battle",
+      "how": "The camera runs from a 2\u00d7 close-up to a view of the whole map. When units get too small to make out, team-colored icons show their type and position.",
       "guide": {
         "url": "docs/strategic-icons/",
-        "label": "Understand the tactical icons"
+        "label": "Strategic icon reference"
       },
-      "capture": "Twenty-six fresh engine renders move through the real camera\u2019s zoom range. The slider starts at 1\u00d7, reaches 2\u00d7 detail and pulls back to the camera\u2019s whole-map minimum, 0.078125\u00d7. Thirty-nine staged units use settled, activated COB poses. The second solar was moved onto clear ground and a metal extractor occupies the deposit. Unit placements stay fixed; the camera pans at wide scales and fog is omitted. Each stop is native 960 \u00d7 640; no image is enlarged to simulate camera zoom.",
+      "capture": "Twenty-six engine captures cover the camera\u2019s zoom range. The slider starts at 1\u00d7, reaches 2\u00d7 detail and pulls back to the camera\u2019s whole-map minimum, 0.078125\u00d7. Thirty-nine staged units use settled, activated COB poses. The second solar was moved onto clear ground and a metal extractor occupies the deposit. Unit placements stay fixed; the camera pans at wide scales and fog is omitted. Each stop is native 960 \u00d7 640; no image is enlarged to simulate camera zoom.",
       "source": "docs/DESIGN_GPU_RENDERER.md",
       "zoomViewer": {
         "src": "images/renderer/v6/zoom-17.webp",
@@ -35,7 +32,7 @@
         "width": 960,
         "height": 640,
         "alt": "Greenhaven outpost at the engine\u2019s original 1\u00d7 camera scale, with the metal extractor on its deposit.",
-        "caption": "Greenhaven \u00b7 staged 39-unit scene \u00b7 real camera captures \u00b7 start at 1\u00d7, zoom to 2\u00d7 or the whole map.",
+        "caption": "Greenhaven outpost with 39 staged units. Each zoom level is a separate engine capture.",
         "frames": [
           {
             "src": "/images/renderer/v6/zoom-00.webp",
@@ -173,19 +170,17 @@
     {
       "id": "upscaling",
       "aliases": [],
-      "nav": "Remastered art",
-      "category": "Terrain & tree sprites",
-      "title": "More than bigger pixels.",
-      "intro": "Extra detail in the ground and in the trees above it.",
-      "how": "The close view synthesizes 64 \u00d7 64 terrain tiles from the game\u2019s 32 \u00d7 32 artwork, alongside 2\u00d7 feature sprites. Patch matching uses the installed game\u2019s original patterns; the result is cached locally.",
-      "look": "the leaves and tree edges as well as the grass. The slider changes both terrain and tree artwork, with the camera held at 2\u00d7.",
+      "nav": "Terrain & trees",
+      "title": "More detail from the original tiles",
+      "how": "The native engine generates larger terrain tiles by matching small patches of TA\u2019s original artwork. A 32 \u00d7 32 tile becomes 64 \u00d7 64, and tree sprites get the same 2\u00d7 treatment. The result is cached locally, so it can be reused next time you play.",
+      "look": "The grass and leaves show the difference at this distance. Both views use the same 2\u00d7 camera.",
       "capture": "A close Greenhaven view is rendered twice through Modern GPU, using original artwork and then real synthesized terrain and foliage. Both captures share the same camera and committed state. Healthy native leaf sprites are used; authored dead stumps are cleared in this staged display. Native 480 \u00d7 320 captures show a smaller area at the same 2\u00d7 camera. Shadow or missing variants keep the engine\u2019s normal fallback.",
       "source": "tools/mapupscale/patchmatchgo/README.md",
       "before": "images/renderer/v6/terrain-original.webp",
       "after": "images/renderer/v6/terrain-synthesized.webp",
       "beforeLabel": "Original artwork",
       "afterLabel": "2\u00d7 synthesized art",
-      "caption": "Greenhaven close-up \u00b7 same 2\u00d7 camera \u00b7 original / synthesized terrain and trees.",
+      "caption": "Original and synthesized terrain and trees on Greenhaven, at the same zoom.",
       "width": 480,
       "height": 320,
       "altBefore": "Original grass and healthy leaf trees at the same close Greenhaven camera",
@@ -197,25 +192,23 @@
         "visuals",
         "bloom"
       ],
-      "nav": "Light & impact",
-      "category": "Same scene, new atmosphere",
-      "title": "The blast reaches the armor.",
-      "intro": "Colored light, soft glow and a sharper view of the battlefield.",
-      "how": "Visible effects cast colored light onto nearby surfaces. An emission layer adds a soft halo to bright effects, while the modern path renders unit geometry and terrain at detail scale.",
-      "look": "the nearby Bulldog\u2019s armor catching the explosion. Tap a whole view or drag the divider across the same instant.",
-      "capture": "A Jeffy self-destructs beside a Bulldog among healthy Greenhaven trees. Classic CPU and Modern GPU share the same committed tick 132 and 2\u00d7 camera. Modern uses real 2\u00d7 synthesized terrain and foliage, with default anti-aliasing, lighting and glow at native strengths. The clearing removes burn successors and authored dead stumps; the surrounding trees remain healthy. Full renderer comparison, native 960 \u00d7 640.",
+      "nav": "Lighting",
+      "title": "Explosions light nearby units",
+      "how": "An explosion lights the ground and nearby models as well as drawing its own sprite. Bright effects also get a soft glow. This scene compares the full Classic and Modern renderers.",
+      "look": "The armor on the Bulldog beside the exploding Jeffy shows the extra lighting clearly.",
+      "capture": "A Jeffy self-destructs beside a Bulldog among healthy Greenhaven trees. Classic CPU and Modern GPU share the same committed tick 132 and 2\u00d7 camera. Modern uses real 2\u00d7 synthesized terrain and foliage, with default anti-aliasing, lighting and glow at native strengths. The clearing removes burn successors and authored dead stumps; the surrounding trees remain healthy. Full renderer comparison, native 960 \u00d7 640. The accompanying video is 3 seconds at 30 FPS.",
       "source": "docs/DESIGN_GPU_RENDERER.md",
       "before": "images/renderer/v6/explosion-classic.webp",
       "after": "images/renderer/v6/explosion-modern.webp",
       "beforeLabel": "Classic CPU",
       "afterLabel": "Modern GPU",
-      "caption": "Greenhaven \u00b7 same blast, committed tick and 2\u00d7 camera \u00b7 healthy tree sprites.",
+      "caption": "The same Jeffy explosion in Classic and Modern, with a Bulldog beside it.",
       "width": 960,
       "height": 640,
       "altBefore": "A Jeffy explosion beside a Bulldog in Nanolathe\u2019s Classic CPU renderer",
       "altAfter": "The same explosion and Bulldog in the Modern GPU renderer with synthesized terrain, lighting and glow",
       "extraMotion": {
-        "summary": "Watch the same scene move",
+        "summary": "Play the explosion comparison",
         "src": "images/renderer/v6/explosion-modern.mp4",
         "poster": "images/renderer/v6/explosion-modern.webp",
         "beforeSrc": "images/renderer/v6/explosion-classic.mp4",
@@ -225,7 +218,7 @@
         "width": 960,
         "height": 640,
         "label": "Matched Classic and Modern engine footage of a Jeffy explosion beside a Bulldog",
-        "caption": "Greenhaven \u00b7 same staged timeline \u00b7 3 seconds at 30 FPS \u00b7 switch views at the same instant.",
+        "caption": "The same staged explosion in both renderers. Switching views keeps the current playback position.",
         "playLabel": "Play matched capture"
       }
     },
@@ -235,12 +228,10 @@
         "reflections"
       ],
       "nav": "Water",
-      "category": "Coastlines in motion",
-      "title": "A world beyond the shore.",
-      "intro": "Wind moves the water. A fleet leaves more than a wake.",
-      "how": "Switch the water\u2019s treatments independently and watch them react in real time. The study uses original transport and submarine geometry, textures and Gods of War terrain, with water equations adapted from Nanolathe\u2019s modern renderer.",
-      "look": "the submarine refracting beneath the surface, foam tracing the shore, and the transport\u2019s crane reflected below its hull. Keep the scene paused to compare treatments, or animate the water.",
-      "capture": "This live WebGL water study uses frozen, activated transport and submarine poses exported at committed tick 31 from engine 617540c5. Original palette textures, the native terrain view and the engine\u2019s projected shoreline mask are retained. Water field, surface shading, damp shoreline, foam, refraction and reflection ripple/tint/opacity arithmetic are adapted at native strengths. The sampled wind direction and tidal rate remain fixed. WebGL triangle/depth rasterization, texture filtering, and reflected-mesh occlusion differ from the native height-key screen-space resolve. It does not simulate units, COB wakes, shadow passes or gameplay. The native Metal engine recording below includes moving units, real wakes and evolving wind.",
+      "title": "Water",
+      "how": "The modern renderer adds moving water, shoreline foam, reflections and underwater refraction. This interactive browser study uses the engine\u2019s water equations with original transport and submarine models on Gods of War terrain.",
+      "look": "Pause the water and toggle the effects separately. The submarine shows refraction; the transport\u2019s crane is visible in the reflection.",
+      "capture": "This live WebGL water study uses frozen, activated transport and submarine poses exported at committed tick 31 from engine 617540c5. Original palette textures, the native terrain view and the engine\u2019s projected shoreline mask are retained. Water field, surface shading, damp shoreline, foam, refraction and reflection ripple/tint/opacity arithmetic are adapted at native strengths. The sampled wind direction and tidal rate remain fixed. WebGL triangle/depth rasterization, texture filtering, and reflected-mesh occlusion differ from the native height-key screen-space resolve. It does not simulate units, COB wakes, shadow passes or gameplay. The native Metal engine recording below includes moving units, real wakes and evolving wind. The native video is 6 seconds at 30 FPS.",
       "source": "docs/DESIGN_GPU_RENDERER.md",
       "motion": {
         "src": "images/renderer/v6/water-on.mp4",
@@ -248,7 +239,7 @@
         "width": 960,
         "height": 640,
         "label": "A transport reflects on Gods of War water alongside a refracted submarine and shoreline foam",
-        "caption": "Native Metal engine capture \u00b7 Gods of War \u00b7 transport + submarine \u00b7 moving units, COB wakes and real session wind \u00b7 6 seconds at 30 FPS.",
+        "caption": "Native engine footage on Gods of War, with moving units and their wakes.",
         "playLabel": "Play water capture"
       },
       "waterStudy": {
@@ -260,12 +251,10 @@
       "id": "metal",
       "aliases": [],
       "nav": "Surfaces",
-      "category": "Metal, paint and light",
-      "title": "Armor with a little more life.",
-      "intro": "Turn a unit toward the light and see its surfaces respond.",
-      "how": "Recognized metal textures receive a broad highlight and directional glints. Painted panels have a softer response. The original colors, panel seams and model geometry remain the foundation.",
-      "look": "the armor highlights moving as you rotate the unit or orbit its light. Switch the finish off and on at a fixed angle.",
-      "capture": "The original interactive ARM mobile Annihilator is restored. This frozen model and texture atlas were exported from engine 801c8b2. WebGL adapts the engine\u2019s metal/paint finish and glint arithmetic; rotation, tilt and an optional light orbit are study controls. Its projection, depth testing, anti-aliasing and floor shadow differ from the game renderer. It is a material study, not a playable unit. The disclosure below retains a real Metal engine comparison captured at 279f7af1.",
+      "title": "Metal and painted surfaces",
+      "how": "Metal textures catch broad highlights and directional glints, while painted panels have a softer finish. The model keeps its original colors and panel seams.",
+      "look": "Rotate the unit or orbit the light to see the highlights move. Hold the angle still to compare with the finish turned off.",
+      "capture": "This ARM mobile Annihilator model and its texture atlas were exported from engine 801c8b2. WebGL adapts the engine\u2019s metal/paint finish and glint arithmetic; rotation, tilt and an optional light orbit are study controls. Its projection, depth testing, anti-aliasing and floor shadow differ from the game renderer. It is a material study, not a playable unit. The native Metal engine comparison below was captured at 279f7af1.",
       "source": "internal/platform/gpurender/model_finish.go",
       "motion": {
         "src": "images/renderer/v5/materials-on.mp4",
@@ -277,7 +266,7 @@
         "width": 512,
         "height": 512,
         "label": "The original ARM mobile Annihilator rotates in the native engine to show materials and glints",
-        "caption": "Comet Catcher \u00b7 staged turntable \u00b7 materials and glints off / on.",
+        "caption": "The original ARM mobile Annihilator, with the surface finish off and on in the native engine.",
         "playLabel": "Play surface capture"
       },
       "revision": "801c8b2",
@@ -290,19 +279,17 @@
     {
       "id": "antialiasing",
       "aliases": [],
-      "nav": "Edges",
-      "category": "A clearer silhouette",
-      "title": "Smoother edges. Moving parts too.",
-      "intro": "Keep diagonals, turrets and small silhouettes readable.",
-      "how": "Modern anti-aliasing renders model subjects at twice the resolution in each direction. Four coverage samples resolve into each output pixel, blending mobile units and their live pieces into the scene beneath them.",
-      "look": "the diagonal armor, gun barrels and small silhouettes across nine original models.",
+      "nav": "Anti-aliasing",
+      "title": "Smoother unit edges",
+      "how": "Modern anti-aliasing draws models at twice the resolution in each direction, then combines four samples per output pixel. It works on mobile units and their moving parts as well as buildings.",
+      "look": "Compare the gun barrels and diagonal armor across these nine models. Both renderer paths have anti-aliasing enabled; Modern extends it to mobile units.",
       "capture": "Bulldog, Maverick, Zeus, Reaper, Annihilator, Stumpy, Merl, Goliath and a construction Kbot share committed poses and the 2\u00d7 camera. Both renderer paths have anti-aliasing enabled: Classic retains structure coverage, while Modern extends it to mobile units. Vegetation is cleared from the tableau so it does not hide the models. Whole renderer paths, native 960 \u00d7 640.",
       "source": "docs/DESIGN_GPU_RENDERER.md",
       "before": "images/renderer/v6/aa-classic.webp",
       "after": "images/renderer/v6/aa-modern.webp",
       "beforeLabel": "Classic CPU",
       "afterLabel": "Modern GPU",
-      "caption": "Matched model lineup \u00b7 the same camera and poses \u00b7 whole Classic / Modern rendering paths.",
+      "caption": "The same unit lineup in Classic and Modern, with anti-aliasing enabled in both.",
       "width": 960,
       "height": 640,
       "altBefore": "An original model lineup showing mobile units and a building in Nanolathe\u2019s Classic CPU renderer",
@@ -314,12 +301,10 @@
         "distortion"
       ],
       "nav": "Fire distortion",
-      "category": "Heat & aftermath",
-      "title": "Heat you can see.",
-      "intro": "The fire stays familiar. The air above it changes.",
-      "how": "Burning vegetation bends the scene behind a rising heat plume. The original flame and smoke artwork remains visible with the treatment off.",
-      "look": "grass wavering above the three burning palms; pause and switch shimmer off and on.",
-      "capture": "Three original architree01 palms are placed and ignited through the real feature service. Session.Step advances their flames, smoke and burning lifecycle. Matched Modern GPU views toggle only FireShimmer. The 2\u00d7 camera and native effect strength remain fixed; no image resampling or retiming is used.",
+      "title": "Heat above burning trees",
+      "how": "Burning vegetation distorts the view behind the rising heat. Turning shimmer off leaves the original flame and smoke sprites in place.",
+      "look": "Watch the grass just above the three burning palms. You can pause the clip and toggle shimmer on the same frame.",
+      "capture": "Three original architree01 palms are placed and ignited through the real feature service. Session.Step advances their flames, smoke and burning lifecycle. Matched Modern GPU views toggle only FireShimmer. The 2\u00d7 camera and native effect strength remain fixed; no image resampling or retiming is used. Captured at 480 \u00d7 320, 5 seconds at 30 FPS.",
       "source": "docs/DESIGN_GPU_RENDERER.md",
       "motion": {
         "src": "images/renderer/v6/heat-on.mp4",
@@ -330,8 +315,8 @@
         "afterLabel": "Shimmer on",
         "width": 480,
         "height": 320,
-        "label": "Heat you can see.",
-        "caption": "Great Divide \u00b7 staged session \u00b7 same timeline \u00b7 5 seconds at 30 FPS \u00b7 native 480 \u00d7 320 close-up.",
+        "label": "Heat distortion above three burning palms",
+        "caption": "Burning palms on Great Divide, with heat shimmer off and on.",
         "playLabel": "Play fire capture"
       }
     },
@@ -339,12 +324,10 @@
       "id": "wrecks",
       "aliases": [],
       "nav": "Wrecks",
-      "category": "Heat & aftermath",
-      "title": "A blast. A wreck. A slow cool.",
-      "intro": "What survives the explosion keeps the heat.",
-      "how": "Fresh wrecks glow and distort the air as they cool, then settle back to their original textures. The death, corpse selection and cooling age all come from the engine.",
-      "look": "the Stumpy\u2019s wreck warming the scene after the blast, then returning to its normal finish as the heat fades.",
-      "capture": "A Stumpy takes ordinary nonlethal damage during warmup, then an ordinary lethal damage packet one second into the clip. Its COB Killed result places the real corpse at tick 120. Paired Modern views toggle WreckGlow and WreckShimmer, preserving the explosion, materials and every other effect. The 13-second clip includes cooling and shimmer expiry; native 480 \u00d7 320 at the 2\u00d7 camera.",
+      "title": "Wrecks cool after a kill",
+      "how": "Fresh wrecks glow and distort the air, then return to their normal textures as they cool. This follows the wreck\u2019s age in the engine.",
+      "look": "The Stumpy is destroyed one second into the clip. Let it play to the end to see the glow and shimmer fade.",
+      "capture": "A Stumpy takes ordinary nonlethal damage during warmup, then an ordinary lethal damage packet one second into the clip. Its COB Killed result places the real corpse at tick 120. Paired Modern views toggle WreckGlow and WreckShimmer, preserving the explosion, materials and every other effect. The 13-second clip includes cooling and shimmer expiry; native 480 \u00d7 320 at the 2\u00d7 camera. The video runs at 30 FPS.",
       "source": "docs/DESIGN_GPU_RENDERER.md",
       "motion": {
         "src": "images/renderer/v6/wrecks-on.mp4",
@@ -355,8 +338,8 @@
         "afterLabel": "Wreck treatment on",
         "width": 480,
         "height": 320,
-        "label": "A blast. A wreck. A slow cool.",
-        "caption": "Great Divide \u00b7 staged session \u00b7 same timeline \u00b7 13 seconds at 30 FPS \u00b7 native 480 \u00d7 320 close-up.",
+        "label": "A Stumpy is destroyed and its wreck cools",
+        "caption": "A Stumpy on Great Divide, from destruction through cooling.",
         "playLabel": "Play wreck cooling"
       }
     },
@@ -366,18 +349,16 @@
         "soft-shadows"
       ],
       "nav": "Aircraft shadows",
-      "category": "Altitude & light",
-      "title": "Higher flight. Softer shadows.",
-      "intro": "A sharp silhouette close to the ground. A softer trace from above.",
-      "how": "Aircraft shadows spread as height above the receiving surface increases. The modern renderer filters the original silhouette at the native shadow strength, keeping narrow wings connected. Switch the treatment off to see the ordinary shadow.",
-      "look": "the left plane\u2019s tighter shadow and the right plane\u2019s softer one. Drag across the ground beneath them, or tap a whole view.",
+      "title": "Shadows soften with altitude",
+      "how": "An aircraft\u2019s shadow spreads out as its height above the ground increases. The renderer softens the original silhouette while keeping narrow shapes, such as wings, connected.",
+      "look": "These Hurricanes are fixed at two different heights. Compare the tighter shadow on the left with the softer one on the right.",
       "capture": "Two original CORE Hurricane bombers are staged at 60 and 180 world units above Greenhaven\u2019s ground. Their original activated COB poses, heights, heading and 2\u00d7 camera stay fixed. The actual Metal renderer executes the same cloned drawlist with only SoftShadows off and on; ShadowSoftness remains 100%. The on/off/on replay restores identical pixels, and the committed publication remains unchanged. Vegetation is omitted from this presentation fixture to keep both shadows visible. This is a frozen altitude study, not simulated flight. Native 960 \u00d7 640; no resampling or retouching.",
       "source": "internal/platform/gpurender/aircraft_shadow.go",
       "before": "images/renderer/v6/shadows-off.webp",
       "after": "images/renderer/v6/shadows-on.webp",
       "beforeLabel": "Ordinary shadows",
       "afterLabel": "Soft shadows",
-      "caption": "Greenhaven \u00b7 same planes, heights and camera \u00b7 lower flight left / higher flight right \u00b7 native strength.",
+      "caption": "Two Hurricanes over Greenhaven, fixed at different heights. The higher one is on the right.",
       "width": 960,
       "height": 640,
       "altBefore": "Two CORE Hurricane bombers at different heights with ordinary silhouette shadows on Greenhaven",
@@ -386,45 +367,17 @@
   ],
   "overview": [
     {
-      "title": "Closer views. Wider plans.",
-      "text": "Free camera zoom from the whole map to 2\u00d7 detail, with tactical team icons at wide scales."
+      "id": "trails",
+      "title": "Tracks and scorch marks",
+      "text": "Units leave footprints and tank tracks. Explosions leave scorch marks that fade over time."
     },
     {
-      "title": "Remastered map art.",
-      "text": "Local 2\u00d7 synthesis for terrain and feature sprites, using the original artwork and a reusable cache."
+      "title": "Movement between ticks",
+      "text": "Presentation interpolation smooths movement between simulation ticks without changing the simulation itself."
     },
     {
-      "title": "Every model, clearer.",
-      "text": "Anti-aliasing covers mobile units and their animated parts. Presentation interpolation smooths movement between committed ticks."
-    },
-    {
-      "title": "Light across the battlefield.",
-      "text": "Explosions, fire, projectiles, construction spray and hot wrecks light nearby models, smoke and ground."
-    },
-    {
-      "title": "Glow and impact.",
-      "text": "Soft emission halos, refractive blast rings and separate glow strengths for weapons, explosions and construction."
-    },
-    {
-      "title": "Water with depth.",
-      "text": "Wind-driven surface shading and motion, seabed displacement, submerged-hull refraction, coastal foam and rippled reflections."
-    },
-    {
-      "title": "Materials that respond.",
-      "text": "Metal glints, cooler broad metal highlights and softer painted-panel finishes retain the original colors and seams."
-    },
-    {
-      "title": "Heat that fades.",
-      "text": "Burning trees shimmer. Fresh wrecks emit warm light and distort the air, then cool naturally."
-    },
-    {
-      "title": "Marks and shadows.",
-      "text": "Footprints, tank tracks and fading scorch marks remain on the terrain. Aircraft shadows soften with altitude.",
-      "id": "trails"
-    },
-    {
-      "title": "Classic stays available.",
-      "text": "Switch between Modern GPU and Classic CPU with F10, or choose in Options \u2192 Nanolathe. Display effects are independent of gameplay rules."
+      "title": "Blast rings and glow settings",
+      "text": "Refractive rings distort the scene around a blast. Weapons, explosions and construction have separate glow-strength settings."
     }
   ]
 }

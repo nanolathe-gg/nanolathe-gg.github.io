@@ -1,4 +1,135 @@
-> Latest follow-up: extractor alignment corrected, live water animation/controls
+## Voice and layout review — October 12, 2026
+
+Preview this checkout at [127.0.0.1:1314](http://127.0.0.1:1314/). The existing
+server on 1313 serves an older checkout. To restart this preview from the current
+repository:
+
+```sh
+hugo server --bind 127.0.0.1 --port 1314 --disableFastRender --disableLiveReload --renderToMemory
+```
+
+This pass responds to the [numbered-card feedback](https://news.ycombinator.com/item?id=50046607)
+and the [broader presentation feedback](https://news.ycombinator.com/item?id=50046424).
+Replies also called out repeated two-part phrasing, excessive cards and labels,
+and tiring prose. These are editorial observations, not a reliable test of how
+a site was produced.
+
+The writing reference is Daniel's existing project documentation, with the
+perspective of a longtime TA player explaining a spare-time project. The
+homepage has a signed project note; About uses Daniel's first person, based on
+the personal history already in that page. Elsewhere, copy describes the game,
+the controls and the current limitations directly. The AI-development disclosure
+remains explicit. The reusable rules and source links live in
+[the brand guide](brand/GUIDE.md#writing-voice).
+
+The homepage now goes from the game footage to the renderer comparison, then
+the project note, beta status and questions. The numbered benefits, three
+engine pitch cards and repeated install/research pitches are removed. Features,
+Get started, About, the documentation index, Gameplay and Brand also have
+rewritten headings and introductions. Technical format references and research
+snapshots retain their precise language.
+
+### Second editorial pass
+
+- Read all rendered headings in sequence and checked their supporting text.
+  Removed repeated slogan pairs and labels that restated their headings.
+- Removed decorative feature/brand numbering. Installation steps remain
+  numbered because they have an order. Research URLs keep their original IDs.
+- Replaced generic phrases with specific descriptions: “A blast. A wreck. A
+  slow cool.” became “Wrecks cool after a kill”; “Your first battlefield starts
+  here” became “Play Nanolathe.”
+- Checked captions, metadata and accessibility text as well as visible headings.
+  Updated leftover video labels and shortened the duplicated camera caption.
+- Kept the distinctions between native captures and browser studies, original
+  artwork and synthesized detail, the demo and full-game data, and beta support
+  and known limitations. First-person copy does not add biographical events.
+- Retained the established green palette, logo, actual engine footage and
+  functional comparison controls. Reduced repeated marketing sections rather
+  than replacing the visual identity.
+
+### GitHub writing samples and independent review
+
+The follow-up used Huma, Restish and API Sprout as writing references. In
+addition to current READMEs and Huma tutorials, it read the
+[Huma README from September 2022](https://github.com/danielgtaylor/huma/blob/2d1984f84fc0e535404e7dc79435bf066c9f64b6/README.md)
+and the [Restish guide from May 2022](https://github.com/rest-sh/restish/blob/204e653bc7b81bb0b94d3018c9e9d4899c6a569c/docs/guide.md).
+The GitHub history identifies Daniel as the author of those two revisions.
+That does not establish authorship of every line in collaborative repositories.
+
+The recurring habits were direct instructions, explanations of why a feature
+works that way, concrete examples, useful parenthetical details and occasional
+enthusiasm. The resulting voice is friendlier and more explanatory than the
+first pass. It does not try to copy incidental typos, insert a catchphrase or
+ban normal lists and punctuation.
+
+A separate reviewer was started with `fork_turns="none"`, without the parent
+conversation or the proposed persona. It read all seven main pages and the
+desktop preview. Its findings led to these changes:
+
+- Gameplay's repeated heading/summary/four-bullet grid became a reading column
+  with a contents sidebar. Game modes and online play come first. Qualifiers
+  such as “authored” and “eligible” were replaced with specific explanations,
+  while content requirements and compatibility limits remain.
+- Homepage and About copy now explain the author's choices in ordinary first
+  person. About makes the time and effort point once, and contribution guidance
+  explains what to include in a bug report.
+- Feature captions describe what is visible. Timing, frame rates and capture
+  dimensions remain in the expandable capture details. Comparison instructions
+  no longer repeat the adjacent controls' instructions.
+- Documentation counts appear once per section. The incomplete-reference note
+  only appears when there are missing local guides. Brand download copy no
+  longer repeats the heading and button.
+
+For example, “Limited supplies affect the work the economy can admit” became
+“Shortages limit how much work can proceed,” in a paragraph explaining when
+resources are spent. The reviewer specifically recommended keeping the
+Jeffy/Bulldog example, MacBook origin, factory scripts, AI disclosure and actual
+numbered installation sequence.
+
+The reviewer checked the revised pages again and caught one lost qualification:
+alliances can change with players outside your lobby team, while lobby teams
+last for the whole battle. That distinction has been restored. The follow-up
+found no other consequential editorial issues or clear changes of meaning.
+
+### Verification
+
+- Hugo 0.160.0 builds with `--panicOnWarning`; the generated-site check passes
+  for 31 HTML pages, internal destinations, anchors, local assets and CNAME.
+- The existing checks pass for platform selection, demo startup and recovery,
+  browser assets, all 15 format fixtures, installer checksums, map/mod catalogues,
+  browser fetch fixtures and package assembly.
+- `make check` initially failed five terminal-dependent installer assertions
+  inside the sandbox. Rerunning the unchanged offline installer suite outside
+  the sandbox passed all 19 tests. PowerShell is unavailable, so Windows offline
+  tests were not run.
+- In-app browser layout checks cover all seven rewritten pages at 1440, 390
+  and 320 pixels wide. Each has one H1, no duplicate IDs, no horizontal overflow
+  and no broken loaded images. No console errors appeared during those checks.
+- Checked the camera's whole-map control, Classic/Split comparison presets,
+  installation platform and ownership choices, and opening/dismissing the mobile
+  menu with Escape. Tablet review exposed an existing gap between
+  the navigation and menu breakpoints; both now switch at 820 pixels. Confirmed
+  the menu opens and shows its links at 708 pixels.
+- Visually reviewed the desktop homepage and Features, the project note,
+  mobile installation, narrow About, and tablet navigation. These checks use
+  the in-app browser, not physical phones or every supported game browser.
+- After the GitHub-based follow-up, repackaged the brand guide, rebuilt Hugo
+  with warnings treated as errors, and reran the generated-site and whitespace
+  checks. Checked the six pages changed in that follow-up at 1440, 390 and 320
+  pixels: one H1 each, no duplicate IDs, no horizontal overflow and no broken
+  loaded images. The new Gameplay guide was also inspected visually. Its mobile
+  contents links reach the selected heading, and the camera and comparison
+  preset controls still update their selected state. No browser console errors
+  appeared. Capture files, source references, viewer parameters and all camera
+  frames are unchanged.
+
+This review was completed locally before the owner approved publication.
+The ignored `.cache/voice-review/` directory contains the responsive-layout
+results and screenshots of the project note and revised Gameplay guide.
+
+---
+
+> Earlier follow-up: extractor alignment corrected, live water animation/controls
 > added with native fallback, and a ninth aircraft soft-shadow chapter added.
 > See the latest section of [BROWSER_REVIEW.md](BROWSER_REVIEW.md) for current
 > checks, evidence and remaining gaps. The earlier sections below are history.

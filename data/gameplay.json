@@ -1,143 +1,112 @@
 {
   "revision": "40c0e814b",
-  "intro": "Total Annihilation is a real-time strategy game about building and commanding a machine army. Nanolathe reimplements its battle systems, from a Commander’s first extractor to air, land and naval warfare. These mechanics come from the installed game data; individual units have their own abilities, and expansion units require the corresponding content.",
+  "intro": "Nanolathe reads units, maps and missions from your installed TA files. That includes expansion units and their abilities, so you’ll need the corresponding game data to use them. The links below go to the engine design notes if you want the implementation details.",
   "groups": [
-    {
-      "id": "locomotion",
-      "title": "Land, sea, air — and between them",
-      "lead": "An army’s movement type determines where it can fight.",
-      "items": [
-        "Tracked and wheeled vehicles and walking Kbots use their movement class, footprint, slope and water-depth limits to navigate the map.",
-        "Hovercraft cross land and water. Amphibious units can travel underwater, while surface ships and submarines operate at their authored depths.",
-        "VTOL aircraft take off, turn, fly and land. Fighters, bombers and construction aircraft use the same simulation with different unit definitions and orders.",
-        "Seaplanes support their amphibious aircraft rules, including water landing. Aircraft can use eligible landing and repair pads."
-      ],
-      "source": "docs/DESIGN_MOVEMENT_PATH.md"
-    },
-    {
-      "id": "weapons",
-      "title": "A full arsenal",
-      "lead": "Weapons are simulated projectiles and effects with their own targeting and damage rules.",
-      "items": [
-        "Direct-fire lasers, plasma and ballistic artillery, rockets and guided missiles, dropped bombs and torpedoes cover close combat, air defense and naval engagements.",
-        "Flamethrowers, lightning weapons, paralyzing attacks and the Commander’s D-gun use their authored weapon behavior.",
-        "Turrets aim through unit scripts; weapons have reload and burst timing, range, tracking, line-of-fire checks, impact effects and area damage.",
-        "Nuclear missiles and anti-nuclear interceptors use stockpiled ammunition. Build rounds ahead of time; eligible interceptors acquire incoming targetable projectiles."
-      ],
-      "source": "docs/DESIGN_WEAPONS_PROJECTILES.md"
-    },
-    {
-      "id": "production",
-      "title": "Build a working war machine",
-      "lead": "Start with a Commander, then expand through constructors and factories.",
-      "items": [
-        "Place structures, queue factory products and follow the build menus supplied by your installed units, including advanced factories and constructors.",
-        "Nanolathe construction creates a visible frame that fills as work completes. Builders can help construction and assist production.",
-        "Factory doors, moving parts, build effects and unit animation run from the original COB scripts.",
-        "Build placement respects footprints, terrain, occupancy and special requirements such as geothermal sites."
-      ],
-      "source": "docs/DESIGN_ECONOMY_CONSTRUCTION.md"
-    },
-    {
-      "id": "economy",
-      "title": "Metal and energy, continuously",
-      "lead": "An expanding army needs a running economy, not just a purchase price.",
-      "items": [
-        "Extract metal from the map and generate energy using solar, wind, tidal, geothermal and other generators defined by the content.",
-        "Store resources, convert energy into metal with metal makers, and balance production against upkeep and construction demand.",
-        "Construction and stockpile production consume resources as work proceeds. Limited supplies affect the work the economy can admit.",
-        "Map wind and tidal conditions feed the relevant generators. Cloaking and other active systems have their own energy demands."
-      ],
-      "source": "docs/DESIGN_ECONOMY_CONSTRUCTION.md"
-    },
-    {
-      "id": "fieldwork",
-      "title": "Repair, reclaim, resurrect, capture",
-      "lead": "A battlefield is also a source of resources and recoverable machines.",
-      "items": [
-        "Repair damaged units and buildings with capable constructors. Guard and assist orders can keep builders working with other units.",
-        "Reclaim eligible trees, rocks and wreckage for their authored resources, or deconstruct units using the reclaim order.",
-        "Resurrection-capable units restore eligible wrecks to working units. Available resurrectors and wreck definitions come from the installed content.",
-        "Capture-capable units can take over eligible enemy units. These work operations share the engine’s order, approach and construction systems."
-      ],
-      "source": "docs/DESIGN_ECONOMY_CONSTRUCTION.md"
-    },
-    {
-      "id": "transport",
-      "title": "Move the army, not just the front line",
-      "lead": "Transports connect positions that ordinary movement cannot.",
-      "items": [
-        "Load and unload eligible cargo using the transport’s capacity, size and unit-admission rules.",
-        "Air transports approach their cargo, attach it through the unit script, carry it and release it at the destination.",
-        "Ground transport orders and carried-unit attachment are supported by the same cargo system when the installed unit content supplies those capabilities."
-      ],
-      "source": "docs/DESIGN_MOVEMENT_PATH.md"
-    },
-    {
-      "id": "intelligence",
-      "title": "Scout, detect and conceal",
-      "lead": "Knowing where an opponent is can matter as much as what you can shoot.",
-      "items": [
-        "Line of sight, explored terrain and fog of war govern what the battlefield reveals.",
-        "Radar and sonar provide sensor contacts; radar and sonar jamming interfere with the appropriate detection systems.",
-        "Cloaking, stealth, proximity detection and decloaking follow the unit’s capabilities and simulation rules.",
-        "The minimap, unit selection and sensor presentation expose the information available to the viewing player."
-      ],
-      "source": "docs/DESIGN_WORLD_VISIBILITY.md"
-    },
-    {
-      "id": "orders",
-      "title": "Command at every scale",
-      "lead": "Give a single order or plan a sequence for a group.",
-      "items": [
-        "Select units, assign and recall control groups, and issue move, attack, patrol, guard, stop and work orders.",
-        "Queue commands, manage construction queues and stockpiles, and set movement and fire stances where the unit allows them.",
-        "Inspect health, resources, unit information and build choices in the game’s interface.",
-        "Nanolathe’s modern camera adds close-up zoom, tactical icons and range guides; those presentation enhancements are shown on the features page."
-      ],
-      "source": "docs/DESIGN_INTERFACE_HUD_INPUT.md"
-    },
-    {
-      "id": "battlefield",
-      "title": "A battlefield with a memory",
-      "lead": "The original terrain, models, sprites and scripts create the world you fight in.",
-      "items": [
-        "Terrain elevation, water, map features and occupied footprints influence movement, construction and combat.",
-        "Destroyed units can leave wreckage. Trees and other eligible features can catch fire, animate, take damage and change into their authored successors.",
-        "Weapon trails, smoke, explosions, debris, construction particles and positional sound connect actions to the battlefield.",
-        "Original game archives, map definitions, unit data and COB animation scripts are read directly from your local installation."
-      ],
-      "source": "docs/DESIGN_PRESENTATION_CLIENT.md"
-    },
     {
       "id": "singleplayer",
       "title": "Skirmish, Survival and campaigns",
-      "lead": "Play locally against the computer or through authored missions.",
+      "source": "docs/DESIGN_SESSIONS_AI_SAVE.md",
       "items": [
-        "Configure single-player skirmishes with the available sides, maps and computer players. The AI uses its economy, production and combat planner.",
-        "In Survival, you and up to two computer allies hold out against waves of attackers that arrive from the map edges and grow stronger over time. There’s no victory; the result is a score.",
-        "Campaign play loads mission content, initial units, objectives and triggers from the installed game data.",
-        "Save and load games, including in-battle restoration through the retail save-account format. Compatibility work remains ongoing.",
-        "Use game sound effects and the locally installed soundtrack. The GOG MP3 music folder is supported on Windows, Linux and macOS.",
-        "Each new skirmish and Survival battle is recorded as a replay. Watch it from REPLAYS on the main menu, through a player’s eyes or across the whole map."
+        "Skirmish lets you choose a map, sides and computer players for a battle.",
+        "In Survival, you and up to two computer allies hold out against waves arriving from the map edges. The waves get stronger over time. There’s no victory condition; the result is a score.",
+        "Campaigns load the original missions, including their starting units, objectives and triggers."
       ],
-      "source": "docs/DESIGN_SESSIONS_AI_SAVE.md"
+      "paragraphs": [
+        "You can save and load single-player games. Support for the original game’s save format is still being worked on, so compatibility varies. New skirmish and Survival battles are also recorded as replays. Open REPLAYS on the main menu to watch through a player’s eyes or across the whole map.",
+        "The game uses the original sound effects and your installed soundtrack. For example, the GOG MP3 music folder works on Windows, Mac and Linux."
+      ]
     },
     {
       "id": "online",
-      "title": "Online with friends",
-      "lead": "Play skirmish or Survival over the Internet, in the native beta or in a desktop browser with your own game files.",
-      "items": [
-        "Create a game from MULTI on the main menu and send its six-character room code. Friends join with the code.",
-        "Skirmish takes 2 to 10 players, map permitting. Each player picks a team, side and color; teammates win together and share sight and radar.",
-        "The host can add computer players, played by the Classic or Modern AI, each with its own difficulty, side, team and color.",
-        "In Survival, 2 or 3 players form one side against waves of attackers, sharing sight, radar and income.",
-        "Every player’s computer runs the whole battle, and only orders travel. A short check before the start confirms that every game computes the same battle.",
-        "Players chat in the lobby and in battle, give each other metal, energy, units and explored maps, and make or break alliances beyond their lobby teams.",
-        "The host chooses Modern, Community 3.9 or Strict 3.1 rules. Battles run at normal speed with no pause, and every player keeps a replay. Saving and reconnecting are not available online yet."
-      ],
-      "source": "docs/DESIGN_MULTIPLAYER.md"
+      "title": "Online play",
+      "source": "docs/DESIGN_MULTIPLAYER.md",
+      "paragraphs": [
+        "Choose MULTI on the main menu, create a game and send the six-character room code to your friends. The native beta and desktop Chrome or Edge can play together. Everyone needs their own game files; the three-mission demo can’t join online games.",
+        "Skirmish supports 2 to 10 players, depending on the map. Each player chooses a team, side and color. Teammates win together and share sight and radar. The host can also add Classic or Modern computer players and set their difficulty. In Survival, 2 or 3 players fight on the same side and share income as well as sight and radar.",
+        "You can chat in the lobby and during a battle, give other players metal, energy, units or explored maps, and make or break alliances with players outside your lobby team. Every computer runs the whole battle locally, so the network only needs to send orders. A check before the game starts confirms that each computer gets the same result.",
+        "The host chooses Modern, Community 3.9 or Strict 3.1 rules. Online games run at normal speed without pausing, and every player keeps a replay. Saving and reconnecting aren’t available online yet."
+      ]
+    },
+    {
+      "id": "orders",
+      "title": "Orders and control groups",
+      "source": "docs/DESIGN_INTERFACE_HUD_INPUT.md",
+      "paragraphs": [
+        "Select units, assign control groups and queue move, attack, patrol, guard or work orders. You can manage factory queues and stockpiled ammunition, and change movement and fire stances on units that support them.",
+        "The interface shows health, resources, unit information and build choices. The modern camera also lets you zoom out to tactical icons or zoom in for a closer look, with range guides to help place orders."
+      ]
+    },
+    {
+      "id": "locomotion",
+      "title": "Movement",
+      "source": "docs/DESIGN_MOVEMENT_PATH.md",
+      "paragraphs": [
+        "Vehicles and Kbots use their movement class to determine where they can go. Their size, slope limits and allowed water depth all matter when finding a route. Hovercraft cross land and water; amphibious units can go underwater, while ships and submarines stay at their specified depths.",
+        "Aircraft take off, turn, fly and land. Fighters, bombers and construction aircraft use the same movement system with different orders and unit settings. Seaplanes can land on water, and aircraft can use compatible landing and repair pads."
+      ]
+    },
+    {
+      "id": "weapons",
+      "title": "Weapons and targeting",
+      "source": "docs/DESIGN_WEAPONS_PROJECTILES.md",
+      "paragraphs": [
+        "Lasers, plasma, ballistic artillery, rockets, guided missiles, bombs and torpedoes are supported, along with flamethrowers, lightning, paralyzing weapons and the Commander’s D-gun. The original weapon data controls their range, damage, reload time and targeting.",
+        "Unit scripts aim the turrets. Weapons check their line of fire, track targets where appropriate, and apply impact or area damage when they hit. Nuclear missiles and anti-nuclear interceptors use stockpiled ammunition, so you need to build their rounds ahead of time."
+      ]
+    },
+    {
+      "id": "production",
+      "title": "Construction and factories",
+      "source": "docs/DESIGN_ECONOMY_CONSTRUCTION.md",
+      "paragraphs": [
+        "Use constructors to place buildings and factories to queue units. Build menus come from the installed game data, including advanced factories and constructors. Placement checks the building’s footprint, terrain and occupied space, along with any special requirements (such as a geothermal vent).",
+        "Construction starts with a visible nanoframe that fills in as builders work. Other builders can help, including assisting factory production. The original COB scripts handle factory doors, moving parts, build effects and unit animations."
+      ]
+    },
+    {
+      "id": "economy",
+      "title": "Metal and energy",
+      "source": "docs/DESIGN_ECONOMY_CONSTRUCTION.md",
+      "paragraphs": [
+        "Metal extractors use the map’s deposits. Solar, wind, tidal and geothermal generators produce energy, with wind and tidal output depending on the map. Storage holds spare resources, and metal makers convert energy into metal.",
+        "Resources are spent as work happens, including construction and stockpiled ammunition. Shortages limit how much work can proceed. You also need enough energy to cover upkeep from cloaking and other active systems."
+      ]
+    },
+    {
+      "id": "fieldwork",
+      "title": "Repairing and reclaiming units",
+      "source": "docs/DESIGN_ECONOMY_CONSTRUCTION.md",
+      "paragraphs": [
+        "Constructors can repair damaged units and buildings. Guard and assist orders keep them helping other units. Reclaiming trees, rocks and wreckage returns resources; the same order can dismantle a unit.",
+        "Some units can resurrect wrecks or capture enemies. These abilities depend on the unit and game data you have installed, including whether a particular wreck supports resurrection."
+      ]
+    },
+    {
+      "id": "transport",
+      "title": "Transports",
+      "source": "docs/DESIGN_MOVEMENT_PATH.md",
+      "paragraphs": [
+        "Transports can load and unload units that fit their capacity and size limits. Air transports approach the cargo, attach it using the original unit script, then carry it to the drop-off point. The engine also supports ground transports when the installed unit data provides them."
+      ]
+    },
+    {
+      "id": "intelligence",
+      "title": "Sight, sensors and cloaking",
+      "source": "docs/DESIGN_WORLD_VISIBILITY.md",
+      "paragraphs": [
+        "Line of sight reveals the battlefield, and fog of war hides activity outside your current view. Radar and sonar show contacts beyond direct sight; jammers interfere with the corresponding sensors.",
+        "Cloaking, stealth and proximity detection follow each unit’s settings. What you see on the main view and minimap depends on the information available to your player."
+      ]
+    },
+    {
+      "id": "battlefield",
+      "title": "Terrain and wreckage",
+      "source": "docs/DESIGN_PRESENTATION_CLIENT.md",
+      "paragraphs": [
+        "Terrain height, water, trees and wreckage affect where units can move, build and fight. Destroyed units can leave wrecks to reclaim. Trees and other map features can take damage, catch fire and change into another form, such as a burnt stump, according to the original feature data.",
+        "Smoke, weapon trails, explosions, debris and positional sound are implemented too. The engine reads the original archives, maps, unit definitions and COB animation scripts directly from your game folder."
+      ]
     }
   ],
-  "scope": "These are implemented engine systems, not a promise of perfect retail compatibility for every mission or content pack. Nanolathe is under active development. Online play connects Nanolathe players only, not the original game or other engines. A separate local Total Annihilation installation is required; game data is not bundled."
+  "scope": "This is still a beta. There are bugs and missing features, and compatibility varies by mission and content pack. Online play connects Nanolathe players only; it cannot join the original game or other engines."
 }

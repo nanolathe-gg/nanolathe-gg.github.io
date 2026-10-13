@@ -34,6 +34,76 @@ game name naturally. Keep search metadata consistent with the page. Preserve
 the independent-project statement and the separate game-data requirement.
 These are editorial guidelines, not a legal clearance opinion.
 
+## Writing voice
+
+Use Daniel's project documentation as the reference: a programmer explaining
+something he built and helping you try it. The tone is friendly, specific and
+comfortable with technical detail. Explain what happens and why it matters;
+then give the reader something to try or a useful example. Nanolathe also has
+the perspective of a longtime TA player, grounded in the experience described
+on the About page.
+
+The homepage's signed project note and About page use Daniel's first person.
+Elsewhere, address the reader directly or describe what the engine does. Do not
+invent memories, quotations, team members, promises or a fictional spokesperson.
+Keep the disclosure about AI's role in development direct and factual.
+
+- Give headings a subject: “Explosions light nearby units,” “Setup help,” or
+  “Why Go?” Avoid pairs of slogans such as “Get closer. See the whole battle.”
+- Let each paragraph add information. If a label, heading and first sentence
+  repeat the same thought, cut one or two of them.
+- Use concrete details: a Jeffy exploding beside a Bulldog, the scripts that
+  open factory doors, the game files an installation needs. Avoid vague claims
+  about a new chapter, a richer experience or limitless possibilities.
+- Use contractions and ordinary sentences. Vary their length where the subject
+  calls for it. Do not manufacture informality with typos or forced jokes.
+- Give explanations room. Daniel's documentation often follows a short
+  introduction with a longer explanation and an example. Do not reduce every
+  paragraph to clipped declarations or insist that every section be the same
+  size.
+- Address practical questions with “you can,” “if you,” and “for example” when
+  they fit. A parenthetical should add useful context, such as a platform
+  difference or a concrete requirement. Use these habits naturally, not as a
+  set of phrases to insert everywhere.
+- A little enthusiasm is fine when there is something specific to be pleased
+  about. Keep invitations useful: say which control to try and what it shows.
+  Do not add a congratulation, joke or exclamation mark to every interaction.
+- Number ordered instructions, reference sections and measured values. Do not
+  add decorative 01/02/03 labels to unrelated features.
+- Use cards for items people need to compare or select. Prefer prose, lists and
+  figures for explanations. A section does not need an eyebrow or a call to
+  action by default.
+- State limitations near the relevant feature. Keep original game assets,
+  native engine captures and interactive browser studies clearly distinguished.
+- Keep technical terms when they carry information. Explain them in introductory
+  copy; retain precise identifiers and evidence in reference material.
+
+After a rewrite, read the rendered headings in order, then the paragraphs. Look
+for repeated sentence openings, redundant summaries, unsupported superlatives,
+stock invitations (“look under the hood,” “make it your own”), and slogans that
+could belong to any software project. Review those patterns in context rather
+than treating a punctuation mark or an ordinary three-item list as a defect.
+Check the small-screen layout after shortening text.
+
+### Writing references
+
+The October 2026 review compared current project docs with older samples so
+recent marketing changes would not be the only reference. These repositories
+have multiple contributors; the patterns are editorial guidance, not a claim
+that every sentence was written by Daniel.
+
+- [Huma README, September 2022](https://github.com/danielgtaylor/huma/blob/2d1984f84fc0e535404e7dc79435bf066c9f64b6/README.md):
+  runnable examples, explanations of defaults, informal tips and caveats close
+  to the feature they qualify.
+- [Restish guide, May 2022](https://github.com/rest-sh/restish/blob/204e653bc7b81bb0b94d3018c9e9d4899c6a569c/docs/guide.md):
+  direct instructions followed by an explanation of the result, real commands,
+  platform asides and an occasional enthusiastic aside.
+- [API Sprout README](https://github.com/danielgtaylor/apisprout#readme):
+  compact feature descriptions with concrete examples and a straightforward
+  invitation to contribute.
+- [Huma's first API tutorial](https://huma.rocks/tutorial/your-first-api/):
+  a worked example that explains each new concept when the reader needs it.
+
 ## Color
 
 **Current implementation:**
@@ -155,8 +225,9 @@ assistive technology; an icon-only action needs an accessible name.
 ## Composition and illustration
 
 **Current implementation:** the site uses a centered content width capped at
-`1280px`, thin rules, rectangular panels, short monospace eyebrows, large
-headings, and spacious sections. Green and amber diagrams use restrained grids
+`1280px`, thin rules, large headings, prose and interactive figures. Rectangular
+panels group controls and selectable assets; monospace labels identify technical
+details. Green and amber diagrams use restrained grids
 and a few geometric elements. See [page patterns](PAGE_PATTERNS.md) for exact
 spacing and responsive behavior.
 

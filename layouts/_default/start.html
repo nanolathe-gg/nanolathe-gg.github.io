@@ -1,12 +1,12 @@
 {{ define "main" }}
 {{ partial "page-heading.html" . }}
 <section class="wrap browser-callout" id="browser">
-  <div><p class="eyebrow">No install / No game folder needed</p><h2>Try three missions in your browser.</h2><p>The original Total Annihilation demo, running in Nanolathe’s open-source engine. Use desktop Chrome, Edge or Safari with a keyboard and mouse.</p></div>
+  <div><h2>The browser demo</h2><p>Three missions from the original Total Annihilation demo. You don’t need game files or an installation. Use desktop Chrome, Edge or Safari with a keyboard and mouse.</p></div>
   <div><a class="button primary" href="{{ "play/" | relURL }}">Play the demo</a><a class="text-link" href="{{ "docs/browser-demo/" | relURL }}">Browser controls &amp; saves</a></div>
 </section>
 {{ partial "beta-install.html" . }}
 <section class="wrap setup-help" id="troubleshooting">
-  <div><p class="eyebrow">A little more help</p><h2>Keep the setup simple.</h2><p>Find installation paths, saved games and fixes for common problems in the native setup guide. For game controls, start with the keyboard reference.</p></div>
+  <div><h2>Setup help</h2><p>The native setup guide covers install locations, saved games and common problems. Key bindings have their own reference.</p></div>
   <nav class="setup-help-links" aria-label="Setup help">
     <a href="{{ "docs/native-installation/" | relURL }}">Native setup &amp; troubleshooting <span aria-hidden="true">→</span></a>
     <a href="{{ "docs/keyboard-shortcuts/" | relURL }}">Keyboard &amp; camera controls <span aria-hidden="true">→</span></a>

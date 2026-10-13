@@ -63,13 +63,7 @@ body.redesign .play-icon{font-size:.75rem;color:var(--green)}
 body.redesign .duration{color:#acb69f;font-weight:400;font-size:.75rem;border-left:1px solid #5a624f;padding-left:10px}
 body.redesign .hero-note{font-size:.8125rem;margin-top:15px;color:#b5c0a8}
 body.redesign .status-strip{border-block:1px solid var(--line);background:#181d1d}
-body.redesign .status-inner{display:flex;justify-content:space-between;gap:24px;padding-block:19px;font-size:.8125rem;color:var(--muted)}
-body.redesign .status-inner b{color:var(--green);font-weight:400}
 body.redesign .section{padding-top:88px;padding-bottom:88px}
-body.redesign .benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:50px;border-bottom:1px solid var(--line)}
-body.redesign .benefit-number{font-family:Consolas,monospace;color:var(--green);font-size:.75rem;display:block;margin-bottom:20px}
-body.redesign .benefits h2{font-size:1.7rem;margin-bottom:15px}
-body.redesign .benefits p{font-size:1rem;max-width:330px}
 body.redesign .section-heading{display:flex;justify-content:space-between;gap:55px;align-items:flex-end;margin-bottom:40px}
 body.redesign .section-heading .eyebrow{margin-bottom:18px}
 body.redesign .section-heading h2,body.redesign .install-intro h2,body.redesign .faq h2{font-size:clamp(2.2rem,3.3vw,3rem);line-height:1.13}
@@ -150,11 +144,6 @@ body.redesign .faq-items summary::-webkit-details-marker{display:none}
 body.redesign .faq-items summary:after{content:'+';position:absolute;right:4px;top:21px;font-family:Arial,sans-serif;font-size:1.5rem;font-weight:400;color:var(--green)}
 body.redesign .faq-items details[open] summary:after{content:'−'}
 body.redesign .faq-items p{padding:0 24px 26px 0;font-size:.9375rem;line-height:1.8}
-body.redesign .research{display:flex;align-items:center;justify-content:space-between;gap:32px;padding-block:40px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-body.redesign .research h2{font-size:1.5rem}
-body.redesign .research p{font-size:.875rem;margin-top:8px}
-body.redesign .research>div:last-child{display:flex;align-items:center;gap:24px}
-body.redesign .research .button{min-height:44px;font-size:.8125rem}
 body.redesign .footer{display:flex;align-items:center;justify-content:space-between;gap:25px;padding-block:42px}
 body.redesign .footer .brand{font-size:1.45rem}
 body.redesign .footer p{font-size:.8125rem;line-height:1.7}
@@ -181,12 +170,10 @@ body.redesign .hero-picture{left:25%}
 body.redesign .hero-picture:after{background:linear-gradient(90deg,#121516 0%,#121516de 10%,#12151655 65%,#12151620),linear-gradient(0deg,#121516,transparent 40%)}
 body.redesign .install-layout{gap:50px;grid-template-columns:.75fr 1.25fr}
 body.redesign .install-card{padding:25px}
-body.redesign .benefits{gap:30px}
 body.redesign .faq{gap:45px}
 body.redesign .header nav{gap:24px}
 body.redesign .desktop-docs{display:none}
-body.redesign .research>div:last-child{gap:16px}
-body.redesign .research .text-link{max-width:120px}}
+}
 @media(max-width:760px){
 body.redesign{scroll-padding-top:80px}
 body.redesign .wrap{width:calc(100% - 40px)}
@@ -213,15 +200,7 @@ body.redesign .hero-actions .video-button{font-size:.8125rem;padding:12px 13px;g
 body.redesign .hero-actions .duration{display:none}
 body.redesign .hero-note{font-size:.75rem;margin-top:13px;line-height:1.65}
 body.redesign .hero-controls{bottom:16px;right:20px;gap:10px}
-body.redesign .status-inner{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:3px 15px;padding-block:17px;font-size:.75rem}
-body.redesign .status-inner>span:first-child{width:100%}
-body.redesign .status-inner>span:nth-child(2){padding-right:15px;border-right:1px solid var(--line)}
 body.redesign .section{padding-block:55px}
-body.redesign .benefits{display:flex;flex-direction:column;gap:29px}
-body.redesign .benefits article{position:relative;padding-left:43px}
-body.redesign .benefit-number{position:absolute;top:3px;left:0;margin:0}
-body.redesign .benefits h2{font-size:1.5rem;margin-bottom:9px}
-body.redesign .benefits p{font-size:.9375rem;max-width:none}
 body.redesign .section-heading{display:block;margin-bottom:26px}
 body.redesign .section-heading .eyebrow{font-size:.75rem;margin-bottom:14px}
 body.redesign .section-heading h2{font-size:2.2rem}
@@ -261,10 +240,6 @@ body.redesign .faq h2{font-size:2.2rem}
 body.redesign .faq .eyebrow{font-size:.75rem;margin-bottom:14px}
 body.redesign .faq-items summary{font-size:1.0625rem;padding-block:21px}
 body.redesign .faq-items p{font-size:.875rem}
-body.redesign .research{align-items:flex-start;flex-direction:column;padding-block:32px;gap:23px}
-body.redesign .research h2{font-size:1.4rem;line-height:1.25}
-body.redesign .research>div:last-child{gap:22px}
-body.redesign .research .text-link{max-width:none}
 body.redesign .footer{flex-wrap:wrap;align-items:flex-start;gap:24px;padding-block:35px}
 body.redesign .footer p{width:100%;order:2;font-size:.75rem}
 body.redesign .footer>a:last-child{font-size:.75rem;margin-top:4px}
@@ -281,7 +256,7 @@ body.redesign .hero h1{font-size:2.4rem}
 body.redesign .hero-actions .video-button{justify-content:center}
 body.redesign .hero-picture{height:260px}
 body.redesign .ownership span{font-size:.75rem}
-body.redesign .status-inner{font-size:.75rem}}
+}
 @media(prefers-reduced-motion:reduce){
 body.redesign{scroll-behavior:auto}
 body.redesign *{transition:none!important;animation:none!important}}
@@ -298,11 +273,6 @@ body.redesign .page-intro .eyebrow{margin-bottom:20px}
 body.redesign .feature-panorama{margin-top:0;margin-bottom:0;position:relative}
 body.redesign .feature-panorama img{width:100%;height:470px;object-fit:cover;object-position:center 54%;border:1px solid var(--line);border-radius:4px}
 body.redesign .feature-panorama figcaption{font-size:.8125rem;margin-top:12px;color:var(--muted)}
-body.redesign .home-install-cta{border-block:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:50px;padding-block:60px}
-body.redesign .home-install-cta h2{font-size:2.8rem}
-body.redesign .home-install-cta p{max-width:450px;margin-top:20px}
-body.redesign .home-install-cta .eyebrow{margin-top:0}
-body.redesign .home-install-cta>div:last-child>p{font-size:.875rem;line-height:1.7}
 body.redesign .capture-details{margin-top:28px;border-top:1px solid var(--line);padding-top:16px;font-size:.875rem;color:var(--muted)}
 body.redesign .capture-details summary{cursor:pointer;color:var(--text);padding:8px 0}
 body.redesign .capture-details p{margin-top:14px;max-width:900px}
@@ -398,11 +368,6 @@ body.redesign .page-intro>p:last-child{font-size:1rem;margin-top:22px}
 body.redesign .page-intro .eyebrow{font-size:.75rem;margin-bottom:17px}
 body.redesign .feature-panorama img{height:300px}
 body.redesign .feature-panorama figcaption{font-size:.75rem}
-body.redesign .home-install-cta{display:block;padding-block:40px}
-body.redesign .home-install-cta h2{font-size:2.4rem}
-body.redesign .home-install-cta p{font-size:.9375rem;margin-top:17px}
-body.redesign .home-install-cta>div:last-child{margin-top:27px}
-body.redesign .home-install-cta>div:last-child>p{font-size:.8125rem}
 body.redesign .media-feature{grid-template-columns:1fr;gap:27px;padding-block:40px}
 body.redesign .media-feature h2{font-size:2.4rem}
 body.redesign .media-feature>div>p:not(.eyebrow){font-size:.9375rem}

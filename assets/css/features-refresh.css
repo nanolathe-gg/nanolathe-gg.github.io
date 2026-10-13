@@ -1,18 +1,12 @@
-/* Fresh engine captures, with a compact marketing layout around the native media. */
+/* Renderer comparisons, controls and capture notes. */
 .features-refresh .features-lead { display:grid; grid-template-columns:1fr 1.08fr; align-items:center; gap:64px; padding-block:66px 45px; }
 .features-refresh .features-lead h1 { font-size:clamp(2.8rem,4.6vw,4.7rem); line-height:1.06; letter-spacing:-.025em; margin:22px 0; }
-.features-refresh .features-lead h1 em { font-style:normal; color:var(--green); }
 .features-refresh .features-lead-deck { max-width:43ch; color:var(--muted); font-size:1.08rem; line-height:1.75; }
-.features-refresh .features-lead-actions { display:flex; align-items:center; flex-wrap:wrap; gap:22px; margin-top:30px; }
-.features-refresh .features-lead-actions .text-link { font-size:.875rem; }
 .features-refresh .features-lead-note { font-size:.8125rem; line-height:1.8; color:var(--muted); margin-top:22px; }
 .features-refresh .features-lead-image { margin:0; min-width:0; }
 .features-refresh .features-lead-image img { display:block; width:100%; height:auto; border:1px solid var(--line); border-radius:4px; }
 .features-refresh .features-lead-image figcaption { margin-top:14px; color:var(--muted); font-size:.75rem; line-height:1.7; }
 .features-refresh .capture-dot { display:inline-block; width:6px; height:6px; margin-right:9px; background:var(--green); vertical-align:middle; }
-.features-refresh .features-principles { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:40px; padding-block:30px 36px; border-bottom:1px solid var(--line); }
-.features-refresh .features-principles p { color:var(--muted); font-size:.875rem; line-height:1.7; margin:0; }
-.features-refresh .features-principles strong { display:block; color:var(--text); font-weight:500; margin-bottom:6px; }
 .features-refresh .features-index { display:flex; flex-wrap:wrap; gap:10px 28px; padding-block:20px; border-bottom:1px solid var(--line); font-size:.8125rem; }
 .features-refresh .features-index a { padding-block:5px; }
 .features-refresh .features-index a:hover { color:var(--green); }
@@ -20,12 +14,9 @@
 .features-refresh .feature-chapter { position:relative; display:grid; grid-template-columns:minmax(230px,.85fr) minmax(0,1.55fr); gap:62px; padding-block:64px; align-items:center; border-bottom:1px solid var(--line); scroll-margin-top:105px; }
 .features-refresh .feature-chapter .renderer-anchor { position:absolute; top:0; scroll-margin-top:105px; }
 .features-refresh .feature-chapter-copy, .features-refresh .feature-chapter-media { min-width:0; }
-.features-refresh .feature-chapter-copy h2 { font-size:clamp(2rem,3vw,3.1rem); line-height:1.1; margin-block:20px; max-width:15ch; }
+.features-refresh .feature-chapter-copy h2 { font-size:clamp(1.75rem,2.5vw,2.4rem); line-height:1.2; margin-block:0 20px; max-width:22ch; }
 .features-refresh .feature-chapter-copy p { color:var(--muted); font-size:.9375rem; line-height:1.75; margin:0 0 18px; }
-.features-refresh .feature-chapter-copy .eyebrow { color:var(--green); font-size:.6875rem; margin:0; }
-.features-refresh .feature-chapter-copy .feature-chapter-deck { color:var(--text); font-size:1.0625rem; line-height:1.6; }
 .features-refresh .feature-chapter-copy .feature-look { padding-left:13px; border-left:2px solid var(--green); font-size:.8125rem; }
-.features-refresh .feature-look strong { color:var(--text); }
 .features-refresh .feature-chapter-copy .text-link { font-size:.8125rem; }
 .features-refresh .feature-chapter-copy .capture-details { border-top:1px solid var(--line); margin-top:22px; padding-top:10px; }
 .features-refresh .feature-chapter-copy .capture-details summary { font-size:.8125rem; padding-block:6px; }
@@ -54,12 +45,11 @@
 .features-refresh .features-next { display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:85px; border-top:1px solid var(--line); padding-block:56px 70px; }
 .features-refresh .features-next h2 { font-size:clamp(2rem,3.5vw,3.4rem); line-height:1.1; margin-block:20px; }
 .features-refresh .features-next p { font-size:.9375rem; color:var(--muted); margin-bottom:24px; }
-.features-refresh .features-next .eyebrow { color:var(--green); font-size:.6875rem; margin:0; }
+.features-refresh .features-next-links { display:block; }
 .features-refresh .features-next-links a { display:block; padding-block:19px; border-bottom:1px solid var(--line); }
+.features-refresh .features-next-links a:hover { color:var(--green); }
 .features-refresh .features-next-links a:first-child { border-top:1px solid var(--line); }
-.features-refresh .features-next-links strong { display:block; font-weight:500; margin-bottom:8px; }
 .features-refresh .features-next-links span { color:var(--muted); font-size:.8125rem; }
-.features-refresh .features-next-links a:hover strong { color:var(--green); }
 @media(max-width:1100px) {
   .features-refresh .features-lead { gap:35px; }
   .features-refresh .feature-chapter { grid-template-columns:minmax(210px,.85fr) minmax(0,1.4fr); gap:35px; }
@@ -78,14 +68,9 @@
   .features-refresh .features-lead { padding-block:33px 25px; }
   .features-refresh .features-lead h1 { margin-block:18px; font-size:2.85rem; }
   .features-refresh .features-lead-deck { font-size:.9375rem; }
-  .features-refresh .features-lead-actions { gap:16px; margin-top:24px; }
-  .features-refresh .features-principles { grid-template-columns:1fr; gap:19px; padding-block:24px; }
-  .features-refresh .features-principles p { font-size:.8125rem; }
-  .features-refresh .features-principles strong { display:inline; margin-right:4px; }
   .features-refresh .features-index { gap:7px 20px; padding-block:15px; }
   .features-refresh .feature-chapter-copy h2 { font-size:2rem; }
   .features-refresh .feature-chapter-copy p { font-size:.875rem; }
-  .features-refresh .feature-chapter-copy .feature-chapter-deck { font-size:1rem; }
   .features-refresh .comparison-controls button { max-width:none; padding:8px; }
   .features-refresh .comparison-controls input { order:3; flex-basis:100%; }
   .features-refresh .comparison-controls button:last-child { margin-left:auto; }
@@ -99,9 +84,6 @@
 }
 @media(max-width:360px) {
   .features-refresh .features-lead h1 { font-size:2.4rem; }
-  .features-refresh .features-lead-actions { gap:12px; }
-  .features-refresh .features-lead-actions .button { padding-inline:14px; }
-  .features-refresh .features-lead-actions .text-link { font-size:.8125rem; }
 }
 .features-refresh .renderer-zoom { margin:0; border:1px solid var(--line); border-radius:4px; background:var(--surface); overflow:hidden; }
 .zoom-stage { position:relative; }

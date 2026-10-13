@@ -1,7 +1,6 @@
 +++
-title = 'Know the game. Understand the engine.'
+title = 'Documentation'
 seoTitle = 'Nanolathe controls, strategic icons, and Total Annihilation references'
-description = 'Browser demo help, online play, keyboard shortcuts, modern GPU strategic icons, Total Annihilation file formats, clean-room engine behavior, and implementation guides.'
+description = 'Help with playing Nanolathe, followed by the file formats and research behind the engine.'
 layout = 'docs'
-eyebrow = 'Documentation'
 +++

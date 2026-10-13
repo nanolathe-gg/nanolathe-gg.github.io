@@ -17,7 +17,9 @@ layout renders `.Content`.
 shell: metadata, local assets, header, navigation, skip link, `<main id="main">`,
 and footer. An interior template defines `main`; it should not duplicate those
 elements. [`page-heading.html`](../layouts/partials/page-heading.html) renders
-the eyebrow, one `<h1>`, and description from the page's front matter.
+one `<h1>` and description from the page's front matter. An optional eyebrow
+should add context that the heading does not already supply. Follow the
+[writing voice guide](GUIDE.md#writing-voice) when drafting copy.
 
 The beta landing-page appearance is selected by the `redesign` body class in
 `baseof.html`. Add a new landing layout to that template's layout list when it
@@ -30,10 +32,9 @@ For example, a contribution landing page can use
 
 ```toml
 +++
-title = 'Build with the project'
+title = 'Contributing to Nanolathe'
 description = 'Find the engine source, website source, and contribution guidance.'
 layout = 'contribute'
-eyebrow = 'Contribute'
 +++
 ```
 
@@ -44,8 +45,7 @@ and `layouts/_default/contribute.html`:
   {{ partial "page-heading.html" . }}
   <section class="section wrap">
     <div class="article">
-      <span class="eyebrow">Choose a starting point</span>
-      <h2>Help build Nanolathe.</h2>
+      <h2>Engine and website repositories</h2>
       <p>Read the contribution rules before changing the engine. The website
         has its own source repository and build instructions.</p>
       <div class="actions">

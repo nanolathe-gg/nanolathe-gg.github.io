@@ -2,77 +2,70 @@
 {{ partial "page-heading.html" . }}
 <div class="docs-layout wrap">
   <aside class="side-nav">
-    <span class="eyebrow">The project</span>
     <nav aria-label="About sections">
-      <a href="#why">Why Nanolathe exists</a>
-      <a href="#fidelity">Faithful at its core</a>
-      <a href="#research">Months of research</a>
-      <a href="#tools">Human direction, AI tools</a>
+      <a href="#why">How it started</a>
+      <a href="#fidelity">Matching the original</a>
+      <a href="#research">Research</a>
+      <a href="#tools">AI’s part in the work</a>
       <a href="#go">Why Go?</a>
-      <a href="#future">Today and tomorrow</a>
-      <a href="#contribute">Make it your own</a>
+      <a href="#future">What works so far</a>
+      <a href="#contribute">Contributing</a>
     </nav>
   </aside>
   <article class="article about-article">
     <section id="why">
-      <h2>An open engine, starting with a classic.</h2>
-      <p>Total Annihilation has a particular kind of magic: huge robot battles, a battlefield full of activity, and systems that still invite experimentation decades later. Nanolathe began with the simple pleasure of returning to that game. It is also an open-source RTS engine: a foundation others can study, modify and extend.</p>
-      <p>Its creator, <a href="https://github.com/danielgtaylor">Daniel Taylor</a>, started playing as a teenager when TA first came out, and soon tried making mods and 3D models with others. Life, work, and kids eventually took priority. Dusting it off years later—and getting it running on a MacBook Pro—sparked a side project: recreate the engine, then see what else it could become.</p>
-      <p>Reusing the original game’s assets made that ambition approachable. The artwork, animations, and interface were already there, leaving the engine as the challenge. Nanolathe is a contribution to preserving an amazing game and a piece of gaming history, built for the fun of it and shared in the open.</p>
+      <h2>This started with a MacBook</h2>
+      <p>I’m <a href="https://github.com/danielgtaylor">Daniel Taylor</a>. I started playing Total Annihilation as a teenager when it came out, then got into making mods and 3D models with other players. Eventually work and kids took up that time.</p>
+      <p>Coming back to TA years later, I wanted to get it running on my MacBook Pro. That became a side project to recreate the engine. Having the original artwork, animations and interface to work with made it possible to concentrate on how the game runs.</p>
+      <p>I’m publishing the engine and research so other people can use them too. If you want to make a mod, investigate an old TA behavior or experiment with your own RTS, there should be something useful here.</p>
     </section>
     <section id="fidelity">
-      <h2>Faithful at its core. Open to more.</h2>
-      <p>The goal is to reproduce exact retail Total Annihilation behavior as closely as possible. The details matter, including the less obvious rules that make the game behave and feel the way it does.</p>
-      <p>A modern GPU renderer, new effects, and convenience features build on that foundation. Modern GPU rendering is the standard experience; the classic CPU look is optional and available with a button press in-game. Fidelity provides a baseline for experiments, and a way to return to the familiar battlefield.</p>
-      <p>Explore the <a href="{{ "features/" | relURL }}">modern GPU renderer</a>, or take a closer look at the <a href="{{ "gameplay/" | relURL }}">gameplay systems</a>.</p>
+      <h2>Matching the original</h2>
+      <p>The first goal is to reproduce retail TA’s behavior as closely as I can. Small rules matter: a game can look right and still behave differently. Having a known baseline also makes it easier to judge what an engine change actually does.</p>
+      <p>The renderer has more room to depart from the original. Modern GPU rendering adds lighting and other effects; Classic keeps the old CPU-rendered look. You can switch between them in-game. These display choices are separate from the gameplay rules.</p>
+      <p>The <a href="{{ "features/" | relURL }}">renderer comparisons</a> show the differences. The <a href="{{ "gameplay/" | relURL }}">gameplay reference</a> covers the systems implemented so far.</p>
     </section>
     <section id="research">
-      <span class="eyebrow">Observe · Measure · Recreate</span>
-      <h2>Months of getting the details right.</h2>
-      <p>The work started with video captures, decoded TA Demo Recorder game recordings, and generated test data loaded into the original game to reveal its algorithms. Clean-room reverse engineering of the original executable helped answer questions that observation alone left open.</p>
-      <p>These captures show some of that experimental work: deliberately simple geometry and colors placed in the game to make rendering behavior easier to study. Stripping a test down to a few controlled shapes makes small differences visible.</p>
+      <h2>Working out how TA behaves</h2>
+      <p>I started with video captures, decoded TA Demo Recorder recordings and test data loaded into the original game. When watching it wasn’t enough to explain a behavior, clean-room reverse engineering of the executable helped fill in the gaps.</p>
+      <p>The shapes below are test geometry running in retail TA. Simple surfaces and controlled colors make it easier to see how orientation changes the shading.</p>
       <div class="about-research-images">
         <figure>
           <a href="{{ "images/about/retail-geometry-tests.png" | relURL }}" aria-label="View full-size retail geometry research capture">
             <img src="{{ "images/about/retail-geometry-tests.png" | relURL }}" width="1332" height="958" loading="lazy" alt="Rows of generated white, blue, and purple test shapes at different angles, with shadows, on Total Annihilation terrain.">
           </a>
-          <figcaption>Generated geometry in retail TA, arranged to compare how the original engine draws different orientations.</figcaption>
+          <figcaption>Test shapes at different orientations, rendered by the original game.</figcaption>
         </figure>
         <figure>
           <a href="{{ "images/about/retail-shading-tests.png" | relURL }}" aria-label="View full-size retail shading research capture">
             <img src="{{ "images/about/retail-shading-tests.png" | relURL }}" width="714" height="990" loading="lazy" alt="White, blue, and purple test surfaces in Total Annihilation, showing flat colors and stepped shading across curved forms.">
           </a>
-          <figcaption>Controlled colors and surfaces expose differences in shading. Original-game research captures supplied by the project’s creator.</figcaption>
+          <figcaption>Controlled colors reveal the steps in TA’s shading.</figcaption>
         </figure>
       </div>
-      <p>Getting close to parity has taken months of investigation, implementation, and comparison. Abandoned approaches and failed earlier projects are part of that history. Each unanswered question adds another piece of research; the <a href="{{ "docs/" | relURL }}">documentation</a> shares the resulting understanding of TA’s formats and behavior.</p>
+      <p>The <a href="{{ "docs/" | relURL }}">research documentation</a> records these findings, including what’s established, what’s an inference and what I still don’t know.</p>
     </section>
     <section id="tools">
-      <h2>Human direction, AI tools.</h2>
-      <p>AI was vital to making this solo project practical. It helped analyze captures, investigate the executable, and develop clean-room designs together with a human engineer. AI coding tools wrote most of the implementation from those designs, with Daniel guiding features, correctness, performance improvements, and the direction of the project.</p>
-      <p>Playable results came from sustained human and AI effort over months: testing ideas, comparing behavior, revising designs, and working through failures. The tools made more of that work possible within the time available for a side project.</p>
+      <h2>AI wrote most of the code</h2>
+      <p>AI tools helped analyze captures, investigate the executable and work out clean-room designs. Coding tools wrote most of the implementation. My part has been deciding what to build, checking correctness, testing performance and working through the failures.</p>
+      <p>That help made a project this size practical in my spare time. It has taken months of testing against the original game, including failed approaches and abandoned projects along the way.</p>
     </section>
     <section id="go">
       <h2>Why Go?</h2>
-      <p>Go’s simplicity, speed, and quick compilation make it a good fit for a project built in spare time. Being able to change code and use <code>go run</code> to try it keeps iteration short and leaves more time for experimenting and testing.</p>
-      <p>Garbage collection is a tradeoff to manage. Doing allocations during loading and reusing memory through pools can reduce allocation pressure during play. The aim is to keep the development benefits while paying attention to the work happening in each frame.</p>
-      <p>Ebitengine provides the window, graphics, and audio foundation, keeping GPU work accessible from Go. Its desktop support lets Nanolathe build without a C or C++ compiler, keeping setup simple and iteration quick. Platform prerequisites are covered in the <a href="{{ "docs/native-installation/#computer-requirements" | relURL }}">native setup guide</a>.</p>
+      <p>Go is a good fit for how I work on this project: it compiles quickly, and I can try a change with <code>go run</code>.</p>
+      <p>Garbage collection does need care in a game. For example, allocating memory during loading and reusing it through pools reduces the amount of work the collector has to do during play. There’s still performance work to do here.</p>
+      <p>Ebitengine handles the window, graphics and audio. Nanolathe can build without a C or C++ compiler, which also keeps installation simpler. The <a href="{{ "docs/native-installation/#computer-requirements" | relURL }}">setup guide</a> lists the platform requirements.</p>
     </section>
     <section id="future">
-      <h2>Play today. Build what comes next.</h2><p>The browser beta plays the original three-mission demo without installation. The native beta runs on Windows, Mac and Linux with your own game data. <a href="{{ "play/" | relURL }}">Try the demo</a>, or <a href="{{ "get-started/" | relURL }}">install Nanolathe</a>.</p>
-      <p>The single-player engine is broadly complete, with retail behavior as the primary focus. Expect bugs and smaller missing features that still need investigation. TA was an exceptionally complex engine for its time, and matching its many systems takes care.</p>
-      <p>Online multiplayer is new: friends can play skirmish or Survival together in the native beta or in a browser with their own game files, add computer players, and chat, share and make alliances as in the original game. Every skirmish and Survival battle is recorded for replay. Reconnecting after a dropped connection is still to come. Modern AI, optional movement improvements, and engine support for ambitious mods continue to evolve. Projects such as TA Escalation suggest how much room there is to grow when the engine itself can be changed directly.</p>
-      <p>See the <a href="{{ site.Params.engineRepo }}/blob/{{ site.Params.engineBranch }}/README.md">current engine status</a> for the latest development details.</p>
+      <h2>What works so far</h2>
+      <p>The <a href="{{ "play/" | relURL }}">browser demo</a> plays three original campaign missions without installation. The <a href="{{ "get-started/" | relURL }}">native beta</a> runs on Windows, Mac and Linux with your own game files. Single-player is broadly complete, though there are bugs, smaller missing features and compatibility issues left to investigate.</p>
+      <p>Online skirmish and Survival work in the native beta and in a browser with imported game files. You can add computer players, chat, share resources and make alliances. Every skirmish and Survival battle gets a replay. Reconnecting after a dropped connection is still missing.</p>
+      <p>I’m also working on the Modern AI, optional movement improvements and mod support. TA Escalation is one example of how far people have already pushed this game; being able to change the engine gives those experiments more room. The <a href="{{ site.Params.engineRepo }}/blob/{{ site.Params.engineBranch }}/README.md">engine README</a> has the current development status.</p>
     </section>
     <section id="contribute">
-      <h2>Make it your own.</h2>
-      <p>Nanolathe uses the permissive MIT license because freedom to build on the engine is part of the point. Make mods, experiment with a new RTS, or use it as the foundation for a commercial project. The hope is that others adopt it, play with it, and find their own uses for its features and retro feel.</p>
-      <p>The engine’s <a href="{{ site.Params.engineRepo }}/blob/{{ site.Params.engineBranch }}/LICENSE">MIT license</a> applies to Nanolathe’s code. Total Annihilation’s game assets retain their own terms: the browser demo uses the original demo files, while the full game requires your own installed game data.</p>
-      <p>For now, this is one software engineer’s spare-time project. Contributions are welcome: research a behavior, report a reproducible bug, improve the engine, or help with documentation. Bring your curiosity and a love of classic RTS.</p>
-      <div class="actions">
-        <a class="button primary" href="{{ "get-started/" | relURL }}">Get started {{ partial "arrow.html" . }}</a>
-        <a class="button secondary" href="{{ site.Params.engineRepo }}">Contribute on GitHub <span aria-hidden="true">↗</span></a>
-      </div>
+      <h2>Contributing</h2>
+      <p>Bug reports and contributions are welcome on <a href="{{ site.Params.engineRepo }}">GitHub</a>. If something goes wrong, include the mission or map, what you did and what happened. Corrections to the research and documentation are useful too.</p>
+      <p>The engine’s <a href="{{ site.Params.engineRepo }}/blob/{{ site.Params.engineBranch }}/LICENSE">MIT license</a> lets you modify it or use it in your own project, including a commercial one. That license covers Nanolathe’s code. Total Annihilation’s assets have their own terms; you need your own installed game data for the full game.</p>
     </section>
   </article>
 </div>

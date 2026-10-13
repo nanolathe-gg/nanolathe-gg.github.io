@@ -127,6 +127,9 @@ Do not push, merge into main, deploy, publish, or change DNS as part of this loc
 Use American English for site copy, including headings, captions, accessibility
 text, and documentation (for example, armor, color, behavior, and defense). Keep
 verbatim source snapshots, quotations, and technical identifiers unchanged.
+Follow the [writing voice guide](brand/GUIDE.md#writing-voice) for public copy.
+It describes the author/player perspective, when to use first person, and the
+editorial review to run after a rewrite.
 
 - `hugo.toml`: engine repository, branch, and site metadata.
 - `content/`: page titles, descriptions, and route selection.

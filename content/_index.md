@@ -1,4 +1,4 @@
 +++
-title = 'Nanolathe — Open-source RTS engine. Play the Total Annihilation demo.'
-description = 'Play the original Total Annihilation demo in your browser with Nanolathe, an open-source 2.5D RTS engine. Install the native beta, play online with friends, explore the code and build on it.'
+title = 'Nanolathe: an open-source engine for Total Annihilation'
+description = 'Run Total Annihilation on Windows, Mac and Linux with Nanolathe, an independent open-source engine. Try the three-mission browser demo or install the beta with your own game files.'
 +++

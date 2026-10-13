@@ -1,1 +1,1 @@
-<header class="wrap page-intro page-heading"><p class="eyebrow">{{ .Params.eyebrow }}</p><h1>{{ .Title }}</h1><p>{{ .Description }}</p></header>
+<header class="wrap page-intro page-heading">{{ with .Params.eyebrow }}<p class="eyebrow">{{ . }}</p>{{ end }}<h1>{{ .Title }}</h1><p>{{ .Description }}</p></header>

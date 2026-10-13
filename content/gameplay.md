@@ -1,7 +1,6 @@
 +++
-title = 'Total Annihilation gameplay, rebuilt in Nanolathe'
+title = 'Game systems in Nanolathe'
 seoTitle = 'Total Annihilation gameplay: movement, weapons and engine support'
-description = 'Explore Nanolathe’s Total Annihilation systems: locomotion, seaplanes, weapons, nukes, transports, construction, reclaim, repair, resurrection and online play.'
+description = 'What you can play, how the main TA systems work, and what’s still missing from the beta.'
 layout = 'gameplay'
-eyebrow = 'The game behind the engine'
 +++

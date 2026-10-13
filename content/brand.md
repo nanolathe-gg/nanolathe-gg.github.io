@@ -1,7 +1,6 @@
 +++
-title = 'Made to be built on.'
+title = 'Logos and brand files'
 seoTitle = 'Brand kit: logos, fonts, and artwork'
-description = 'The Nanolathe design language, ready to use. Logos, colors, fonts, and prompts for your next page or piece of artwork.'
+description = 'Nanolathe logos, colors and fonts, with source files and usage notes.'
 layout = 'brand'
-eyebrow = 'Brand kit / Version 1.0'
 +++

@@ -1,4 +1,14 @@
 {{ define "main" }}
 {{ partial "page-heading.html" . }}
-<article class="wrap gameplay-page"><h2>What the engine supports</h2>{{ partial "gameplay-guide.html" . }}<a class="button primary" href="{{ "features/" | relURL }}">See the visual enhancements {{ partial "arrow.html" . }}</a></article>
+<div class="docs-layout wrap">
+  <aside class="side-nav">
+    <nav aria-label="Game systems">
+      {{ range hugo.Data.gameplay.groups }}<a href="#game-{{ .id }}">{{ .title }}</a>{{ end }}
+    </nav>
+  </aside>
+  <article class="article gameplay-page">
+    {{ partial "gameplay-guide.html" . }}
+    <a class="text-link" href="{{ "features/" | relURL }}">See the renderer comparisons {{ partial "arrow.html" . }}</a>
+  </article>
+</div>
 {{ end }}

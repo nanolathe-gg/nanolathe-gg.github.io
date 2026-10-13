@@ -1,6 +1,6 @@
 /* Shared shell and native Hugo pages; the technical reference keeps its own styles. */
 [hidden]{display:none!important}
-.site-header .header-inner{min-height:82px;height:auto;gap:24px}
+.site-header .header-inner{min-height:82px;height:auto;gap:24px;flex-wrap:nowrap}
 .site-header .nav-install{white-space:nowrap;flex:none;color:#15200e}
 .site-header #navigation{margin-left:auto;gap:28px}
 .site-header #navigation a{font-size:.875rem}
@@ -10,23 +10,26 @@
 .page-intro>p:last-child{max-width:720px}
 body.redesign .hero-inner{display:block;min-height:650px}
 body.redesign .hero-picture img{opacity:1}
-body.redesign .engine-intro{display:grid;grid-template-columns:.85fr 1.45fr;gap:65px;border-bottom:1px solid var(--line)}
-body.redesign .engine-intro-heading h2{font-size:clamp(2rem,3vw,3rem);line-height:1.12;margin:20px 0}
-body.redesign .engine-intro-heading>p:last-child{font-size:.9375rem;line-height:1.75;max-width:45ch}
-body.redesign .engine-intro-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:25px;align-items:start}
-body.redesign .engine-intro-cards h3{font-size:1.35rem;margin:0 0 18px}
-body.redesign .engine-intro-cards p{font-size:.875rem;line-height:1.75;margin:0 0 22px}
-body.redesign .engine-intro-cards .text-link{font-size:.75rem;line-height:1.7;display:inline-block}
-body.redesign .home-install-cta>div:last-child{display:flex;align-items:flex-start;flex-direction:column;gap:18px}
-body.redesign .home-install-cta>div:last-child p{margin:0}
+body.redesign .beta-status{padding-block:18px;font-size:.875rem;line-height:1.7}
+body.redesign .beta-status strong{color:var(--green);font-weight:600;margin-right:16px}
+body.redesign .project-note{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:80px;border-block:1px solid var(--line)}
+body.redesign .project-story h2{font-size:clamp(2rem,3vw,3rem);margin-bottom:25px}
+body.redesign .project-story p{max-width:62ch;line-height:1.8;margin-bottom:20px}
+body.redesign .project-story .project-byline{font-size:.875rem;color:var(--text);margin-top:28px}
+body.redesign .project-byline a{text-decoration:underline;text-underline-offset:4px}
+body.redesign .project-links{display:flex;flex-wrap:wrap;gap:18px 28px;margin-top:30px}
+body.redesign .beta-notes{border-left:1px solid var(--line);padding-left:32px}
+body.redesign .beta-notes h3{font-size:1.4rem;letter-spacing:-.015em;margin-bottom:20px}
+body.redesign .beta-notes ul{padding-left:18px;margin:0 0 26px;color:var(--muted);font-size:.9375rem;line-height:1.75}
+body.redesign .beta-notes li{padding-left:4px;margin-bottom:16px}
 body.redesign .browser-callout{display:grid;grid-template-columns:1.4fr .7fr;gap:60px;align-items:center;padding:32px;border:1px solid #4a5d3a;background:#1b2520;border-radius:4px;margin-bottom:42px}
 body.redesign .browser-callout h2{font-size:1.8rem;line-height:1.2;margin:16px 0}
 body.redesign .browser-callout p:last-child{max-width:65ch;font-size:.875rem;line-height:1.75}
 body.redesign .browser-callout>div:last-child{display:flex;gap:18px;align-items:flex-start;flex-direction:column}
 body.redesign .features-next>div:first-child>.text-link{display:inline-block;margin:16px 0 0 18px}
-@media(max-width:1100px){body.redesign .engine-intro{grid-template-columns:1fr;gap:35px}}
-@media(max-width:820px){body.redesign .browser-callout{grid-template-columns:1fr;gap:20px;padding:26px}body.redesign .engine-intro-cards{gap:20px}}
-@media(max-width:550px){body.redesign .engine-intro-cards{grid-template-columns:1fr;gap:28px}body.redesign .engine-intro{gap:28px}body.redesign .engine-intro-cards h3{margin-bottom:10px}body.redesign .engine-intro-cards p{margin-bottom:14px}body.redesign .browser-callout{padding:22px}}
+@media(max-width:1100px){body.redesign .project-note{gap:40px}}
+@media(max-width:820px){body.redesign .browser-callout{grid-template-columns:1fr;gap:20px;padding:26px}body.redesign .project-note{grid-template-columns:1fr;gap:30px}body.redesign .beta-notes{border-left:0;border-top:1px solid var(--line);padding:26px 0 0}body.redesign .beta-status strong{display:block;margin-right:0}}
+@media(max-width:550px){body.redesign .browser-callout{padding:22px}}
 body.redesign .article p{margin-bottom:1.3em}
 body.redesign .article h2{margin-bottom:24px}
 body.redesign .article h3{margin-block:30px 18px}
@@ -65,6 +68,17 @@ body.redesign .compare-base,body.redesign .compare-overlay img{image-rendering:a
 @media(max-width:1100px){.site-header #navigation{gap:18px}.site-header .header-inner{gap:16px}.site-header .nav-github{display:none}}
 @media(max-width:820px){.site-header .header-inner{min-height:72px}.site-header .menu-toggle{margin-left:auto}.site-header #navigation{margin:0}.site-header #navigation.open{left:0;right:0;top:100%;width:100%;display:flex;align-items:stretch;flex-direction:column;gap:0;padding:16px 28px}.site-header #navigation a{padding:12px 0;font-size:1rem}.site-header .nav-install{min-height:42px;margin-left:0;padding:9px 14px;font-size:.8125rem}body.redesign .brand-download{grid-template-columns:1fr}body.redesign .format-grid{grid-template-columns:1fr}body.redesign .hero-inner{min-height:0}body.redesign .docs-layout{padding-bottom:45px}}
 @media(max-width:460px){.site-header .brand{font-size:1.35rem;gap:8px}.site-header .brand svg{width:29px;height:29px}.site-header .header-inner{gap:10px}.site-header .menu-toggle{font-size:.75rem;padding:8px 0}.site-header .nav-install{font-size:.75rem;padding:9px 10px}.site-header .wrap{width:calc(100% - 32px)}body.redesign .hero h1{font-size:clamp(2.4rem,10vw,3.25rem)}body.redesign .compare-label{font-size:.75rem;padding:6px 8px;top:10px}body.redesign .classic-label{left:10px}body.redesign .modern-label{right:10px}body.redesign .compare-label small{font-size:.625rem}body.redesign .brand-section .command-title{flex-wrap:wrap;gap:10px}}
+
+/* Use one breakpoint for hiding navigation and revealing its menu button. */
+@media(max-width:820px){
+  .site-header .menu-toggle{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:8px 10px;border:1px solid var(--line);background:transparent;color:var(--text);font-size:.8125rem}
+  .site-header #navigation{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line)}
+}
+@media(max-width:460px){
+  .site-header .brand>span{font-size:1.25rem}
+  .site-header .menu-toggle{padding:8px 6px;font-size:.75rem}
+  .site-header .menu-toggle span{display:none}
+}
 
 @media(max-width:760px){body.redesign .install-intro h2{font-size:2.25rem}body.redesign .install-intro>.beta-warning{margin-top:20px}body.redesign .install-layout{gap:28px}body.redesign .install-section{padding-block:35px}body.redesign .install-intro>.text-link{margin-top:10px}}
 

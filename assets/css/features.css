@@ -105,18 +105,13 @@
 .gameplay-dialog > .gameplay-guide { padding: 8px 30px 10px; }
 .gameplay-dialog > .text-link { margin-inline: 30px; }
 .gameplay-lead { color: var(--muted); font-size: 17px; line-height: 1.7; max-width: 90ch; }
-.gameplay-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 40px; }
-.gameplay-group { border-top: 1px solid var(--line); padding: 25px 0; }
-.gameplay-group h3 { font-size: 25px; margin: 0 0 10px; }
-.gameplay-group > p { color: var(--text); margin-top: 0; }
-.gameplay-group ul { color: var(--muted); padding-left: 19px; font-size: 14px; }
-.gameplay-group li { padding: 0 0 8px 3px; }
-.gameplay-source { font: 11px/1.5 SFMono-Regular, Consolas, monospace; color: var(--green); }
+.gameplay-group ul { padding-left: 22px; line-height: 1.8; }
+.gameplay-group li { padding: 0 0 12px 3px; }
+.gameplay-source { font-size: 13px; color: var(--green); }
 .gameplay-scope { padding: 22px; background: var(--surface); border-left: 2px solid var(--amber); color: var(--muted); font-size: 14px; }
-.gameplay-page { padding-bottom: 70px; }
-.gameplay-page > h2 { font-size: 32px; }
+.gameplay-page { max-width: 72ch; }
 html.gameplay-modal-open { overflow: hidden; }
-@media (max-width: 650px) { .gameplay-dialog { width: calc(100% - 20px); max-height: calc(100dvh - 24px); } .gameplay-dialog-header { padding: 18px; gap: 10px; } .gameplay-dialog-header h2 { font-size: 25px; } .gameplay-dialog > .gameplay-guide { padding-inline: 18px; } .gameplay-dialog > .text-link { margin-inline: 18px; } .gameplay-groups { grid-template-columns: 1fr; } .gameplay-lead { font-size: 15px; } .gameplay-close { padding: 9px; } }
+@media (max-width: 650px) { .gameplay-dialog { width: calc(100% - 20px); max-height: calc(100dvh - 24px); } .gameplay-dialog-header { padding: 18px; gap: 10px; } .gameplay-dialog-header h2 { font-size: 25px; } .gameplay-dialog > .gameplay-guide { padding-inline: 18px; } .gameplay-dialog > .text-link { margin-inline: 18px; } .gameplay-lead { font-size: 15px; } .gameplay-close { padding: 9px; } }
 .motion-primary { margin-top: 0; }
 .motion-stage { position: relative; }
 .motion-primary video { max-height: none; }

@@ -1,7 +1,6 @@
 +++
-title = 'Your first battlefield starts here'
+title = 'Play Nanolathe'
 seoTitle = 'Play the browser demo or install Nanolathe on Mac, Windows, or Linux'
-description = 'Try the original three-mission demo in your desktop browser, or bring your game data and install the native Nanolathe beta on Windows, Mac or Linux for campaigns, skirmish and online play.'
+description = 'Try the demo in your browser, or install the beta with your own Total Annihilation game files.'
 layout = 'start'
-eyebrow = 'Get started / Public beta'
 +++
