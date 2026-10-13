@@ -269,22 +269,38 @@ try {
         })
         if ($candidates.Count -eq 1 -and (Test-GameRoot $candidates[0])) { $Root = $candidates[0] }
         else {
-            if ($candidates.Count -gt 1) {
-                Write-Host 'Several installations were found. Choose the one to use:'
-                $candidates | ForEach-Object { Write-Host "  $_" }
+            # Both the installer and Start Menu shortcut have a console. Keep
+            # selection there: an unowned folder dialog can leave that console
+            # waiting with no visible way to choose (issue #112).
+            Write-Host 'Choose one Total Annihilation installation. Game assets are not included.'
+            for ($i = 0; $i -lt $candidates.Count; $i++) {
+                Write-Host ('  {0}) {1}' -f ($i + 1), $candidates[$i])
             }
-            Write-Host 'Choose your existing Total Annihilation game folder. Game assets are not included.'
-            try {
-                Add-Type -AssemblyName System.Windows.Forms
-                $picker = New-Object System.Windows.Forms.FolderBrowserDialog
-                try {
-                    $picker.Description = 'Select your Total Annihilation game folder'
-                    $picker.ShowNewFolderButton = $false
-                    if ($picker.ShowDialog() -eq [System.Windows.Forms.DialogResult]::OK) { $Root = $picker.SelectedPath }
-                } finally { $picker.Dispose() }
-            } catch { Write-Host 'Folder picker unavailable; enter the path below.' }
-            if ([string]::IsNullOrWhiteSpace($Root)) { $Root = Read-Host 'Total Annihilation folder (blank to cancel)' }
-            if (!(Test-GameRoot $Root)) { throw "No usable game folder selected. Launch again to choose a folder. See $log" }
+            $prompt = 'Paste the full game-folder path, then press Enter (blank to cancel)'
+            if ($candidates.Count -gt 0) {
+                $prompt = 'Type an installation number or paste the full game-folder path, then press Enter (blank to cancel)'
+            }
+            while ([string]::IsNullOrWhiteSpace($Root)) {
+                $answer = Read-Host $prompt
+                if ([string]::IsNullOrWhiteSpace($answer)) {
+                    Write-Host 'No game folder selected. Launch Nanolathe again to choose.'
+                    return
+                }
+                $candidate = $answer.Trim()
+                if ($candidate -match '^[0-9]+$') {
+                    $number = 0
+                    if (![int]::TryParse($candidate, [ref]$number) -or $number -lt 1 -or $number -gt $candidates.Count) {
+                        Write-Host 'Choose a number from the list or paste the full game-folder path.'
+                        continue
+                    }
+                    $candidate = $candidates[$number - 1]
+                } elseif (($candidate.StartsWith('"') -and $candidate.EndsWith('"')) -or
+                    ($candidate.StartsWith("'") -and $candidate.EndsWith("'"))) {
+                    if ($candidate.Length -ge 2) { $candidate = $candidate.Substring(1, $candidate.Length - 2) }
+                }
+                if (Test-GameRoot $candidate) { $Root = $candidate }
+                else { Write-Host "That folder is not a usable Total Annihilation installation. Choose again. Details: $log" }
+            }
         }
     }
     [IO.File]::WriteAllText($remembered, $Root, (New-Object Text.UTF8Encoding($false)))

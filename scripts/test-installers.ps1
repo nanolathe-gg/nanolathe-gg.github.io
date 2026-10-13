@@ -270,6 +270,97 @@ if (`$updateTest.Mode -eq 'new-game-failed') { throw 'Authored new game failed.'
     } finally {
         foreach ($key in $environmentBefore.Keys) { [Environment]::SetEnvironmentVariable($key, $environmentBefore[$key], 'Process') }
     }
+
+    # Issue #112: exercise the generated launcher's real selection loop, both
+    # directly (post-install) and through the encoded Start Menu command. Only
+    # native game calls and console input are authored; any dialog is a failure.
+    & {
+        $firstRoot = Join-Path $base 'retail game'
+        $secondRoot = Join-Path $base "TA O'Brien & `$literal; [custom]"
+        $unusableRoot = Join-Path $base 'incomplete game'
+        foreach ($folder in @($firstRoot, $secondRoot, $unusableRoot)) { [void][IO.Directory]::CreateDirectory($folder) }
+        $remembered = Join-Path $base 'root.txt'
+        $selection = @{}
+        function Add-Type { $selection.Dialogs++; throw 'Game-folder selection must not open a dialog.' }
+        function Read-Host([string]$Prompt) {
+            if ($Prompt -eq 'Press Enter to close') { return '' }
+            $selection.Prompts += $Prompt
+            if ($selection.Answers.Count -eq 0) { throw 'Unexpected selection prompt.' }
+            return $selection.Answers.Dequeue()
+        }
+        function Write-Host([string]$Object) { $selection.Messages += $Object }
+        function Invoke-SelectionGame {
+            $global:LASTEXITCODE = 0
+            if ($args[0] -eq '--list-installs') {
+                $selection.Discoveries++
+                return $selection.Candidates
+            }
+            if ($args[0] -eq '--check-install') {
+                $selection.Checks += $args[2]
+                if ($args[2] -eq $unusableRoot) { $global:LASTEXITCODE = 1; return 'Authored unusable game data.' }
+                Assert-Equal ($args[2] -in @($firstRoot, $secondRoot)) $true 'Only the chosen folder is validated'
+                return
+            }
+            Assert-Equal $args[0] '--root' 'Game starts with one selected root'
+            Assert-Equal $args.Count 4 'Selection never overlays installations'
+            $selection.Launches += $args[1]
+        }
+        $selectionLauncher = (Get-NanolatheLauncher).Replace('& $exe ', '& Invoke-SelectionGame ')
+        [IO.File]::WriteAllText((Join-Path $old 'launch.ps1'), $selectionLauncher)
+        Write-NanolatheData (Join-Path $base 'current.txt') 'old-release'
+        $shortcutCommand = [Text.Encoding]::Unicode.GetString([Convert]::FromBase64String(((Get-NanolatheLaunchCommand $base) -split ' ')[-1]))
+        $skipBefore = $env:NANOLATHE_SKIP_UPDATE_CHECK
+        $settingsBefore = $env:NANOLATHE_SETTINGS
+        $env:NANOLATHE_SKIP_UPDATE_CHECK = '1'
+        $env:NANOLATHE_SETTINGS = 'authored-settings-before-selection'
+        try {
+            $cases = @(
+                @{ Name = 'post-install number'; Candidates = @($firstRoot, $secondRoot); Answers = @('2'); Expected = $secondRoot },
+                @{ Name = 'shortcut number'; Candidates = @($firstRoot, $secondRoot); Answers = @('1'); Expected = $firstRoot; Shortcut = $true },
+                @{ Name = 'bad numbers retry'; Candidates = @($firstRoot, $secondRoot); Answers = @('0', '3', '999999999999999999999', '2'); Expected = $secondRoot },
+                @{ Name = 'invalid folder retry'; Candidates = @($firstRoot, $unusableRoot); Answers = @('2', '1'); Expected = $firstRoot },
+                @{ Name = 'pasted quoted path'; Candidates = @(); Answers = @('  "' + $secondRoot + '"  '); Expected = $secondRoot },
+                @{ Name = 'pasted single-quoted path'; Candidates = @($firstRoot, $secondRoot); Answers = @("'" + $secondRoot + "'"); Expected = $secondRoot },
+                @{ Name = 'single usable folder'; Candidates = @($secondRoot); Answers = @(); Expected = $secondRoot },
+                @{ Name = 'single unusable folder'; Candidates = @($unusableRoot); Answers = @($firstRoot); Expected = $firstRoot },
+                @{ Name = 'cancel'; Candidates = @($firstRoot, $secondRoot); Answers = @(''); Expected = '' },
+                @{ Name = 'stale memory cancellation'; Candidates = @($firstRoot, $secondRoot); Answers = @(' '); Expected = ''; Remembered = $unusableRoot; Shortcut = $true },
+                @{ Name = 'stale memory replacement'; Candidates = @($firstRoot, $secondRoot); Answers = @('2'); Expected = $secondRoot; Remembered = $unusableRoot },
+                @{ Name = 'remembered choice'; Candidates = @(); Answers = @(); Expected = $secondRoot; Remembered = $secondRoot; Shortcut = $true }
+            )
+            foreach ($case in $cases) {
+                if ([IO.File]::Exists($remembered)) { [IO.File]::Delete($remembered) }
+                if ($case.ContainsKey('Remembered')) { Write-NanolatheData $remembered $case.Remembered }
+                $selection = @{
+                    Candidates = $case.Candidates; Answers = (New-Object Collections.Queue)
+                    Prompts = @(); Messages = @(); Checks = @(); Launches = @(); Discoveries = 0; Dialogs = 0
+                }
+                foreach ($answer in $case.Answers) { $selection.Answers.Enqueue($answer) }
+                if ($case.ContainsKey('Shortcut')) { & ([scriptblock]::Create($shortcutCommand)) }
+                else { & ([scriptblock]::Create($selectionLauncher)) -Base $base }
+                Assert-Equal $selection.Prompts.Count $case.Answers.Count "$($case.Name): consumes expected choices"
+                Assert-Equal ($selection.Launches -join '') $case.Expected "$($case.Name): launches only selected data"
+                Assert-Equal $selection.Launches.Count ([int]($case.Expected -ne '')) "$($case.Name): starts once or cancels"
+                Assert-Equal $selection.Dialogs 0 "$($case.Name): never attempts a dialog"
+                Assert-Equal $env:NANOLATHE_SETTINGS 'authored-settings-before-selection' "$($case.Name): restores settings"
+                if ($case.Expected -ne '') {
+                    Assert-Equal ([IO.File]::ReadAllText($remembered)) $case.Expected "$($case.Name): remembers validated choice"
+                } elseif ($case.ContainsKey('Remembered')) {
+                    Assert-Equal ([IO.File]::ReadAllText($remembered)) $case.Remembered "$($case.Name): cancellation preserves memory"
+                } else { Assert-Equal ([IO.File]::Exists($remembered)) $false "$($case.Name): cancellation writes no memory" }
+                if ($selection.Prompts.Count -gt 0) {
+                    Assert-Equal $selection.Prompts[0].Contains('press Enter') $true "$($case.Name): explains how to submit"
+                    for ($i = 0; $i -lt $case.Candidates.Count; $i++) {
+                        Assert-Equal ($selection.Messages -contains ('  {0}) {1}' -f ($i + 1), $case.Candidates[$i])) $true "$($case.Name): numbers each installation"
+                    }
+                }
+                if ($case.Name -eq 'remembered choice') { Assert-Equal $selection.Discoveries 0 'Valid memory bypasses discovery and prompting' }
+            }
+        } finally {
+            $env:NANOLATHE_SKIP_UPDATE_CHECK = $skipBefore
+            $env:NANOLATHE_SETTINGS = $settingsBefore
+        }
+    }
     Write-Host 'Windows installer offline tests: OK'
 } finally {
     if ([IO.Directory]::Exists($base)) { Remove-Item -LiteralPath $base -Recurse -Force }
