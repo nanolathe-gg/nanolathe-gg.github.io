@@ -86,7 +86,7 @@ try {
     Assert-Equal ([IO.File]::ReadAllText((Join-Path $old 'nanolathe.exe'))) 'working binary' 'Shortcut failure preserves old binary'
     $iconSource = Join-Path $PSScriptRoot 'installer-fixtures\windows\Nanolathe.ico'
     [IO.File]::Copy($iconSource, (Join-Path $stage 'Nanolathe.ico'))
-    $shortcut = [pscustomobject]@{ TargetPath = ''; Arguments = ''; WorkingDirectory = ''; Description = ''; IconLocation = '' }
+    $shortcut = [pscustomobject]@{ TargetPath = ''; Arguments = ''; WorkingDirectory = ''; WindowStyle = 7; Description = ''; IconLocation = '' }
     $systemRootBefore = $env:SystemRoot
     if ([string]::IsNullOrEmpty($env:SystemRoot)) { $env:SystemRoot = Join-Path $base 'authored Windows' }
     try {
@@ -102,6 +102,8 @@ try {
     Assert-Equal ([IO.File]::ReadAllText((Join-Path $base 'current.txt'))) 'new-release' 'Success switches active release'
     Assert-Equal ([IO.File]::ReadAllText((Join-Path $old 'nanolathe.exe'))) 'working binary' 'Success retains previous binary'
     Assert-Equal $published (Join-Path (Join-Path $base 'releases') 'new-release') 'Published directory'
+    Assert-Equal $shortcut.WindowStyle 1 'Start Menu opens a normal window'
+    Assert-Equal $shortcut.Arguments.Contains('-WindowStyle Normal') $true 'PowerShell opens a normal window'
     $iconPath = $shortcut.IconLocation.Substring(0, $shortcut.IconLocation.LastIndexOf(','))
     Assert-Equal ([IO.Path]::GetDirectoryName($iconPath)) $published 'Shortcut icon belongs to the published release'
     Assert-Equal $shortcut.IconLocation.Substring($shortcut.IconLocation.LastIndexOf(',')) ',0' 'Shortcut selects the ICO image'
@@ -121,12 +123,15 @@ try {
             Set-NanolatheShortcutProperties $nativeShortcut $base $published
             $nativeShortcut.Save()
             Assert-Equal ($shell.CreateShortcut($shortcutPath)).IconLocation $shortcut.IconLocation 'Saved Start Menu icon'
+            Assert-Equal ($shell.CreateShortcut($shortcutPath)).WindowStyle 1 'Saved Start Menu shortcut requests a normal window'
             $next = Join-Path (Join-Path $base 'releases') 'next-release'
             [void][IO.Directory]::CreateDirectory($next)
             [IO.File]::Copy($iconSource, (Join-Path $next 'Nanolathe.ico'))
+            $nativeShortcut.WindowStyle = 7
             Set-NanolatheShortcutProperties $nativeShortcut $base $next
             $nativeShortcut.Save()
             Assert-Equal ($shell.CreateShortcut($shortcutPath)).IconLocation ((Join-Path $next 'Nanolathe.ico') + ',0') 'Update refreshes the same shortcut icon'
+            Assert-Equal ($shell.CreateShortcut($shortcutPath)).WindowStyle 1 'Update restores a normal shortcut window'
         } finally { [void][Runtime.InteropServices.Marshal]::ReleaseComObject($shell) }
     }
 
@@ -183,6 +188,7 @@ if (`$updateTest.Mode -eq 'new-game-failed') { throw 'Authored new game failed.'
     $installerHash = (Get-FileHash -LiteralPath $authoredPath -Algorithm SHA256).Hash
     $updateTest.Manifest = $manifest + "`ninstaller_ps1_sha256=$installerHash"
     function Get-NanolatheUpdateDownload([string]$Url, [string]$Path, [int]$TimeoutSeconds, [string]$Accept = 'application/octet-stream') {
+        Assert-Equal ($updateTest.Messages -contains 'Checking for Nanolathe updates...') $true 'Update feedback precedes network work'
         $updateTest.Downloads += $Url
         if ($Url -ceq 'https://nanolathe.gg/install/release.txt') {
             Assert-Equal $TimeoutSeconds 3 'Manifest wait is bounded'
@@ -224,6 +230,7 @@ if (`$updateTest.Mode -eq 'new-game-failed') { throw 'Authored new game failed.'
         $global:LASTEXITCODE = 0
     }
     function Read-Host { return '' }
+    function Write-Host([string]$Object) { $updateTest.Messages += $Object }
     $testLauncher = (Get-NanolatheLauncher).Replace('& $exe ', '& Invoke-TestGame ')
     $environmentBefore = @{}
     foreach ($key in @('NANOLATHE_INSTALL_DIR', 'NANOLATHE_SKIP_UPDATE_CHECK', 'NANOLATHE_SETTINGS')) {
@@ -235,6 +242,7 @@ if (`$updateTest.Mode -eq 'new-game-failed') { throw 'Authored new game failed.'
             $updateTest.Mode = $mode
             $updateTest.Accept = $mode -notin @('unchanged', 'offline', 'malformed', 'missing-hash', 'decline')
             $updateTest.Downloads = @()
+            $updateTest.Messages = @()
             $updateTest.Offers = 0
             $updateTest.Installed = $false
             $updateTest.CurrentLaunches = 0
@@ -269,6 +277,7 @@ if (`$updateTest.Mode -eq 'new-game-failed') { throw 'Authored new game failed.'
         }
     } finally {
         foreach ($key in $environmentBefore.Keys) { [Environment]::SetEnvironmentVariable($key, $environmentBefore[$key], 'Process') }
+        Remove-Item function:Write-Host
     }
 
     # Issue #112: exercise the generated launcher's real selection loop, both
@@ -292,10 +301,12 @@ if (`$updateTest.Mode -eq 'new-game-failed') { throw 'Authored new game failed.'
         function Invoke-SelectionGame {
             $global:LASTEXITCODE = 0
             if ($args[0] -eq '--list-installs') {
+                Assert-Equal $selection.Messages[-1] 'Searching for Total Annihilation installations...' 'Discovery feedback precedes native scan'
                 $selection.Discoveries++
                 return $selection.Candidates
             }
             if ($args[0] -eq '--check-install') {
+                Assert-Equal $selection.Messages[-1] "Checking Total Annihilation game data: $($args[2])" 'Validation feedback precedes native check'
                 $selection.Checks += $args[2]
                 if ($args[2] -eq $unusableRoot) { $global:LASTEXITCODE = 1; return 'Authored unusable game data.' }
                 Assert-Equal ($args[2] -in @($firstRoot, $secondRoot)) $true 'Only the chosen folder is validated'
@@ -338,6 +349,7 @@ if (`$updateTest.Mode -eq 'new-game-failed') { throw 'Authored new game failed.'
                 foreach ($answer in $case.Answers) { $selection.Answers.Enqueue($answer) }
                 if ($case.ContainsKey('Shortcut')) { & ([scriptblock]::Create($shortcutCommand)) }
                 else { & ([scriptblock]::Create($selectionLauncher)) -Base $base }
+                if ($case.ContainsKey('Shortcut')) { Assert-Equal $selection.Messages[0] 'Opening Nanolathe...' "$($case.Name): shortcut announces startup" }
                 Assert-Equal $selection.Prompts.Count $case.Answers.Count "$($case.Name): consumes expected choices"
                 Assert-Equal ($selection.Launches -join '') $case.Expected "$($case.Name): launches only selected data"
                 Assert-Equal $selection.Launches.Count ([int]($case.Expected -ne '')) "$($case.Name): starts once or cancels"
