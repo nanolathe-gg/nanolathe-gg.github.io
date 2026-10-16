@@ -1,7 +1,7 @@
 +++
-title = 'Unit animation scripts'
+title = 'COB unit scripts'
 seoTitle = 'COB file format — illustrated Total Annihilation reference'
-description = 'Learn COB and BOS by stepping through bytecode, piece motion, thread scheduling and signals, then explore the complete file and opcode reference.'
+description = 'How BOS scripts compile to COB, including piece movement, threads, signals and the bytecode instruction set.'
 type = 'format'
 url = '/docs/formats/cob/'
 format = 'COB'
@@ -24,15 +24,15 @@ label = 'Source language'
 value = 'BOS'
 +++
 
-## From authored motion to machine words {#overview}
+## BOS source and compiled COB {#overview}
 
-**BOS is source code; COB is the program the engine loads.** A unit script animates named [3DO pieces]({{< format-link "3do" >}}), starts cooperative threads, and answers engine queries. The file lives at `scripts/<UnitName>.COB`; the [FBI unit definition]({{< format-link "fbi" >}}) selects that identity by convention.
+Unit scripts are written in **BOS** and compiled to **COB** for the engine to load. They animate named [3DO pieces]({{< format-link "3do" >}}), start cooperative threads and answer engine queries. The compiled file lives at `scripts/<UnitName>.COB`, using the `UnitName` from the [FBI unit definition]({{< format-link "fbi" >}}).
 
-{{< format-demo name="cob-stack" id="stack-example" title="Push a target. Turn a piece." label="Step through bytecode" >}}
-Advance one instruction at a time through the [original 110-byte COB](example.cob). `push-constant` places 16384 on the stack; `turn-now` consumes it and addresses piece 1, axis 1. The drawing is a schematic of the encoded quarter-turn, not a preview of retail axis conversion. Download the [equivalent BOS](example.bos) and [decoded manifest](example.json). With scripts disabled, the authored code and initial pose remain visible; the complete trace is below.
+{{< format-demo name="cob-stack" id="stack-example" title="Step through a turn instruction" >}}
+Advance one instruction at a time through the [original 110-byte COB](example.cob). `push-constant` places 16384 on the stack; `turn-now` consumes it and addresses piece 1, axis 1. The drawing is a schematic of the encoded quarter-turn, not a preview of retail axis conversion. Download the [equivalent BOS](example.bos) and [decoded manifest](example.json). With scripts disabled, the code and initial pose remain visible; the complete trace is below.
 {{< /format-demo >}}
 
-{{< callout kind="note" title="A tiny authored program, with explicit provenance" >}}
+{{< callout kind="note" title="How the example was made" >}}
 The example is hand-assembled from established opcode encodings and independently decoded by `scripts/cob-example.py`; it is not claimed output from a recovered Scriptor build. Its exact 90° constant avoids unresolved fractional compiler quantization. The BOS is illustrative equivalent source. No retail script or artwork is embedded.
 {{< /callout >}}
 
@@ -62,12 +62,12 @@ The 44-byte header points to code and five tables. Their physical order is unres
 Multiplying a header pointer by four is wrong; failing to multiply a code word index by four is also wrong. The entry table stores word indexes, so its entries are not relocated as file pointers.
 {{< /callout >}}
 
-## From a command to visible motion {#motion-and-waits}
+## Movement and waits {#motion-and-waits}
 
-**A `turn` starts motion and lets the script continue.** Add `wait-for-turn` when the next statement must wait for that axis to become idle. The engine visits the script slots first, then updates the pieces; the two parts of a tick have different jobs.
+**A `turn` starts motion and lets the script continue.** Add `wait-for-turn` when the next statement must wait for that axis to become idle. The engine visits the script slots first, then updates the pieces.
 
-{{< format-demo name="cob-motion" id="motion-lab" title="The piece moves. The script waits." label="Laboratory 01 · Motion and time" >}}
-Step or scrub through each drain and interpolation pass. Compare two angular speeds, then switch waiting off. The beacon shows when the following `show` statement runs. This is a separate authored schematic with positive encoded angles and normal tick delta 1. [Download the default BOS](motion-demo.bos) or [the checked teaching traces](laboratory.json). Runtime rules: [04 §4.2 and §4.6]({{< research "research/retail-executable-spec/04-units-orders-scripts-and-movement.md" >}}).
+{{< format-demo name="cob-motion" id="motion-lab" title="Compare movement with and without a wait" >}}
+Step through script execution and movement updates, or use the slider to inspect a particular tick. You can compare two angular speeds and turn waiting off. The beacon appears when the script reaches `show`. This example uses positive encoded angles and normal tick delta 1. [Download the default BOS](motion-demo.bos) or [the checked teaching traces](laboratory.json). Runtime rules: [04 §4.2 and §4.6]({{< research "research/retail-executable-spec/04-units-orders-scripts-and-movement.md" >}}).
 {{< /format-demo >}}
 
 Try these comparisons:
@@ -75,7 +75,7 @@ Try these comparisons:
 - **Leave waiting on and reach the target.** The piece clears its speed word during interpolation. The thread resumes on the next script drain; the beacon stays hidden until then.
 - **Turn waiting off.** `show` and `return` run in the first drain, before the first movement pass. Returning does not cancel the piece's motion.
 - **Double the angular speed.** The piece arrives sooner, while the order of script drain, interpolation and wait resumption stays the same.
-- **Compare with the [first bytecode example](#stack-example).** Its `turn-now` changes the angle directly when the instruction executes, with no animated journey to the target.
+- **Compare with the [first bytecode example](#stack-example).** Its `turn-now` changes the angle directly when the instruction executes, without an animated transition to the target.
 
 | Setting | Stored speed per tick | Arrival in this example | Following `show` with waiting |
 | --- | --- | --- | --- |
@@ -88,11 +88,11 @@ Tick numbering starts at zero. The per-tick remainder is discarded, so the first
 The early wait guard polls the turn-speed word; it does not compare the current angle with the requested target. In this example, arrival clears that word during interpolation, and the next drain observes it. These traces issue the wait while a positional turn is active, with no competing writer or earlier spin state. [04 §4.6] owns the additional cases.
 {{< /callout >}}
 
-## One script can start another {#thread-laboratory}
+## Calling and starting threads {#thread-laboratory}
 
 **Both `call-script` and `start-script` allocate a child thread.** A successful `call-script` blocks its parent until the child returns or is terminated by a matching signal. `start-script` allows the parent to continue. These are cooperative threads: a runnable slot executes until it yields or ends, and then the scheduler moves to the next slot.
 
-{{< format-demo name="cob-threads" id="thread-lab" title="Who runs next? Follow the eight slots." label="Laboratory 02 · Calls and concurrency" >}}
+{{< format-demo name="cob-threads" id="thread-lab" title="Compare call-script and start-script" >}}
 Compare the order in which `parentDone` and `childDone` become 1. Parent starts in slot 0; Worker takes the first free slot. Each step groups the statements shown into a scheduler event, rather than a single bytecode instruction. [Download the default BOS](thread-demo.bos). The occupied-pool scenario starts with seven unrelated blocked threads. Runtime rules and failure edges: [04 §4.2–§4.3]({{< research "research/retail-executable-spec/04-units-orders-scripts-and-movement.md" >}}).
 {{< /format-demo >}}
 
@@ -107,11 +107,11 @@ With `start-script`, the parent sets its flag and returns before slot 1 is visit
 Occupy the other seven slots and step through each starter. A failed `call-script` still blocks, and no child exists to wake it. A matching signal can terminate that blocked parent. A failed `start-script` continues with its argument still on the stack. This is established retail behavior, not a recommended recovery strategy. [04 §4.3]
 {{< /callout >}}
 
-## Signals select threads by shared bits {#signal-laboratory}
+## Signal masks {#signal-laboratory}
 
 **A signal terminates matching threads.** `set-signal-mask` replaces the current thread's mask; `signal` checks all eight active slots using bitwise AND. A mask is a set of bits, so signal `2` matches masks `2` **and** `3`.
 
-{{< format-demo name="cob-signals" id="signal-lab" title="Which threads survive this signal?" label="Laboratory 03 · Masks and cancellation" >}}
+{{< format-demo name="cob-signals" id="signal-lab" title="Try different signal masks" >}}
 Choose the sender's mask and combine signal bits, then send the signal. The initial snapshot contains four active threads with the displayed masks and four inactive slots. The workers have already set their masks; fresh engine roots start at 1 and script children inherit their parent's current mask. Runtime contract: [04 §4.2]({{< research "research/retail-executable-spec/04-units-orders-scripts-and-movement.md" >}}).
 {{< /format-demo >}}
 
@@ -124,10 +124,10 @@ signal 2;            // terminate threads carrying bit 1
 set-signal-mask 2;   // later signal 2 can terminate this thread
 ```
 
-Order matters: setting mask `2` *before* sending signal `2` makes the sender one of its own victims. Signal termination releases matching slots and wakes callers waiting for those slots. It does **not** deliver a value to an engine completion receiver; an explicit `return` does so when a receiver is attached.
+Setting mask `2` *before* sending signal `2` also terminates the sender. Signal termination releases matching slots and wakes callers waiting for those slots. It does **not** deliver a value to an engine completion receiver; an explicit `return` does so when a receiver is attached.
 
-{{< callout kind="note" title="How these laboratories relate to the reference" >}}
-The source snippets and diagrams are original teaching examples. Motion and scheduling replay bounded traces checked by `scripts/cob-example.py`; the signal comparison applies the stated bitwise rule. They cover the initial conditions shown, not arbitrary BOS compilation or a complete COB interpreter. The [pinned runtime specification]({{< research "research/retail-executable-spec/04-units-orders-scripts-and-movement.md" >}}) remains the owner of timing, callback entry modes, signal release and motion arithmetic.
+{{< callout kind="note" title="What these examples cover" >}}
+These snippets and diagrams were made for the guide. Motion and scheduling follow traces checked by `scripts/cob-example.py`; the signal example applies the bitwise rule described above. They cover the starting conditions shown here and do not include a general BOS compiler or complete COB interpreter. For timing, callback entry modes, signal release and motion arithmetic beyond these examples, see the [pinned runtime specification]({{< research "research/retail-executable-spec/04-units-orders-scripts-and-movement.md" >}}).
 {{< /callout >}}
 
 ## Byte layouts {#byte-layouts}
@@ -697,7 +697,7 @@ that the unrecorded historical enumeration used exactly that set.
 
 ## Pinned research and implementation {#sources}
 
-This page adapts the [owning COB research]({{< research >}}) at commit **2333223**. The [complete source snapshot](research-source.txt) preserves the original research, evidence IDs and confidence labels. All illustrative assets on this page are original authored examples; none are extracted retail assets.
+This page adapts the [COB research]({{< research >}}) at commit **2333223**. The [complete source snapshot](research-source.txt) preserves the original research, evidence IDs and confidence labels. The examples on this page were made for the guide and contain no extracted retail assets.
 
 | Owning reference | Scope |
 | --- | --- |

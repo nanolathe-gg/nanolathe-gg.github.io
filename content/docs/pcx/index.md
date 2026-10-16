@@ -1,7 +1,7 @@
 +++
-title = 'Pictures, runs & scanlines'
+title = 'PCX images'
 seoTitle = 'PCX file format — illustrated Total Annihilation image reference'
-description = 'Unpack an indexed image and see why a perfectly ordinary PCX scanline can decode differently in Total Annihilation.'
+description = 'The indexed PCX images used by TA, including RLE decoding and the game’s handling of scanline padding.'
 type = 'format'
 url = '/docs/formats/pcx/'
 format = 'PCX'
@@ -22,14 +22,14 @@ label = 'Palette trailer'
 value = '256 RGB entries · 768 bytes'
 +++
 
-## An old image format, a specific reader {#overview}
+## PCX in Total Annihilation {#overview}
 
 Total Annihilation uses ZSoft PCX for unit portraits, menu backgrounds, logos, mission victory images, and even a palette source. Stock assets use **8-bit, single-plane, RLE-encoded version 5 PCX**, with a 256-color RGB palette at the end.
 
-That authored profile and the executable's reader are different contracts. The most visible distinction is scanline padding: standard PCX consumes the stored stride; retail consumes exactly the visible width.
+TA’s reader handles some fields differently from a general PCX decoder. For example, standard PCX reads each row using the stored stride, while TA reads exactly the visible width. The difference shows up when a row has padding.
 
-{{< format-demo name="pcx-padding" id="scanline-comparison" title="One extra byte per row changes the picture" label="Decoder comparison" >}}
-Both panels decode the original [padded.pcx](padded.pcx): width 15, stored stride 16. A coral padding byte ends every stored row. The standard decoder skips it; retail begins the next row with it, shearing the image. These diagrams are decoded from authored fixtures, not captured retail art.
+{{< format-demo name="pcx-padding" id="scanline-comparison" title="Compare scanline padding rules" >}}
+Both panels decode the original [padded.pcx](padded.pcx): width 15, stored stride 16. A coral padding byte ends every stored row. The standard decoder skips it; retail begins the next row with it, shearing the image. The diagrams come from example files made for this guide, not captured retail artwork.
 {{< /format-demo >}}
 
 | Logical location | Role | Observed convention |
@@ -40,7 +40,7 @@ Both panels decode the original [padded.pcx](padded.pcx): width 15, stored strid
 
 Lookup is case-insensitive. The dimensions above describe asset conventions, not fixed PCX dimensions.
 
-## From header to trailer {#structure}
+## File organization {#structure}
 
 ```text
 0x0000        128-byte header
@@ -89,7 +89,7 @@ The header must read completely. Only manufacturer and version are validation ga
 
 Retail simply reads the **last 768 bytes** as RGB. A marker-free file is not rejected for lacking the marker. Whether those colors are installed is the consumer's decision.
 
-## RLE, byte by byte {#rle}
+## RLE decoding {#rle}
 
 A byte below `0xC0` is a literal pixel index. A byte with both high bits set introduces a run: its low six bits are the count, and the following byte is the repeated index. This makes the largest positive run **63 pixels**.
 
@@ -109,7 +109,7 @@ Retail decodes one visible-width row at a time. A run that reaches beyond the ri
 In the comparison above, every row stores 16 literal bytes but only 15 are visible. After the first 15 bytes, retail moves to the next display row while the stream still points at the previous row's padding. The header's stride field cannot correct this because the reader never consults it.
 {{< /callout >}}
 
-## A compact picture to inspect {#worked-example}
+## Example image {#worked-example}
 
 {{< figure src="example.svg" alt="An original blue-green calibration frame with an amber center, decoded from a 16-by-12 PCX fixture." width="512" height="384" >}}
 The original [example.pcx](example.pcx) has a 16 × 12 visible image and stride 16, so both decoding approaches agree. Its amber center uses index 197 (`0xC5`), exercising the escaped/RLE high-index path. The SVG uses the file's embedded palette for this explanatory preview.
@@ -140,6 +140,6 @@ Retail's screenshot writer uses 63-byte RLE runs and literal bytes below `0xC0` 
 
 ## Sources and example files {#sources}
 
-Adapted from the [owning PCX research]({{< research >}}) at the pinned sidebar revision. The [complete source snapshot](research-source.txt) includes the standard/TA bibliography and the publication omission of the retail portrait example. No retail picture is included in this page.
+Adapted from the [PCX research]({{< research >}}) at the pinned sidebar revision. The [complete source snapshot](research-source.txt) includes the standard/TA bibliography and the publication omission of the retail portrait example. No retail picture is included in this page.
 
 Both downloadable PCX files and all three byte-derived SVGs are original, reproducible assets from `scripts/pcx-example.py`. Its `--check` mode verifies the artifacts, confirms matching decodes for the unpadded fixture, and confirms the intentional standard/retail divergence for the padded fixture.

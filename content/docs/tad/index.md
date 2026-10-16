@@ -1,7 +1,7 @@
 +++
-title = 'Recordings, packets & reconstructed time'
+title = 'TAD match recordings'
 seoTitle = 'TAD file format — illustrated Total Annihilation reference'
-description = 'Peel apart a community match recording, restore Smartpak updates, and learn which bytes describe state, which describe capture, and which still need context.'
+description = 'The community TA Demo Recorder format: record framing, network packets, Smartpak compression and timing.'
 type = 'format'
 url = '/docs/formats/tad/'
 format = 'TAD'
@@ -25,47 +25,41 @@ value = 'State telemetry'
 +++
 
 
-## A recording of exchanged state {#overview}
+## What a TAD recording contains {#overview}
 
-`.tad` files are match recordings produced by the community **TA Demo
-Recorder** (TADR, by Fnordia/SJ/Yeha, distributed as a replacement
-`dplayx.dll`). The recorder intercepts Total Annihilation's multiplayer
-session traffic and writes a timed log of intercepted TA traffic plus lobby
-metadata. Recorder options can filter traffic; a file is not necessarily a
-complete packet log. Because TA multiplayer is an *asynchronous*
-peer-to-peer model — each client simulates its own units and broadcasts
-resulting unit state — a recording is primarily **state telemetry** (unit
-sync, resource status, combat events) rather than a player-input log.
-Replay tools work by re-feeding this traffic into a synthetic multiplayer
-session, not by deterministic re-simulation.
+The community **TA Demo Recorder** (TADR, by Fnordia/SJ/Yeha) saves matches
+as `.tad` files. It replaces `dplayx.dll` to intercept Total Annihilation's
+multiplayer traffic, recording packet timing and lobby metadata along with
+the traffic itself. Recorder options can filter packets, so a recording may
+not contain everything sent during a match.
 
-`.tad` recordings are useful observational evidence for classic-engine
-behavior. They are not an authoritative engine state format.
+In TA's asynchronous peer-to-peer multiplayer, each client simulates its own
+units and broadcasts their state. A TAD recording therefore contains mostly
+unit updates, resource status and combat events. Replay tools feed those
+updates into a synthetic multiplayer session; they do not reconstruct the
+match by re-simulating a log of player inputs.
 
 {{< callout kind="established" title="A community recording format" >}}
-The retail executable neither reads nor writes TAD. The wrapper and Smartpak transformations belong to third-party recorders; underlying retail network behavior has separate evidence in doc 08. Nanolathe does not contain a TAD parser, recorder or replay engine; its own replays use a separate format.
+The retail executable neither reads nor writes TAD. The file wrapper and Smartpak transformations belong to third-party recorders; the retail network behavior is documented separately in doc 08. Single-player saves also use a different format, described in that document.
+
+Nanolathe has no TAD parser, recorder or replay engine. Its skirmish and Survival replays use `.nlreplay`, which records battle settings and orders for re-simulation. That format neither reads nor writes TAD.
 {{< /callout >}}
 
-**Scope:** single-player saves use the retail save-bank contract in doc 08,
-not this format. Nanolathe contains no TAD parser, recorder or replay engine.
-Its own skirmish and Survival replays (`.nlreplay`) are a different,
-Nanolathe-specific format: they record each battle's settings and orders and
-play it back by re-simulating it, and they neither read nor write TAD.
-References below to a corpus analyzer (including its Rust implementation)
-describe external tooling, not repository packages or checks in this Go engine.
-The nine-file private corpus was located; framing, encrypted status records
-and match-body subpacket streams were independently checked. Retail writers
-and readers establish the field corrections below. Historical statistical
-interpretations remain separate from those traces and are retained only where
-they do not depend on a disproved field assignment.
-Corpus observations can support an inference about retail behavior; they do
-not establish a simulation contract. Undecoded fields remain **Unknown**.
+This guide draws on research into third-party recording tools. It covers the
+file wrapper, TA's XOR/checksum and LZ77 packet encodings, Smartpak re-encoding
+of unit-sync packets, and the individual subpacket types. Some details depend
+on the recorder and unit catalog; the gaps noted below still need resolving
+before a reader can claim compatibility with every recording.
 
-This inherited third-party format description covers the file envelope, the TA wire-packet encodings
-(XOR/checksum, LZ77 compression), the recorder's "smartpak" re-encoding of
-unit-sync packets, and the subpacket taxonomy. It is an inherited description
-for third-party tooling; catalog- and recorder-dependent gaps below must be resolved before claiming
-a universal compatible reader.
+The research independently checked framing, encrypted status records and
+match-body subpackets in a private corpus of nine files. Field corrections
+come from tracing the retail writers and readers. Older statistical
+interpretations are kept only where those traces have not disproved the field
+assignments they rely on. Recordings help investigate engine behavior, but
+observations alone do not establish its simulation rules or define an
+authoritative engine state format. Undecoded fields remain **Unknown**.
+The corpus analyzer mentioned below, including its Rust implementation, is
+external tooling, not a package or check in Nanolathe's Go repository.
 
 Two related identifiers appear inside recordings and must not be confused:
 
@@ -74,17 +68,17 @@ Two related identifiers appear inside recordings and must not be confused:
 - the **recorder version string** (an extra-sector string such as `0.99`,
   `0.99.3.513`, or `3.9.2.0`) identifying the TADR build.
 
-## Unpack a recorded update {#smartpak-example}
+## Smartpak example {#smartpak-example}
 
-{{< format-demo name="tad-smartpak" id="smartpak-demo" title="Keep the state. Reconstruct the tick." label="Step through Smartpak" >}}
-An original three-token fragment: set tick **600**, reconstruct one ground update, then expand an idle update at **601**. Download the [20-byte Smartpak stream](smartpak.bin), its [26-byte match-record wrapper](match-record.bin), or the [29 reconstructed bytes](reconstructed.bin). These are isolated teaching fragments, **not a complete TAD recording**.
+{{< format-demo name="tad-smartpak" id="smartpak-demo" title="Step through a Smartpak update" >}}
+Step through three tokens: set tick **600**, reconstruct one ground update, then expand an idle update at **601**. Download the [20-byte Smartpak stream](smartpak.bin), its [26-byte match-record wrapper](match-record.bin), or the [29 reconstructed bytes](reconstructed.bin). These fragments were made for the example and are **not a complete TAD recording**.
 {{< /format-demo >}}
 
-{{< callout kind="note" title="The example supplies its own decoding context" >}}
-This authored context has **283 retained definition rows including row zero**, so `W=9`; definition 1 is a ground unit. Its update sends local slot 0 and one path point `(120, 80)`, then an empty scheduled slot. The idle expansion follows the inspected recorder’s width-dependent convention. The fragment contains no player names, addresses, chat or private recording bytes. `scripts/tad-example.py --check` reproduces the data, independently walks its token framing and checks its movement bits.
+{{< callout kind="note" title="Catalog and state used by this example" >}}
+The example uses **283 retained definition rows including row zero**, so `W=9`; definition 1 is a ground unit. Its update sends local slot 0 and one path point `(120, 80)`, then an empty scheduled slot. The idle expansion follows the inspected recorder’s width-dependent convention. The fragment contains no player names, addresses, chat or private recording bytes. `scripts/tad-example.py --check` reproduces the data, independently walks its token framing and checks its movement bits.
 {{< /callout >}}
 
-## File, record, packet {#structure}
+## Record and packet structure {#structure}
 
 ```
 file := record*                     every record: u16le totalLength
@@ -497,8 +491,8 @@ definition's `canfly` selects the ground or air grammar below. A definition
 mismatch is repaired before the receiver invokes the corresponding movement
 reader. Block assignment is separate from recording sender order.
 
-{{< format-demo name="tad-catalog" id="catalog-width-demo" title="The catalog determines the bit width" label="Explore bit packing" >}}
-Compare **255** rows with **256**: the width jumps from 8 to 9 bits because it is the bit length of the retained count, including reserved row zero. Change `maxUnits` to see the scheduled slot change while the width stays fixed. These are authored calculator inputs, not a recovered catalog for any recording.
+{{< format-demo name="tad-catalog" id="catalog-width-demo" title="The catalog determines the bit width" >}}
+Compare **255** rows with **256**: the width jumps from 8 to 9 bits because it is the bit length of the retained count, including reserved row zero. Change `maxUnits` to see the scheduled slot change while the width stays fixed. These inputs were chosen for the calculator; they do not come from a recording’s catalog.
 {{< /format-demo >}}
 
 {{< callout kind="warning" title="Bytes need a matching catalog and runtime context" >}}
@@ -796,7 +790,7 @@ evidence for a speed-dependent clock interpretation, but it does not by itself
 identify the exact Windows 3.1c speed law because `dtMs` measures the capture
 peer rather than authoritative simulation time.
 
-{{< callout kind="note" title="Three clocks, with different jobs" >}}
+{{< callout kind="note" title="Capture time, simulation ticks and speed changes" >}}
 `dtMs` measures capture time, `2C` ticks track a sender’s simulation counter, and `19` records change speed. A non-sync event bracketed by neighboring ticks has an interval of capture-order evidence, not an exact recovered simulation tick. Clock gaps and speed changes must remain visible in an analysis.
 {{< /callout >}}
 
@@ -920,7 +914,7 @@ than treating either as a subpacket stream.
 
 ## Sources & evidence {#sources}
 
-This page adapts the [owning research]({{< research >}}) at the pinned engine revision. [Download the complete source snapshot](research-source.txt). Bracketed evidence IDs refer to the owning research ledger; observations and implementation policy retain their original scope.
+This page adapts the [format research]({{< research >}}) at the pinned engine revision. [Download the complete source snapshot](research-source.txt). Bracketed evidence IDs refer to the research ledger; observations and implementation policy retain their original scope.
 
 
 - Inherited private-recording analyses (five-file envelope survey and later

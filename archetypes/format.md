@@ -1,5 +1,5 @@
 +++
-title = '{{ .Name | upper }} — Format title'
+title = '{{ .Name | upper }} file format'
 description = 'What this format stores and why you would read it.'
 type = 'format'
 url = '/docs/formats/{{ .Name }}/'
@@ -15,19 +15,21 @@ label = 'Stores'
 value = 'Describe the payload'
 +++
 
-## Overview
+## Overview {#overview}
 
-Explain the file's role. Retain evidence labels and cite the owning research.
+Explain what the file stores and where TA uses it. Give this section a heading
+that names its subject. Follow brand/GUIDE.md#writing-voice, retain evidence
+labels and cite the research.
 
 {{< callout kind="note" title="About the examples" >}}
 State the provenance and scope of any examples.
 {{< /callout >}}
 
-## Format at a glance
+## File organization {#structure}
 
 Add an accessible diagram and a prose equivalent.
 
-## Byte layouts
+## Byte layouts {#byte-layouts}
 
 ### File header
 
@@ -35,15 +37,15 @@ Add an accessible diagram and a prose equivalent.
 | --- | --- | --- | --- | --- |
 | `0x00` | 4 | `u32` | `field` | Description. |
 
-## Worked example
+## Worked example {#worked-example}
 
 Add an original downloadable fixture and explain its bytes. Use the figure
 shortcode for static media or format-demo with a dedicated formats/ partial.
 
-## Unknowns and caveats
+## Unknowns and caveats {#unknowns-and-caveats}
 
 Keep host policy distinct from retail behavior.
 
-## Sources
+## Sources {#sources}
 
 [Owning research]({{< research >}}).

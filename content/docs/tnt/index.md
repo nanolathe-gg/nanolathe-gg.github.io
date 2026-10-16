@@ -1,7 +1,7 @@
 +++
-title = 'Terrain, one layer at a time'
+title = 'TNT terrain'
 seoTitle = 'TNT file format — illustrated Total Annihilation reference'
-description = 'Explore the tile art, corner heights, feature footprints and minimap that turn a compact binary file into a Total Annihilation landscape.'
+description = 'How TA stores terrain tiles, heights, features and minimaps, with an interactive example and byte layouts.'
 type = 'format'
 url = '/docs/formats/tnt/'
 format = 'TNT'
@@ -25,7 +25,7 @@ value = 'Little-endian'
 +++
 
 
-## Four layers make a map {#overview}
+## Terrain data and grid sizes {#overview}
 
 **Established** `[02 R-MAP-01 §§6–8]`, `[03 R-TERR-01]`.
 The `.tnt` file is the binary half of a map (paired with an `.ota`,
@@ -39,21 +39,21 @@ pre-rendered minimap. Pixels are indexes into the shared palette
 grid dimensions. Their independently described layout is at the end; do not
 read them as a short TNT.
 
-Two grid resolutions matter (both little-endian, like everything):
+The terrain uses two grid resolutions. Both store their values little-endian:
 
 - The **attribute grid**: 1 cell = 16×16 pixels. Holds height and feature
   data. Dimensions: `Width × Height` from the header.
 - The **tile grid**: 1 cell = 32×32 pixels. Holds tile indexes. Dimensions:
   `Width/2 × Height/2` (even in the observed corpus; the Nanolathe reader requires even dimensions).
 
-## Peel back the terrain {#terrain-example}
+## Inspecting the example terrain {#terrain-example}
 
-{{< format-demo name="tnt-layers" id="terrain-example-demo" title="One map, two grids, four layers" label="Inspect a TNT" >}}
+{{< format-demo name="tnt-layers" id="terrain-example-demo" title="Inspect terrain tiles, heights and features" >}}
 An original island decoded from [example.tnt](example.tnt), with [inspection data](example.json). Switch between the repeated tile art, corner heights and feature words. Overlay either grid to see that **four attribute cells fit under one tile**. Move the water threshold to inspect `height < SeaLevel` without changing the downloaded file.
 {{< /format-demo >}}
 
-{{< callout kind="note" title="A decode example, with an original display palette" >}}
-This 512 × 384-pixel terrain, palette and diagrams were authored for this reference. The PNG-free SVG art comes from the fixture’s 32 × 32 indexed tiles; color choices belong to this illustration because TNT stores no palette. Heights and feature views come from the same decoded bytes. The named `ExampleBeacon` has no external feature catalog here, so this is a decoding fixture, not a ready-to-play map. `scripts/tnt-example.py --check` verifies the binary and its generated views.
+{{< callout kind="note" title="About the example terrain" >}}
+The 512 × 384-pixel terrain, palette and diagrams were made for this guide. The SVG images are generated from its 32 × 32 indexed tiles using the example palette, since TNT stores no palette of its own. Heights and feature views use the same decoded file. There is no feature catalog defining `ExampleBeacon`, so the example cannot be loaded as a playable map. `scripts/tnt-example.py --check` verifies the binary and generated views.
 {{< /callout >}}
 
 | Fixture layer | Stored count | Bytes | What it contributes |
@@ -64,7 +64,7 @@ This 512 × 384-pixel terrain, palette and diagrams were authored for this refer
 | Feature table | One 132-byte record | 132 | The original name `ExampleBeacon`. |
 | Minimap | 64 × 64 indexes + dimensions | 4,104 | A stored preview with an intentionally padded lower area. |
 
-## Format at a glance
+## File organization {#format-at-a-glance}
 
 ```
 +---------------------------+ 0x00
@@ -106,7 +106,7 @@ each section.
 feature records and sea level zero. Its embedded minimap is 252×252. These
 values describe that file, not format limits.
 
-{{< callout kind="warning" title="Version changes the tail and the cells" >}}
+{{< callout kind="warning" title="Check the version before reading the header and cells" >}}
 The legacy version changes both the header tail and the attribute stride. A canonical cell is **4 bytes**; a legacy cell is **8 bytes**, with its feature byte at +2. SCT sections have yet another header and use tile-grid dimensions. Dispatch by format and version before following pointers.
 {{< /callout >}}
 
@@ -352,7 +352,7 @@ Core Contingency, Battle Tactics) recorded: version `0x2000`, header word 0x2C =
 attribute byte +3 = `0`. Sea levels range 0 (dry/lava maps) to ~75; the
 most common retail value is 75.
 
-{{< callout kind="policy" title="Bounds belong to the host reader" >}}
+{{< callout kind="policy" title="Nanolathe’s allocation limits" >}}
 Nanolathe validates section spans, dimensions, allocation budgets and indexes. The retail loader did not establish those malformed-input rejection rules. SCT has no Nanolathe reader; the editor-only layout above does not imply engine support.
 {{< /callout >}}
 
@@ -406,7 +406,7 @@ inventing meanings for the editor's ignored bytes.
 
 ## Sources & evidence {#sources}
 
-This page adapts the [owning research]({{< research >}}) at the pinned engine revision. [Download the complete source snapshot](research-source.txt). Bracketed evidence IDs refer to the owning research ledger; observations and implementation policy retain their original scope.
+This page adapts the [format research]({{< research >}}) at the pinned engine revision. [Download the complete source snapshot](research-source.txt). Bracketed evidence IDs refer to the research ledger; observations and implementation policy retain their original scope.
 
 
 - Scott "me22" McMurray et al., *Total Annihilation TNT Map Format*,

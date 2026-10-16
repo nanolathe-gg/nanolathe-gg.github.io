@@ -1,7 +1,7 @@
 +++
-title = 'Maps, missions & their variants'
+title = 'OTA maps and missions'
 seoTitle = 'OTA file format — illustrated Total Annihilation reference'
-description = 'See how a text file gives one terrain multiple scenarios, starting positions and resources, then follow the keys and orders that shape a mission.'
+description = 'Map settings, scenario variants and mission setup in OTA files, with a field reference and examples of placement and scripted orders.'
 type = 'format'
 url = '/docs/formats/ota/'
 format = 'OTA'
@@ -25,15 +25,14 @@ value = 'Sequential Schema N sections'
 +++
 
 
-## One landscape, several scenarios {#overview}
+## OTA and TNT files {#overview}
 
 **Established** `[02 R-MAP-01]`, `[08 "Mission placement record"]`.
 A Total Annihilation map is a pair of files in `maps/` with the same
 basename: a binary `.tnt` with the terrain ([tnt.md]({{< research "research/formats/tnt.md" >}})) and a text
-`.ota` with everything else — the map's name, environment values (wind,
-tides, gravity, water), starting positions, and for single-player missions
-the placed units, features, victory conditions, and each unit's scripted
-orders.
+`.ota` with the map’s name, environment values (wind, tides, gravity, water)
+and starting positions. For single-player missions, the OTA also supplies
+placed units, features, victory conditions and each unit’s scripted orders.
 
 OTA files use the TDF syntax ([tdf.md]({{< research "research/formats/tdf.md" >}})). The top-level section is
 `[GlobalHeader]`, containing global properties and one or more
@@ -42,19 +41,19 @@ maps have one or more schemas of type `Network 1` … `Network 4` (selectable
 variants of the same terrain — different metal/resources/features); missions
 typically have three (`Easy`, `Medium`, `Hard`).
 
-## Change the scenario, keep the terrain {#schema-example}
+## Scenario variants {#schema-example}
 
-{{< format-demo name="ota-schemas" id="schema-example-demo" title="Same basin. Different starts and resources." label="Explore schemas" >}}
+{{< format-demo name="ota-schemas" id="schema-example-demo" title="Compare two map variants" >}}
 Switch between two variants from an original [example.ota](example.ota). The schematic uses a **4096 × 3072-pixel** coordinate plane: east is +X, south is +Z. The terrain drawing is explanatory; no matching TNT or playable map is supplied. Positions and resource values are read from the fixture’s [inspection data](example.json).
 {{< /format-demo >}}
 
-{{< callout kind="note" title="Text metadata, not a binary terrain layout" >}}
+{{< callout kind="note" title="OTA fields are text" >}}
 OTA uses TDF sections, braces, keys and semicolons. Its references below are key and command tables, not fixed byte offsets. The original example, backdrop and inspection data are reproducible with `scripts/ota-example.py --check`. The complete upstream research remains available as a source snapshot.
 {{< /callout >}}
 
-## Read the section tree {#structure}
+## Section structure {#structure}
 
-An abbreviated original example; [download the complete text](example.ota) to inspect both schemas and their start records.
+The example below is shortened for readability. [Download the complete OTA](example.ota) to see both schemas and their start records.
 
 ```text
 [GlobalHeader]
@@ -94,7 +93,7 @@ Structure:
      └─ [specials] { [special0] { specialwhat=StartPosN; XPos; ZPos } ... }
 ```
 
-## Keys & placement records {#byte-layouts}
+## Keys and placement records {#byte-layouts}
 
 ### Coordinates and size
 
@@ -108,7 +107,7 @@ with the terrain probe; mobile units keep the authored X/Y/Z through that
 fixup. It is therefore incorrect to discard Y for every placement
 `[08 R-ENTRY-01 §6]`.
 
-{{< callout kind="established" title="Scope is part of the key" >}}
+{{< callout kind="established" title="The containing section determines a key’s meaning" >}}
 Keys are read from one section at a time. A `gravity` key inside `[Schema 0]` does not inherit the meaning of `[GlobalHeader].gravity`; a `SurfaceMetal` key at global level is likewise invisible to the schema reader. Preserve both the spelling and the owning section.
 {{< /callout >}}
 
@@ -155,7 +154,7 @@ Keys are read from one section at a time. A `gravity` key inside `[Schema 0]` do
 | `ComputerMetal`, `ComputerEnergy` | AI starting resources |
 | `MeteorWeapon`, `MeteorRadius`, `MeteorDensity`, `MeteorDuration`, `MeteorInterval` | Meteor storms (weapon name from [tdf.md]({{< research "research/formats/tdf.md" >}}); defaults in `gamedata/METEOR.TDF`). **Enable rule:** only an empty `MeteorWeapon` disables the shower. Zero radius/density/duration/interval do NOT disable — they substitute all five values from the `[Default]` record and the shower stays enabled. A map authoring nonzero parameters with no weapon key is disabled with its parameters discarded. |
 
-{{< format-demo name="ota-discovery" id="schema-discovery-demo" title="A missing section ends the search" label="Reader behavior" >}}
+{{< format-demo name="ota-discovery" id="schema-discovery-demo" title="A missing section ends the search" >}}
 An original section-discovery experiment, separate from the downloadable file. Toggle the middle section and vary the authored count. Retail formats `Schema %i` and stops at the first missing section; `SCHEMACOUNT` has no reader. See [02 R-MAP-01 §3].
 {{< /format-demo >}}
 
@@ -460,7 +459,7 @@ Some retail command callers leave coordinate temporaries uninitialized when scan
 
 ## Sources & evidence {#sources}
 
-This page adapts the [owning research]({{< research >}}) at the pinned engine revision. [Download the complete source snapshot](research-source.txt). Bracketed evidence IDs refer to the owning research ledger; observations and implementation policy retain their original scope.
+This page adapts the [format research]({{< research >}}) at the pinned engine revision. [Download the complete source snapshot](research-source.txt). Bracketed evidence IDs refer to the research ledger; observations and implementation policy retain their original scope.
 
 
 - Historical key/command surveys cite 272 and 275 OTA files, and 176

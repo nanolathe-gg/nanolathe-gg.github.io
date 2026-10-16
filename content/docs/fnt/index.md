@@ -1,7 +1,7 @@
 +++
-title = 'Small fonts, packed tight'
+title = 'FNT bitmap fonts'
 seoTitle = 'FNT file format — illustrated Total Annihilation bitmap font reference'
-description = 'Read a letter one bit at a time. A four-byte header and a table of offsets are enough to turn a compact font into GUI text.'
+description = 'The header, character table and packed glyph data used for TA’s interface fonts, with examples you can decode by hand.'
 type = 'format'
 url = '/docs/formats/fnt/'
 format = 'FNT'
@@ -22,23 +22,23 @@ label = 'Offsets'
 value = 'Absolute · little-endian u16'
 +++
 
-## A letter is a stream of bits {#overview}
+## Packed glyph pixels {#overview}
 
 FNT stores the bitmap fonts used for menu and in-game GUI text. Each glyph is a rectangle of **on/off pixels** with a shared height and its own width. Its on bits select pixels; the GUI supplies their color.
 
-The pixels are packed continuously. A row can end halfway through a byte, and the next row starts at the very next bit. This small detail decides whether a letter decodes correctly.
+The pixels are packed continuously. A row can end halfway through a byte, and the next row starts at the very next bit. Starting each row at a new byte will read the wrong pixels, as the comparison below shows.
 
 {{< figure src="packing-comparison.svg" alt="Correct continuous decoding produces a five-column letter A; incorrectly starting each row at a new byte produces a broken letter." width="760" height="340" >}}
 The same five bitmap bytes, interpreted two ways. Left: the format's continuous bitstream. Right: an intentionally incorrect row-aligned interpretation, with unavailable rows shown blank. Both come from the original [example.fnt](example.fnt).
 {{< /figure >}}
 
-{{< callout kind="note" title="Original glyphs, traced format" >}}
-The A, B, and space in this guide were authored from scratch. The format layout comes from retail-file reverse engineering and rendered validation, supplemented by traced executable consumers [03 R-FONT-01 §§1, 4]. No public TA FNT layout note survives in the owning research's source set.
+{{< callout kind="note" title="About the example font" >}}
+The A, B and space glyphs were made for this guide. The format layout comes from retail-file reverse engineering and rendered validation, supplemented by traced executable consumers [03 R-FONT-01 §§1, 4]. The research sources include no surviving public description of the TA FNT layout.
 {{< /callout >}}
 
 A GUI font gadget resolves a basename such as `filename=SMLFONT;` to `fonts/SMLFONT.FNT`. See the [GUI research]({{< research "research/formats/gui.md" >}}) for selection and the owning runtime evidence for text drawing.
 
-## Find the glyph, then draw it {#addressing}
+## Locating a glyph {#addressing}
 
 ```text
 4-byte header
@@ -64,7 +64,7 @@ All offsets are measured from the **start of the file**. Codes below `first_code
 | `0x02` | 1 | `i8` | `y_offset` | First glyph row is drawn at `penY − y_offset`. |
 | `0x03` | 1 | `u8` | `first_code` | Starting code for the shortened offset table. |
 
-{{< callout kind="warning" title="Four bytes, not two 16-bit words" >}}
+{{< callout kind="warning" title="Read each header byte separately" >}}
 Reading `u16 height` and `u16 unknown` happens to fit surveyed retail files because bytes 1 and 3 are zero. The executable actually reads height from byte 0, a **signed** vertical offset from byte 2, and the table's first character code from byte 3. Preserve all four separately.
 {{< /callout >}}
 
@@ -90,7 +90,7 @@ Offsets below are relative to the selected glyph record.
 
 There is no separate left bearing, kerning pair table, inter-character spacing field, or per-glyph height. Only the header's signed vertical offset shifts the glyph relative to the caller's pen position.
 
-## Walk through an A {#worked-example}
+## Decoding the example A {#worked-example}
 
 The downloadable [468-byte font](example.fnt) has header `07 00 02 20`: height 7, unused byte 0, vertical offset +2, and first code 32. It contains a three-pixel space and two five-pixel letters. Every other table entry is zero.
 
@@ -124,15 +124,15 @@ The font determines the bit pattern and advance. The green color and dashed pen 
 
 Retail font data's high byte codes match Windows-1252, but the file is simply a mapping of byte values. The engine does not apply a code page. Do not turn that data convention into Unicode metadata that the file does not contain.
 
-## Loading and confidence {#loading}
+## Loading and research findings {#loading}
 
 The retail loader reads the whole font and uses it in place without validation. Missing or empty startup fonts and side fonts are fatal with the path as the message; malformed offsets can send the rasterizer beyond the block [02 R-MALF-01 §9; 03 R-FONT-01 §1].
 
-{{< callout kind="policy" title="Checked parsing is a host guarantee" >}}
+{{< callout kind="policy" title="Nanolathe’s bounds checks" >}}
 Nanolathe preserves the four header bytes and each referenced packed bitmap. It rejects zero height, a short header/table, and out-of-file records or bitmap spans. These are host safety checks; they do not describe retail validation. Its tests cover cross-row packing, absent glyphs, nonzero `first_code`, and negative vertical offsets.
 {{< /callout >}}
 
-{{< callout kind="unknown" title="Byte 0x01 has no established authored meaning" >}}
+{{< callout kind="unknown" title="The meaning of header byte 0x01 is unknown" >}}
 Height accessors, the text-width walker, the string drawer, and the glyph rasterizer do not read it. It is zero in the surveyed copies. A period authoring tool could establish its producer-side meaning; the runtime contract is already known, and the parser retains the byte.
 {{< /callout >}}
 
@@ -146,6 +146,6 @@ offset 1. These are distinct archive copies of the same logical font path.
 
 ## Sources and example files {#sources}
 
-Adapted from the [owning FNT research]({{< research >}}), pinned to the sidebar revision. The [complete source snapshot](research-source.txt) retains its bibliography, evidence IDs, and corpus observations. Runtime text rendering belongs to [03 §7.1, R-FONT-01], rather than to additional FNT fields.
+Adapted from the [FNT research]({{< research >}}), pinned to the sidebar revision. The [complete source snapshot](research-source.txt) retains its bibliography, evidence IDs, and corpus observations. Runtime text rendering belongs to [03 §7.1, R-FONT-01], rather than to additional FNT fields.
 
 The original [example.fnt](example.fnt) and its byte-derived SVG diagrams are reproducible with `scripts/fnt-example.py`; its `--check` mode checks the generated artifacts, including the hand-verified A bitstream.

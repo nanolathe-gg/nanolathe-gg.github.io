@@ -1,7 +1,7 @@
 +++
-title = 'One palette, every pixel'
+title = 'PAL palettes and lookup tables'
 seoTitle = 'PAL file format — illustrated Total Annihilation palette reference'
-description = 'Follow a color index from an image byte to the screen, then explore the lookup tables that blend, brighten, and shade it.'
+description = 'How image indexes become colors, and how TA uses lookup tables for blending, lighting and shading.'
 type = 'format'
 url = '/docs/formats/pal/'
 format = 'PAL'
@@ -22,21 +22,21 @@ label = 'Lookup outputs'
 value = 'Palette indexes, never RGB'
 +++
 
-## A pixel names a color {#overview}
+## Palette indexes {#overview}
 
 Total Annihilation uses a shared **256-entry palette**. GAF images, TNT terrain, minimaps, font colors, and model face colors ultimately resolve through it. An image byte stores a slot number; the palette supplies its RGB color. Change the table and the same image bytes can produce a different picture.
 
-{{< format-demo name="pal-comparison" id="palette-comparison" title="Same pixels. Different table." label="Before / after" >}}
-Both images decode the same original [32 × 20 index buffer](indices.bin). Only the table changes: [day.pal](day.pal) or [night.pal](night.pal). Each palette is a complete 1,024-byte file. The beacon and both color schemes were authored for this guide; they are not retail assets or a demonstration of retail palette switching.
+{{< format-demo name="pal-comparison" id="palette-comparison" title="Compare two palettes" >}}
+Both views use the same [32 × 20 image indexes](indices.bin), colored with [day.pal](day.pal) on the left and [night.pal](night.pal) on the right. You can download either palette as a complete 1,024-byte file. The beacon and palettes were made for this guide; this is not a demonstration of palette switching in retail TA.
 {{< /format-demo >}}
 
 For the beacon light, a pixel byte of `06` selects entry 6, at file offset `6 × 4 = 24` (`0x18`). In the day palette those four bytes are `FA B9 48 00`, giving opaque RGB **(250, 185, 72)**. The pixel contains neither those channels nor an alpha value.
 
-{{< callout kind="established" title="Transparency belongs to the consumer" >}}
+{{< callout kind="established" title="The drawing code determines transparency" >}}
 The fourth PAL byte is **not alpha**. Ordinary raw GAF drawing skips its frame's color key; RLE skip runs also leave the destination alone. A literal RLE index 0 is opaque black in the reference palette. Terrain and model texture spans do not inherit GAF transparency tests. See the [GAF reference]({{< research "research/formats/gaf.md" >}}), [03 R-REN-03A §5].
 {{< /callout >}}
 
-## Four files, four table shapes {#table-shapes}
+## Palette and lookup-table files {#table-shapes}
 
 The logical filename and its consumer establish the role. **Size alone cannot distinguish LHT from SHD.** None has a magic value, version, row count, or header.
 
@@ -80,9 +80,9 @@ Each cell is one unsigned byte, storing a **palette index**. Row-major storage m
 
 For example, `LHT[31][1]` is byte `31 × 256 + 1 = 7,937` (`0x1F01`). A value of `249` means **look up PAL slot 249**; it does not mean a channel intensity of 249.
 
-## Blend, brighten, shade {#lookup-behavior}
+## How the lookup tables are used {#lookup-behavior}
 
-### ALP: two indexes become one
+### ALP blending {#alp-two-indexes-become-one}
 
 `ALP[a × 256 + b]` approximates a blend in palette space. It is a precomputed lookup, not exact channel arithmetic. It need not be symmetric: swapping `a` and `b` is not generally safe.
 
@@ -92,7 +92,7 @@ The inspected reference table maps every `ALP[i][i]` to `i`; the recovery builde
 With `Anti_Alias` enabled, the `BMcode=0` image downscale blends silhouette-straddling blocks against background index 1, which is `(128, 0, 0)` in the reference palette. That lookup sequence can color the fringe. This is a renderer and reference-palette interaction, not a special edge-color field in PAL [03 R-REN-03A §§6–7].
 {{< /callout >}}
 
-### LHT: a brightening remap
+### LHT lighting {#lht-a-brightening-remap}
 
 Lighting performs one byte lookup after the logical-to-physical source mapping. The reference LHT's **mean** brightness increases with row; individual cells can still darken because the result is quantized to an available palette entry.
 
@@ -109,7 +109,7 @@ These are bounded measurements from `totala1.hpi`, using `0.299R + 0.587G + 0.11
 
 The calculated explosion flash uses `LHT[(discByte − 0x4F) × 256 + destination]`: visible disc bytes `0x4F…0x6E` select rows 0–31; transparent pixels preserve the destination. The pool submits this secondary flash after projectile drawing and before its primary art, after the unit passes. Its shrinking frames and tick countdown supply the whole envelope; there is no additional age-based fade in this path [03 §4.3.1; R-FX-01 §4; 06 R-WFX-01 §2].
 
-### SHD: darkness through brightness
+### SHD shading {#shd-darkness-through-brightness}
 
 SHD's reference ramp crosses identity around **row 15**, then continues into brightening. Row 15 preserves 232 of 256 indexes; row 0 is near-black, while row 31 has a mean luminance increase of about 54. It does not simply approach identity from darkness.
 
@@ -150,6 +150,6 @@ Bounded installer and builder traces establish that it supplies neither alpha no
 
 ## Sources and example files {#sources}
 
-This page adapts the [owning PAL research]({{< research >}}) at the pinned revision shown in the sidebar; its evidence IDs above retain their original scope. A [complete source snapshot](research-source.txt) includes the upstream bibliography and publication omissions. No omitted retail-derived image was recreated here.
+This page adapts the [PAL research]({{< research >}}) at the pinned revision shown in the sidebar; its evidence IDs above retain their original scope. A [complete source snapshot](research-source.txt) includes the upstream bibliography and publication omissions. No omitted retail-derived image was recreated here.
 
 The [day palette](day.pal), [night palette](night.pal), and [index buffer](indices.bin) are original reproducible fixtures generated by `scripts/pal-example.py`. The two beacon SVGs are resolved directly from those bytes.

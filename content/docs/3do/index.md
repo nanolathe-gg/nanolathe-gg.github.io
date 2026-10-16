@@ -1,7 +1,7 @@
 +++
-title = 'Models & moving pieces'
+title = '3DO models'
 seoTitle = '3DO file format — illustrated Total Annihilation model reference'
-description = 'A model is more than a mesh. Follow its pieces, inspect its faces, and discover how a compact tree of geometry becomes a unit on screen.'
+description = 'How TA stores model pieces, vertices and faces, with an interactive model you can take apart and a complete byte layout.'
 type = 'format'
 url = '/docs/formats/3do/'
 format = '3DO'
@@ -24,15 +24,15 @@ label = 'Root record'
 value = '52 bytes · offset 0'
 +++
 
-## A model you can take apart {#overview}
+## Model pieces {#overview}
 
-A `.3do` file stores a model as a hierarchy of named **pieces**. Each piece owns its vertices, faces, and a translation from its parent. Pieces can form a chassis, turret, barrel, articulated limb, or even an invisible point where an effect begins.
+A `.3do` model is a tree of named **pieces**, each with its own vertices, faces and translation from its parent. For example, a tank can have separate chassis, turret and barrel pieces. A piece can also be an invisible point used to position an effect.
 
-{{< format-demo name="3do-model" id="model-example" title="One model. Five connected pieces." label="Explore a 3DO" >}}
-An original survey crawler, decoded from [example.3do](example.3do). Orbit the view, select a piece, or switch to wireframe. Rotate the turret to see its descendants follow; explode the hierarchy to separate the pieces. **Selection plate** overlays the face designated by the root’s selection index, rather than simulating retail selection rendering.
+{{< format-demo name="3do-model" id="model-example" title="Inspect a five-piece model" >}}
+This survey crawler is decoded from [example.3do](example.3do), a model made for this guide. You can orbit the view, select individual pieces or switch to wireframe. Try rotating the turret: the barrel and flare move with it. The exploded view separates the pieces. **Selection plate** highlights the face named by the root’s selection index; it does not simulate TA’s selection rendering.
 {{< /format-demo >}}
 
-{{< callout kind="note" title="Original geometry, with the research kept in view" >}}
+{{< callout kind="note" title="About the example model" >}}
 This model and its display palette were authored for the guide. They are not retail assets. The interactive geometry and static images come from the same decoded binary. Lighting, projection, depth ordering, the plate overlay, and exploded separation are explanatory display choices. The separate texture diagram illustrates the established corner assignment; it is not a retail rasterizer.
 {{< /callout >}}
 
@@ -45,11 +45,11 @@ Models live under `objects3d/`. A unit’s `ObjectName` selects its model. Its c
 | Palette-index fields and optional texture names | Image data in texture GAF entries; palette and lookup tables |
 | A per-piece selection-primitive index | Runtime normalization, drawing, picking and bounds contracts |
 
-{{< callout kind="established" title="No animation tracks. No UV coordinates." >}}
+{{< callout kind="established" title="Animation and texture mapping happen at runtime" >}}
 3DO stores **no rotation, scale, animation, UV, normal, or light-value fields**. COB scripts animate pieces by name. The renderer assigns texture corners from the face’s vertex-index order. Keep those runtime operations separate from lossless file decoding.
 {{< /callout >}}
 
-## Follow the object tree {#hierarchy}
+## Object hierarchy {#hierarchy}
 
 There is **no separate file header**. The root is an ordinary 52-byte object record at file offset 0. Each record points to its name, vertex array, primitive array, first child, and next sibling. All integers are little-endian; all stored offsets are absolute from the start of the file.
 
@@ -66,7 +66,7 @@ Object @ 0x0000  (52 bytes)
 
 Children of one parent form a linked list through their **sibling** pointers. Zero terminates a child or sibling link. The decoder also accepts a root sibling chain; the layout does not prohibit one. Names, arrays and other objects can appear elsewhere in the file. Follow their pointers instead of assuming an exporter’s packing order.
 
-{{< format-demo name="3do-hierarchy" id="hierarchy-example" title="Local translations add along the chain" label="Piece anatomy" >}}
+{{< format-demo name="3do-hierarchy" id="hierarchy-example" title="Parent and child translations" >}}
 The fixture’s `turret` and `mast` are siblings. The `barrel` belongs to the turret; `flare` belongs to the barrel. The drawing separates pieces for inspection. The arithmetic uses their original, unmodified bind-pose translations.
 {{< /format-demo >}}
 
@@ -152,11 +152,11 @@ For a textured quad, the established default corner assignment is:
 | Third | `(width − 1, height − 1)` |
 | Fourth | `(0, height − 1)` |
 
-{{< format-demo name="3do-texture" id="texture-example" title="The index order turns the texture" >}}
-The geometric corners stay fixed while the index array cycles. Order `[1, 2, 3, 0]` gives geometric vertex 1 the texture’s A corner, rotating the image a quarter-turn. No UV fields were edited: none exist. This separate authored diagram uses the corner rule from [03 §2.4.1](#sources); the downloadable crawler uses flat-color primitives only.
+{{< format-demo name="3do-texture" id="texture-example" title="Texture orientation and vertex order" >}}
+Changing the index order rotates the texture while the geometric corners stay fixed. For example, order `[1, 2, 3, 0]` assigns the texture’s A corner to vertex 1, giving a quarter-turn. 3DO has no UV fields to edit. This diagram uses the corner rule from [03 §2.4.1](#sources); the downloadable crawler itself uses only flat-color primitives.
 {{< /format-demo >}}
 
-### Runtime dispatch is a separate contract
+### How the renderer uses primitive fields {#runtime-dispatch-is-a-separate-contract}
 
 The bounded rendering research establishes the following branch behavior. These are **runtime rules**, not additional records in the file:
 
@@ -195,11 +195,11 @@ A separate census cross-referenced 278 winning unit definitions to 278 unique mo
 In that unit census, designated plates had four unique vertices, constant Y, and nonzero X/Z extent. Texture and color flags did not reliably identify them: some valid plates were textured. This geometry observation establishes neither collision bounds nor a fallback selection face when the index is `−1`.
 {{< /callout >}}
 
-## Coordinates: authored, imported, world {#coordinates}
+## Coordinate conversions {#coordinates}
 
 A 3DO’s authored coordinates are Y-up. Retail then persistently **negates both X and Z**, for vertices and parent translations: a half-turn about Y. After composition, a model-space offset `(x, y, z)` maps to world offset `(x, y, −z)`. These are two separate operations.
 
-{{< format-demo name="3do-coordinates" id="coordinate-example" title="Two conversions, two different jobs" label="Coordinate spaces" >}}
+{{< format-demo name="3do-coordinates" id="coordinate-example" title="From file coordinates to world coordinates" >}}
 The source locator `(2, 1, −30)` becomes `(-2, 1, +30)` in imported model space, and `(-2, 1, −30)` as a world offset in this unrotated example. A source-Z-only reflection is not the recovered import operation. [03 §2.4 and R-RAST-01 §8](#sources).
 {{< /format-demo >}}
 
@@ -207,7 +207,7 @@ The source locator `(2, 1, −30)` becomes `(-2, 1, +30)` in imported model spac
 
 The 16.16 interpretation matches the surveyed data, but the research identifies no vendor statement of that scale. BOS/COB linear script values use another scale: **1 BOS unit = 2.5 model units**. See the [COB reference]({{< research "research/formats/cob.md" >}}).
 
-## A file you can inspect {#worked-example}
+## Example file {#worked-example}
 
 Download **[example.3do · 3,750 bytes](example.3do)** and its **[decoded model and offset manifest](model.json)**. The manifest includes all five records, the local geometry, raw primitive fields represented by the fixture, and the original display palette. Nothing in the download depends on retail data.
 

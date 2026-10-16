@@ -54,6 +54,7 @@
 .demo-heading { padding:22px 25px 20px; border-bottom:1px solid var(--line); }
 .demo-heading .eyebrow { font-size:.65rem; }
 .demo-heading h3 { font-size:1.5rem; margin:8px 0 0; }
+.demo-heading h3:first-child { margin-top:0; }
 .format-demo figcaption,.doc-figure figcaption { font-size:.82rem; line-height:1.7; color:var(--muted); }
 .format-demo figcaption { border-top:1px solid var(--line); padding:18px 25px; }
 .format-demo figcaption p { margin:0; }

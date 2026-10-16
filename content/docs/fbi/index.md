@@ -1,7 +1,7 @@
 +++
-title = 'Unit definitions'
+title = 'FBI unit definitions'
 seoTitle = 'FBI file format — illustrated Total Annihilation reference'
-description = 'Follow FBI resource references, decode an original yard map, and understand which unit fields the retail engine actually reads.'
+description = 'The fields that define a TA unit: its resources, costs, abilities, movement and construction footprint.'
 type = 'format'
 url = '/docs/formats/fbi/'
 format = 'FBI'
@@ -24,15 +24,15 @@ label = 'Script identity'
 value = 'UnitName convention'
 +++
 
-## A unit definition connects the assets {#overview}
+## What an FBI file defines {#overview}
 
-An FBI is a [TDF text file]({{< format-link "tdf" >}}) with a `[UNITINFO]` section. It names the model, weapons, corpse and sound category, and supplies capabilities, costs, movement parameters and sensor ranges. The engine derives the script path from **`UnitName`**, not from a script key.
+An FBI file defines a unit in a `[UNITINFO]` section using [TDF syntax]({{< format-link "tdf" >}}). It names the model, weapons, corpse and sound category, and sets the unit’s capabilities, costs, movement parameters and sensor ranges. The script path comes from **`UnitName`**; there is no separate script key.
 
-{{< format-demo name="fbi-resources" id="resource-map" title="One definition, several resource contracts" label="Follow the references" >}}
-These original names come from the downloadable [example FBI](example.fbi). Some values name files; others name records inside TDF files. The referenced resources are illustrative and are not bundled here. This is a schema example, not an installable unit pack.
+{{< format-demo name="fbi-resources" id="resource-map" title="Resources named by an FBI file" >}}
+The [example FBI](example.fbi) shows how a unit refers to other resources. Some values name files; others name records inside TDF files. The names were made up for this example, and the referenced resources are not included, so this file cannot be installed as a working unit.
 {{< /format-demo >}}
 
-### Inspect the authored example {#worked-example}
+### Example unit definition {#worked-example}
 
 ```text
 [UNITINFO] {
@@ -57,7 +57,7 @@ The [complete example](example.fbi) adds display text, costs and work parameters
 FBI field tables describe **typed reads and destination stores**. For example, a `TurnRate` stored in 16 bits does not mean two bytes occur at a fixed offset in the FBI. Its authored value is still semicolon-terminated text. Follow the [TDF guide]({{< format-link "tdf" >}}) for syntax, duplicate keys, absent-only defaults and numeric prefixes.
 {{< /callout >}}
 
-### Three facts that are easy to conflate {#classification}
+### Movement, building and rendering flags {#classification}
 
 | Example field | What it establishes | What it does not establish |
 | --- | --- | --- |
@@ -80,7 +80,7 @@ Absent `Objectname` copies the stored `UnitName`. Explicit `Objectname=;` stays 
 
 These examples show the stored identities directly. The post-sort second FBI pass can replace runtime fields; it does not perform another name sort. Full path-suffix and record-identity rules appear in the catalog section.
 
-## Which keys the engine actually reads {#key-support}
+## Which keys the engine reads {#key-support}
 
 **Established:** key support comes from the unit parser and its consumers,
 not merely a search for literal strings. The accessor/default/width table is
@@ -92,7 +92,7 @@ The tables distinguish established parsed fields from bounded-negative reader
 findings and retained unknown source fields. Counts describe the cited retail
 sample, not all editions or mods.
 
-### Authored by retail units, with no recovered runtime reader
+### Shipped keys with no identified reader {#authored-by-retail-units-with-no-recovered-runtime-reader}
 
 The bounded unit-parser census finds no reader for these authored keys
 `[02 §5]`. Preserve them when round-tripping; do
@@ -123,14 +123,14 @@ the Identity table below. That covers the retail joke keys too —
 `MetalUse` and `CanRepair` are third-party spellings: no shipped unit authors
 them and no string for them exists in the executable either.
 
-### Readable by the engine, but never authored by retail units
+### Supported keys absent from the shipped units {#readable-by-the-engine-but-never-authored-by-retail-units}
 
 | Key | Notes |
 | --- | --- |
 | `armoredstate` | Parsed and stored, but the definition flag has no recovered reader. It does **not** initialize runtime armor; runtime armor starts clear and is controlled by COB `ARMORED` [06 R-DMG-01 §2]. |
 | `wacky` | Parsed flag, default 0. The multiplayer restriction UI uses it for zero-valued restriction defaults/reset; no single-player gameplay effect is established [05 R-SHARE-01 §9][08 R-SKIR-01 §10]. |
 
-### Exactly three weapon slots
+### Weapon slots {#exactly-three-weapon-slots}
 
 `weapon1`, `weapon2`, and `weapon3` occur in the bounded key census. There is
 no fourth slot in the traced unit compiler and weapon-slot runtime. Three is
@@ -188,10 +188,10 @@ interpretation. **Established (bounded unit-parser and allocator trace):**
 `Ovradjust` has no recovered runtime reader. Its original authoring purpose
 remains **Unknown**; it supplies no overlap, heading, or geometry behavior.
 
-### YardMap: text to footprint cells {#yard-map}
+### Decoding YardMap cells {#yard-map}
 
-{{< format-demo name="fbi-yard" id="yard-example" title="A short string can fill a whole footprint" label="Decode a yard map" >}}
-Compare the original spaced pattern with its unspaced form: the bytes are identical. Then choose `o` to see the final recognized character repeat. Lowercase `g` is skipped; uppercase `G` is a recognized character. The [original FBI](example.fbi) and [decoded manifest](example.json) use a 4 × 4 footprint, with no resolved movement class. This diagram groups cells by character; it does not simulate open-yard occupancy or placement rules.
+{{< format-demo name="fbi-yard" id="yard-example" title="Compare YardMap strings" >}}
+Compare the spaced and unspaced strings: both decode to the same cell bytes. Then choose `o` to see how the final recognized character repeats. Lowercase `g` is skipped; uppercase `G` is a recognized character. The [original FBI](example.fbi) and [decoded manifest](example.json) use a 4 × 4 footprint, with no resolved movement class. This diagram groups cells by character; it does not simulate open-yard occupancy or placement rules.
 {{< /format-demo >}}
 
 **Established:** the unit compiler reads at most 1,023 authored bytes and
@@ -212,7 +212,7 @@ until the footprint is full; excess characters after the final cell are
 ignored. Thus `YardMap=o;` fills a larger footprint, and `ARMLAB`'s spaced
 6×6 source has the same cells as its unspaced form.
 
-{{< callout kind="warning" title="The last character matters" >}}
+{{< callout kind="warning" title="A trailing character can repeat or overrun the string" >}}
 A final recognized character can repeat safely. Empty text, or an unrecognized trailing character with cells left to fill, takes an unchecked retail scan beyond the string. The four authored presets above deliberately end with recognized characters. Nanolathe’s bounded fallback fills with `o`; it is not a recovered retail default.
 {{< /callout >}}
 
@@ -474,7 +474,7 @@ rejection; it is not guaranteed for every rejected unit `[02 R-MALF-01 §5]`.
 
 ## Pinned research and implementation {#sources}
 
-This page adapts the [owning FBI research]({{< research >}}) at commit **72dcc02**. The [complete source snapshot](research-source.txt) preserves the original research, evidence IDs and confidence labels. All illustrative assets on this page are original authored examples; none are extracted retail assets.
+This page adapts the [FBI research]({{< research >}}) at commit **72dcc02**. The [complete source snapshot](research-source.txt) preserves the original research, evidence IDs and confidence labels. The examples on this page were made for the guide and contain no extracted retail assets.
 
 | Owning reference | Scope |
 | --- | --- |

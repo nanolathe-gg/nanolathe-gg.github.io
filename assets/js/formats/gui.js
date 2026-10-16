@@ -15,7 +15,7 @@
         q('[data-gui-button] rect').setAttribute('fill', grey ? '#697d70' : '#98f5a8');
         q('[data-gui-status]').textContent = `Button: ${active ? (grey ? 'visible but disabled; hover help is still available in retail.' : 'visible and enabled.') : 'hidden (active=0).'}`;
         q('[data-gui-source]').textContent = `[${record.section}] {\n  [COMMON] {\n${Object.entries(common).map(([k,v]) => `    ${k}=${v};`).join('\n')}\n  }\n${Object.entries(fields).map(([k,v]) => `  ${k}=${v};`).join('\n')}\n}`;
-        q('[data-gui-description]').textContent = `Record ${index} is a ${types[common.id]} (id ${common.id}). Its authored rectangle is (${common.xpos}, ${common.ypos}), ${common.width} × ${common.height}.${common.assoc ? ` Association ${common.assoc} links the listbox and scrollbar.` : ''} The bracket name does not set its index.`;
+        q('[data-gui-description]').textContent = `Record ${index} is a ${types[common.id]} (id ${common.id}). Its rectangle in the file is (${common.xpos}, ${common.ypos}), ${common.width} × ${common.height}.${common.assoc ? ` Association ${common.assoc} links the listbox and scrollbar.` : ''} The bracket name does not set its index.`;
         q('svg').setAttribute('aria-label', `Original panel schematic. Selected ${common.name}, bounds ${common.width} by ${common.height} at ${common.xpos}, ${common.ypos}. Deploy button is ${active ? (grey ? 'visible but disabled' : 'visible and enabled') : 'hidden'}.`);
       };
       for (const input of demo.querySelectorAll('input, select')) input.addEventListener('change', draw);

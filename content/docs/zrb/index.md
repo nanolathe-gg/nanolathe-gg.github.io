@@ -1,7 +1,7 @@
 +++
-title = 'A movie in palettes and blocks'
+title = 'ZRB / Smacker video'
 seoTitle = 'ZRB / Smacker video format — illustrated Total Annihilation reference'
-description = 'Step through an original Smacker clip, see which blocks survive between frames, and follow the bytes behind Total Annihilation’s cinematics.'
+description = 'How TA’s Smacker movies store video frames, palette updates and audio, with two small clips you can step through.'
 type = 'format'
 url = '/docs/formats/zrb/'
 format = 'ZRB'
@@ -24,14 +24,12 @@ label = 'Stock cadence'
 value = '33.33 ms per frame'
 +++
 
-## A familiar extension, a Smacker movie {#overview}
+## ZRB files use Smacker 2 {#overview}
 
-The five inspected Total Annihilation movies, `Data/1.zrb` through `Data/5.zrb`, are ordinary **Smacker 2 files beginning with `SMK2`**. The `.zrb` extension adds no outer container. Each packet can update the palette, carry audio, and describe what to draw or retain in the next video frame.
+The five inspected TA movies, `Data/1.zrb` through `Data/5.zrb`, are **Smacker 2 files beginning with `SMK2`**. There is no extra ZRB container around the Smacker data. Each packet can update the palette, carry audio and describe which parts of the next video frame to draw or keep.
 
-Start with a simple picture: a rectangle moving across a dark background. Each new frame writes the blocks needed to move or recolor the rectangle, while most of the picture stays in place.
-
-{{< format-demo name="zrb-player" id="signal-example" title="A rectangle in motion" label="Original interactive example" >}}
-An original **970-byte SMK2 movie**: a 16 × 12 rectangle moves across a 64 × 32 picture and back, changing from green to amber to teal and back to green. Press Play to watch all 16 silent frames at the authored 125 ms interval, or step through them. The block-instruction view shows which parts of the picture each packet writes; uncheck Show block instructions to hide it.
+{{< format-demo name="zrb-player" id="signal-example" title="Moving rectangle example" >}}
+This **970-byte SMK2 example** moves a 16 × 12 rectangle across a 64 × 32 picture and back, changing from green to amber to teal and back to green. Press Play to watch the 16 silent frames at 125 ms each, or step through them. **Show block instructions** lets you see which parts of the picture each packet writes.
 {{< /format-demo >}}
 
 The rectangle moves four pixels per frame: one column of 4 × 4 blocks. Most steps need just **six solid writes**—three blocks at its leading edge and three to restore the background behind it. At a color change, 15 writes repaint the rectangle and clear its trailing edge. All other blocks retain their previous pixel indices.
@@ -40,7 +38,7 @@ This clip keeps its palette fixed and changes the rectangle’s color by writing
 
 The instruction map marks **type 3 solid writes** with bright squares and **type 2 retained blocks** with dark squares and dashes. The views come from decoding the downloadable binary; the browser plays generated SVG frames. Both examples on this page are silent, have no ring packet, and use one block per instruction. They do not exercise two-color or full-color blocks.
 
-## Find the packet boundaries {#packet-layout}
+## Locating packets {#packet-layout}
 
 All scalar fields are little-endian. The physical packet count is the logical frame count plus one if the ring flag is set. After the fixed header, read the packet-size table, content-mask table, video trees, and then packets in sequence.
 
@@ -112,14 +110,14 @@ The separate [palette example](#palette-example) uses `example.zrb`, a 990-byte 
 
 The palette clip’s [decoded frame data](example.json) records every packet’s offset and length. The first packet writes all 128 blocks. Moving the scan column requires 12 solid writes per frame; frame 8 instead retains all 128 blocks and updates the palette. Packet length depends on the encoded symbols, so fewer pixel writes do not necessarily mean a smaller packet.
 
-## Time and display extent {#timing}
+## Frame timing and display size {#timing}
 
-A positive interval of `125` means 125 milliseconds per frame. A negative interval of `−3333`, used by all five inspected movies, means `3333 × 10 µs = 33.33 ms`. Each example’s 16 frames at 125 ms occupy two seconds at authored speed.
+A positive interval of `125` means 125 milliseconds per frame. A negative interval of `−3333`, used by all five inspected movies, means `3333 × 10 µs = 33.33 ms`. Each example’s 16 frames at 125 ms take two seconds to play at the stored speed.
 
 Stored height and display height are separate. Repeating each stored row and inserting an alternate black row both double the display height, but produce different pictures. Nanolathe’s format reader reports the display extent; it does not render these display modes. The palette example’s Double rows control illustrates repeated rows, selected by its header flag `4`. The moving rectangle uses flags `0`, so stored and display dimensions are both 64 × 32.
 
-{{< callout kind="policy" title="Zero cadence stays zero" >}}
-The research records an authored-file experiment: a zero-interval file also produces an invalid-timebase diagnostic in FFmpeg. This does not establish the retail playback library’s internal behavior. Nanolathe explicitly rejects zero cadence as unsupported instead of adopting the public format description’s 100 ms fallback; none of the inspected movies uses it.
+{{< callout kind="policy" title="Nanolathe rejects a zero frame interval" >}}
+A test file with a zero frame interval produced an invalid-timebase diagnostic in FFmpeg. This does not establish the retail playback library’s internal behavior. Nanolathe explicitly rejects zero cadence as unsupported instead of adopting the public format description’s 100 ms fallback; none of the inspected movies uses it.
 {{< /callout >}}
 
 ## Bits, Huffman trees, and caches {#trees}
@@ -141,11 +139,11 @@ Each word tree keeps its own three most recent distinct-in-succession outputs. R
 
 The tree section may have unused trailing bytes. Its declared byte length, not the end of the final topology, locates the first packet.
 
-## A palette update can repaint retained pixels {#palette}
+## Palette updates {#palette}
 
 A retained block keeps its **palette indices**, not a frozen RGB color. If the palette changes, the displayed picture can change even when every block retains its pixels.
 
-{{< format-demo name="zrb-player" fixture="palette" id="palette-example" title="A new color, without new pixel indices" label="Palette comparison" >}}
+{{< format-demo name="zrb-player" fixture="palette" id="palette-example" title="Compare a palette-only update" >}}
 Compare frames 7 and 8 of an original signal-sweep clip. The waveform turns from green to red while the instruction map changes to **128 retained blocks and zero solid writes**. Only the palette changes. This separate 990-byte SMK2 download has 16 frames and a repeated-row display flag; Double rows illustrates its requested 64 × 64 display extent.
 {{< /format-demo >}}
 
@@ -178,7 +176,7 @@ Run indices 0–58 mean index plus one blocks. Indices 59–63 mean 128, 256, 51
 
 For example, `0x0303` means a one-block solid fill with palette index 3. `0x0002` retains one block. Those are two of the five type-tree values used in both downloadable clips.
 
-## Audio restarts its predictors per packet {#audio}
+## Audio decoding {#audio}
 
 Every audio chunk starts with its inclusive `u32` length. Uncompressed chunks then contain PCM: unsigned bytes or signed little-endian 16-bit words, with stereo channels interleaved left then right.
 
@@ -209,23 +207,23 @@ The pinned research records a black-box comparison against FFmpeg 8.1.1: all **1
 
 ## Reader support and open questions {#boundaries}
 
-{{< callout kind="policy" title="Supported decoding and bounded input" >}}
+{{< callout kind="policy" title="Supported codecs and input limits" >}}
 Nanolathe supports SMK2 video, PCM audio, and Huffman DPCM audio. It rejects SMK4 and alternative audio codecs explicitly. Bounds checks, Huffman depth/node budgets, cumulative-duration overflow checks, a one-million physical-packet limit, and pixel/audio allocation limits are host safety decisions. Malformed reads become errors rather than fabricated data.
 {{< /callout >}}
 
 Borrowed input must remain immutable. Frame pixels and per-packet audio may be reused on the next call. A whole-track audio pass walks indexed packets through the shared audio decoder without advancing video or decoding its blocks.
 
-{{< callout kind="unknown" title="The format reader ends before device timing" >}}
+{{< callout kind="unknown" title="Unresolved format and playback behavior" >}}
 Packet-size bit 1 and unsupported SMK4/perceptual-codec details remain unresolved here. Retail palette transfer, device mixing, synchronization, exact audio-cursor calibration, and focus-loss behavior belong to the cinematic boundary [03 §9]. Agreement with a reference decoder does not establish those device behaviors.
 {{< /callout >}}
 
 Retail imports playback from RAD’s `smackw32.dll`; it contains no Smacker decoder of its own. Decoder internals are outside the analyzed executable corpus. The byte-level account here rests on public format documentation, asset parsing, authored fixtures, and reference-decoder comparisons.
 
-The shell’s movie sequencing belongs to [08 R-OOS-01 §4]. This guide owns the file bytes; it does not define a device or playback timing loop.
+For the order in which the game plays movies, see [08 R-OOS-01 §4]. This guide covers the file format; device handling and playback timing are documented separately.
 
 ## Sources and example files {#sources}
 
-Adapted from the [owning ZRB research]({{< research >}}) at the pinned sidebar revision. The [complete source snapshot](research-source.txt) preserves evidence labels, public-format references, corrections, and implementation boundaries.
+Adapted from the [ZRB research]({{< research >}}) at the pinned sidebar revision. The [complete source snapshot](research-source.txt) preserves evidence labels, public-format references, corrections, and implementation boundaries.
 
 The [moving rectangle](rectangle.zrb), [its decoded packet data](rectangle.json), the [palette-change clip](example.zrb), [its decoded packet data](example.json), and all SVG frame views are original assets generated by `scripts/zrb-example.py`. No retail movie frames or audio are included. The generator decodes both binaries to check the rectangle’s motion, its changes of palette index, and the signal sweep’s palette-only transition, then produces the previews from that decoded data. Its reader covers these fixtures’ solid/retain subset, not general Smacker decoding.
 

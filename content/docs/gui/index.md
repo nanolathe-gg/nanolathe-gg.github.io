@@ -1,7 +1,7 @@
 +++
-title = 'Menu & screen layouts'
+title = 'GUI screen layouts'
 seoTitle = 'GUI file format — illustrated Total Annihilation reference'
-description = 'Explore how authored GUI gadgets become a screen, inspect rectangles and associations, and compare hidden with disabled controls.'
+description = 'How TA defines panels, buttons and other controls in text files, and how the engine turns those records into a screen.'
 type = 'format'
 url = '/docs/formats/gui/'
 format = 'GUI'
@@ -24,19 +24,19 @@ label = 'Artwork'
 value = 'External GAF / FNT'
 +++
 
-## A screen described as gadgets {#overview}
+## Panels and gadgets {#overview}
 
-A GUI is a **TDF text file that describes a panel and its gadgets**: buttons, lists, inputs, scrollbars, labels and pictures. Geometry, resource names and initial state are authored here. List contents, event bindings and later state changes come from the engine.
+A GUI file uses **TDF text to describe a panel and its gadgets**: buttons, lists, inputs, scrollbars, labels and pictures. The file sets their positions, sizes, resource names and initial state. The engine supplies list contents, event bindings and later state changes.
 
-{{< format-demo name="gui-panel" id="panel-example" title="From text records to a panel" label="Inspect an authored layout" >}}
-Select a gadget to highlight its authored rectangle and read its source. Compare `active=0` (hidden) with `grayedout=1` (visible but disabled). This [original GUI](example.gui) uses deliberately unordered bracket names: **file order**, not the suffix in `GADGET72`, identifies each record. Download its [parsed record manifest](example.json).
+{{< format-demo name="gui-panel" id="panel-example" title="Inspect a GUI panel" >}}
+Select a gadget to see the rectangle and source text that define it. Compare `active=0` (hidden) with `grayedout=1` (visible but disabled). This [original GUI](example.gui) uses deliberately unordered bracket names: **file order**, not the suffix in `GADGET72`, identifies each record. Download its [parsed record manifest](example.json).
 {{< /format-demo >}}
 
-{{< callout kind="note" title="An authored layout schematic, not a retail screenshot" >}}
-The example uses original SVG art and illustrative roster text. Its 640 × 400 coordinates fit the ordinary 640 × 480 design space. It demonstrates the documented record and state relationships; it does not simulate the retail widget builder, font rasterizer, or event dispatcher. `DEPLOY` is an example name with no claimed engine event binding.
+{{< callout kind="note" title="About the example panel" >}}
+The example uses original SVG art and illustrative roster text. Its 640 × 400 coordinates fit the ordinary 640 × 480 design space. It demonstrates the documented record and state relationships; it does not simulate the retail widget builder, font rasterizer, or event dispatcher. `DEPLOY` is just a name in this example; it is not bound to an engine event.
 {{< /callout >}}
 
-### Text, art and behavior meet at the name {#resources}
+### Resources and event bindings {#resources}
 
 | Input | What it supplies | Boundary to preserve |
 | --- | --- | --- |
@@ -48,11 +48,11 @@ The example uses original SVG art and illustrative roster text. Its 640 × 400 c
 
 The first record describes the interface. Every following top-level record becomes one element, irrespective of its bracket label. Common keys live in a nested `[COMMON]`; type-specific keys live in the enclosing gadget section. There is **no binary byte layout** for the ordinary text format: field tables below describe parsing and runtime storage instead.
 
-{{< callout kind="warning" title="Authored bounds can change during the build" >}}
-The retail builders can replace a gadget’s width and height using resolved GAF art. The diagram intentionally highlights authored coordinates; a faithful runtime layout must run the documented type-specific build path too.
+{{< callout kind="warning" title="Gadget sizes can change when art is loaded" >}}
+The retail builders can replace a gadget’s width and height using resolved GAF art. The diagram shows the coordinates from the file. To reproduce the runtime layout, you also need the build steps documented for each gadget type.
 {{< /callout >}}
 
-{{< callout kind="policy" title="Recovery is a host choice" >}}
+{{< callout kind="policy" title="Nanolathe’s recovery rules" >}}
 Nanolathe recognizes a binary `ENDGAME.GUI` fallback and repairs one missing final brace in certain truncated text. These recoveries do not establish retail acceptance through the ordinary panel loader, whose TDF syntax-error path is fatal.
 {{< /callout >}}
 
@@ -268,7 +268,7 @@ dominate (4,421 of 5,840 gadgets).
 
 ## Pinned research and implementation {#sources}
 
-This page adapts the [owning GUI research]({{< research >}}) at commit **2333223**. The [complete source snapshot](research-source.txt) preserves the original research, evidence IDs and confidence labels. All illustrative assets on this page are original authored examples; none are extracted retail assets.
+This page adapts the [GUI research]({{< research >}}) at commit **2333223**. The [complete source snapshot](research-source.txt) preserves the original research, evidence IDs and confidence labels. The examples on this page were made for the guide and contain no extracted retail assets.
 
 | Owning reference | Scope |
 | --- | --- |

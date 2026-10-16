@@ -34,6 +34,26 @@ comes from Hugo; no hand-maintained anchor list is required. Byte-layout
 subsections also appear in the desktop sidebar. Small screens get a collapsible
 contents list above the article.
 
+## Writing the guide
+
+Follow the [writing voice](GUIDE.md#writing-voice): explain the format as you
+would to another programmer trying to read a file. Start with what it stores,
+where TA uses it, and a concrete example. Give controls useful instructions
+that match what the example actually does.
+
+Use descriptive page titles such as “GAF images and animations” and section
+headings such as “Frame timing and display size.” Avoid slogans, decorative
+numbering and labels that repeat the heading. An example does not need an
+“Explore…” or “Laboratory 01” label. Number actual sequences and reference
+sections when the numbers help readers navigate or follow the explanation.
+
+Keep byte layouts, identifiers, evidence labels and source citations precise.
+Explain uncertainty where it matters without repeating the same caveat in the
+introduction, caption and callout. Identify examples made for the guide once
+near the example; keep them distinguishable from observations of retail data.
+When changing a published heading, preserve its existing anchor with an
+explicit `{#old-id}` so incoming links continue to work.
+
 ## Reusable components
 
 ### Byte tables
@@ -56,7 +76,7 @@ source's unsigned/signed distinctions and consumer-specific field widths.
 
 ```text
 {{< callout kind="warning" title="Do not infer timing from this field" >}}
-The playback delay lives in the frame reference. See the owning evidence.
+The playback delay lives in the frame reference. See the cited research.
 {{< /callout >}}
 ```
 
@@ -83,14 +103,14 @@ retail examples with invented retail-looking evidence.
 ### Interactive examples
 
 ```text
-{{< format-demo name="pal-comparison" id="palette-example" title="One index, different colors" >}}
+{{< format-demo name="pal-comparison" id="palette-example" title="Compare two palettes" >}}
 Explain what changes, and link the underlying data.
 {{< /format-demo >}}
 ```
 
 Provide `layouts/partials/formats/pal-comparison.html` and set
 `demoScript = 'js/formats/pal.js'` if interaction is needed. The wrapper supplies
-the heading, figure and caption. An unknown partial fails the build. Shared
+the heading, figure and caption; a `label` is optional. An unknown partial fails the build. Shared
 presentation classes live in `assets/css/format.css`: `.comparison-grid`,
 `.checkerboard`, `.demo-controls`, `.control-line`, `.check-label`.
 

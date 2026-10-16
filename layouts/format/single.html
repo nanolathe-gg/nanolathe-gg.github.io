@@ -5,7 +5,7 @@
   <dl class="format-facts">{{ range .Params.facts }}<div><dt>{{ .label }}</dt><dd>{{ .value }}</dd></div>{{ end }}</dl>
 </header>
 <div class="format-layout wrap">
-  <aside class="format-sidebar"><details open><summary>On this page</summary>{{ .TableOfContents }}</details><div class="format-source"><span class="eyebrow">Research snapshot</span><a href="{{ site.Params.engineRepo }}/blob/{{ .Params.sourceRevision }}/{{ .Params.sourcePath }}">{{ substr .Params.sourceRevision 0 7 }} ↗</a><p>Evidence labels distinguish observed behavior from host policy and open questions.</p></div></aside>
+  <aside class="format-sidebar"><details open><summary>On this page</summary>{{ .TableOfContents }}</details><div class="format-source"><span class="eyebrow">Research snapshot</span><a href="{{ site.Params.engineRepo }}/blob/{{ .Params.sourceRevision }}/{{ .Params.sourcePath }}">{{ substr .Params.sourceRevision 0 7 }} ↗</a><p>Notes distinguish observed TA behavior, Nanolathe’s implementation choices, and open questions.</p></div></aside>
   <article class="format-article">{{ .Content }}<footer class="format-end"><a href="{{ "docs/#formats" | relURL }}">← All file formats</a><a href="{{ site.Params.engineRepo }}/blob/{{ .Params.sourceRevision }}/{{ .Params.sourcePath }}">Read the research ↗</a></footer></article>
 </div>
 {{ end }}

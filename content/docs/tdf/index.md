@@ -1,7 +1,7 @@
 +++
-title = 'Text definitions & schemas'
+title = 'TDF text definitions'
 seoTitle = 'TDF file format — illustrated Total Annihilation reference'
-description = 'Explore TDF syntax, watch duplicate keys resolve, compare absent and empty values, and navigate the weapon, feature and global-data schemas.'
+description = 'The section and key syntax shared by TA’s text files, with parsing rules and references for each kind of game data.'
 type = 'format'
 url = '/docs/formats/tdf/'
 format = 'TDF'
@@ -24,20 +24,20 @@ label = 'Lookup'
 value = 'ASCII case-insensitive'
 +++
 
-## One grammar, many kinds of game data {#overview}
+## Where TDF syntax is used {#overview}
 
-TDF is the shared text syntax behind unit definitions, maps, menus, weapons, features and global tables. Its building blocks are small: **named sections, nested braces, and `key=value;` assignments**. The consumer decides what the text means.
+TA uses TDF syntax for unit definitions, maps, menus, weapons, features and global tables. Files contain **named sections, nested braces and `key=value;` assignments**. The syntax is shared, but each kind of file has its own keys and rules.
 
 | Read the text | Build a tree | Compile a family |
 | --- | --- | --- |
 | Blank comments while preserving length. | Keep sibling sections in file order; resolve keys through the insertion rule below. | Apply the family’s typed reads, defaults, field widths and resource links. |
 | A semicolon ends a value, even across newlines. | Sections and keys use ASCII case-insensitive lookup. | Lists and capability bits are consumer rules, not grammar. |
 
-{{< callout kind="note" title="This is a syntax reference and a schema directory" >}}
-The interactive examples and code snippets below are original authored illustrations. They show established parser rules or abbreviated schemas, and are not installable content packs. A TDF has no universal binary header: the tables describe grammar, keys and conversion boundaries, not fictitious file-byte offsets.
+{{< callout kind="note" title="About the examples and field tables" >}}
+The examples below were made for this guide to demonstrate parser rules and shortened schemas. They are not installable content packs. TDF is a text format, so the tables describe syntax, keys and value conversions rather than fixed byte offsets.
 {{< /callout >}}
 
-### Find the right schema {#schema-map}
+### Schemas by file type {#schema-map}
 
 | File family | Top-level records | What the consumer creates |
 | --- | --- | --- |
@@ -91,7 +91,7 @@ observations are limited to the sampled retail files.
 
 ### Duplicate keys {#duplicate-keys}
 
-{{< format-demo name="tdf-duplicates" id="duplicate-example" title="The same spelling can survive twice" label="Watch the key store" >}}
+{{< format-demo name="tdf-duplicates" id="duplicate-example" title="Step through duplicate-key insertion" >}}
 Step through three assignments from the [original TDF](example.tdf). New case variants insert at the head of the equal-key run. When `Power` returns after `power`, its old spelling is behind the head, so it inserts again. Case-insensitive lookup reads the latest value, 9. The [checked state manifest](example.json) records every intermediate vector.
 {{< /format-demo >}}
 
@@ -128,8 +128,8 @@ compatibility edge.
 
 ### Typed values and defaults {#typed-values}
 
-{{< format-demo name="tdf-values" id="typed-example" title="Missing, empty and zero are different inputs" label="Follow the conversion" >}}
-Choose an authored input. The first stage is an integer accessor with an illustrative default of 7; the second is an illustrative packed one-bit field. Actual defaults and storage widths belong to each schema. A value of 2 is nonzero, yet a low-bit flag stores zero.
+{{< format-demo name="tdf-values" id="typed-example" title="Missing, empty and zero are different inputs" >}}
+Choose an example input. The first stage is an integer accessor with an illustrative default of 7; the second is an illustrative packed one-bit field. Actual defaults and storage widths belong to each schema. A value of 2 is nonzero, yet a low-bit flag stores zero.
 {{< /format-demo >}}
 
 **Established:** a default applies only when the key is absent. Present
@@ -623,7 +623,7 @@ not mean byte-for-byte preservation of comments and outer whitespace.
 
 ## Pinned research and implementation {#sources}
 
-This page adapts the [owning TDF research]({{< research >}}) at commit **2333223**. The [complete source snapshot](research-source.txt) preserves the original research, evidence IDs and confidence labels. All illustrative assets on this page are original authored examples; none are extracted retail assets.
+This page adapts the [TDF research]({{< research >}}) at commit **2333223**. The [complete source snapshot](research-source.txt) preserves the original research, evidence IDs and confidence labels. The examples on this page were made for the guide and contain no extracted retail assets.
 
 | Owning reference | Scope |
 | --- | --- |

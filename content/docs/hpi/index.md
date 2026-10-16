@@ -1,7 +1,7 @@
 +++
-title = 'Archives & the files inside'
+title = 'HPI archives'
 seoTitle = 'HPI file format — illustrated Total Annihilation reference'
-description = 'Follow a directory tree through an archive, decode its position-dependent cipher, and unpack the layers around compressed game data.'
+description = 'The directory structure, encryption and compression used to store TA’s game files, with small downloadable archives to inspect.'
 type = 'format'
 url = '/docs/formats/hpi/'
 format = 'HPI'
@@ -24,13 +24,13 @@ value = 'Little-endian'
 +++
 
 
-## A filesystem inside a file {#overview}
+## Archive contents and extensions {#overview}
 
-HPI ("HAPI") is Total Annihilation's archive container. Every piece of game
-data — models, scripts, textures, maps, sounds, text definitions — ships
-inside HPI archives. The format is a recursive directory tree with per-file
-compression (none, LZ77, or zlib), a whole-archive XOR obfuscation layer, and
-an optional second obfuscation layer on compressed chunks.
+HPI ("HAPI") archives store TA’s game data, including models, scripts,
+textures, maps, sounds and text definitions. Each archive contains a directory
+tree, and each file can be stored uncompressed or compressed with LZ77 or zlib.
+An archive-wide XOR layer obfuscates the data; compressed chunks can have an
+additional obfuscation layer.
 
 Four extensions share the exact same format; they differ only in role and
 load precedence:
@@ -59,21 +59,21 @@ format documentation, the sampled archives and the established retail loader
 contract `[02 §2]` / `[02 R-MALF-01 §3]`. Corpus observations are bounded to
 the named sample; Nanolathe's defensive acceptance rules are stated separately.
 
-## Follow an archived file {#archive-example}
+## Example directory and encryption {#archive-example}
 
-{{< format-demo name="hpi-cipher" id="cipher-example" title="The same directory, before and after decryption" label="Inspect original bytes" >}}
-The original archive has a root at **0x14**, two root entries, and its entry list at **0x1C**. Move through its eight header bytes to see why the absolute file position matters. Working key **01** is derived from stored key **BF**. [Plain archive](example.hpi) · [Obfuscated archive](example-encrypted.hpi).
+{{< format-demo name="hpi-cipher" id="cipher-example" title="Decrypt the example directory" >}}
+The example archive has a root at **0x14**, two root entries and an entry list at **0x1C**. Step through the directory’s eight header bytes to see how each byte’s file position affects decryption. Working key **01** is derived from stored key **BF**. [Plain archive](example.hpi) · [Obfuscated archive](example-encrypted.hpi).
 {{< /format-demo >}}
 
 {{< figure src="directory.svg" alt="Root, maps directory and island.ota file pointers with absolute offsets in the original example archive" width="840" height="390" >}}
 The pointer path through the downloadable example. Both archives contain the same original readme and minimal OTA text. The drawing shows actual offsets; spacing between boxes is schematic.
 {{< /figure >}}
 
-{{< callout kind="note" title="Original teaching archives" >}}
-These examples were authored for this page, use stored (method 0) payloads, and contain no retail game files. The copyright trailer reproduces the loader’s required literal template solely for format compatibility. The small OTA payload illustrates archive lookup; it is not a playable map. Regenerate both files and the diagram with `scripts/hpi-example.py`; `--check` verifies the checked-in bytes and pointer walk.
+{{< callout kind="note" title="About the example archives" >}}
+These examples were made for this page, use stored (method 0) payloads, and contain no retail game files. The copyright trailer reproduces the loader’s required literal template solely for format compatibility. The small OTA payload illustrates archive lookup; it is not a playable map. Regenerate both files and the diagram with `scripts/hpi-example.py`; `--check` verifies the checked-in bytes and pointer walk.
 {{< /callout >}}
 
-## Format at a glance
+## File organization {#format-at-a-glance}
 
 ```
 +--------------------------+  offset 0
@@ -324,7 +324,7 @@ directory order. Nothing in the format requires this layout — pointers are
 free — but tools that hand-walk archives may assume the directory
 immediately follows the header.
 
-{{< callout kind="policy" title="Safer parsing is a host policy" >}}
+{{< callout kind="policy" title="Nanolathe’s validation rules" >}}
 Bounds, allocation limits and directory-cycle detection protect the host. They are not additional rejection checks established for retail. In particular, a valid HAPI/version/footer does not prove the directory pointers are safe.
 {{< /callout >}}
 
@@ -402,7 +402,7 @@ cover the zero-derived-key and additional-flag-bit cases.
 
 ## Sources & evidence {#sources}
 
-This page adapts the [owning research]({{< research >}}) at the pinned engine revision. [Download the complete source snapshot](research-source.txt). Bracketed evidence IDs refer to the owning research ledger; observations and implementation policy retain their original scope.
+This page adapts the [format research]({{< research >}}) at the pinned engine revision. [Download the complete source snapshot](research-source.txt). Bracketed evidence IDs refer to the research ledger; observations and implementation policy retain their original scope.
 
 
 - Joe D, *HPI File Format*, document version 1.4 — the primary

@@ -1,7 +1,7 @@
 +++
-title = 'From sample bytes to sound'
+title = 'WAV audio'
 seoTitle = 'WAV file format — illustrated Total Annihilation audio reference'
-description = 'Listen to an original sound, inspect its PCM bytes, and follow the three container paths that the engine recognizes.'
+description = 'The RIFF, raw PCM and DIGI audio formats recognized by TA, with playable examples and sample-byte layouts.'
 type = 'format'
 url = '/docs/formats/wav/'
 format = 'WAV'
@@ -23,11 +23,11 @@ label = 'Common effects'
 value = 'Mono · 11,025 Hz · 8-bit'
 +++
 
-## A sound you can inspect {#overview}
+## Audio formats used by TA {#overview}
 
-Most Total Annihilation `.wav` files are standard **RIFF WAVE containing PCM samples**. There is no TA-specific metadata in that canonical container. Two legacy forms matter too: raw sample bytes with no header, and a fixed-layout `DIGI` container.
+Most Total Annihilation `.wav` files use standard **RIFF WAVE with PCM samples**, without any extra TA-specific metadata. The reader also recognizes two older forms: raw sample bytes without a header, and a `DIGI` container with fields at fixed positions.
 
-{{< format-demo name="wav-listen" id="sound-example" title="Same chirp, two sample widths" label="Listen on demand" >}}
+{{< format-demo name="wav-listen" id="sound-example" title="Compare 8-bit and 16-bit PCM" >}}
 An original 400-millisecond descending chirp, generated for this guide. Both versions use 11,025 Hz mono PCM and the same synthesized waveform before quantization. The waveform above shows the 8-bit payload. Playback begins only when you press Play; these are browser audio controls, not a recreation of the retail audio backend.
 {{< /format-demo >}}
 
@@ -35,9 +35,9 @@ Eight-bit PCM represents a sample as an unsigned byte centered around 128; 16-bi
 
 Sound effects and voices live in `sounds/`, referenced without extension by weapon TDFs, sound categories, and GUI events. Mission narration lives in `camps/briefs/`, selected by OTA fields such as `narration=` and `glamoursound=`.
 
-## First identify the container {#detection}
+## Container detection {#detection}
 
-The extension is not enough. The traced reader chooses a path from fixed signatures, in this order [02 §7; R-MALF-01 §10].
+The reader checks signatures inside the file to select a decoding path, in this order [02 §7; R-MALF-01 §10].
 
 | Match | Selected path | Payload and metadata |
 | --- | --- | --- |
@@ -47,7 +47,7 @@ The extension is not enough. The traced reader chooses a path from fixed signatu
 
 An unrecognized header can therefore become **sample data**, including its supposed header bytes. Recognized but malformed containers are a different case from a failed signature match.
 
-{{< callout kind="note" title="Three containers, identical 8-bit sample payload" >}}
+{{< callout kind="note" title="Download the samples in each container" >}}
 Download the same original sample as [RIFF WAVE](example-8bit.wav), [raw PCM](example-raw.wav), or [DIGI](example-digi.wav). The latter two are parser fixtures; browser playback above uses RIFF. The DIGI fixture leaves unused size fields at zero to demonstrate the traced fixed-position reader, not a general-purpose DIGI writer contract.
 {{< /callout >}}
 
@@ -105,7 +105,7 @@ Offsets are file-relative. This table describes the traced reader, not the full 
 
 The sample-rate word's little-endian interpretation is established independently of the unused container-size fields. Raw PCM has no layout table: byte 0 is already sample 0.
 
-## Walking chunks: the padding trap {#chunk-walk}
+## Chunk lengths and padding {#chunk-walk}
 
 Retail advances by **`chunk_size + 8`, with no odd-byte padding**. Standard RIFF padding can therefore shift the next chunk away from where this reader expects it.
 
@@ -154,7 +154,7 @@ These counts describe the inspected corpus; they are neither format limits nor a
 
 The inspected installation also contains one raw file, `sounds/HONK.WAV`, and one DIGI file, `sounds/SING.WAV`; both play as unsigned 8-bit mono at 11,025 Hz. The research's retail button-click example was omitted from publication; the sound on this page is independently synthesized.
 
-## Parsing ends at a device boundary {#playback-policy}
+## Playback and device handling {#playback-policy}
 
 Nanolathe's shared `formats.LoadAudio` preserves container identity, authored PCM fields, and the full payload span. It checks file bounds and rejects truncated recognized containers. RIFF enumeration uses the declared span and the researched unpadded chunk stepping.
 
@@ -177,6 +177,6 @@ The actual DirectSound implementation's behavior for zero-byte buffers or unusua
 
 ## Sources and example files {#sources}
 
-Adapted from the [owning WAV research]({{< research >}}) at the pinned sidebar revision. The [complete source snapshot](research-source.txt) retains its upstream bibliography and evidence labels. Numeric PCM field offsets are also reflected in the same revision's [shared audio parser](https://github.com/nanolathe-gg/nanolathe/blob/40c0e814bad5b08015958ab9fec4af0af59b446c/formats/wav.go).
+Adapted from the [WAV research]({{< research >}}) at the pinned sidebar revision. The [complete source snapshot](research-source.txt) retains its upstream bibliography and evidence labels. Numeric PCM field offsets are also reflected in the same revision's [shared audio parser](https://github.com/nanolathe-gg/nanolathe/blob/40c0e814bad5b08015958ab9fec4af0af59b446c/formats/wav.go).
 
 All four audio files and the waveform were authored for this guide. `scripts/wav-example.py --check` reproduces them and independently reads both RIFF files with Python's standard-library WAVE parser to verify rate, sample width, frame count, and payload. No retail sound recording is included.

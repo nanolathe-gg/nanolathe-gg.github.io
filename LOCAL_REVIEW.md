@@ -1,3 +1,52 @@
+## Format-guide voice review — October 15, 2026
+
+The voice pass now covers all 15 guides under `/docs/formats/`. This follow-up
+was reviewed locally and approved for publication on October 15. Preview the
+[ZRB guide](http://127.0.0.1:1314/docs/formats/zrb/), or choose another format
+from the [documentation index](http://127.0.0.1:1314/docs/#formats).
+
+Titles and headings name their subjects directly. For example, “A familiar
+extension, a Smacker movie” is now “ZRB files use Smacker 2”; “Small frames.
+One shared anchor.” is now “Frame offsets in an animation.” Introductions and
+captions explain the examples and controls in ordinary language. The TAD
+introduction combines repeated scope warnings without losing the distinctions
+between recorder traffic, retail saves and Nanolathe replays.
+
+Removed the repeated “Explore…” and “Laboratory 01” labels and decorative
+numbering in example diagrams. Actual frame indexes, record IDs, ordered
+algorithms and numbered reference sections remain. The shared example wrapper
+no longer inserts an “Interactive example” label by default. The format-page
+authoring guide and archetype now follow the same writing guidance as the rest
+of the site and explicitly preserve published heading anchors.
+
+### Review and verification
+
+- The independent reviewer checked all 15 guide diffs and shared microcopy. Its
+  two findings were corrected: a caption still referred to a removed “step 01,”
+  and the sidebar overstated implementation choices as proven differences from
+  TA. It reported no further consequential issues.
+- Hugo builds with `--gc --minify --panicOnWarning`. The generated-site check
+  passes for all 31 HTML pages, internal links, anchors, local assets and CNAME.
+  The brand download was repackaged with the revised authoring guidance.
+- All 15 format example checkers pass. A comparison against the pre-edit sources
+  also confirms unchanged technical front matter, pinned citations, 1,203 table
+  rows, 39 fenced code blocks and all 151 bundle assets, including the research
+  snapshots. All 346 existing page IDs remain present and unique.
+- Browser checks cover all 15 guides at 1440, 390 and 320 pixels wide: one H1
+  each, no horizontal overflow, no duplicate IDs and no broken loaded images.
+  No browser console errors were observed. Visually inspected ZRB and TAD on
+  desktop, and ZRB and GUI at mobile widths.
+- Checked ZRB frame stepping and its block-map toggle, GAF frame selection with
+  offsets disabled, GUI gadget selection and disabled/bounds controls, and TDF
+  integer conversion with a packed flag. The interactions still match their
+  captions. This prose-focused pass did not rerun unrelated installer tests.
+
+The ignored `.cache/format-voice-review/` directory contains the source baseline,
+comparison script, responsive-layout results and screenshots. The preview is
+served by Hugo on loopback port 1314 using the command documented below.
+
+---
+
 ## Voice and layout review — October 12, 2026
 
 Preview this checkout at [127.0.0.1:1314](http://127.0.0.1:1314/). The existing
