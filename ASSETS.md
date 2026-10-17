@@ -435,3 +435,26 @@ and recommendation sources, edition uncertainties, original notices and
 engine acceptance are recorded in the engine's
 `research/extensions/community-map-packages.md` and release provenance files.
 The PNGs retain the original maps' asset terms; they are not website MIT assets.
+
+## October 16, 2026 Cavedog bonus content
+
+The `cavedog-bonus-units` add-on (`static/addons/manifest.json`) holds six
+original archives from the reference install, byte for byte, with an
+identity-only `nanolathe-mod.json`: `AFark.ufo` (FARK), `AFlea.ufo` (Flea),
+`AScarab.ufo` (Scarab), `Cormabm.ufo` (Hedgehog), `CorNecro.ufo` (Necro) and
+`corplas.ufo` (Immolator). The manifest's `contents` list records each
+archive's size and SHA-256. None of the archives carries a readme. Every unit
+definition carries Cavedog's copyright line. That these are the units Cavedog
+released for download after patch 3.1 is a supported inference from published
+accounts, not an established record.
+
+Four map catalogue entries expand the reference install's bonus map archives,
+their OTA/TNT bytes unchanged: Comet Catcher (`Cometctr.ufo`, also part of
+The Core Contingency), Luschinfloggen (`floggen.ufo`), Mounds of Mars
+(`Mndsmars.ufo`) and PC Games' Evad River Delta (`Evadrivd.ufo`). Their
+authorship and release are unknown. Their minimaps under
+`static/maps/previews/` come from the same verified TNT export as the
+community maps and total 26,903 bytes. The engine repository's
+`research/extensions/community-map-packages.md` records the source archives'
+hashes and the packages' acceptance. These assets keep their original terms
+and are outside the website code's MIT license.

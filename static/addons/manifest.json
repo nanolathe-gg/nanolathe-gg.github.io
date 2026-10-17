@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "addons": [
+    {
+      "id": "cavedog-bonus-units",
+      "name": "Cavedog bonus units",
+      "version": "original",
+      "summary": "The FARK, Flea, Scarab, Hedgehog, Necro and Immolator, in Cavedog's original archives.",
+      "homepage": "",
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/addons/cavedog-bonus-units-original.zip",
+        "size": 242603,
+        "sha256": "7747041ededa71af3072921819d71cd04b5139e0536151c501fe0f522411eccd"
+      },
+      "contents": [
+        {
+          "name": "AFark.ufo",
+          "size": 29354,
+          "sha256": "8a713a677e02ec2850507e91d556b69d0159732281ba4afa381362e20845c3ee"
+        },
+        {
+          "name": "AFlea.ufo",
+          "size": 27388,
+          "sha256": "3504018b73524c381b00fc46f0e3162130597f3baf07b2e7d584534f08021fec"
+        },
+        {
+          "name": "AScarab.ufo",
+          "size": 33520,
+          "sha256": "cd7a362f1a8705fbebb6ae609c377b1768b6fb09a22192f453348515c8931068"
+        },
+        {
+          "name": "Cormabm.ufo",
+          "size": 28271,
+          "sha256": "44dd8d03089fccbf1b5ca4004e3d4160e1f10c2dadc247ed01aeef1d2909b61a"
+        },
+        {
+          "name": "CorNecro.ufo",
+          "size": 89368,
+          "sha256": "8492c9372f89243b48956bde26b69018edb47d00923bbf74f2c0c33d430229ed"
+        },
+        {
+          "name": "corplas.ufo",
+          "size": 33758,
+          "sha256": "fd470a472796c0f8f807d0bc5fb1b312c94751337f0af02d6880a0a1bffe7ba8"
+        }
+      ]
+    }
+  ]
+}

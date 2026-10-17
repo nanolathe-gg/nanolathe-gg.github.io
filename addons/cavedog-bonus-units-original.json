@@ -1,0 +1,11 @@
+{
+  "metadata": {
+    "schema": 1,
+    "id": "cavedog-bonus-units",
+    "name": "Cavedog bonus units",
+    "version": "original",
+    "summary": "The FARK, Flea, Scarab, Hedgehog, Necro and Immolator, in Cavedog's original archives.",
+    "homepage": ""
+  },
+  "archives": ["AFark.ufo", "AFlea.ufo", "AScarab.ufo", "Cormabm.ufo", "CorNecro.ufo", "corplas.ufo"]
+}

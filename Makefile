@@ -24,6 +24,7 @@ check: build
 	python3 scripts/check-installers.py
 	python3 scripts/check-mods.py
 	python3 scripts/check-maps.py
+	python3 scripts/check-addons.py
 	python3 scripts/test-fetch-play.py
 	python3 scripts/test-package-mod.py
 	python3 scripts/test-package-multipart.py

@@ -16,6 +16,82 @@
   "maps": [
     {
       "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/comet-catcher-original.zip",
+        "size": 1876725,
+        "sha256": "d4f5249e9d0f7874539c262844652f71eea6242c2affab08535e83fe48c594a8"
+      },
+      "homepage": "",
+      "id": "comet-catcher",
+      "map": "maps/comet catcher.ota",
+      "name": "Comet Catcher",
+      "preview": {
+        "url": "https://nanolathe.gg/maps/previews/comet-catcher-original.png",
+        "size": 5908,
+        "sha256": "e04bb989d6d34a9d59b6fe357c7f07c28b4f8db7cac0effcd4bd76de97d7da91"
+      },
+      "requires": [],
+      "summary": "Low-gravity 12 × 15 lunar battlefield for two or four players.",
+      "version": "original"
+    },
+    {
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/luschinfloggen-original.zip",
+        "size": 1018945,
+        "sha256": "07927731f4283e9ed7373ea02082503c458fb1ee356eb54f358dbdd6de9fd1cf"
+      },
+      "homepage": "",
+      "id": "luschinfloggen",
+      "map": "maps/luschinfloggen.ota",
+      "name": "Luschinfloggen",
+      "preview": {
+        "url": "https://nanolathe.gg/maps/previews/luschinfloggen-original.png",
+        "size": 6022,
+        "sha256": "93afd0b8c31fd138170d36daa7fb60880a1f97ed9f77c41de80bfaaba50c4491"
+      },
+      "requires": [],
+      "summary": "8 × 10 shallows for two to four players.",
+      "version": "original"
+    },
+    {
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/mounds-of-mars-original.zip",
+        "size": 1509919,
+        "sha256": "3eb94c0c600c4f736dd19b0db84c9fc4bb4977dda580f39a2d7074536434e51b"
+      },
+      "homepage": "",
+      "id": "mounds-of-mars",
+      "map": "maps/mounds of mars.ota",
+      "name": "Mounds of Mars",
+      "preview": {
+        "url": "https://nanolathe.gg/maps/previews/mounds-of-mars-original.png",
+        "size": 3512,
+        "sha256": "e310313839a1628c12b38de2a9ebdda238ba009861fa7b83e9d175198f473042"
+      },
+      "requires": [],
+      "summary": "8 × 17 battlefield for two or four players, north against south.",
+      "version": "original"
+    },
+    {
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/pc-games-evad-river-delta-original.zip",
+        "size": 1136348,
+        "sha256": "1f1ca3106e872db411cf0d0fed4c3ef06409b0f94c13e9fbd421f1ef9ab1af45"
+      },
+      "homepage": "",
+      "id": "pc-games-evad-river-delta",
+      "map": "maps/pc games' evad river delta.ota",
+      "name": "PC Games' Evad River Delta",
+      "preview": {
+        "url": "https://nanolathe.gg/maps/previews/pc-games-evad-river-delta-original.png",
+        "size": 11461,
+        "sha256": "92074a7d40a455ef06b77f5e6c6e8b9bd5aab732f041cc8770929e6d1f283773"
+      },
+      "requires": [],
+      "summary": "14 × 14 river delta for two, four or six players.",
+      "version": "original"
+    },
+    {
+      "archive": {
         "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/maps/gods-of-war-2-original.zip",
         "size": 3551960,
         "sha256": "de64c299cf1a55f8e78365658589b4b64c02823217a52a9ec61f1a981cd7c7e0"
