@@ -458,3 +458,31 @@ community maps and total 26,903 bytes. The engine repository's
 `research/extensions/community-map-packages.md` records the source archives'
 hashes and the packages' acceptance. These assets keep their original terms
 and are outside the website code's MIT license.
+
+## October 18, 2026 curated community map batch
+
+262 additional community maps join the catalogue from the TA Archive r2010
+collection (the FileUniverse re-release of the TAMEC-era map corpus), selected
+by a reviewable recipe in the engine repository (`tools/map-lab`): author
+curated packs, AI-ready maps, era classics and unusual world families. Every
+package keeps its source credits (`CREDITS.txt`) and the TA Archive page as its
+homepage; the manifest records the author, players, map size, year and world
+kind where the source carries them, and the browser shows them. All 262
+packages were admitted by the engine's own map validator against the reference
+install before upload.
+
+The new maps add 777,170,411 download bytes. Their 262 previews total
+2,971,892 bytes and are annotated minimaps: yellow marks metal deposits
+(indestructible metal-bearing features, the engine's extractor-seed rule) and
+green reclaimable ground, with the key recorded in the manifest. Thirty-five
+of the maps reference a new shared package, `community-features`
+(46,172,961 bytes), which carries the TAMEC2004 and TA Features 2013 feature
+definitions and sprites those maps need; the engine installs it once for every
+map that requires it. Two lab duplicates (`coast-to-coast-2`, `the-pass-ii`)
+were skipped in favour of the published editions.
+
+The combined catalogue is 296 maps and two shared packages, 1,001,273,458
+catalogued bytes. The merged release inventory now records all 298 packages,
+1,001,273,458 download bytes and 2,897,721,636 expanded bytes, including the
+four Cavedog bonus maps the earlier record missed. These assets keep their
+original terms and are outside the website code's MIT license.
