@@ -1,7 +1,8 @@
 """Shared rules for the official add-on catalogue.
 
-An add-on is a set of original Total Annihilation *.UFO archives that the
-engine mounts with the base game, apart from the mod slot
+An add-on is a set of Total Annihilation archives — *.UFO content archives,
+or one patch-tier revision archive for a fix — that the engine mounts with
+the base game, apart from the mod slot
 (docs/DESIGN_MODS_MUTATORS.md §5.7 in the engine repository). A recipe in
 addons/ names its identity and archives; scripts/package-addon.py copies
 those archives byte for byte from an install into one ZIP and writes its
@@ -15,6 +16,11 @@ engine's cmd/factionpack (DESIGN_MODS_MUTATORS §5.8): package-addon.py takes
 its archive and named root documents from that converter's ZIP, and the
 entry goes under the catalogue's "factions" list, which builds without
 faction support ignore.
+
+A recipe of kind "fix" is a community repair whose patch-tier revision
+archive replaces the base install's patch archive (DESIGN_MODS_MUTATORS
+§5.7): the entry goes under the "fixes" list, which builds without fix
+support ignore.
 """
 import hashlib
 import json
@@ -33,12 +39,13 @@ BUILD = ROOT / ".cache" / "addons"
 MANIFEST = "manifest.json"
 RELEASE_TAG = "addons"
 RELEASE_BASE = f"https://github.com/{mc.REPOSITORY}/releases/download/{RELEASE_TAG}/"
-# The engine's limits: at most 32 archives, each a flat *.UFO name.
+# The engine's limits: at most 32 archives, each a flat content *.UFO or
+# patch-tier revision name.
 MAX_ARCHIVES = 32
 METADATA_FIELDS = {"schema", *mc.CATALOGUE_FIELDS}
 RECIPE_FIELDS = {"metadata", "archives", "kind", "documents"}
 # The catalogue list each recipe kind's entry belongs to.
-LISTS = {"": "addons", "faction": "factions"}
+LISTS = {"": "addons", "faction": "factions", "fix": "fixes"}
 # Root documents the engine's add-on library accepts beside the archives.
 DOCUMENT_EXTENSIONS = (".txt", ".md", ".rtf", ".html")
 
@@ -59,11 +66,26 @@ def build_path(meta):
     return BUILD / mc.archive_name(meta)
 
 
+def revision_name(name):
+    """A patch-tier revision archive name: rev* with a patch extension."""
+    if not isinstance(name, str):
+        return False
+    suffix = PurePosixPath(name).suffix
+    if suffix.lower() not in (".gp3", ".gp4", ".gpf", ".swx"):
+        return False
+    stem = name[: len(name) - len(suffix)]
+    return len(stem) > 3 and stem[:3].lower() == "rev"
+
+
 def archive_name_problem(name):
     if not isinstance(name, str) or not name or len(name.encode()) > 255 or PurePosixPath(name).name != name \
-            or re.search(r"[/\\:\x00\r\n]", name) or not name.lower().endswith(".ufo") or len(name) <= 4:
-        return f"{name!r} is not a flat *.UFO file name"
-    return None
+            or re.search(r"[/\\:\x00\r\n]", name):
+        return f"{name!r} is not a flat archive file name"
+    if name.lower().endswith(".ufo") and len(name) > 4:
+        return None
+    if revision_name(name):
+        return None
+    return f"{name!r} is not a flat *.UFO or rev*.GP3 file name"
 
 
 def recipe_problems(recipe):
@@ -83,9 +105,13 @@ def recipe_problems(recipe):
     problems += [p for p in map(archive_name_problem, names) if p]
     if len({str(n).lower() for n in names}) != len(names):
         problems.append("archives repeats a name without regard to case")
+    if recipe.get("kind") == "fix" and not any(revision_name(n) for n in names):
+        problems.append("a fix recipe's archives must include a patch-tier revision archive")
+    if recipe.get("kind") != "fix" and any(revision_name(n) for n in names):
+        problems.append("only a fix recipe names a patch-tier revision archive")
     docs = recipe.get("documents", [])
-    if docs and recipe.get("kind") != "faction":
-        problems.append("only a faction recipe names documents")
+    if docs and recipe.get("kind") not in ("faction", "fix"):
+        problems.append("only a faction or fix recipe names documents")
     if not isinstance(docs, list):
         return problems + ["documents is not a list"]
     for name in docs:

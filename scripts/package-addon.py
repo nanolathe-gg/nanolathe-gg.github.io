@@ -42,7 +42,7 @@ if args.package:
         sources = {name: read(name) for name in [*recipe["archives"], *ac.documents(recipe)]}
 else:
     on_disk = {p.name.lower(): p for p in args.install.iterdir() if p.is_file()}
-    sources = {name: on_disk[name.lower()].read_bytes() if name.lower() in on_disk else None for name in recipe["archives"]}
+    sources = {name: on_disk[name.lower()].read_bytes() if name.lower() in on_disk else None for name in [*recipe["archives"], *ac.documents(recipe)]}
 members, contents = {mc.METADATA_NAME: mc.metadata_bytes(meta)}, []
 for name, data in sources.items():
     if data is None:

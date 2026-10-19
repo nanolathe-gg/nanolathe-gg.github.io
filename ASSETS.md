@@ -480,6 +480,23 @@ SHA-256, the engine recipe and every rename, and the release's own readmes as
 about, mod and credits pages. The content keeps its authors' terms and is
 outside the website code's MIT license. Talon and Mynn are not published.
 
+## October 18, 2026 Switeck's TA Bugfix
+
+The `switecks-bugfix` add-on (the manifest's `fixes` key) holds Switeck's
+(David Sellick's) 1.7b6 build, the last one, from the TA Archive's mirror of
+the release (`TA_Bugfix_v1-7b6.zip`, MD5
+`190c96c16904b8fe2408e910ef9ac161`; ModDB's copy is byte-identical). The
+package's only archive is the release's own `][BF17b6.ORG` renamed
+`rev31.gp3` exactly as the release's installer renames it — 3,009,142 bytes,
+SHA-256 `ff05c360172c88ec02253a371c1d4c4515c75fc586de4029b55fab324ea537f3` —
+and the release's readme rides as a root document. The engine mounts it at
+the patch tier, replacing the base install's patch archive. The readme's
+Legalese grants distribution ("You may distribute this file in any way that
+is legal … I relenquish all ownership of this file"); the archive contains
+modified Cavedog data, and hosting it is the maintainer's 2026-10-18 decision
+(engine DESIGN_MODS_MUTATORS D22, §5.7), with the Cavedog bytes staying
+Cavedog's.
+
 ## October 18, 2026 curated community map batch
 
 262 additional community maps join the catalogue from the TA Archive r2010

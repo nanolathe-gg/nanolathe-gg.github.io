@@ -15,10 +15,10 @@ import modcatalog as mc
 errors = []
 manifest_path = ac.STATIC / ac.MANIFEST
 manifest = mc.load_json(manifest_path)
-lists = [key for key in ("addons", "factions") if key in manifest]
+lists = [key for key in ("addons", "factions", "fixes") if key in manifest]
 if manifest.get("schema") != 1 or not isinstance(manifest.get("addons"), list) or set(manifest) != {"schema", *lists} \
         or not all(isinstance(manifest[key], list) for key in lists):
-    sys.exit(f"{manifest_path}: not a schema 1 catalogue with an addons list and an optional factions list")
+    sys.exit(f"{manifest_path}: not a schema 1 catalogue with an addons list and optional factions and fixes lists")
 recipes = {}
 for path in sorted(ac.RECIPES.glob("*.json")):
     recipe = mc.load_json(path)

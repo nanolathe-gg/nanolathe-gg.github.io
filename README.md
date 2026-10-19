@@ -508,10 +508,11 @@ and filename so an installed edition remains reproducible.
 ## Official add-on catalogue
 
 `static/addons/manifest.json` is the desktop **Add-ons** catalogue: Cavedog's
-bonus units, which the engine mounts with the base game, apart from the mod
+bonus units, a community fix, and third-party factions, which the engine
+mounts with the base game, apart from the mod
 slot, so a player can use them with any mod (DESIGN_MODS_MUTATORS §5.7 in the
 engine repository). Each entry carries the usual identity, display text and
-release asset, and a `contents` list naming every original `*.UFO` archive in
+release asset, and a `contents` list naming every archive in
 the package with its byte size and SHA-256; the engine checks the archives
 against it when installing, and names an add-on by them in saves, replays and
 online rooms. The ZIPs are assets of this repository's separate `addons`
@@ -540,6 +541,22 @@ repository's `cmd/factionpack` converts each release, and
 ```sh
 python3 scripts/package-addon.py addons/rhyoss-tacs-0.8.json --package /path/to/factionpack-out/rhyoss-tacs-0.8.zip
 ```
+
+A community fix — Switeck's TA Bugfix 1.7b6 — is listed under the manifest's
+`fixes` key, which builds without fix support ignore (DESIGN_MODS_MUTATORS
+§5.7). Its recipe has `"kind": "fix"`, names one patch-tier revision archive
+(`rev31.gp3`), which the engine mounts at the patch tier and which replaces
+the base install's patch archive, and carries the release's readme as a root
+document. The install source is a folder holding the release's renamed
+archive and readme:
+
+```sh
+python3 scripts/package-addon.py addons/switecks-bugfix-1.7b6.json --install /path/to/staged-pack
+```
+
+A fix archive is not a `*.UFO`; the engine mounts it over the base install and
+the Cavedog add-ons, while faction add-ons and the selected mod still mount
+over it.
 
 Upload the ZIP to the `addons` release before publishing a manifest that names
 it, and treat each version as immutable. The four Cavedog bonus maps are

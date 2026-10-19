@@ -1,0 +1,13 @@
+{
+  "metadata": {
+    "schema": 1,
+    "id": "switecks-bugfix",
+    "name": "Switeck's TA Bugfix",
+    "version": "1.7b6",
+    "summary": "Switeck's data-only repair of Cavedog's 3.1c and Core Contingency content, replacing the patch archive.",
+    "homepage": "https://www.moddb.com/games/total-annihilation/downloads/ta-bugfix-17b6"
+  },
+  "kind": "fix",
+  "archives": ["rev31.gp3"],
+  "documents": ["][BF17.txt"]
+}
