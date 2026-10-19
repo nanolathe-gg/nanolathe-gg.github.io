@@ -9,6 +9,12 @@ catalogue entry, including every archive's size and SHA-256;
 scripts/check-addons.py verifies the catalogue on every build. The ZIPs are
 assets of this repository's "addons" release, and the engine reads the
 catalogue at https://nanolathe.gg/addons/manifest.json.
+
+A recipe of kind "faction" is a faction add-on or unit pack converted by the
+engine's cmd/factionpack (DESIGN_MODS_MUTATORS §5.8): package-addon.py takes
+its archive and named root documents from that converter's ZIP, and the
+entry goes under the catalogue's "factions" list, which builds without
+faction support ignore.
 """
 import hashlib
 import json
@@ -30,6 +36,19 @@ RELEASE_BASE = f"https://github.com/{mc.REPOSITORY}/releases/download/{RELEASE_T
 # The engine's limits: at most 32 archives, each a flat *.UFO name.
 MAX_ARCHIVES = 32
 METADATA_FIELDS = {"schema", *mc.CATALOGUE_FIELDS}
+RECIPE_FIELDS = {"metadata", "archives", "kind", "documents"}
+# The catalogue list each recipe kind's entry belongs to.
+LISTS = {"": "addons", "faction": "factions"}
+# Root documents the engine's add-on library accepts beside the archives.
+DOCUMENT_EXTENSIONS = (".txt", ".md", ".rtf", ".html")
+
+
+def list_key(recipe):
+    return LISTS.get(recipe.get("kind", ""), "")
+
+
+def documents(recipe):
+    return list(recipe.get("documents", []))
 
 
 def archive_url(meta):
@@ -55,12 +74,27 @@ def recipe_problems(recipe):
     if meta.get("schema") != 1:
         problems.append("metadata schema is not 1: an add-on carries identity only")
     problems += [f"unknown metadata field {key!r}" for key in sorted(set(meta) - METADATA_FIELDS)]
+    problems += [f"unknown recipe field {key!r}" for key in sorted(set(recipe) - RECIPE_FIELDS)]
+    if not list_key(recipe):
+        problems.append(f"kind {recipe.get('kind')!r} is not one of {sorted(k for k in LISTS if k)}")
     names = recipe.get("archives")
     if not isinstance(names, list) or not 1 <= len(names) <= MAX_ARCHIVES:
         return problems + [f"archives is not a list of 1 to {MAX_ARCHIVES} names"]
     problems += [p for p in map(archive_name_problem, names) if p]
     if len({str(n).lower() for n in names}) != len(names):
         problems.append("archives repeats a name without regard to case")
+    docs = recipe.get("documents", [])
+    if docs and recipe.get("kind") != "faction":
+        problems.append("only a faction recipe names documents")
+    if not isinstance(docs, list):
+        return problems + ["documents is not a list"]
+    for name in docs:
+        if not isinstance(name, str) or PurePosixPath(name).name != name or re.search(r"[/\\:\x00\r\n]", name) \
+                or not name.lower().endswith(DOCUMENT_EXTENSIONS):
+            problems.append(f"document {name!r} is not a flat {'/'.join(DOCUMENT_EXTENSIONS)} name")
+    taken = [str(n).lower() for n in [*names, *docs, mc.METADATA_NAME]]
+    if len(set(taken)) != len(taken):
+        problems.append("documents repeat an archive, each other or the metadata")
     return problems
 
 
@@ -105,7 +139,7 @@ def packaged_archive_problems(path, recipe, entry):
             if stat.S_ISLNK(info.external_attr >> 16):
                 problems.append(f"{info.filename}: is a symbolic link")
             names.add(info.filename)
-            if info.filename == mc.METADATA_NAME:
+            if info.filename == mc.METADATA_NAME or info.filename in documents(recipe):
                 continue
             want = expected.get(info.filename.lower())
             if want is None or want["name"] != info.filename:
@@ -114,8 +148,8 @@ def packaged_archive_problems(path, recipe, entry):
             data = archive.read(info)
             if len(data) != want["size"] or hashlib.sha256(data).hexdigest() != want["sha256"]:
                 problems.append(f"{info.filename}: differs from the entry's contents")
-        if {n.lower() for n in names} != {*expected, mc.METADATA_NAME}:
-            problems.append("archive members are not exactly the metadata and the listed archives")
+        if {n.lower() for n in names} != {*expected, mc.METADATA_NAME, *(d.lower() for d in documents(recipe))}:
+            problems.append("archive members are not exactly the metadata, the listed archives and the recipe's documents")
         if json.loads(archive.read(mc.METADATA_NAME)) != recipe["metadata"]:
             problems.append(f"{mc.METADATA_NAME} differs from the recipe")
     return problems

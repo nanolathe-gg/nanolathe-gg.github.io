@@ -45,5 +45,101 @@
         }
       ]
     }
+  ],
+  "factions": [
+    {
+      "id": "argon",
+      "name": "Argon",
+      "version": "2.6-beta",
+      "summary": "The Argon faction beside Arm and Core.",
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/addons/argon-2.6-beta.zip",
+        "size": 4215468,
+        "sha256": "c38afa49b577ac49d3c82f1eacc5109a5e4c727ba308fd9c60c1a5323f510798"
+      },
+      "contents": [
+        {
+          "name": "faction-argon.ufo",
+          "size": 4203215,
+          "sha256": "9a69b17915a973ceecf484b5d4d2b64f16760760189571f726c988b1778012e9"
+        }
+      ]
+    },
+    {
+      "id": "rhyoss",
+      "name": "Rhyoss",
+      "version": "tacs-0.8",
+      "summary": "The Rhyoss faction beside Arm and Core, as TA: Chaos Space 0.8 carries it.",
+      "homepage": "https://files.tauniverse.com/files/ta/mods/ta-chaos-space-rhyoss-race/",
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/addons/rhyoss-tacs-0.8.zip",
+        "size": 3076482,
+        "sha256": "b302a917aecfe92a49e3d5a32ff998008c5bee342767f83f0801bb15004a3205"
+      },
+      "contents": [
+        {
+          "name": "faction-rhyoss.ufo",
+          "size": 3036410,
+          "sha256": "b399600d8ab360b74a35b729f06bc44944803704a4463e00261c54fcce76751a"
+        }
+      ]
+    },
+    {
+      "id": "the-lost-legacy",
+      "name": "The Lost Legacy",
+      "version": "1.0",
+      "summary": "The Lost Legacy faction beside Arm and Core; its campaign is not converted.",
+      "homepage": "https://tll.tauniverse.com/",
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/addons/the-lost-legacy-1.0.zip",
+        "size": 8573382,
+        "sha256": "bed9845c5e6826e6efd78176d4316031666e53277b08d5cabc29f1225951a4b0"
+      },
+      "contents": [
+        {
+          "name": "faction-the-lost-legacy.ufo",
+          "size": 8517577,
+          "sha256": "9f3591b1e65343ae6d46f9afea23eee5f51df09e0223244efb26520ec315abc5"
+        }
+      ]
+    },
+    {
+      "id": "the-lost-legacy-units",
+      "name": "The Lost Legacy's Arm and Core units",
+      "version": "1.0",
+      "summary": "The units The Lost Legacy 1.0 adds to Arm and Core, on their builders' menus.",
+      "homepage": "https://tll.tauniverse.com/",
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/addons/the-lost-legacy-units-1.0.zip",
+        "size": 1172176,
+        "sha256": "ef648ebc926980b0c59fca18fa452261a7f1508909665e7f37780c03833e777d"
+      },
+      "contents": [
+        {
+          "name": "units-the-lost-legacy-units.ufo",
+          "size": 1157842,
+          "sha256": "a77279630bfc329bc489e4bd33c01bcae731197bd0b398d322b131e6f2567240"
+        }
+      ]
+    },
+    {
+      "id": "chaos-space-units",
+      "name": "TA: Chaos Space's Arm and Core units",
+      "version": "0.8",
+      "summary": "The units TA: Chaos Space 0.8 adds to Arm and Core, on their builders' menus.",
+      "homepage": "https://files.tauniverse.com/files/ta/mods/ta-chaos-space-rhyoss-race/",
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/addons/chaos-space-units-0.8.zip",
+        "size": 4236143,
+        "sha256": "f14f979f0b9924b9641767e6544cead11741833307e0c440d3b9a689dc081652"
+      },
+      "contents": [
+        {
+          "name": "units-chaos-space-units.ufo",
+          "size": 4199165,
+          "sha256": "615c5eb5d648ec28cbcdd59b24b5111158ab3f21f0da75eeecc8ec041fb2888a"
+        }
+      ]
+    }
   ]
 }

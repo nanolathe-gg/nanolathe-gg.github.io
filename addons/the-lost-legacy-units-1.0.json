@@ -1,0 +1,19 @@
+{
+  "metadata": {
+    "schema": 1,
+    "id": "the-lost-legacy-units",
+    "name": "The Lost Legacy's Arm and Core units",
+    "version": "1.0",
+    "summary": "The units The Lost Legacy 1.0 adds to Arm and Core, on their builders' menus.",
+    "homepage": "https://tll.tauniverse.com/"
+  },
+  "kind": "faction",
+  "archives": [
+    "units-the-lost-legacy-units.ufo"
+  ],
+  "documents": [
+    "FACTION-NANOLATHE.txt",
+    "RELEASE-read me plz.txt",
+    "RELEASE-readme.txt"
+  ]
+}

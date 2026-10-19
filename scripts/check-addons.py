@@ -15,8 +15,10 @@ import modcatalog as mc
 errors = []
 manifest_path = ac.STATIC / ac.MANIFEST
 manifest = mc.load_json(manifest_path)
-if manifest.get("schema") != 1 or not isinstance(manifest.get("addons"), list) or set(manifest) != {"schema", "addons"}:
-    sys.exit(f"{manifest_path}: not a schema 1 catalogue with an addons list")
+lists = [key for key in ("addons", "factions") if key in manifest]
+if manifest.get("schema") != 1 or not isinstance(manifest.get("addons"), list) or set(manifest) != {"schema", *lists} \
+        or not all(isinstance(manifest[key], list) for key in lists):
+    sys.exit(f"{manifest_path}: not a schema 1 catalogue with an addons list and an optional factions list")
 recipes = {}
 for path in sorted(ac.RECIPES.glob("*.json")):
     recipe = mc.load_json(path)
@@ -26,7 +28,7 @@ for path in sorted(ac.RECIPES.glob("*.json")):
         errors.append(f"{path.name}: name it {meta.get('id')}-{meta.get('version')}.json")
     recipes[f"{meta.get('id')}@{meta.get('version')}"] = recipe
 entries, seen = [], set()
-for entry in manifest["addons"]:
+for listed, entry in [(name, e) for name in lists for e in manifest[name]]:
     key = f"{entry.get('id')}@{entry.get('version')}"
     if key in seen:
         errors.append(f"{key}: listed twice")
@@ -35,6 +37,8 @@ for entry in manifest["addons"]:
     if recipe is None:
         errors.append(f"{key}: has no recipe in addons/")
         continue
+    if ac.list_key(recipe) != listed:
+        errors.append(f"{key}: belongs under {ac.list_key(recipe)!r}, not {listed!r}")
     errors += [f"{key}: {p}" for p in ac.entry_problems(entry, recipe)]
     entries.append((key, recipe, entry))
 errors += [f"{key}: has a recipe but no manifest entry" for key in sorted(set(recipes) - seen)]

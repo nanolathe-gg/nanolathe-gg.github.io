@@ -528,6 +528,19 @@ python3 scripts/package-addon.py addons/cavedog-bonus-units-original.json --inst
 python3 scripts/check-addons.py --remote
 ```
 
+Third-party factions — Argon, Rhyoss (as TA: Chaos Space carries it) and The
+Lost Legacy, with TA: Chaos Space's and The Lost Legacy's Arm and Core units
+as separate unit packs — are listed under the
+manifest's `factions` key, which builds without faction support ignore
+(DESIGN_MODS_MUTATORS §5.8). Their recipes have `"kind": "faction"` and name
+the converted package's root `documents` as well as its archive; the engine
+repository's `cmd/factionpack` converts each release, and
+`scripts/package-addon.py` takes the archive and documents from its ZIP:
+
+```sh
+python3 scripts/package-addon.py addons/rhyoss-tacs-0.8.json --package /path/to/factionpack-out/rhyoss-tacs-0.8.zip
+```
+
 Upload the ZIP to the `addons` release before publishing a manifest that names
 it, and treat each version as immutable. The four Cavedog bonus maps are
 ordinary entries in the map catalogue above. Packaging notes and the

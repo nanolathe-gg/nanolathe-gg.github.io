@@ -1,0 +1,19 @@
+{
+  "metadata": {
+    "schema": 1,
+    "id": "the-lost-legacy",
+    "name": "The Lost Legacy",
+    "version": "1.0",
+    "summary": "The Lost Legacy faction beside Arm and Core; its campaign is not converted.",
+    "homepage": "https://tll.tauniverse.com/"
+  },
+  "kind": "faction",
+  "archives": [
+    "faction-the-lost-legacy.ufo"
+  ],
+  "documents": [
+    "FACTION-NANOLATHE.txt",
+    "RELEASE-read me plz.txt",
+    "RELEASE-readme.txt"
+  ]
+}

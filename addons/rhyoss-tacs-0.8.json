@@ -1,0 +1,20 @@
+{
+  "metadata": {
+    "schema": 1,
+    "id": "rhyoss",
+    "name": "Rhyoss",
+    "version": "tacs-0.8",
+    "summary": "The Rhyoss faction beside Arm and Core, as TA: Chaos Space 0.8 carries it.",
+    "homepage": "https://files.tauniverse.com/files/ta/mods/ta-chaos-space-rhyoss-race/"
+  },
+  "kind": "faction",
+  "archives": [
+    "faction-rhyoss.ufo"
+  ],
+  "documents": [
+    "FACTION-NANOLATHE.txt",
+    "RELEASE-about.html",
+    "RELEASE-credits.html",
+    "RELEASE-themod.html"
+  ]
+}

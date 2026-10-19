@@ -1,0 +1,17 @@
+{
+  "metadata": {
+    "schema": 1,
+    "id": "argon",
+    "name": "Argon",
+    "version": "2.6-beta",
+    "summary": "The Argon faction beside Arm and Core."
+  },
+  "kind": "faction",
+  "archives": [
+    "faction-argon.ufo"
+  ],
+  "documents": [
+    "FACTION-NANOLATHE.txt",
+    "RELEASE-Read me.html"
+  ]
+}

@@ -459,6 +459,27 @@ community maps and total 26,903 bytes. The engine repository's
 hashes and the packages' acceptance. These assets keep their original terms
 and are outside the website code's MIT license.
 
+## October 18, 2026 faction add-ons
+
+Five packages under the add-on manifest's `factions` key carry third-party
+factions and unit packs converted by the engine's `cmd/factionpack` from the
+community releases as their authors published them, with no balance change:
+
+- Argon 2.6 beta;
+- Rhyoss as TA: Chaos Space 0.8 carries it (BlueBurst, 2005, from
+  TAUniverse's `Chaos Space.zip`; the race is Monolithic Inc.'s), and Chaos
+  Space's 45 Arm and Core units, which its credits attribute to M.A.D. TA,
+  Creation Matrix, Aftermath Design, Mayhem Inc. and Scientific Design;
+- The Lost Legacy 1.0 and its 35 Arm and Core units.
+
+Each holds one converted `*.UFO` archive (the release's own units, weapons,
+models, scripts, art and sounds, renamed into the package's tag where they
+would meet a base game name), `FACTION-NANOLATHE.txt` naming the release's
+SHA-256, the engine recipe and every rename, and the release's own readmes as
+`RELEASE-<name>`: Argon's readme, The Lost Legacy's two, and Chaos Space's
+about, mod and credits pages. The content keeps its authors' terms and is
+outside the website code's MIT license. Talon and Mynn are not published.
+
 ## October 18, 2026 curated community map batch
 
 262 additional community maps join the catalogue from the TA Archive r2010
