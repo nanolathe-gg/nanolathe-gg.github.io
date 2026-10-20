@@ -73,16 +73,17 @@ class AddonPackagingTests(unittest.TestCase):
         recipe = self.recipe()
         source, _ = self.source(recipe)
         built, target, contents = self.build(recipe, package=source)
-        existing = {"schema": 1, "addons": [{"id": "bonus"}], "factions": [{"id": "faction"}],
-                    "fixes": [{"id": "fix"}], "models": [{"id": "fixture", "version": "0"}]}
+        existing = {"schema": 1, "addons": [{"id": "bonus", "version": "1"}, {"id": "fixture", "version": "0"}],
+                    "factions": [{"id": "faction"}], "fixes": [{"id": "fix"}]}
         ac.STATIC.mkdir()
         (ac.STATIC / ac.MANIFEST).write_text(mc.dump_json(existing))
         entry = package.write_entry(built, target, contents)
         package.write_entry(built, target, contents)
         manifest = mc.load_json(ac.STATIC / ac.MANIFEST)
-        for key in ("schema", "addons", "factions", "fixes"):
+        for key in ("schema", "factions", "fixes"):
             self.assertEqual(manifest[key], existing[key])
-        self.assertEqual(manifest["models"], [existing["models"][0], entry])
+        self.assertEqual(set(manifest), set(existing))
+        self.assertEqual(manifest["addons"], [*existing["addons"], entry])
 
     def test_existing_install_and_faction_sources_keep_their_categories(self):
         for kind, key in (("", "addons"), ("fix", "fixes"), ("faction", "factions")):
@@ -123,7 +124,7 @@ class AddonPackagingTests(unittest.TestCase):
 
     def test_model_recipe_accepts_documents_but_never_a_revision_archive(self):
         recipe = self.recipe()
-        self.assertEqual(ac.list_key(recipe), "models")
+        self.assertEqual(ac.list_key(recipe), "addons")
         self.assertEqual(ac.recipe_problems(recipe), [])
         changed = copy.deepcopy(recipe)
         changed["archives"] = ["rev31.gp3"]

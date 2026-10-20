@@ -24,8 +24,7 @@ support ignore.
 
 A recipe of kind "model" is a model replacement converted by the engine's
 cmd/modelpack. Like a faction recipe, it takes its archive and root documents
-from the converter's ZIP. Its entry goes under "models", which builds
-without model support ignore.
+from the converter's ZIP. Its entry goes in the ordinary "addons" list.
 """
 import hashlib
 import json
@@ -50,7 +49,7 @@ MAX_ARCHIVES = 32
 METADATA_FIELDS = {"schema", *mc.CATALOGUE_FIELDS}
 RECIPE_FIELDS = {"metadata", "archives", "kind", "documents"}
 # The catalogue list each recipe kind's entry belongs to.
-LISTS = {"": "addons", "faction": "factions", "fix": "fixes", "model": "models"}
+LISTS = {"": "addons", "faction": "factions", "fix": "fixes", "model": "addons"}
 # Root documents the engine's add-on library accepts beside the archives.
 DOCUMENT_EXTENSIONS = (".txt", ".md", ".rtf", ".html")
 

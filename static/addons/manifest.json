@@ -44,6 +44,25 @@
           "sha256": "fd470a472796c0f8f807d0bc5fb1b312c94751337f0af02d6880a0a1bffe7ba8"
         }
       ]
+    },
+    {
+      "id": "evolva-models",
+      "name": "Evolva models",
+      "version": "1",
+      "summary": "Detailed replacement models for 97 units and 85 wrecks, using UH40 with gaps filled from the 2004, 2003 and 2002 releases.",
+      "homepage": "http://www.planetannihilation.com/taan/pages/evolva_systeme/taan_evolva.htm",
+      "archive": {
+        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/addons/evolva-models-1.zip",
+        "size": 642348,
+        "sha256": "b48194105e53e2b4a55288820c5e9de2d3e74afaf7ae7f446c0ca5585d249aee"
+      },
+      "contents": [
+        {
+          "name": "EvolvaModels.ufo",
+          "size": 603669,
+          "sha256": "0100f14f3bfd5d324ae0404a3217e614e74cdeda143e9906bdfb1ff230734dd9"
+        }
+      ]
     }
   ],
   "factions": [
@@ -159,27 +178,6 @@
           "name": "rev31.gp3",
           "size": 3009142,
           "sha256": "ff05c360172c88ec02253a371c1d4c4515c75fc586de4029b55fab324ea537f3"
-        }
-      ]
-    }
-  ],
-  "models": [
-    {
-      "id": "evolva-models",
-      "name": "Evolva models",
-      "version": "1",
-      "summary": "Detailed replacement models for 97 units and 85 wrecks, using UH40 with gaps filled from the 2004, 2003 and 2002 releases.",
-      "homepage": "http://www.planetannihilation.com/taan/pages/evolva_systeme/taan_evolva.htm",
-      "archive": {
-        "url": "https://github.com/nanolathe-gg/nanolathe-gg.github.io/releases/download/addons/evolva-models-1.zip",
-        "size": 642348,
-        "sha256": "b48194105e53e2b4a55288820c5e9de2d3e74afaf7ae7f446c0ca5585d249aee"
-      },
-      "contents": [
-        {
-          "name": "EvolvaModels.ufo",
-          "size": 603669,
-          "sha256": "0100f14f3bfd5d324ae0404a3217e614e74cdeda143e9906bdfb1ff230734dd9"
         }
       ]
     }

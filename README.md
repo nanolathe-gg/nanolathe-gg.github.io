@@ -558,10 +558,9 @@ A fix archive is not a `*.UFO`; the engine mounts it over the base install and
 the Cavedog add-ons, while faction add-ons and the selected mod still mount
 over it.
 
-Model replacements are listed under the manifest's `models` key, which builds
-without model support ignore. Their recipes have `"kind": "model"` and take
-the converted archive and root documents from the engine repository's
-`cmd/modelpack` output:
+Model replacements are listed in the ordinary `addons` list. Their recipes
+have `"kind": "model"` and take the converted archive and root documents from
+the engine repository's `cmd/modelpack` output:
 
 ```sh
 python3 scripts/package-addon.py addons/evolva-models-1.json --package /path/to/modelpack-out/evolva-models-1.zip

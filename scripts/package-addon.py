@@ -7,9 +7,9 @@ Copies the recipe's archives byte for byte, from an install or, for a
 faction or model recipe, from the engine converter's ZIP together with the
 recipe's documents, into .cache/addons/<id>-<version>.zip with the recipe's
 identity-only nanolathe-mod.json, then replaces the entry in
-static/addons/manifest.json, under "factions", "fixes" or "models" for
-those recipe kinds. Upload the ZIP to the "addons" release before publishing
-the manifest (README, "Official add-on catalogue").
+static/addons/manifest.json, under "factions" or "fixes" for those recipe
+kinds and "addons" otherwise. Upload the ZIP to the "addons" release before
+publishing the manifest (README, "Official add-on catalogue").
 """
 import json
 import argparse
