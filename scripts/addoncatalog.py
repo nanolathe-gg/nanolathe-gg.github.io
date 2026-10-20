@@ -21,6 +21,11 @@ A recipe of kind "fix" is a community repair whose patch-tier revision
 archive replaces the base install's patch archive (DESIGN_MODS_MUTATORS
 §5.7): the entry goes under the "fixes" list, which builds without fix
 support ignore.
+
+A recipe of kind "model" is a model replacement converted by the engine's
+cmd/modelpack. Like a faction recipe, it takes its archive and root documents
+from the converter's ZIP. Its entry goes under "models", which builds
+without model support ignore.
 """
 import hashlib
 import json
@@ -45,7 +50,7 @@ MAX_ARCHIVES = 32
 METADATA_FIELDS = {"schema", *mc.CATALOGUE_FIELDS}
 RECIPE_FIELDS = {"metadata", "archives", "kind", "documents"}
 # The catalogue list each recipe kind's entry belongs to.
-LISTS = {"": "addons", "faction": "factions", "fix": "fixes"}
+LISTS = {"": "addons", "faction": "factions", "fix": "fixes", "model": "models"}
 # Root documents the engine's add-on library accepts beside the archives.
 DOCUMENT_EXTENSIONS = (".txt", ".md", ".rtf", ".html")
 
@@ -110,8 +115,8 @@ def recipe_problems(recipe):
     if recipe.get("kind") != "fix" and any(revision_name(n) for n in names):
         problems.append("only a fix recipe names a patch-tier revision archive")
     docs = recipe.get("documents", [])
-    if docs and recipe.get("kind") not in ("faction", "fix"):
-        problems.append("only a faction or fix recipe names documents")
+    if docs and recipe.get("kind") not in ("faction", "fix", "model"):
+        problems.append("only a faction, fix or model recipe names documents")
     if not isinstance(docs, list):
         return problems + ["documents is not a list"]
     for name in docs:

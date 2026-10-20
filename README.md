@@ -508,8 +508,8 @@ and filename so an installed edition remains reproducible.
 ## Official add-on catalogue
 
 `static/addons/manifest.json` is the desktop **Add-ons** catalogue: Cavedog's
-bonus units, a community fix, and third-party factions, which the engine
-mounts with the base game, apart from the mod
+bonus units, a community fix, third-party factions and model replacements.
+The engine mounts them with the base game, apart from the mod
 slot, so a player can use them with any mod (DESIGN_MODS_MUTATORS §5.7 in the
 engine repository). Each entry carries the usual identity, display text and
 release asset, and a `contents` list naming every archive in
@@ -557,6 +557,31 @@ python3 scripts/package-addon.py addons/switecks-bugfix-1.7b6.json --install /pa
 A fix archive is not a `*.UFO`; the engine mounts it over the base install and
 the Cavedog add-ons, while faction add-ons and the selected mod still mount
 over it.
+
+Model replacements are listed under the manifest's `models` key, which builds
+without model support ignore. Their recipes have `"kind": "model"` and take
+the converted archive and root documents from the engine repository's
+`cmd/modelpack` output:
+
+```sh
+python3 scripts/package-addon.py addons/evolva-models-1.json --package /path/to/modelpack-out/evolva-models-1.zip
+```
+
+Evolva models version 1 provides detailed models for 97 units and 85 wrecks.
+The package prefers the UH40 source, then fills its missing paths from the
+2004, 2003 and 2002 sources in that order. It adds no units, scripts or gameplay
+rules. Models mount above the base game, Cavedog add-ons and fixes, while
+factions and the selected mod mount above them. The recipe names
+`EvolvaModels.ufo` and the root `README.txt` and `MODEL-SOURCES.txt`; the latter
+records the exact source hashes and selected
+files so the package can be reproduced. These source files and generated
+archives remain outside Git.
+
+Evolva is credited to Sinclaire / TA Arsenal Network (TAAN). The
+[archived project page](https://web.archive.org/web/20040325023326id_/http://www.planetannihilation.com:80/taan/pages/evolva_systeme/taan_evolva.htm)
+credits the project idea to Sinclaire and M3g; the UH40 source's exact historical
+authorship is not established by that page. The package documents the source
+selection without attributing those later changes to them.
 
 Upload the ZIP to the `addons` release before publishing a manifest that names
 it, and treat each version as immutable. The four Cavedog bonus maps are

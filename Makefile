@@ -27,6 +27,7 @@ check: build
 	python3 scripts/check-addons.py
 	python3 scripts/test-fetch-play.py
 	python3 scripts/test-package-mod.py
+	python3 scripts/test-package-addon.py
 	python3 scripts/test-package-multipart.py
 	python3 scripts/test-installers.py
 	@if command -v pwsh >/dev/null 2>&1; then pwsh -NoProfile -File scripts/test-installers.ps1; else echo "PowerShell unavailable; Windows offline tests skipped."; fi

@@ -1,0 +1,18 @@
+{
+  "metadata": {
+    "schema": 1,
+    "id": "evolva-models",
+    "name": "Evolva models",
+    "version": "1",
+    "summary": "Detailed replacement models for 97 units and 85 wrecks, using UH40 with gaps filled from the 2004, 2003 and 2002 releases.",
+    "homepage": "http://www.planetannihilation.com/taan/pages/evolva_systeme/taan_evolva.htm"
+  },
+  "kind": "model",
+  "archives": [
+    "EvolvaModels.ufo"
+  ],
+  "documents": [
+    "README.txt",
+    "MODEL-SOURCES.txt"
+  ]
+}
