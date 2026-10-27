@@ -89,6 +89,7 @@
         "mapFeatureOwnerEleven": false,
         "resurrectionTextFix": false,
         "healTimeBitmask": true,
+        "aiDifficultyReversed": true,
         "aiBuilderPlacementLimit": 0,
         "repairRate": {
           "enabled": true,
