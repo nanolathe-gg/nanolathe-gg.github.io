@@ -45,6 +45,35 @@
   </aside>
 </section>
 
+<section class="section wrap terra" id="terra" aria-labelledby="terra-title">
+  <div class="section-heading">
+    <div>
+      <h2 id="terra-title">Terra map editor</h2>
+      <p>Draw terrain, place trees and start positions, and export playable maps for Total Annihilation. Terra is experimental and runs in your browser.</p>
+    </div>
+    <div class="terra-actions">
+      <a class="button primary" href="https://terra.nanolathe.gg/">Open Terra</a>
+      <a class="button secondary" href="https://github.com/nanolathe-gg/terra">Terra on GitHub</a>
+    </div>
+  </div>
+  <div class="terra-screenshots">
+    {{ $coastalHill := "images/terra/coastal-hill.webp" | relURL }}
+    <figure>
+      <a href="{{ $coastalHill }}">
+        <img src="{{ $coastalHill }}" width="1440" height="1050" loading="lazy" alt="Terra’s hill tool over a rocky coastline, with height and cross-section controls open.">
+      </a>
+      <figcaption>Shaping a hill along the coast</figcaption>
+    </figure>
+    {{ $rockyTerrain := "images/terra/rocky-terrain.webp" | relURL }}
+    <figure>
+      <a href="{{ $rockyTerrain }}">
+        <img src="{{ $rockyTerrain }}" width="1440" height="1048" loading="lazy" alt="Pale, cracked ground with steep rock faces in Terra’s Art view.">
+      </a>
+      <figcaption>Cliffs and surface detail in Art view</figcaption>
+    </figure>
+  </div>
+</section>
+
 <section class="section wrap faq" id="questions">
   <div><h2>Before you play</h2></div>
   <div class="faq-items">
