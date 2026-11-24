@@ -24,7 +24,7 @@ LOCAL = "LOCAL"
 WASM = re.compile(r"nanolathe\.[a-f0-9]{16}\.wasm")
 RUNTIME = re.compile(r"wasm_exec\.[a-f0-9]{16}\.js")
 HOST = re.compile(r"host\.[a-f0-9]{16}")
-HOST_FILE = re.compile(r"[a-z]+\.(?:js|html|css|json)")
+HOST_FILE = re.compile(r"(?:[a-z]+\.(?:js|html|css|json)|film/(?:display|body)-cjk\.(?:json|png))")
 SHA256 = re.compile(r"[0-9a-f]{64}")
 DEMO_NAME = re.compile(r"[A-Za-z0-9._-]{1,64}")
 LIMIT = 256 << 20
@@ -51,6 +51,16 @@ def check_manifest(manifest):
         raise ValueError("browser build manifest names a foreign gzip variant")
     if wasm[len("nanolathe."):len("nanolathe.") + 16] != digest[:16]:
         raise ValueError("browser build manifest's Wasm name disagrees with its digest")
+    fonts = manifest.get("film_cjk", [])
+    font_paths = {name for name in files if name.startswith("film/")}
+    if not (isinstance(fonts, list) and len(fonts) == len(font_paths)
+            and all(isinstance(font, dict) and isinstance(font.get("name"), str)
+                    and font.get("url") == f"film/{font['name']}"
+                    and type(font.get("size")) is int and 0 < font["size"] <= LIMIT
+                    and isinstance(font.get("sha256"), str) and SHA256.fullmatch(font["sha256"])
+                    for font in fonts)
+            and {font["url"] for font in fonts} == font_paths):
+        raise ValueError("browser build manifest has invalid film font assets")
     return manifest
 
 
@@ -83,8 +93,14 @@ def verify_build(directory, manifest):
     if pinned != expected:
         problems.append(f"{manifest['host']}/build.json: differs from the root manifest")
     host_digest = hashlib.sha256((json.dumps(pinned, sort_keys=True, indent=2) + "\n").encode())
-    for name in sorted(set(manifest["files"]) - {"build.json"}):
+    fonts = {font["url"]: font for font in manifest.get("film_cjk", [])}
+    for name in sorted(set(manifest["files"]) - {"build.json"} - fonts.keys()):
         host_digest.update(name.encode() + b"\0" + (directory / manifest["host"] / name).read_bytes())
+    # The pinned manifest contributes the font digests to the host name.
+    for name, font in fonts.items():
+        data = (directory / manifest["host"] / name).read_bytes()
+        if len(data) != font["size"] or sha256(data) != font["sha256"]:
+            problems.append(f"{manifest['host']}/{name}: size or digest differs from build.json")
     if manifest["host"] != "host." + host_digest.hexdigest()[:16]:
         problems.append(f"{manifest['host']}: host file bytes do not match the content-hashed directory")
     runtime_name = "wasm_exec." + sha256((directory / manifest["runtime"]).read_bytes())[:16] + ".js"

@@ -1,4 +1,4 @@
-"""Authored release listings for the browser build's discovery; no network."""
+"""Offline checks for browser release discovery and manifest validation."""
 import sys
 import unittest
 from pathlib import Path
@@ -38,6 +38,29 @@ class Sums(unittest.TestCase):
         self.assertEqual(fetch_play.parse_sums(text, NAMES[:2]), {"nanolathe-browser.tar.gz": a, "build.json": b})
         with self.assertRaises(ValueError):
             fetch_play.parse_sums(text, NAMES)
+
+
+class FilmFontManifest(unittest.TestCase):
+    def test_nested_fonts_must_match_the_pinned_asset_paths(self):
+        digest = "a" * 64
+        files = ["build.json", "game.html", "launcher.js"]
+        manifest = {
+            "schema": 1, "wasm": f"nanolathe.{digest[:16]}.wasm", "sha256": digest,
+            "size": 10, "runtime": f"wasm_exec.{digest[:16]}.js", "host": f"host.{digest[:16]}",
+            "files": files,
+        }
+        self.assertEqual(fetch_play.pb.check_manifest(manifest), manifest)
+
+        font = {"name": "display-cjk.png", "url": "film/display-cjk.png", "size": 10, "sha256": digest}
+        with_font = dict(manifest, files=[*files, font["url"]], film_cjk=[font])
+        self.assertEqual(fetch_play.pb.check_manifest(with_font), with_font)
+        for invalid in (
+            dict(with_font, film_cjk=[]),
+            dict(with_font, film_cjk=[dict(font, url="../display-cjk.png")]),
+            dict(with_font, files=[*files, "film/../display-cjk.png"]),
+        ):
+            with self.subTest(manifest=invalid), self.assertRaises(ValueError):
+                fetch_play.pb.check_manifest(invalid)
 
 
 if __name__ == "__main__":
